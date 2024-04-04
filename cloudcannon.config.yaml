@@ -19,6 +19,17 @@ collections_config:
       default:
         name: New Page
         path: schemas/page.md
+  collection:
+    path: content/collection
+    url: '/collection/[slug]'
+    output: true
+    icon: wysiwyg
+    _enabled_editors:
+      - visual
+    schemas:
+      default:
+        name: New Page
+        path: schemas/page.md
   blog:
     path: content/posts
     output: true
