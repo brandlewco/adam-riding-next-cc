@@ -17,7 +17,7 @@ export default function CollectionPhotos( {block, dataBinding}) {
                 <div className="col-lg-12">
                     <div className="accordion" id="accordionExample">
                         {block.images.map((q, i) => (
-                            <img src={q.image_path}></img>
+                            <img src={q.image_path} key={i}></img>
                         ))}
                     </div>
                 </div>
