@@ -2,8 +2,8 @@
 spec:
   structures:
     - content_blocks
-  label: Gallery
-  description: Gallery
+  label: Photos
+  description: Photos
   icon: "photo"
   tags: ["gallery"]
 
