@@ -5,18 +5,31 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photos
-    title: Gallery Title
-    description: >-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum
-      tempor consectetur. Donec gravida nec quam sed venenatis. Ut mattis
-      iaculis magna, quis commodo purus dictum non.
+    title:
+    description: ''
     images:
-      - image_path: /uploads/3ef74783-d31a-42dd-8db3-84862581d84b.jpg
+      - image_path: /uploads/riding-fitnesstest-1.jpg
         alt_text: Image 1
-      - image_path: /uploads/3ef74783-d31a-42dd-8db3-84862581d84b-1.jpg
+      - image_path: /uploads/riding-fitnesstest-2.jpg
         alt_text: Image 2
-      - image_path: /uploads/3ef74783-d31a-42dd-8db3-84862581d84b-2.jpg
+      - image_path: /uploads/riding-fitnesstest-3.jpg
         alt_text: Image 3
+      - image_path: /uploads/Riding-FitnessTest-4.jpg
+        alt_text: ''
+      - image_path: /uploads/Riding-FitnessTest-5.jpg
+        alt_text: ''
+      - image_path: /uploads/Riding-FitnessTest-6.jpg
+        alt_text: ''
+      - image_path: /uploads/Riding-FitnessTest-7.jpg
+        alt_text: ''
+      - image_path: /uploads/Riding-FitnessTest-8.jpg
+        alt_text: ''
+      - image_path: /uploads/Riding-FitnessTest-9.jpg
+        alt_text: ''
+      - image_path: /uploads/Riding-FitnessTest-10.jpg
+        alt_text: ''
+      - image_path: /uploads/Riding-FitnessTest-11.jpg
+        alt_text: ''
     button:
       text: Try This Free.
       link: /signup
