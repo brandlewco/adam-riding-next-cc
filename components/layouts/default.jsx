@@ -61,14 +61,10 @@ export default function DefaultLayout({ children, page }) {
 				  ]}
 			/>
 
-			<Navigation page={page}/>
+			{/* <Navigation page={page}/> */}
             {children}
-			<Footer page={page}/>
+			{/* <Footer page={page}/> */}
 
-			<script src="/vendor/jQuery/jquery.min.js" async></script>
-			<script src="/vendor/bootstrap/bootstrap.bundle.min.js" async></script>
-			<script src="/vendor/counter-up/countup.js" async></script>
-			<script src="/vendor/magnific-popup/magnific-popup.min.js" async></script>
 			<script src="/js/script.js" defer></script>
 		</>
 	);

@@ -1,4 +1,4 @@
-import '../styles/theme.scss';
+import '../styles/globals.css';
 
 import {CloudCannonConnect} from '@cloudcannon/react-connector'
 
