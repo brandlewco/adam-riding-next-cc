@@ -1,72 +1,92 @@
-import MarkdownIt from 'markdown-it';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import MarkdownIt from "markdown-it";
+import Image from "next/image"; // Import the Next.js Image component
+
 const md = new MarkdownIt({ html: true });
-import React, { useEffect, useRef, useState } from 'react';
-import { FullPage, Slide } from 'react-full-page';
 
 export default function CollectionPhotos({ block, dataBinding }) {
-    const fullPageRef = useRef(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(0); // 0 for down, 1 for up
 
-    // Custom throttle function
-    function throttle(func, limit) {
-        let lastFunc;
-        let lastRan;
-        return function() {
-            const context = this;
-            const args = arguments;
-            if (!lastRan) {
-                func.apply(context, args);
-                lastRan = Date.now();
-            } else {
-                clearTimeout(lastFunc);
-                lastFunc = setTimeout(function() {
-                    if ((Date.now() - lastRan) >= limit) {
-                        func.apply(context, args);
-                        lastRan = Date.now();
-                    }
-                }, limit - (Date.now() - lastRan));
-            }
-        }
-    }
+  const variants = {
+    enter: ([page, direction]) => ({
+        opacity: 0,
+        y: direction === 1 ? -1000 : 1000  // Enter from top if up, bottom if down
+    }),
+    center: {
+        zIndex: 1,
+        opacity: 1,
+        y: 0
+    },
+    exit: ([page, direction]) => ({
+        opacity: 0,
+        y: direction === 1 ? 1000 : -1000  // Exit to bottom if up, to top if down
+    }),
+};
 
-    const handleKeyDown = throttle((event) => {
-        if (!fullPageRef.current) return;
+const paginate = (newDirection) => {
+    setDirection(newDirection);
+    setPage(current => (current + (newDirection === 0 ? 1 : -1) + block.images.length) % block.images.length);
+};
 
-        let newIndex = currentIndex;
-        if (event.key === 'ArrowUp') {
-            newIndex = Math.max(currentIndex - 1, 0);
-        } else if (event.key === 'ArrowDown') {
-            newIndex = Math.min(currentIndex + 1, block.images.length - 1);
-        }
 
-        if (newIndex !== currentIndex) {
-            setCurrentIndex(newIndex);
-            fullPageRef.current.scrollToSlide(newIndex);  // Navigate using scrollToSlide
-        }
-    }, 5000); // Throttle the event handling to once every 300 milliseconds
+  useEffect(() => {
+      const handleKeyDown = (event) => {
+          if (event.key === 'ArrowUp') {
+              paginate(1); // Navigate upwards
+          } else if (event.key === 'ArrowDown') {
+              paginate(0); // Navigate downwards
+          }
+      };
 
-    const afterChangeHandler = (info) => {
-        setCurrentIndex(info.to);  // Update the current index based on the slide index after change
-    };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+          window.removeEventListener('keydown', handleKeyDown);
+      };
+  }, []);
 
-    useEffect(() => {
-        window.addEventListener('keydown', handleKeyDown);
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [currentIndex]);  // Include currentIndex in dependencies to update closure
+  useEffect(() => {
+      const handleWheel = (event) => {
+          if (event.deltaY > 0) {
+              paginate(0); // Scroll down
+          } else if (event.deltaY < 0) {
+              paginate(1); // Scroll up
+          }
+      };
 
-    return (
-        <section className="gallery" data-cms-bind={dataBinding}>
-            <FullPage ref={fullPageRef} afterChange={afterChangeHandler}>
-                {block.images.map((q, i) => (
-                    <Slide key={i}>
-                        <figure className="flex justify-end items-center h-screen">
-                            <img src={q.image_path} alt="Slide Image" className="h-[95%]" />
-                        </figure>
-                    </Slide>
-                ))}
-            </FullPage>
-        </section>
-    );
+      window.addEventListener('wheel', handleWheel, { passive: false });
+      return () => {
+          window.removeEventListener('wheel', handleWheel);
+      };
+  }, []);
+
+  return (
+    <section className="gallery" data-cms-bind={dataBinding} style={{ height: '90vh', overflow: 'hidden', position: 'relative' }}>
+<AnimatePresence initial={false} custom={[page, direction]}>
+        <motion.div
+            key={page}
+            custom={[page, direction]}  // Corrected this line
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+                y: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+            }}
+            className="flex justify-end items-start h-full w-full relative"
+            style={{ position: 'absolute', inset: '0' }}
+        >
+            <Image
+                src={block.images[page].image_path}
+                alt="Slide Image"
+                layout="fill"
+                objectFit="contain"
+                priority={page === 0}
+            />
+        </motion.div>
+    </AnimatePresence>
+</section>
+  );
 }

@@ -1,5 +1,5 @@
 module.exports = {
-  output: 'export',
+  // output: 'export',
   reactStrictMode: true,
   webpack: (config, options) => {
     config.module.rules.push({

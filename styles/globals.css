@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Add this CSS to your global stylesheet or within a <style jsx> block in your component if using styled-jsx */
+.gallery img {
+    object-fit: contain !important;
+    position: absolute !important;
+    top: 0 !important;      /* Aligns image to the top of the container */
+    right: 0 !important;    /* Aligns image to the right of the container */
+    bottom: 0 !important;   /* Ensures full height coverage */
+    left: auto !important;  /* Ensures the image is not stretched to full width */
+    width: unset !important;
+}
