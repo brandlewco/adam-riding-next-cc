@@ -1,5 +1,6 @@
 module.exports = {
-  // output: 'export',
+  output: 'export',
+  images: { unoptimized: true },
   reactStrictMode: true,
   webpack: (config, options) => {
     config.module.rules.push({
