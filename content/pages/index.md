@@ -3,6 +3,9 @@ _schema: default
 title: Home
 seo:
   no_index: false
+collections:
+  - content/collection/nyt-golf.md
+  - content/collection/the-court.md
 content_blocks:
   - _bookshop_name: home/index
     title: Gallery Title
