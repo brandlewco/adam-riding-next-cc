@@ -29,7 +29,7 @@ collections_config:
     schemas:
       default:
         name: New Page
-        path: schemas/page.md
+        path: schemas/collection.md
   blog:
     path: content/posts
     output: true
