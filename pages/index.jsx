@@ -7,7 +7,7 @@ const filer = new Filer({ path: 'content' });
 function HomePage({ page }) {
     return (
       <DefaultLayout page={page}>
-        <Blocks content_blocks={page.data.content_blocks } ></Blocks>
+test
       </DefaultLayout>
     )
   }

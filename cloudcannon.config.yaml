@@ -95,6 +95,12 @@ _inputs:
     comment: >-
       When selected this removes the page from your sitemap and adds the noindex
       robots meta tag
+  collections: 
+    type: array
+  collections[*]:
+    type: select
+    options:
+      values: collections.collection
 _structures:
   features:
     values:
