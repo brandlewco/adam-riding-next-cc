@@ -1,5 +1,5 @@
 ---
-_schema: default
+_schema: index
 title: Home
 seo:
   no_index: false

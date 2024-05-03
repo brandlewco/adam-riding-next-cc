@@ -1,5 +1,5 @@
 ---
-_schema: default
+_schema: collection
 title: The Court
 seo:
   no_index: false
