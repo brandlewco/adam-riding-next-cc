@@ -1,6 +1,7 @@
 ---
 _schema: collection
 title: The Court
+slug: the-court
 seo:
   no_index: false
 content_blocks:

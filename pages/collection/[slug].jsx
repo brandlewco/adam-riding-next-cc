@@ -5,13 +5,14 @@ import Filer from '@cloudcannon/filer';
 // Initialize Filer with the base path set to where your content lives
 const filer = new Filer({ path: 'content' }); // Updated path to include 'collection'
 
-export default function CollectionPage({ page }) {
+export default function CollectionPage({ page, nextSlug, prevSlug }) {
   return (
     <DefaultLayout page={page}>
-      <Blocks content_blocks={page.data.content_blocks}></Blocks>
+      <Blocks content_blocks={page.data.content_blocks} nextSlug={nextSlug} prevSlug={prevSlug} />
     </DefaultLayout>
   );
 }
+
 
 export async function getStaticPaths() {
   // Fetch slugs from the 'collection' folder now
@@ -26,12 +27,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // Fetch the item from the 'collection' folder instead of 'pages'
+  // Fetch all collection slugs
+  const slugs = await filer.listItemSlugs('collection');
+  const currentIndex = slugs.indexOf(params.slug);
+  const nextSlug = (currentIndex >= 0 && currentIndex < slugs.length - 1) ? slugs[currentIndex + 1] : slugs[0]; // Loop to first
+  const prevSlug = (currentIndex > 0) ? slugs[currentIndex - 1] : slugs[slugs.length - 1]; // Loop to last
+
   const page = await filer.getItem(`${params.slug}.md`, { folder: 'collection' });
 
   return {
     props: {
-      page: JSON.parse(JSON.stringify(page)), // Ensure page data is serializable
+      page: JSON.parse(JSON.stringify(page)),
+      nextSlug,
+      prevSlug,
     },
   };
 }
+

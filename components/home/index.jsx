@@ -8,8 +8,7 @@ const md = new MarkdownIt({ html: true });
 export default function CollectionPhotos({ block, dataBinding }) {
 
   return (
-    <section className="gallery" data-cms-bind={dataBinding} >
-        {block.collection}
-</section>
+    <section className="index" data-cms-bind={dataBinding} >
+    </section>
   );
 }

@@ -1,6 +1,7 @@
 ---
-_schema: default
+_schema: collection
 title: NYT Golf
+slug: nyt-golf
 seo:
   page_description:
   canonical_url:
@@ -17,10 +18,10 @@ content_blocks:
       tempor consectetur. Donec gravida nec quam sed venenatis. Ut mattis
       iaculis magna, quis commodo purus dictum non.
     images:
-      - image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-1.jpg
-        alt_text: Image 1
       - image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-2.jpg
         alt_text: Image 2
+      - image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-1.jpg
+        alt_text: Image 1
       - image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-3.jpg
         alt_text: Image 3
       - image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-4.jpg

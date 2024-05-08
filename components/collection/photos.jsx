@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MarkdownIt from "markdown-it";
 import Image from "next/image"; // Import the Next.js Image component
+import { useRouter } from 'next/router'; // Import useRouter
 
 const md = new MarkdownIt({ html: true });
 
-export default function CollectionPhotos({ block, dataBinding }) {
+export default function CollectionPhotos({ block, dataBinding, nextSlug, prevSlug }) {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0); // 0 for down, 1 for up
+  const router = useRouter(); // Initialize the router
 
   const variants = {
     enter: ([page, direction]) => ({
@@ -23,20 +25,24 @@ export default function CollectionPhotos({ block, dataBinding }) {
         opacity: 0,
         y: direction === 1 ? 1000 : -1000  // Exit to bottom if up, to top if down
     }),
-};
+  };
 
-const paginate = (newDirection) => {
+  const paginate = (newDirection) => {
     setDirection(newDirection);
     setPage(current => (current + (newDirection === 0 ? 1 : -1) + block.images.length) % block.images.length);
-};
+  };
 
-
+  // Add navigation handler
   useEffect(() => {
       const handleKeyDown = (event) => {
           if (event.key === 'ArrowUp') {
               paginate(1); // Navigate upwards
           } else if (event.key === 'ArrowDown') {
               paginate(0); // Navigate downwards
+          } else if (event.key === 'ArrowRight') {
+              router.push(`/collection/${nextSlug}`); // Navigate to the next gallery
+          } else if (event.key === 'ArrowLeft') {
+              router.push(`/collection/${prevSlug}`); // Navigate to the previous gallery
           }
       };
 
@@ -44,29 +50,15 @@ const paginate = (newDirection) => {
       return () => {
           window.removeEventListener('keydown', handleKeyDown);
       };
-  }, []);
-
-  useEffect(() => {
-      const handleWheel = (event) => {
-          if (event.deltaY > 0) {
-              paginate(0); // Scroll down
-          } else if (event.deltaY < 0) {
-              paginate(1); // Scroll up
-          }
-      };
-
-      window.addEventListener('wheel', handleWheel, { passive: false });
-      return () => {
-          window.removeEventListener('wheel', handleWheel);
-      };
-  }, []);
+  }, [nextSlug, prevSlug]);
 
   return (
     <section className="gallery" data-cms-bind={dataBinding} style={{ height: '90vh', overflow: 'hidden', position: 'relative' }}>
-<AnimatePresence initial={false} custom={[page, direction]}>
+      <AnimatePresence initial={false} custom={[page, direction]}>
         <motion.div
             key={page}
-            custom={[page, direction]}  // Corrected this line
+            layoutId={`image-${block.images[page].image_path}`}
+            custom={[page, direction]}
             variants={variants}
             initial="enter"
             animate="center"
@@ -86,7 +78,7 @@ const paginate = (newDirection) => {
                 priority={page === 0}
             />
         </motion.div>
-    </AnimatePresence>
-</section>
+      </AnimatePresence>
+    </section>
   );
 }
