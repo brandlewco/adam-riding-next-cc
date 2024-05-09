@@ -61,8 +61,9 @@ export default function DefaultLayout({ children, page }) {
 				  ]}
 			/>
 
-			{/* <Navigation page={page}/> */}
             {children}
+						<Navigation page={page}/>
+
 			{/* <Footer page={page}/> */}
 
 			<script src="/js/script.js" defer></script>

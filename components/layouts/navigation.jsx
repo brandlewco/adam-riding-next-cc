@@ -28,8 +28,12 @@ export default function Navigation({ children, page }) {
         <>
             <header>
                 <nav className={`navbar navbar-expand-lg position-fixed w-100 zindex-dropdown${isSticky ? " sticky-nav" : ""}`} id="mainnavigationBar">
-                    <div className="container-fluid">
-                        <Link className="navbar-brand" href="/">
+                    <div className="container-fluid flex flex-row justify-between w-full px-4 fixed bottom-0 mb-4 font-bold">
+                        <div>ADAM RIDING</div>
+                        <Link href="/">INDEX</Link>
+                        <Link href="/">ARCHIVE</Link>
+                        <Link href="/">OVERVIEW</Link>
+                        {/* <Link className="navbar-brand" href="/">
                             <img src={data.navigation.logo} alt="Nav-Logo" />
                         </Link>
                         <button
@@ -125,7 +129,7 @@ export default function Navigation({ children, page }) {
                                     {data.navigation.button.text}
                                 </Link>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </nav>
             </header>
