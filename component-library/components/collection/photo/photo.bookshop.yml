@@ -9,9 +9,8 @@ spec:
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  image:
-      image_path: /images/gallery/1.jpg
-      alt_text: Image Alt Text
+  image_path: /images/gallery/1.jpg
+  alt_text: Image Alt Text
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
@@ -20,8 +19,6 @@ preview:
 _inputs:
   description:
     type: markdown
-  image:
-    type: object
   image_path:
     type: image
   alt_text:
