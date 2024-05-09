@@ -33,7 +33,7 @@ function HomePage({ page, collections }) {
             <Link href={`/collection/${collection.slug}`}>
                 <motion.div
                   layout
-                  layoutId={`image-${collection.firstImagePath}`}
+                  layoutId={`image-${collection.slug}`}  // Ensure this matches in both components
                   initial={isReturning ? { opacity: 1 } : { opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: isReturning ? 0 : index * 0.3 }}
@@ -60,29 +60,33 @@ function HomePage({ page, collections }) {
 export default HomePage
   
 export async function getStaticProps({ params }) {
-  const page = await filer.getItem('index.md', { folder: 'pages' }); // Fetch the index.md which includes references to collections
+  const page = await filer.getItem('index.md', { folder: 'pages' });
   const collections = [];
 
   for (const collectionPath of page.data.collections) {
     const correctedPath = collectionPath.replace(/^content\//, '');
     const collection = await filer.getItem(correctedPath, { folder: '' });
-    // Find the first content block with a _bookshop_name of 'collection/photos'
-    const photoBlock = collection.data.content_blocks.find(block => block._bookshop_name === 'collection/photos');
 
-    const firstImage = photoBlock?.images[0]; // Get the first image if available
+    // Find the first content block with _bookshop_name 'collection/photo'
+    const firstPhotoBlock = collection.data.content_blocks.find(block => block._bookshop_name === 'collection/photo');
 
-    collections.push({
-      title: collection.data.title, // Extract the title from the front matter
-      path: correctedPath, // Store the corrected path for any further use
-      slug: collection.data.slug, // Store the slug for the collection
-      firstImagePath: firstImage ? firstImage.image_path : null, // Store the first image path if available
-      firstImageAlt: firstImage ? firstImage.alt_text : '' // Store the alt text of the first image if available
-    });
+    if (firstPhotoBlock && firstPhotoBlock.image_path) {
+      collections.push({
+        title: collection.data.title,
+        path: correctedPath,
+        slug: collection.data.slug,
+        firstImagePath: firstPhotoBlock.image_path,
+        firstImageAlt: firstPhotoBlock.alt_text || 'Default Alt Text'
+      });
+    } else {
+      console.log('No valid images found for:', collection.data.title);
+      // Optionally push collections with a default image or skip
+    }
   }
 
   return {
     props: {
-      page: JSON.parse(JSON.stringify(page)), // Ensure all content is serializable
+      page: JSON.parse(JSON.stringify(page)),
       collections // This now includes objects with titles, paths, and first image details
     }
   };

@@ -4,7 +4,7 @@
 
 
 /* Add this CSS to your global stylesheet or within a <style jsx> block in your component if using styled-jsx */
-.gallery img {
+.photo img {
     object-fit: contain !important;
     position: absolute !important;
     top: 0 !important;      /* Aligns image to the top of the container */
