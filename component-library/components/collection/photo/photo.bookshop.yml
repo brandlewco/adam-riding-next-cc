@@ -5,7 +5,13 @@ spec:
   label: Photo
   description: Photo
   icon: "photo"
-  tags: ["gallery"]
+  tags: ["collection"]
+  preview:
+    image:
+      - key: image_path
+    text:
+      - key: alt_text
+      - No Alt Text
 
 # Defines the structure of this component, as well as the default values
 blueprint:
@@ -14,11 +20,8 @@ blueprint:
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
-  image:
-    - key: image_path
-  text:
-    - key: alt_text
-    
+
+
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   description:
