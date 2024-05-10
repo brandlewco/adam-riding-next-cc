@@ -12,6 +12,7 @@ const filer = new Filer({ path: 'content' });
 function HomePage({ page, collections }) {
   const [isReturning, setIsReturning] = useState(false);
   const router = useRouter();
+  const [hoverIndex, setHoverIndex] = useState(-1);  // Tracks which item is hovered
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -27,28 +28,33 @@ function HomePage({ page, collections }) {
 
     return (
       <DefaultLayout page={page}>
-            <ul className="flex flex-row justify-start">
+    <ul className="grid grid-flow-col justify-start">
         {collections.map((collection, index) => (
-          <li key={index}>
+        <li key={index} className="image-container" onMouseEnter={() => setHoverIndex(index)} onMouseLeave={() => setHoverIndex(-1)}>
+
             <Link href={`/collection/${collection.slug}`}>
-                <motion.div
-                  layout
-                  layoutId={`image-${collection.slug}`}  // Ensure this matches in both components
-                  initial={isReturning ? { opacity: 1 } : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: isReturning ? 0 : index * 0.3 }}
-                  >
-                  <Image
-                    src={collection.firstImagePath}
-                    alt={collection.firstImageAlt || 'Collection image'}
-                    style={{
-                      width: '100%',
-                      height: '300px',
-                    }}
-                    width={500}
-                    height={300}
-                  />
-                </motion.div>
+              <motion.div
+                layout
+                layoutId={`image-${collection.slug}`}
+                initial={{ opacity: isReturning ? 1 : 0 }}
+                animate={{ opacity: 1 }}
+                whileHover={{ scale: 1.1, transformOrigin: "top" }}
+                transition={{ duration: 0.3, delay: isReturning ? 0 : index * 0.3 }}
+              >
+                <Image
+                  src={collection.firstImagePath}
+                  alt={collection.firstImageAlt || 'Collection image'}
+                  height={200}
+                  width={200}
+                  style={{ transition: 'transform 0.3s ease-in-out', width: 'auto',
+                  height: '200px' }}
+                />
+                <motion.span
+                  style={{ opacity: hoverIndex === index ? 1 : 0, transition: 'opacity 0.3s' }}
+                >
+                  {collection.title}
+                </motion.span>
+              </motion.div>
             </Link>
           </li>
         ))}

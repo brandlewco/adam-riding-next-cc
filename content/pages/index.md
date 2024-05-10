@@ -6,4 +6,5 @@ seo:
 collections:
   - content/collection/nyt-golf.md
   - content/collection/the-court.md
+  - content/collection/iceland.md
 ---

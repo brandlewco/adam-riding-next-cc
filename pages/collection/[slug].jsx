@@ -67,8 +67,8 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
           animate="center"
           exit="exit"
           transition={{
-            y: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
+            y: { type: "tween", ease: "easeInOut", duration: 0.3 },
+            opacity: { duration: 0.3 }
           }}
           className=""
           style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}

@@ -13,3 +13,7 @@
     left: auto !important;  /* Ensures the image is not stretched to full width */
     width: unset !important;
 }
+
+.origin-top {
+    transform-origin: top;
+}

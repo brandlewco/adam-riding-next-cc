@@ -12,10 +12,10 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/riding-fitnesstest-2.jpg
+    image_path: /uploads/riding-fitnesstest-1.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/riding-fitnesstest-1.jpg
+    image_path: /uploads/riding-fitnesstest-2.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/riding-fitnesstest-3.jpg
