@@ -47,6 +47,7 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
         setAnimationDirection(direction);
       }
     };
+
   
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -54,8 +55,46 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
     };
   }, [currentImage, nextSlug, prevSlug, page.data.content_blocks.length, router]);
 
+  const handleAreaClick = (area) => {
+    let newIndex;
+    let direction;
+    if (area === 'right') {
+      router.push(`/collection/${nextSlug}`);
+    } else if (area === 'left') {
+      router.push(`/collection/${prevSlug}`);
+    } else if (area === 'down') {
+      newIndex = (currentImage + 1) % page.data.content_blocks.length;
+      setAnimationDirection(true);
+      setCurrentImage(newIndex);
+    } else if (area === 'up') {
+      newIndex = (currentImage - 1 + page.data.content_blocks.length) % page.data.content_blocks.length;
+      setAnimationDirection(false);
+      setCurrentImage(newIndex);
+    }
+  };
+
   return (
     <DefaultLayout page={page}>
+            <div
+          className="absolute left-0 top-0 h-full w-1/6 cursor-pointer"
+          onClick={() => handleAreaClick('left')}
+          style={{ zIndex: 2, maxHeight: '90vh'}}
+        />
+        <div
+          className="absolute right-0 top-0 h-full w-1/6 cursor-pointer"
+          onClick={() => handleAreaClick('right')}
+          style={{ zIndex: 2, maxHeight: '90vh'}}
+        />
+        <div
+          className="absolute left-0 top-0 h-1/6 w-full cursor-pointer"
+          onClick={() => handleAreaClick('up')}
+          style={{ zIndex: 2 }}
+        />
+        <div
+          className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer"
+          onClick={() => handleAreaClick('down')}
+          style={{ zIndex: 2 }}
+        />
     <div className='flex flex-end h-screen w-screen overflow-hidden relative z-0'>
       <AnimatePresence initial={false} custom={animationDirection}>
         <motion.div
