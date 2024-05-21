@@ -115,7 +115,7 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
-              layoutId={`image-${index}`}
+              layoutId={`image-${page.slug}-${block.image_path}`} // Ensure consistency
               onClick={() => handleImageClick(index)}
             >
               <img
@@ -163,7 +163,7 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
         <AnimatePresence initial={false} custom={animationDirection}>
           <motion.div
             key={currentImage}
-            layoutId={`image-${currentImage}`} // This should match the `layoutId` used in the overview mode
+            layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`} // Ensure consistency
             custom={animationDirection} // Pass the direction as custom prop to variants
             variants={variants}
             initial="enter"

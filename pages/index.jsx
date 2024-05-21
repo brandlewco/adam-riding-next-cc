@@ -64,21 +64,23 @@ function HomePage({ page, collections }) {
   return (
     <DefaultLayout page={page}>
       <ul className="grid grid-flow-col justify-start">
-        {collections.map((collection, index) => (
+        {collections.map((collection, collectionIndex) => (
           <li
-            key={index}
+            key={collectionIndex}
             className="image-container"
-            onMouseEnter={() => setHoverIndex(index)}
+            onMouseEnter={() => setHoverIndex(collectionIndex)}
             onMouseLeave={() => setHoverIndex(-1)}
+            layoutId={`image-${collection.slug}-${collection.firstImagePath}`} // Ensure consistency
+
           >
             <Link href={`/collection/${collection.slug}`} passHref>
               <motion.div
                 layout
-                layoutId={`image-${collection.slug}`}
+                layoutId={`image-${collection.slug}-${collection.firstImagePath}`} // Ensure consistency
                 initial={{ opacity: isInitialLoad ? 0 : 1 }}
                 animate={{ opacity: 1 }}
                 whileHover={{ scale: 1.1, transformOrigin: 'top center' }}
-                transition={{ duration: 0.3, delay: isInitialLoad ? index * 0.3 : 0 }}
+                transition={{ duration: 0.3, delay: isInitialLoad ? collectionIndex * 0.3 : 0 }}
                 onAnimationComplete={() => handleAnimationComplete()}
               >
                 <Image
@@ -90,7 +92,7 @@ function HomePage({ page, collections }) {
                 />
                 <motion.span
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: hoverIndex === index ? 1 : 0 }}
+                  animate={{ opacity: hoverIndex === collectionIndex ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
                   {collection.title}
