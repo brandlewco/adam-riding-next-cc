@@ -1,38 +1,85 @@
 import DefaultLayout from '../components/layouts/default';
-import Blocks from '../components/shared/blocks';
 import Filer from '@cloudcannon/filer';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
+import useStore from '../lib/store';
 
 const filer = new Filer({ path: 'content' });
 
 function HomePage({ page, collections }) {
   const router = useRouter();
-  const [hoverIndex, setHoverIndex] = useState(-1);  // Tracks which item is hovered
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const isInitialLoad = useStore((state) => state.isInitialLoad);
+  const setInitialLoad = useStore((state) => state.setInitialLoad);
+  const [hoverIndex, setHoverIndex] = useState(-1);
+  const [animationsComplete, setAnimationsComplete] = useState(0);
+
+  const handleAnimationComplete = useCallback(() => {
+    setAnimationsComplete((prev) => {
+      const newCount = prev + 1;
+      console.log(`Animation complete: ${newCount}/${collections.length}`);
+      return newCount;
+    });
+  }, [collections.length]);
 
   useEffect(() => {
-    if (router.isReady) {
-      setIsInitialLoad(!performance.getEntriesByType("navigation").length);
+    if (typeof window !== 'undefined') {
+      const hasNavigated = sessionStorage.getItem('hasNavigated');
+      if (hasNavigated) {
+        setInitialLoad(false);
+        console.log('Initial load state set to false (hasNavigated)');
+      } else {
+        sessionStorage.setItem('hasNavigated', 'true');
+        setInitialLoad(true);
+        console.log('Initial load state set to true (first time)');
+      }
     }
-  }, [router.isReady]);
+  }, [setInitialLoad]);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setInitialLoad(false);
+      console.log('Route change complete, setting initial load to false');
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events, setInitialLoad]);
+
+  useEffect(() => {
+    if (isInitialLoad && animationsComplete === collections.length) {
+      const lastGallerySlug = collections[collections.length - 1]?.slug;
+      if (lastGallerySlug) {
+        console.log(`Navigating to the last gallery item: /collection/${lastGallerySlug}`);
+        router.push(`/collection/${lastGallerySlug}`);
+      }
+    }
+  }, [isInitialLoad, animationsComplete, collections, router]);
 
   return (
     <DefaultLayout page={page}>
       <ul className="grid grid-flow-col justify-start">
         {collections.map((collection, index) => (
-          <li key={index} className="image-container" onMouseEnter={() => setHoverIndex(index)} onMouseLeave={() => setHoverIndex(-1)}>
-            <Link href={`/collection/${collection.slug}`}>
+          <li
+            key={index}
+            className="image-container"
+            onMouseEnter={() => setHoverIndex(index)}
+            onMouseLeave={() => setHoverIndex(-1)}
+          >
+            <Link href={`/collection/${collection.slug}`} passHref>
               <motion.div
                 layout
                 layoutId={`image-${collection.slug}`}
                 initial={{ opacity: isInitialLoad ? 0 : 1 }}
                 animate={{ opacity: 1 }}
-                whileHover={{ scale: 1.1, transformOrigin: "top" }}
+                whileHover={{ scale: 1.1, transformOrigin: 'top center' }}
                 transition={{ duration: 0.3, delay: isInitialLoad ? index * 0.3 : 0 }}
+                onAnimationComplete={() => handleAnimationComplete()}
               >
                 <Image
                   src={collection.firstImagePath}
@@ -42,7 +89,9 @@ function HomePage({ page, collections }) {
                   style={{ transition: 'transform 0.3s ease-in-out', width: 'auto', height: '200px' }}
                 />
                 <motion.span
-                  style={{ opacity: hoverIndex === index ? 1 : 0, transition: 'opacity 0.3s' }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: hoverIndex === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
                 >
                   {collection.title}
                 </motion.span>
@@ -57,7 +106,7 @@ function HomePage({ page, collections }) {
 
 export default HomePage;
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const page = await filer.getItem('index.md', { folder: 'pages' });
   const collections = [];
 

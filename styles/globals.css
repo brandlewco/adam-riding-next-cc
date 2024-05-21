@@ -17,3 +17,22 @@
 .origin-top {
     transform-origin: top;
 }
+
+.random-grid {
+    position: relative;
+    width: 100%;
+    height: 200vh; /* Adjust this height as needed */
+  }
+  
+  .random-image {
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .random-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+
