@@ -83,7 +83,7 @@ function HomePage({ page, collections }) {
                 transition={{ duration: 0.3, delay: isInitialLoad ? collectionIndex * 0.3 : 0 }}
                 onAnimationComplete={() => handleAnimationComplete()}
               >
-                <Image
+                <img
                   src={collection.firstImagePath}
                   alt={collection.firstImageAlt || 'Collection image'}
                   height={200}
