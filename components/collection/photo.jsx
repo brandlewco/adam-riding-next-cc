@@ -1,5 +1,5 @@
 import MarkdownIt from "markdown-it";
-import Image from "next/image"; // Import the Next.js Image component
+import Image from 'next-export-optimize-images/image';
 
 const md = new MarkdownIt({ html: true });
 

@@ -1,6 +1,7 @@
-module.exports = {
+const withExportImages = require('next-export-optimize-images')
+
+module.exports = withExportImages({
   output: 'export',
-  images: { unoptimized: true },
   reactStrictMode: true,
   webpack: (config, options) => {
     config.module.rules.push({
@@ -14,4 +15,4 @@ module.exports = {
 
     return config
   },
-}
+})
