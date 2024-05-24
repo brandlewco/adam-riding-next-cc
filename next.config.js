@@ -2,8 +2,8 @@ module.exports = {
   output: 'export',
   images: {
     loader: "custom",
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [720,1080,2160],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
   },
   transpilePackages: ["next-image-export-optimizer"],
   env: {
@@ -22,7 +22,6 @@ module.exports = {
     // The default value is 0 seconds.
     nextImageExportOptimizer_remoteImageCacheTTL: "0",
   },
-  images: { unoptimized: true },
   reactStrictMode: true,
   webpack: (config, options) => {
     config.module.rules.push({
