@@ -1,7 +1,7 @@
 import DefaultLayout from '../components/layouts/default';
 import Filer from '@cloudcannon/filer';
 import { motion } from 'framer-motion';
-import Image from 'next-export-optimize-images/image';
+import ExportedImage from "next-image-export-optimizer";
 import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
@@ -83,7 +83,7 @@ function HomePage({ page, collections }) {
                 transition={{ duration: 0.3, delay: isInitialLoad ? collectionIndex * 0.3 : 0 }}
                 onAnimationComplete={() => handleAnimationComplete()}
               >
-                <Image
+                <ExportedImage
                   src={collection.firstImagePath}
                   alt={collection.firstImageAlt || 'Collection image'}
                   height={200}

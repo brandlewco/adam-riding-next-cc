@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-export-optimize-images",
+    "build": "next build && next-image-export-optimizer",
     "start": "next start",
     "prebuild:fetch-theme-color": "node fetch-theme-color.js",
     "lint": "next lint"
@@ -22,6 +22,7 @@
     "next": "^14.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-export-optimize-images": "^4.4.0",
+    "next-image-export-optimizer": "^1.12.3",
     "next-seo": "^5.14.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
