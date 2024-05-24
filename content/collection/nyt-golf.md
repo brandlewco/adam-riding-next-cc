@@ -12,24 +12,24 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-1.jpg
+    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-1.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-2.jpg
+    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-2.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-3.jpg
+    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-3.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-4.jpg
+    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-4.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-5.jpg
+    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-5.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-6.jpg
+    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-6.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /images/gallery/RIDING_NYT_GolfPortraitSundayOp-8.jpg
+    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-8.jpg
     alt_text: Image Alt Text
 ---
