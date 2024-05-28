@@ -2,8 +2,7 @@ module.exports = {
   output: 'export',
   images: {
     loader: "custom",
-    imageSizes: [720,1080,2160],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [480,768,1280,2048]
   },
   transpilePackages: ["next-image-export-optimizer"],
   env: {

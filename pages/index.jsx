@@ -70,7 +70,6 @@ function HomePage({ page, collections }) {
             className="image-container"
             onMouseEnter={() => setHoverIndex(collectionIndex)}
             onMouseLeave={() => setHoverIndex(-1)}
-            layoutId={`image-${collection.slug}-${collection.firstImagePath}`} // Ensure consistency
 
           >
             <Link href={`/collection/${collection.slug}`} passHref>
