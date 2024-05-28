@@ -21,9 +21,9 @@ export default function CollectionPhoto({ block, dataBinding }) {
     };
   }, [block.image_path]);
 
-  if (dimensions.width === 0 || dimensions.height === 0) {
-    return <div>Loading...</div>;
-  }
+  // if (dimensions.width === 0 || dimensions.height === 0) {
+  //   return <div>Loading...</div>;
+  // }
 
 
 
@@ -38,6 +38,7 @@ export default function CollectionPhoto({ block, dataBinding }) {
         height={dimensions.height}
         layout="responsive"
         objectFit="cover"
+        style={{ maxWidth: "100%" }} // Ensure the image can use full width
       />
     </section>
   );
