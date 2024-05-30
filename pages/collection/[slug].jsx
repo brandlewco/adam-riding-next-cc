@@ -5,6 +5,7 @@ import DefaultLayout from '../../components/layouts/default';
 import Filer from '@cloudcannon/filer';
 import Navigation from '../../components/layouts/navigation';
 import Blocks from '../../components/shared/blocks';
+import CollectionPhoto from '../../components/collection/photo';
 
 const filer = new Filer({ path: 'content' });
 
@@ -23,12 +24,24 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
     }
   }, [isOverview]);
 
-  const generateRandomPosition = (index) => {
-    const top = (index % 10) * 10 + Math.random() * 10; // Random top position within 10vh increments
-    const left = Math.random() * 80; // Random left position within 80vw
-    const width = Math.random() * (20 - 10) + 10; // Random width between 10vw and 20vw
-    return { top: `${top}vh`, left: `${left}vw`, width: `${width}vw` };
+  const generateGridPosition = (index) => {
+    const colStart = (index % 5) + 1; // Ensure column starts within a 6-column grid
+    const rowSpan = Math.random() < 0.2 ? 3 : 5; // Randomize row span to 2 or 3
+    const colSpan = Math.random() < 0.5 ? 2 : 4; // Randomize column span to 2 or 3
+
+    // Add larger random margins to create more gaps
+    const marginTop = Math.random() * 10; // Random margin-top up to 5vh
+    const marginLeft = Math.random() * 10; // Random margin-left up to 5vw
+
+    return {
+      gridColumn: `span ${colSpan}`,
+      gridRow: `span ${rowSpan}`,
+      marginTop: `${marginTop}rem`,
+      marginLeft: `${marginLeft}rem`,
+      zIndex: 1
+    };
   };
+
 
   const variants = {
     enter: (direction) => ({
@@ -105,36 +118,33 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
     return (
       <DefaultLayout page={page}>
         <Navigation page={page} />
-        <div className="relative h-full w-full">
+        <div id="overview-view" className="grid grid-cols-12 gap-4 p-4 auto-rows-auto">
           {page.data.content_blocks.map((block, index) => (
             <motion.div
               key={index}
-              className="absolute"
               ref={index === currentImage ? currentImageRef : null}
-              style={generateRandomPosition(index)}
+              style={generateGridPosition(index)}
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
               layoutId={`image-${page.slug}-${block.image_path}`} // Ensure consistency
+              data-layout-id={`image-${page.slug}-${block.image_path}`} // Ensure consistency
               onClick={() => handleImageClick(index)}
             >
-              <img
-                src={block.image_path}
-                alt={block.alt_text || 'Collection image'}
-                className="w-full h-full object-cover cursor-pointer"
-              />
+              <CollectionPhoto block={block} dataBinding="" />
             </motion.div>
           ))}
         </div>
-        <button
+        {/* <button
           className="absolute top-4 right-4 p-2 bg-blue-500 text-white rounded"
           onClick={() => setIsOverview(false)} // Add button to return to normal view
         >
           Back to View
-        </button>
+        </button> */}
       </DefaultLayout>
     );
   }
+
 
   return (
     <DefaultLayout page={page}>
@@ -159,7 +169,7 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
         onClick={() => handleAreaClick('down')}
         style={{ zIndex: 2 }}
       />
-      <div className="flex flex-end h-screen w-screen overflow-hidden relative z-0">
+      <div id="collection-view" className="flex flex-end h-screen w-screen overflow-hidden relative z-0">
         <AnimatePresence initial={false} custom={animationDirection}>
           <motion.div
             key={currentImage}
@@ -173,7 +183,7 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
               y: { type: 'tween', ease: 'easeInOut', duration: 0.3 },
               opacity: { duration: 0.3 },
             }}
-            className=""
+            data-layout-id={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`}
             style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
