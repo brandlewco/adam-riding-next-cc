@@ -39,17 +39,15 @@ export default function Navigation({ page }) {
 
   return (
     <>
-      <header style={{ zIndex: "9999" }}>
+      <header style={{ zIndex: "9999" }} className={`fixed w-full`}
+          id="mainnavigationBar">
         <nav
-          className={`navbar navbar-expand-lg position-fixed w-100 `}
-          id="mainnavigationBar"
+          className="container-fluid flex flex-row justify-between w-full px-4 fixed bottom-0 mb-4 font-bold"
         >
-          <div className="container-fluid flex flex-row justify-between w-full px-4 fixed bottom-0 mb-4 font-bold">
             <div>ADAM RIDING</div>
             <Link href="/">INDEX</Link>
             <Link href="/">ARCHIVE</Link>
             <button onClick={handleOverviewClick}>OVERVIEW</button>
-          </div>
         </nav>
       </header>
     </>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import DefaultLayout from "../../components/layouts/default";
@@ -11,18 +11,28 @@ const filer = new Filer({ path: "content" });
 
 export default function CollectionPage({ page, nextSlug, prevSlug }) {
   const [currentImage, setCurrentImage] = useState(0);
-  const [animationDirection, setAnimationDirection] = useState(true);
+  const [animationDirection, setAnimationDirection] = useState('up');
   const router = useRouter();
   const isOverview = Boolean(router.query.overview);
   const imageCount = page.data.content_blocks.length;
 
   useEffect(() => {
-    // This checks if there is a 'image' query and updates the currentImage accordingly
     const imageIndex = parseInt(router.query.image);
     if (!isNaN(imageIndex) && imageIndex >= 0 && imageIndex < imageCount) {
       setCurrentImage(imageIndex);
     }
   }, [router.query.image, imageCount]);
+
+  useEffect(() => {
+    if (isOverview) {
+      document.body.classList.remove("overflow-y-hidden");
+    } else {
+      document.body.classList.add("overflow-y-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-y-hidden");
+    };
+  }, [isOverview]);
 
   const toggleOverview = () => {
     const newQuery = { ...router.query };
@@ -39,17 +49,16 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
   const handleImageClick = (index) => {
     setCurrentImage(index);
     const newQuery = { ...router.query };
-    delete newQuery.overview; // Remove the 'overview' query parameter to exit overview mode
-    newQuery.image = index; // Add/update the 'image' query parameter to specify the clicked image
+    delete newQuery.overview;
+    newQuery.image = index;
     router.push({ pathname: router.pathname, query: newQuery }, undefined, {
       shallow: true,
     });
   };
 
   const generateGridPosition = (index) => {
-    const colStart = (index % 12) + 1;
-    const rowSpan = Math.random() < 0.2 ? 1 : 3;
     const colSpan = Math.random() < 0.5 ? 3 : 5;
+    const rowSpan = Math.random() < 0.2 ? 1 : 3;
     const marginTop = Math.random() * 10;
     const marginLeft = Math.random() * 10;
     return {
@@ -64,36 +73,57 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
   const variants = {
     enter: (direction) => ({
       opacity: 0,
-      y: direction ? 1000 : -1000,
+      x: direction === 'left' ? -1000 : direction === 'right' ? 1000 : 0,
+      y: direction === 'up' ? -1000 : direction === 'down' ? 1000 : 0,
     }),
     center: {
-      zIndex: 1,
       opacity: 1,
+      x: 0,
       y: 0,
     },
     exit: (direction) => ({
       opacity: 0,
-      y: direction ? -1000 : 1000,
+      x: direction === 'left' ? 1000 : direction === 'right' ? -1000 : 0,
+      y: direction === 'up' ? 1000 : direction === 'down' ? -1000 : 0,
     }),
+  };
+
+  const handleAreaClick = (area) => {
+    let newIndex;
+    if (area === "right") {
+      setAnimationDirection('right');
+      router.push(`/collection/${nextSlug}`);
+    } else if (area === "left") {
+      setAnimationDirection('left');
+      router.push(`/collection/${prevSlug}`);
+    } else if (area === "down") {
+      newIndex = (currentImage + 1) % imageCount;
+      setAnimationDirection('down');
+      setCurrentImage(newIndex);
+    } else if (area === "up") {
+      newIndex = (currentImage - 1 + imageCount) % imageCount;
+      setAnimationDirection('up');
+      setCurrentImage(newIndex);
+    }
   };
 
   useEffect(() => {
     const handleKeyDown = (event) => {
       let newIndex;
-      let direction = event.key === "ArrowDown"; // true for down, false for up
-
       if (event.key === "ArrowRight") {
+        setAnimationDirection('right');
         router.push(`/collection/${nextSlug}`);
       } else if (event.key === "ArrowLeft") {
+        setAnimationDirection('left');
         router.push(`/collection/${prevSlug}`);
-      } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-        if (event.key === "ArrowDown") {
-          newIndex = (currentImage + 1) % imageCount; // Loop forward
-        } else {
-          newIndex = (currentImage - 1 + imageCount) % imageCount; // Loop backward
-        }
+      } else if (event.key === "ArrowDown") {
+        newIndex = (currentImage + 1) % imageCount;
+        setAnimationDirection('down');
         setCurrentImage(newIndex);
-        setAnimationDirection(direction);
+      } else if (event.key === "ArrowUp") {
+        newIndex = (currentImage - 1 + imageCount) % imageCount;
+        setAnimationDirection('up');
+        setCurrentImage(newIndex);
       }
     };
 
@@ -103,37 +133,17 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
     };
   }, [currentImage, nextSlug, prevSlug, imageCount, router]);
 
-  const handleAreaClick = (area) => {
-    let newIndex;
-    let direction;
-    if (area === "right") {
-      router.push(`/collection/${nextSlug}`);
-    } else if (area === "left") {
-      router.push(`/collection/${prevSlug}`);
-    } else if (area === "down") {
-      newIndex = (currentImage + 1) % imageCount;
-      setAnimationDirection(true);
-      setCurrentImage(newIndex);
-    } else if (area === "up") {
-      newIndex = (currentImage - 1 + imageCount) % imageCount;
-      setAnimationDirection(false);
-      setCurrentImage(newIndex);
-    }
-  };
   if (isOverview) {
     return (
       <DefaultLayout page={page}>
-        <div
-          id="overview-view"
-          className="grid grid-cols-12 gap-4 p-4 auto-rows-auto"
-        >
+        <div id="overview-view" className="grid grid-cols-12 gap-4 p-4 auto-rows-auto">
           {page.data.content_blocks.map((block, index) => (
             <motion.div
               key={index}
               style={generateGridPosition(index)}
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
               layoutId={`image-${page.slug}-${block.image_path}`}
               onClick={() => handleImageClick(index)}
             >
@@ -147,76 +157,39 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
 
   return (
     <DefaultLayout page={page}>
-      <div
-        className="absolute left-0 top-0 h-full w-1/6 cursor-pointer"
-        onClick={() => handleAreaClick("left")}
-        style={{ zIndex: 2, maxHeight: "90vh" }}
-      />
-      <div
-        className="absolute right-0 top-0 h-full w-1/6 cursor-pointer"
-        onClick={() => handleAreaClick("right")}
-        style={{ zIndex: 2, maxHeight: "90vh" }}
-      />
-      <div
-        className="absolute left-0 top-0 h-1/6 w-full cursor-pointer"
-        onClick={() => handleAreaClick("up")}
-        style={{ zIndex: 2 }}
-      />
-      <div
-        className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer"
-        onClick={() => handleAreaClick("down")}
-        style={{ zIndex: 2 }}
-      />
-      <AnimatePresence>
-        <div
-          id="collection-view"
-          className="flex flex-end h-screen w-screen overflow-hidden relative z-0"
+      <div className="absolute left-0 top-0 h-full w-1/6 cursor-pointer" onClick={() => handleAreaClick("left")} style={{ zIndex: 2, maxHeight: "90vh" }}/>
+      <div className="absolute right-0 top-0 h-full w-1/6 cursor-pointer" onClick={() => handleAreaClick("right")} style={{ zIndex: 2, maxHeight: "90vh" }}/>
+      <div className="absolute left-0 top-0 h-1/6 w-full cursor-pointer" onClick={() => handleAreaClick("up")} style={{ zIndex: 2 }}/>
+      <div className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer" onClick={() => handleAreaClick("down")} style={{ zIndex: 2 }}/>
+      <AnimatePresence initial={false} custom={animationDirection}>
+        <motion.div
+          key={currentImage}
+          custom={animationDirection}
+          layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "tween", ease: "easeInOut", duration: 0.3 },
+            y: { type: "tween", ease: "easeInOut", duration: 0.3 },
+            opacity: { duration: 0.3 },
+          }}
+          className="absolute w-full"
         >
-          <motion.div
-            key={currentImage}
-            custom={animationDirection} // Pass the direction as custom prop to variants
-            layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`} // Ensure consistency
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            data-id={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`} // Ensure consistency
-            transition={{
-              y: { type: "tween", ease: "easeInOut", duration: 0.3 },
-              opacity: { duration: 0.3 },
-            }}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-            }}
-          >
-            <section
-              className="photo flex justify-end items-start w-auto relative"
-              style={{ height: "90vh" }}
-            >
-              <Blocks
-                content_blocks={page.data.content_blocks}
-                currentImage={currentImage}
-              />
-            </section>
-          </motion.div>
-        </div>
+          <section className="photo flex justify-end items-start w-auto relative overflow-hidden"
+          style={{ height: "90vh" }}>
+          <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
+          </section>
+        </motion.div>
       </AnimatePresence>
     </DefaultLayout>
   );
 }
 
 export async function getStaticPaths() {
-  // Fetch slugs from the 'collection' folder now
-  const slugs = (await filer.listItemSlugs("collection")).map((slug) => ({
-    params: { slug },
-  }));
-  // Adjust ignored slugs as necessary, depending on your 'collection' content
+  const slugs = (await filer.listItemSlugs("collection")).map((slug) => ({ params: { slug } }));
   const ignored = { 404: true };
-
   return {
     paths: slugs.filter(({ params }) => !ignored[params.slug]),
     fallback: false,
@@ -226,19 +199,9 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const slugs = await filer.listItemSlugs("collection");
   const currentIndex = slugs.indexOf(params.slug);
-
-  // Calculate next and previous slugs, wrapping around to create a loop
-  const nextSlug =
-    currentIndex >= 0 && currentIndex < slugs.length - 1
-      ? slugs[currentIndex + 1]
-      : slugs[0];
-  const prevSlug =
-    currentIndex > 0 ? slugs[currentIndex - 1] : slugs[slugs.length - 1];
-
-  const page = await filer.getItem(`${params.slug}.md`, {
-    folder: "collection",
-  });
-
+  const nextSlug = currentIndex >= 0 && currentIndex < slugs.length - 1 ? slugs[currentIndex + 1] : slugs[0];
+  const prevSlug = currentIndex > 0 ? slugs[currentIndex - 1] : slugs[slugs.length - 1];
+  const page = await filer.getItem(`${params.slug}.md`, { folder: "collection" });
   return {
     props: {
       page: JSON.parse(JSON.stringify(page)), // Ensure page data is serializable
