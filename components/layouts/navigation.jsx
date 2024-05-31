@@ -1,10 +1,9 @@
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter
-import data from '../../lib/data';
+import Link from "next/link";
+import { useRouter } from "next/router"; // Import useRouter
+import { useEffect, useState } from "react";
 
-export default function Navigation({ children, page }) {
-  const router = useRouter(); // Initialize useRouter
+export default function Navigation({ page }) {
+  const router = useRouter();
   const [isSticky, setSticky] = useState(false);
 
   const handleScroll = () => {
@@ -12,26 +11,44 @@ export default function Navigation({ children, page }) {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const handleClick = (event) => {
-    var navbar = $('#mainnavigationBar');
-    navbar.toggleClass('bg-nav');
+  // Function to toggle the overview mode
+  const handleOverviewClick = () => {
+    const currentPath = router.asPath;
+    const basePath = router.pathname;
+    const newQuery = { ...router.query };
+
+    // Toggle the 'overview' query parameter
+    if (newQuery.overview) {
+      delete newQuery.overview; // If overview is present, remove it
+    } else {
+      newQuery.overview = true; // If not present, add it
+    }
+
+    // Push the new URL with updated query parameters
+    router.push({
+      pathname: basePath,
+      query: newQuery,
+    });
   };
 
   return (
     <>
-      <header>
-        <nav className={`navbar navbar-expand-lg position-fixed w-100 zindex-dropdown${isSticky ? ' sticky-nav' : ''}`} id="mainnavigationBar">
+      <header style={{ zIndex: "9999" }}>
+        <nav
+          className={`navbar navbar-expand-lg position-fixed w-100 `}
+          id="mainnavigationBar"
+        >
           <div className="container-fluid flex flex-row justify-between w-full px-4 fixed bottom-0 mb-4 font-bold">
             <div>ADAM RIDING</div>
             <Link href="/">INDEX</Link>
             <Link href="/">ARCHIVE</Link>
-            <Link href={{ pathname: router.asPath.split('?')[0], query: { overview: true } }}>OVERVIEW</Link>
+            <button onClick={handleOverviewClick}>OVERVIEW</button>
           </div>
         </nav>
       </header>
