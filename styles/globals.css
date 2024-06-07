@@ -9,14 +9,13 @@
 }
 
 .origin-top {
-  transform-origin: top;
+  transform-origin: top center;
 }
 
-.random-grid {
+/* .random-grid {
   position: relative;
   width: 100%;
   height: 200vh;
-  /* Adjust this height as needed */
 }
 
 .random-image {
@@ -28,4 +27,4 @@
   display: block;
   width: 100%;
   height: auto;
-}
+} */

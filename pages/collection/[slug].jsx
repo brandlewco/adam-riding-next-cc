@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import DefaultLayout from "../../components/layouts/default";
 import Filer from "@cloudcannon/filer";
-import Navigation from "../../components/layouts/navigation";
 import Blocks from "../../components/shared/blocks";
 import CollectionPhoto from "../../components/collection/photo";
 
@@ -92,10 +91,16 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
     let newIndex;
     if (area === "right") {
       setAnimationDirection('right');
-      router.push(`/collection/${nextSlug}`);
+      router.push({
+        pathname: `/collection/${nextSlug}`,
+        query: { direction: 'right' },
+      });
     } else if (area === "left") {
       setAnimationDirection('left');
-      router.push(`/collection/${prevSlug}`);
+      router.push({
+        pathname: `/collection/${prevSlug}`,
+        query: { direction: 'left' },
+      });
     } else if (area === "down") {
       newIndex = (currentImage + 1) % imageCount;
       setAnimationDirection('down');
@@ -112,10 +117,16 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
       let newIndex;
       if (event.key === "ArrowRight") {
         setAnimationDirection('right');
-        router.push(`/collection/${nextSlug}`);
+        router.push({
+          pathname: `/collection/${nextSlug}`,
+          query: { direction: 'right' },
+        });
       } else if (event.key === "ArrowLeft") {
         setAnimationDirection('left');
-        router.push(`/collection/${prevSlug}`);
+        router.push({
+          pathname: `/collection/${prevSlug}`,
+          query: { direction: 'left' },
+        });
       } else if (event.key === "ArrowDown") {
         newIndex = (currentImage + 1) % imageCount;
         setAnimationDirection('down');
@@ -133,57 +144,77 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
     };
   }, [currentImage, nextSlug, prevSlug, imageCount, router]);
 
+  useEffect(() => {
+    const direction = router.query.direction;
+    if (direction) {
+      setAnimationDirection(direction);
+    }
+  }, [router.query.direction]);
+
   if (isOverview) {
     return (
       <DefaultLayout page={page}>
-        <div id="overview-view" className="grid grid-cols-12 gap-4 p-4 auto-rows-auto">
-          {page.data.content_blocks.map((block, index) => (
-            <motion.div
-              key={index}
-              style={generateGridPosition(index)}
-              initial={{ opacity: 0, y: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              layoutId={`image-${page.slug}-${block.image_path}`}
-              onClick={() => handleImageClick(index)}
-            >
-              <CollectionPhoto block={block} currentImage={currentImage} />
-            </motion.div>
-          ))}
-        </div>
+        <LayoutGroup>
+          <div id="overview-view" className="grid grid-cols-12 gap-4 p-4 auto-rows-auto">
+            {page.data.content_blocks.map((block, index) => (
+              <motion.div
+                key={index}
+                style={generateGridPosition(index)}
+                initial={{ opacity: 0, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                layoutId={`image-${page.slug}-${block.image_path}`}
+                onClick={() => handleImageClick(index)}
+              >
+                <CollectionPhoto block={block} currentImage={currentImage} layoutId={`image-${page.slug}-${block.image_path}`} />
+              </motion.div>
+            ))}
+          </div>
+        </LayoutGroup>
       </DefaultLayout>
     );
   }
 
   return (
-    <DefaultLayout page={page}>
-      <div className="absolute left-0 top-0 h-full w-1/6 cursor-pointer" onClick={() => handleAreaClick("left")} style={{ zIndex: 2, maxHeight: "90vh" }}/>
-      <div className="absolute right-0 top-0 h-full w-1/6 cursor-pointer" onClick={() => handleAreaClick("right")} style={{ zIndex: 2, maxHeight: "90vh" }}/>
-      <div className="absolute left-0 top-0 h-1/6 w-full cursor-pointer" onClick={() => handleAreaClick("up")} style={{ zIndex: 2 }}/>
-      <div className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer" onClick={() => handleAreaClick("down")} style={{ zIndex: 2 }}/>
-      <AnimatePresence initial={false} custom={animationDirection}>
-        <motion.div
-          key={currentImage}
-          custom={animationDirection}
-          layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "tween", ease: "easeInOut", duration: 0.3 },
-            y: { type: "tween", ease: "easeInOut", duration: 0.3 },
-            opacity: { duration: 0.3 },
-          }}
-          className="absolute w-full"
-        >
-          <section className="photo flex justify-end items-start w-auto relative overflow-hidden"
-          style={{ height: "90vh" }}>
-          <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
-          </section>
-        </motion.div>
-      </AnimatePresence>
-    </DefaultLayout>
+    <AnimatePresence initial={false} custom={animationDirection}>
+      <motion.div
+        key={router.pathname} // Use the pathname as key to ensure re-mounting on route change
+        initial="enter"
+        animate="center"
+        exit="exit"
+        custom={animationDirection}
+        variants={variants}
+        transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
+      >
+        <DefaultLayout page={page}>
+          <div className="absolute left-0 top-0 h-full w-1/6 cursor-pointer" onClick={() => handleAreaClick("left")} style={{ zIndex: 2, maxHeight: "90vh" }} />
+          <div className="absolute right-0 top-0 h-full w-1/6 cursor-pointer" onClick={() => handleAreaClick("right")} style={{ zIndex: 2, maxHeight: "90vh" }} />
+          <div className="absolute left-0 top-0 h-1/6 w-full cursor-pointer" onClick={() => handleAreaClick("up")} style={{ zIndex: 2 }} />
+          <div className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer" onClick={() => handleAreaClick("down")} style={{ zIndex: 2 }} />
+          <AnimatePresence initial={false} custom={animationDirection}>
+            <motion.div
+              key={currentImage}
+              custom={animationDirection}
+              layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "tween", ease: "easeInOut", duration: 0.3 },
+                y: { type: "tween", ease: "easeInOut", duration: 0.3 },
+                opacity: { duration: 0.3 },
+              }}
+              className="absolute w-full"
+            >
+              <section className="photo flex justify-end items-start w-auto relative overflow-hidden" style={{ height: "90vh" }}>
+                <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
+              </section>
+            </motion.div>
+          </AnimatePresence>
+        </DefaultLayout>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

@@ -3,7 +3,7 @@ import Filer from '@cloudcannon/filer';
 import { motion } from 'framer-motion';
 import ExportedImage from "next-image-export-optimizer";
 import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/router';
 import useStore from '../lib/store';
 
@@ -15,6 +15,7 @@ function HomePage({ page, collections }) {
   const setInitialLoad = useStore((state) => state.setInitialLoad);
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [animationsComplete, setAnimationsComplete] = useState(0);
+  const hoverRefs = useRef([]);
 
   const handleAnimationComplete = useCallback(() => {
     setAnimationsComplete((prev) => {
@@ -61,6 +62,14 @@ function HomePage({ page, collections }) {
     }
   }, [isInitialLoad, animationsComplete, collections, router]);
 
+  useEffect(() => {
+    hoverRefs.current.forEach((ref) => {
+      if (ref) {
+        ref.style.setProperty('transform-origin', 'top center', 'important');
+      }
+    });
+  }, [hoverIndex, collections.length]);
+
   return (
     <DefaultLayout page={page}>
       <ul className="grid grid-flow-col justify-start">
@@ -70,18 +79,19 @@ function HomePage({ page, collections }) {
             className="image-container"
             onMouseEnter={() => setHoverIndex(collectionIndex)}
             onMouseLeave={() => setHoverIndex(-1)}
-
+            ref={(el) => (hoverRefs.current[collectionIndex] = el)}
           >
             <Link href={`/collection/${collection.slug}`} passHref>
               <motion.div
                 layout
-                layoutId={`image-${collection.slug}-${collection.firstImagePath}`} // Ensure consistency
+                layoutId={`image-${collection.slug}-${collection.firstImagePath}`}
                 initial={{ opacity: isInitialLoad ? 0 : 1 }}
                 animate={{ opacity: 1 }}
-                whileHover={{ scale: 1.1, transformOrigin: 'top center' }}
+                whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3, delay: isInitialLoad ? collectionIndex * 0.3 : 0 }}
                 onAnimationComplete={() => handleAnimationComplete()}
-              >
+                style={{ originX: 0, originY: 0}}
+                >
                 <ExportedImage
                   src={collection.firstImagePath}
                   alt={collection.firstImageAlt || 'Collection image'}
