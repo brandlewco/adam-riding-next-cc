@@ -2,7 +2,6 @@ import Head from "next/head";
 import { NextSeo } from "next-seo";
 import data from "../../lib/data";
 import Navigation from "./navigation";
-import Footer from "./footer";
 
 export default function DefaultLayout({ children, page }) {
   const title = page?.data.title
@@ -68,10 +67,7 @@ export default function DefaultLayout({ children, page }) {
           },
         ]}
       />
-      <Navigation page={page} />
-
       {children}
-
       <script src="/js/script.js" defer></script>
     </>
   );

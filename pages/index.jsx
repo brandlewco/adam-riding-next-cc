@@ -20,7 +20,6 @@ function HomePage({ page, collections }) {
   const handleAnimationComplete = useCallback(() => {
     setAnimationsComplete((prev) => {
       const newCount = prev + 1;
-      console.log(`Animation complete: ${newCount}/${collections.length}`);
       return newCount;
     });
   }, [collections.length]);
@@ -30,11 +29,11 @@ function HomePage({ page, collections }) {
       const hasNavigated = sessionStorage.getItem('hasNavigated');
       if (hasNavigated) {
         setInitialLoad(false);
-        console.log('Initial load state set to false (hasNavigated)');
+        // console.log('Initial load state set to false (hasNavigated)');
       } else {
         sessionStorage.setItem('hasNavigated', 'true');
         setInitialLoad(true);
-        console.log('Initial load state set to true (first time)');
+        // console.log('Initial load state set to true (first time)');
       }
     }
   }, [setInitialLoad]);
