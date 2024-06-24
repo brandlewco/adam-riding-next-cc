@@ -13,7 +13,7 @@ function Blocks({ content_blocks, currentImage }) {
             const newDataBinding = `#content_blocks.${i}`;
             const componentPath = getComponentKey(block._bookshop_name);
             const TargetComponent = Object.entries(components).filter(([k]) =>
-              k.endsWith(componentPath)
+              k.endsWith(componentPath) 
             )?.[0]?.[1]?.default;
   
             if (!TargetComponent) {
