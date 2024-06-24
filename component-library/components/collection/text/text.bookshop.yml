@@ -2,9 +2,9 @@
 spec:
   structures:
     - content_blocks
-  label: Photos
-  description: Photos
-  icon: "photo"
+  label: Text
+  description: Add text to a collection.
+  icon: "edit_note"
   tags: ["collection"]
 
 # Defines the structure of this component, as well as the default values

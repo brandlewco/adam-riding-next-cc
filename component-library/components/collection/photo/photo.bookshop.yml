@@ -3,8 +3,8 @@ spec:
   structures:
     - content_blocks
   label: Photo
-  description: Photo
-  icon: "photo"
+  description: Add a photo to a collection.
+  icon: "image"
   tags: ["collection"]
   preview:
     image:

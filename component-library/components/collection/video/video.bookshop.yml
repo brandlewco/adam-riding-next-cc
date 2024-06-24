@@ -2,9 +2,9 @@
 spec:
   structures:
     - content_blocks
-  label: Photos
-  description: Photos
-  icon: "photo"
+  label: Video
+  description: Add a video to a collection.
+  icon: "play_circle_outline"
   tags: ["collection"]
 
 # Defines the structure of this component, as well as the default values
