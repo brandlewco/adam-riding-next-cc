@@ -1,26 +1,20 @@
-import { useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 
-let directionState = 'right';
-const subscribers = new Set();
+const AnimationDirectionContext = createContext();
+
+export const AnimationDirectionProvider = ({ children }) => {
+  const [direction, setDirection] = useState('right');
+  return (
+    <AnimationDirectionContext.Provider value={{ direction, setDirection }}>
+      {children}
+    </AnimationDirectionContext.Provider>
+  );
+};
 
 export const useAnimationDirection = () => {
-  const [direction, setDirectionState] = useState(directionState);
-
-  useEffect(() => {
-    const callback = () => setDirectionState(directionState);
-    subscribers.add(callback);
-    return () => {
-      subscribers.delete(callback);
-    };
-  }, []);
-
-  const setDirection = (newDirection) => {
-    directionState = newDirection;
-    subscribers.forEach(callback => callback());
-  };
-
-  return {
-    direction,
-    setDirection,
-  };
+  const context = useContext(AnimationDirectionContext);
+  if (context === undefined) {
+    throw new Error('useAnimationDirection must be used within an AnimationDirectionProvider');
+  }
+  return context;
 };

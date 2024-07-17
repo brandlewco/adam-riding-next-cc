@@ -2,10 +2,10 @@
     "baseurl": "https://example.com/",
     "site_title": "Adam Riding",
     "description": "The new portfolio site of Phoenix, Arizona photographer Adam Riding",
-    "favicon_icon": "/uploads/adamriding-icon-4.png",
-    "favicon_image": "/uploads/adamriding-icon-4.png",
+    "favicon_icon": "/images/adamriding-icon-4.png",
+    "favicon_image": "/images/adamriding-icon-4.png",
     "twitter_site": "@twitter_site",
-    "image": "/images/feature/feature-hero.png",
+    "image": "/images/_screenshot.png",
     "image_alt": "Charts",
     "_inputs": {
         "twitter_site": {

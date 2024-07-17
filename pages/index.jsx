@@ -29,11 +29,9 @@ function HomePage({ page, collections }) {
       const hasNavigated = sessionStorage.getItem('hasNavigated');
       if (hasNavigated) {
         setInitialLoad(false);
-        // console.log('Initial load state set to false (hasNavigated)');
       } else {
         sessionStorage.setItem('hasNavigated', 'true');
         setInitialLoad(true);
-        // console.log('Initial load state set to true (first time)');
       }
     }
   }, [setInitialLoad]);
@@ -90,7 +88,7 @@ function HomePage({ page, collections }) {
                 transition={{ duration: 0.3, delay: isInitialLoad ? collectionIndex * 0.3 : 0 }}
                 onAnimationComplete={() => handleAnimationComplete()}
                 style={{ originX: 0, originY: 0}}
-                >
+              >
                 <ExportedImage
                   src={collection.firstImagePath}
                   alt={collection.firstImageAlt || 'Collection image'}

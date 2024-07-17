@@ -46,7 +46,7 @@ export default function Navigation({ page }) {
         >
             <div>ADAM RIDING</div>
             <Link href="/">INDEX</Link>
-            <Link href="/">ARCHIVE</Link>
+            <Link href="/archive">ARCHIVE</Link>
             <button onClick={handleOverviewClick}>OVERVIEW</button>
         </nav>
       </header>

@@ -150,9 +150,10 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
                 layoutId={`image-${page.slug}-${block.image_path}`}
+                data-layout={`image-${page.slug}-${block.image_path}`}
                 onClick={() => handleImageClick(index)}
               >
-                <CollectionPhoto block={block} currentImage={currentImage} layoutId={`image-${page.slug}-${block.image_path}`} />
+                <CollectionPhoto block={block} currentImage={currentImage}  />
               </motion.div>
             ))}
           </div>
@@ -171,7 +172,8 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
         <motion.div
           key={currentImage}
           custom={internalDirection}
-          layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`}
+          layoutId={`${page.slug}`}
+          data-layout={`${page.slug}`}
           variants={internalVariants}
           initial="enter"
           animate="center"
@@ -181,11 +183,11 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
             y: { type: "tween", ease: "easeInOut", duration: 0.3 },
             opacity: { duration: 0.3 },
           }}
-          className="absolute w-full"
+          className="absolute w-auto right-0"
         >
-          <section className="photo flex justify-end items-start w-auto relative overflow-hidden" style={{ height: "90vh" }}>
-            <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
-          </section>
+          <motion.section layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`} data-layout={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`} className="photo flex justify-end items-start w-auto relative overflow-hidden" style={{ height: "90vh" }}>
+            <Blocks  content_blocks={page.data.content_blocks} currentImage={currentImage} />
+          </motion.section>
         </motion.div>
       </AnimatePresence>
     </DefaultLayout>
