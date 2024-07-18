@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/router';
 import useStore from '../lib/store';
+import React from 'react';
 
 const filer = new Filer({ path: 'content' });
 
@@ -72,6 +73,14 @@ function HomePage({ page, collections }) {
     fetchImageDimensions();
   }, [collections]);
 
+  const handleMouseEnter = useCallback((index) => {
+    setHoverIndex(index);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHoverIndex(-1);
+  }, []);
+
   return (
     <DefaultLayout page={page}>
       <ul className="grid grid-flow-col justify-start">
@@ -79,23 +88,24 @@ function HomePage({ page, collections }) {
           const dimensions = imageDimensions[collectionIndex] || { width: 200, height: 200 };
           const aspectRatio = dimensions.width / dimensions.height;
 
+          console.log(`Rendering collection: ${collection.slug}, layoutId: collection-${collection.slug}`);
+
           return (
             <li
               key={collectionIndex}
               className="image-container"
-              onMouseEnter={() => setHoverIndex(collectionIndex)}
-              onMouseLeave={() => setHoverIndex(-1)}
+              onMouseEnter={() => handleMouseEnter(collectionIndex)}
+              onMouseLeave={handleMouseLeave}
               ref={(el) => (hoverRefs.current[collectionIndex] = el)}
             >
               <Link href={`/collection/${collection.slug}`} passHref>
                 <motion.div
-                  layout
-                  layoutId={`image-${collection.slug}-${collection.firstImagePath}`}
+                  layoutId={`collection-${collection.slug}`}
                   initial={{ opacity: isInitialLoad ? 0 : 1 }}
                   animate={{ opacity: 1 }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, delay: isInitialLoad ? collectionIndex * 0.3 : 0 }}
-                  onAnimationComplete={() => handleAnimationComplete()}
+                  onAnimationComplete={handleAnimationComplete}
                   style={{ originX: 0, originY: 0 }}
                 >
                   <ExportedImage
@@ -103,7 +113,12 @@ function HomePage({ page, collections }) {
                     alt={collection.firstImageAlt || 'Collection image'}
                     width={200 * aspectRatio}
                     height={200}
-                    style={{ transition: 'transform 0.3s ease-in-out', width: 'auto', height: '200px' }}
+                    style={{
+                      transition: 'transform 0.3s ease-in-out',
+                      width: 'auto',
+                      height: '200px',
+                      objectFit: 'cover',
+                    }}
                   />
                   <motion.span
                     initial={{ opacity: 0 }}
@@ -122,7 +137,7 @@ function HomePage({ page, collections }) {
   );
 }
 
-export default HomePage;
+export default React.memo(HomePage);
 
 export async function getStaticProps() {
   const page = await filer.getItem('index.md', { folder: 'pages' });

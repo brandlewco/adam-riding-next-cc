@@ -3,7 +3,8 @@ import { createContext, useContext, useState } from 'react';
 const AnimationDirectionContext = createContext();
 
 export const AnimationDirectionProvider = ({ children }) => {
-  const [direction, setDirection] = useState('right');
+  const [direction, setDirection] = useState('');
+
   return (
     <AnimationDirectionContext.Provider value={{ direction, setDirection }}>
       {children}
@@ -11,10 +12,4 @@ export const AnimationDirectionProvider = ({ children }) => {
   );
 };
 
-export const useAnimationDirection = () => {
-  const context = useContext(AnimationDirectionContext);
-  if (context === undefined) {
-    throw new Error('useAnimationDirection must be used within an AnimationDirectionProvider');
-  }
-  return context;
-};
+export const useAnimationDirection = () => useContext(AnimationDirectionContext);

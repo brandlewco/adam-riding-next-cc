@@ -1,7 +1,7 @@
 import DefaultLayout from '../components/layouts/default';
 import Filer from '@cloudcannon/filer';
 import { motion } from 'framer-motion';
-import ExportedImage from "next-image-export-optimizer";
+import ExportedImage from 'next-image-export-optimizer';
 import { useState, useEffect } from 'react';
 
 const filer = new Filer({ path: 'content' });
@@ -9,21 +9,23 @@ const filer = new Filer({ path: 'content' });
 function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
-      <div className="grid grid-cols-5 gap-4 p-4 overflow-y-auto">
-        {photos.map((photo, photoIndex) => (
-          <motion.div
-            key={photoIndex}
-            className="relative flex justify-center items-center"
-            layout
-            layoutId={`image-${photo.slug}-${photo.image_path}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.2, delay: photoIndex * 0.1 }}
-            style={{ originX: 0, originY: 0 }}
-          >
-            <PhotoBlock photo={photo} />
-          </motion.div>
-        ))}
+      <div className="h-screen overflow-y-auto">
+        <div className="grid grid-cols-5 gap-4 p-4">
+          {photos.map((photo, photoIndex) => (
+            <motion.div
+              key={photoIndex}
+              className="relative flex justify-center items-center"
+              layout
+              layoutId={`image-${photo.slug}-${photo.image_path}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.2, delay: photoIndex * 0.1 }}
+              style={{ originX: 0, originY: 0 }}
+            >
+              <PhotoBlock photo={photo} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </DefaultLayout>
   );

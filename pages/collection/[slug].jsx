@@ -6,10 +6,11 @@ import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
 import CollectionPhoto from "../../components/collection/photo";
 import { useAnimationDirection } from "../../hooks/useAnimationDirection";
+import React from 'react';
 
 const filer = new Filer({ path: "content" });
 
-export default function CollectionPage({ page, nextSlug, prevSlug }) {
+function CollectionPage({ page, nextSlug, prevSlug }) {
   const [currentImage, setCurrentImage] = useState(0);
   const { setDirection } = useAnimationDirection();
   const router = useRouter();
@@ -137,6 +138,11 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
     };
   };
 
+  useEffect(() => {
+    console.log(`Current Image: ${currentImage}`);
+    console.log(`Overview Mode: ${isOverview}`);
+  }, [currentImage, isOverview]);
+
   if (isOverview) {
     return (
       <DefaultLayout page={page}>
@@ -149,11 +155,10 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                layoutId={`image-${page.slug}-${block.image_path}`}
-                data-layout={`image-${page.slug}-${block.image_path}`}
+                layoutId={`collection-${page.slug}`}
                 onClick={() => handleImageClick(index)}
               >
-                <CollectionPhoto block={block} currentImage={currentImage}  />
+                <CollectionPhoto block={block} currentImage={currentImage} />
               </motion.div>
             ))}
           </div>
@@ -172,8 +177,7 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
         <motion.div
           key={currentImage}
           custom={internalDirection}
-          layoutId={`${page.slug}`}
-          data-layout={`${page.slug}`}
+          layoutId={`collection-${page.slug}`}
           variants={internalVariants}
           initial="enter"
           animate="center"
@@ -183,16 +187,18 @@ export default function CollectionPage({ page, nextSlug, prevSlug }) {
             y: { type: "tween", ease: "easeInOut", duration: 0.3 },
             opacity: { duration: 0.3 },
           }}
-          className="absolute w-auto right-0"
+          className="relative w-auto right-0"
         >
-          <motion.section layoutId={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`} data-layout={`image-${page.slug}-${page.data.content_blocks[currentImage].image_path}`} className="photo flex justify-end items-start w-auto relative overflow-hidden" style={{ height: "90vh" }}>
-            <Blocks  content_blocks={page.data.content_blocks} currentImage={currentImage} />
-          </motion.section>
+          <section className="photo flex justify-end items-start w-auto relative overflow-hidden" style={{ height: "90vh" }}>
+            <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
+          </section>
         </motion.div>
       </AnimatePresence>
     </DefaultLayout>
   );
 }
+
+export default React.memo(CollectionPage);
 
 export async function getStaticPaths() {
   const slugs = (await filer.listItemSlugs("collection")).map((slug) => ({ params: { slug } }));

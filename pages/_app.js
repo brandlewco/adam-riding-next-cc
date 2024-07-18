@@ -20,8 +20,11 @@ function InnerApp({ Component, pageProps }) {
 
     if (isCollectionToCollection) {
       setDirection(router.pathname < url ? 'right' : 'left');
+      console.log(direction)
     } else {
       setDirection(''); // Clear direction for non-collection transitions
+      console.log(setDirection)
+
     }
 
     setPageKey(url);
@@ -50,7 +53,7 @@ function InnerApp({ Component, pageProps }) {
         custom={direction}
         variants={isCollectionTransition ? variants : {}}
         transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-        layoutId={pageKey}
+        layoutId={`page-${pageKey}`}  // Ensure consistent layoutId usage
       >
         <Component {...pageProps} />
       </motion.div>
