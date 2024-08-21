@@ -19,41 +19,54 @@ function InnerApp({ Component, pageProps }) {
     setIsCollectionTransition(isCollectionToCollection);
 
     if (isCollectionToCollection) {
-      setDirection(router.pathname < url ? 'right' : 'left');
-      console.log(direction)
+      console.log(`Direction: ${direction}`);
+      console.log(`Current path: ${router.pathname}, Next path: ${url}`);
     } else {
       setDirection(''); // Clear direction for non-collection transitions
-      console.log(setDirection)
-
+      console.log('Non-collection transition');
     }
 
     setPageKey(url);
-  }, [router.pathname, setDirection]);
+  }, [router.pathname, setDirection, direction]);
 
   useEffect(() => {
     router.events.on("routeChangeStart", handleRouteChangeStart);
     return () => {
       router.events.off("routeChangeStart", handleRouteChangeStart);
     };
-  }, [handleRouteChangeStart, router.events]);
+  }, [handleRouteChangeStart]);
 
-  const variants = useMemo(() => ({
-    enter: { opacity: 0, x: direction === 'right' ? 500 : direction === 'left' ? -500 : 0 },
-    center: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: direction === 'right' ? -500 : direction === 'left' ? 500 : 0 },
-  }), [direction]);
+
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: direction === 'left' ? '-50%' : direction === 'right' ? '50%' : 0,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      x: direction === 'left' ? '50%' : direction === 'right' ? '-50%' : 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={pageKey}
-        initial="enter"
-        animate="center"
+        initial="initial"
+        animate="animate"
         exit="exit"
-        custom={direction}
-        variants={isCollectionTransition ? variants : {}}
-        transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-        layoutId={`page-${pageKey}`}  // Ensure consistent layoutId usage
+        variants={pageVariants}
       >
         <Component {...pageProps} />
       </motion.div>
