@@ -22,7 +22,9 @@ export default function DefaultLayout({ children, page }) {
         noindex={page.data.seo?.no_index || false}
         title={title}
         description={description}
-        canonical={`${data.site.baseurl}${page.data.seo?.canonical_url || page.slug}`}
+        canonical={`${data.site.baseurl}${
+          page.data.seo?.canonical_url || page.slug
+        }`}
         openGraph={{
           url: data.site.baseurl,
           title: title,
@@ -36,15 +38,29 @@ export default function DefaultLayout({ children, page }) {
           ],
         }}
         twitter={{
-          handle: `${page.data.seo?.author_twitter_handle || data.site.twitter_site}`,
+          handle: `${
+            page.data.seo?.author_twitter_handle || data.site.twitter_site
+          }`,
           site: `${data.site.twitter_site}`,
           cardType: "summary_large_image",
         }}
         additionalLinkTags={[
-          { rel: "icon", href: `${data.site.favicon_image}`, type: "image/x-icon" },
-          { rel: "shortcut icon", href: `${data.site.favicon_icon}`, type: "image/x-icon" },
+          {
+            rel: "icon",
+            href: `${data.site.favicon_image}`,
+            type: "image/x-icon",
+          },
+          {
+            rel: "shortcut icon",
+            href: `${data.site.favicon_icon}`,
+            type: "image/x-icon",
+          },
           { rel: "apple-touch-icon", href: `${data.site.favicon_image}` },
-          { rel: "icon", type: "image/png", href: `${data.site.favicon_image}` },
+          {
+            rel: "icon",
+            type: "image/png",
+            href: `${data.site.favicon_image}`,
+          },
         ]}
       />
       {children}

@@ -8,19 +8,28 @@ export default function CollectionPhoto({ block, dataBinding }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
+    if (!block.image_path) {
+      console.error("Image path is not defined");
+      return;
+    }
+
     const img = new Image();
     img.src = block.image_path;
+
     img.onload = () => {
-      const aspectRatio = img.width / img.height;
       setDimensions({
-        width: 2048, // Example width
-        height: 2048 / aspectRatio, // Calculate height based on the aspect ratio
+        width: img.naturalWidth,
+        height: img.naturalHeight,
       });
+    };
+
+    img.onerror = (error) => {
+      console.error(`Failed to load image: ${block.image_path}`, error);
     };
   }, [block.image_path]);
 
   if (dimensions.width === 0 || dimensions.height === 0) {
-    return <div></div>;
+    return <div>Loading image...</div>;
   }
 
   return (
@@ -30,6 +39,8 @@ export default function CollectionPhoto({ block, dataBinding }) {
       priority
       width={dimensions.width}
       height={dimensions.height}
+      style={{ maxHeight: "90vh" }}
+      unoptimized // Add this property if you don't have a custom loader
     />
   );
 }

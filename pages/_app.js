@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/layouts/navigation";
-import { AnimationDirectionProvider, useAnimationDirection } from "../hooks/useAnimationDirection";
+import { AnimationDirectionProvider, useAnimationDirection } from '../hooks/AnimationDirectionContext';
 
 function InnerApp({ Component, pageProps }) {
   const router = useRouter();
