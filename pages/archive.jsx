@@ -10,7 +10,7 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <div className="h-screen overflow-y-auto">
-        <div className="grid grid-cols-5 gap-4 p-4">
+        <div className="grid grid-cols-5 gap-x-4 gap-y-16 p-4">
           {photos.map((photo, photoIndex) => (
             <motion.div
               key={photoIndex}

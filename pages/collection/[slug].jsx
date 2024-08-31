@@ -67,22 +67,22 @@ function CollectionPage({ page, nextSlug, prevSlug }) {
   const internalVariants = {
     enter: (direction) => ({
       opacity: 0,
-      y: direction === 'up' ? '100%' : direction === 'down' ? '-100%' : 0,
+      y: direction === 'up' ? '80%' : direction === 'down' ? '-80%' : 0,
     }),
     center: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.3,
-        opacity: { duration: 0.3 },
+        duration: 0.5,
+        opacity: { duration: 0.5 },
       },
     },
     exit: (direction) => ({
       opacity: 0,
-      y: direction === 'up' ? '-100%' : direction === 'down' ? '100%' : 0,
+      y: direction === 'up' ? '-80%' : direction === 'down' ? '80%' : 0,
       transition: {
-        duration: 0.3,
-        opacity: { duration: 0.3 },
+        duration: 0.5,
+        opacity: { duration: 0.5 },
       },
     }),
   };
@@ -98,18 +98,6 @@ function CollectionPage({ page, nextSlug, prevSlug }) {
     <DefaultLayout page={page}>
       {!isOverview && (
         <>
-          <div
-            id="click-left"
-            className="absolute left-0 top-0 h-full w-1/6 cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('left')}
-            style={{ zIndex: 10 }}
-          />
-          <div
-            id="click-right"
-            className="absolute right-0 top-0 h-full w-1/6 cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('right')}
-            style={{ zIndex: 10 }}
-          />
           <div
             id="click-up"
             className="absolute left-0 top-0 h-1/6 w-full cursor-pointer clickable-area"
@@ -128,6 +116,7 @@ function CollectionPage({ page, nextSlug, prevSlug }) {
         key={currentImage}
         custom={direction}
         layoutId={`collection-${page.slug}`}
+        data-layoutId={`collection-${page.slug}`}
         variants={internalVariants}
         initial="enter"
         animate="center"
@@ -138,12 +127,9 @@ function CollectionPage({ page, nextSlug, prevSlug }) {
         }}
         className={`relative w-auto right-0 ${
           isOverview
-            ? 'flex flex-wrap justify-between items-center overflow-y-auto p-12'
-            : ''
+            ? 'flex flex-wrap justify-between items-center overflow-y-scroll p-12 h-screen'
+            : 'overflow-y-hidden'
         }`}
-        style={{
-          overflowY: isOverview ? 'auto' : 'hidden',
-        }}
       >
         {isOverview ? (
           page.data.content_blocks.map((block, i) => (
