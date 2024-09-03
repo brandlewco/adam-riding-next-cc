@@ -12,112 +12,112 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-1.jpg
+    image_path: /uploads/AR_ICELAND-1.jpg
     alt_text: Image 1
-    width: 35
-    top: 50
+    width: 30
+    top: 70
     left: 10
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-2.jpg
+    image_path: /uploads/AR_ICELAND-2.jpg
     alt_text: Image 2
     width: 30
     top: 100
     left: 15
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-3.jpg
+    image_path: /uploads/AR_ICELAND-3.jpg
     alt_text: Image 3
     width: 25
     top: 150
     left: 10
     right: 20
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-4.jpg
+    image_path: /uploads/AR_ICELAND-4.jpg
     alt_text: Image 4
     width: 30
     top: 200
     left: 20
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-5.jpg
+    image_path: /uploads/AR_ICELAND-5.jpg
     alt_text: Image 5
     width: 40
     top: 50
     left: 15
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-6.jpg
+    image_path: /uploads/AR_ICELAND-6.jpg
     alt_text: Image 6
     width: 45
     top: 150
     left: 10
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-7.jpg
+    image_path: /uploads/AR_ICELAND-7.jpg
     alt_text: Image 7
     width: 50
     top: 100
     left: 15
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-8.jpg
+    image_path: /uploads/AR_ICELAND-8.jpg
     alt_text: Image 8
     width: 30
     top: 200
     left: 15
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-9.jpg
+    image_path: /uploads/AR_ICELAND-9.jpg
     alt_text: Image 9
     width: 40
     top: 250
     left: 10
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-10.jpg
+    image_path: /uploads/AR_ICELAND-10.jpg
     alt_text: Image 10
     width: 35
     top: 150
     left: 20
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-11.jpg
+    image_path: /uploads/AR_ICELAND-11.jpg
     alt_text: Image 11
     width: 50
     top: 50
     left: 10
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-12.jpg
+    image_path: /uploads/AR_ICELAND-12.jpg
     alt_text: Image 12
     width: 45
     top: 100
     left: 15
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-13.jpg
+    image_path: /uploads/AR_ICELAND-13.jpg
     alt_text: Image 13
     width: 30
     top: 200
     left: 10
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-14.jpg
+    image_path: /uploads/AR_ICELAND-14.jpg
     alt_text: Image 14
     width: 25
     top: 150
     left: 15
     right: 20
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-15.jpg
+    image_path:
     alt_text: Image 15
     width: 35
     top: 250
     left: 10
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-16.jpg
+    image_path:
     alt_text: Image 16
     width: 50
     top: 100
@@ -165,4 +165,11 @@ content_blocks:
     top: 50
     left: 15
     right: 10
+  - _bookshop_name: collection/photo
+    image_path: /uploads/riding-fitnesstest-1.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
