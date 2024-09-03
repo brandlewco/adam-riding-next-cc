@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: NYT Golf
-slug: nyt-golf
+title: DIRT
+slug: dirt-zine
 seo:
   page_description:
   canonical_url:
