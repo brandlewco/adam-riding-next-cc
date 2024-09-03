@@ -124,49 +124,49 @@ content_blocks:
     left: 15
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-17.jpg
+    image_path:
     alt_text: Image 17
     width: 30
     top: 50
     left: 10
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-18.jpg
+    image_path:
     alt_text: Image 18
     width: 40
     top: 200
     left: 15
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-19.jpg
+    image_path:
     alt_text: Image 19
     width: 35
     top: 150
     left: 10
     right: 15
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-20.jpg
+    image_path:
     alt_text: Image 20
     width: 50
     top: 250
     left: 15
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-21.jpg
+    image_path:
     alt_text: Image 21
     width: 30
     top: 100
     left: 10
     right: 20
   - _bookshop_name: collection/photo
-    image_path: /uploads/IcelandTest-22.jpg
+    image_path:
     alt_text: Image 22
     width: 40
     top: 50
     left: 15
     right: 10
   - _bookshop_name: collection/photo
-    image_path: /uploads/riding-fitnesstest-1.jpg
+    image_path:
     alt_text: Image Alt Text
     width: 30
     top: 0
