@@ -12,7 +12,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/RIDING_NYT_GolfPortraitSundayOp-1.jpg
+    image_path: /uploads/AR_DIRT-2.jpg
     alt_text: Image Alt Text
     width: 40
     top: 100
@@ -60,4 +60,11 @@ content_blocks:
     top: 150
     left: 10
     right: 20
+  - _bookshop_name: collection/photo
+    image_path: /uploads/riding-fitnesstest-1.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
