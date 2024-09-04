@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Lulu LaFortune
-slug: lulu-lafortune
+title: Lulu LaFortune Studio
+slug: lulu-lafortune-studio
 seo:
   page_description:
   canonical_url:
