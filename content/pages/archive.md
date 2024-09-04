@@ -704,4 +704,396 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-101.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-102.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-103.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-104.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-105.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-106.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-107.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-108.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-109.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-110.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-111.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-112.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-113.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-114.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-115.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-116.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-117.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-118.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-119.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-120.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-121.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-122.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-123.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-124.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-125.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-126.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-127.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-128.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-129.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-130.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-131.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-132.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-133.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-134.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-135.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-136.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-137.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-138.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-139.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-140.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-141.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-142.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-143.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-144.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-145.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-146.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-147.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-148.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-149.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-150.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-151.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-152.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-153.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-154.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-155.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-156.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
