@@ -101,10 +101,8 @@ function HomePage({ page, collections }) {
               <Link href={`/collection/${collection.slug}`} passHref>
                 <motion.div
                   layoutId={`collection-${collection.slug}`}
-                  data-layoutId={`collection-${collection.slug}`}
-                  initial={{ opacity: 1 }}
+                  initial={{ opacity: isInitialLoad ? 0 : 1 }}
                   animate={{ opacity: 1 }}
-                  exit={{ opacity: 1 }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3, delay: isInitialLoad ? collectionIndex * 0.3 : 0 }}
                   onAnimationComplete={handleAnimationComplete}

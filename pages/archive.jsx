@@ -2,7 +2,8 @@ import DefaultLayout from '../components/layouts/default';
 import Filer from '@cloudcannon/filer';
 import { motion } from 'framer-motion';
 import ExportedImage from 'next-image-export-optimizer';
-import { useState, useEffect } from 'react';
+import sizeOf from 'image-size';
+import path from 'path';
 
 const filer = new Filer({ path: 'content' });
 
@@ -10,7 +11,7 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <div className="h-screen overflow-y-auto">
-        <div className="grid grid-cols-5 gap-x-4 gap-y-16 p-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-6 gap-y-10 p-4">
           {photos.map((photo, photoIndex) => (
             <motion.div
               key={photoIndex}
@@ -19,7 +20,7 @@ function ArchivePage({ page, photos }) {
               layoutId={`image-${photo.slug}-${photo.image_path}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.2, delay: photoIndex * 0.1 }}
+              transition={{ duration: 0.1, delay: photoIndex * 0.05 }}
               style={{ originX: 0, originY: 0 }}
             >
               <PhotoBlock photo={photo} />
@@ -32,34 +33,17 @@ function ArchivePage({ page, photos }) {
 }
 
 function PhotoBlock({ photo }) {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = photo.image_path;
-    img.onload = () => {
-      const aspectRatio = img.width / img.height;
-      setDimensions({
-        width: 200 * aspectRatio, // Calculate width based on the fixed height
-        height: 200, // Fixed height
-      });
-    };
-  }, [photo.image_path]);
-
-  if (dimensions.width === 0 || dimensions.height === 0) {
-    return <div style={{ height: 200, width: 'auto' }}></div>;
-  }
-
   return (
-    <div className="flex justify-center items-center h-200 w-auto overflow-hidden">
+    <div className="flex justify-center items-center overflow-hidden" style={{ height: '150px' }}>
       <ExportedImage
         src={photo.image_path}
         alt={photo.alt_text || 'Photo image'}
-        width={dimensions.width}
-        height={dimensions.height}
+        width={photo.width}
+        height={photo.height}
         style={{
-          height: '200px',
-          objectFit: 'cover',
+          height: '150px',
+          width: 'auto',
+          objectFit: 'contain',
         }}
       />
     </div>
@@ -74,12 +58,29 @@ export async function getStaticProps() {
 
   for (const photoBlock of page.data.content_blocks) {
     if (photoBlock._bookshop_name === 'collection/photo' && photoBlock.image_path) {
-      photos.push({
-        title: photoBlock.title || null,
-        slug: photoBlock.slug || null,
-        image_path: photoBlock.image_path || null,
-        alt_text: photoBlock.alt_text || null,
-      });
+      try {
+        const imagePath = path.join(process.cwd(), 'public', photoBlock.image_path);
+        const dimensions = sizeOf(imagePath);
+        photos.push({
+          title: photoBlock.title || null,
+          slug: photoBlock.slug || null,
+          image_path: photoBlock.image_path || null,
+          alt_text: photoBlock.alt_text || null,
+          width: dimensions.width,
+          height: dimensions.height,
+        });
+      } catch (error) {
+        console.error(`Error getting dimensions for image ${photoBlock.image_path}:`, error);
+        // Handle the error or set default dimensions
+        photos.push({
+          title: photoBlock.title || null,
+          slug: photoBlock.slug || null,
+          image_path: photoBlock.image_path || null,
+          alt_text: photoBlock.alt_text || null,
+          width: 800, // Default width
+          height: 600, // Default height
+        });
+      }
     }
   }
 
