@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: The Court
-slug: the-court
+title: Ivory Williams
+slug: ivory-williams
 seo:
   page_description:
   canonical_url:
