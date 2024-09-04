@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Jotham Hung
-slug: jotham-hung
+title: Jotham Hung Ceramics
+slug: jotham-hung-ceramics
 seo:
   page_description:
   canonical_url:
