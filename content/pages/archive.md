@@ -41,28 +41,28 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-6.jpg
-    alt_text: Image Alt Text
+    alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-7.jpg
-    alt_text: Image Alt Text
+    alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
-    alt_text: Image Alt Text
+    alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-9.jpg
-    alt_text: Image Alt Text
+    alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
     top: 0
     left: 0
