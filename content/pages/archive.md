@@ -6,35 +6,35 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-1.jpg
-    alt_text: Image 1
+    alt_text: Last Call - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-2.jpg
-    alt_text: Image 1
+    alt_text: Last Call - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-3.jpg
-    alt_text: Image 1
+    alt_text: Last Call - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-4.jpg
-    alt_text: Image Alt Text
+    alt_text: Last Call - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-5.jpg
-    alt_text: Image Alt Text
+    alt_text: Last Call - Personal Project
     width: 30
     top: 0
     left: 0
