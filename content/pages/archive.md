@@ -958,14 +958,14 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-137.jpg
-    alt_text: Image Alt Text
+    alt_text: Secretary of State Adrian Fontes -  The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-138.jpg
-    alt_text: Image Alt Text
+    alt_text: Secretary of State Adrian Fontes -  The Guardian
     width: 30
     top: 0
     left: 0
