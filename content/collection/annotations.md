@@ -13,28 +13,46 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-1.jpg
-    alt_text: Image 1
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a green,
+      hairy stem, set against a pale green backdrop. The arrangements in this
+      project include flowers like tulips and Icelandic poppies. This project
+      was shot and completed in Phoenix, AZ in2022.  
     width: 40
     top: 100
     left: 10
     right: 5
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-2.jpg
-    alt_text: Image 2
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a decaying
+      monstera leaf, set against a light grey backdrop shot in black and white.
+      The arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 50
     top: 150
     left: 20
     right: 10
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-3.jpg
-    alt_text: Image 3
+    alt_text: >-
+      Annotations is a floral still life personal project featuring an Icelandic
+      poppy in a vintage vase, set abasing a dark background. The image has
+      saturated colors and a large motion blur, personifying the flower itself.
+      The arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 60
     top: 50
     left: 15
     right: 15
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-4.jpg
-    alt_text: Image 4
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a decaying
+      monstera leaf suspended in the air with water dripping down the leaf, set
+      against a pale yellow backdrop shot in color. The arrangements in this
+      project include flowers like tulips and Icelandic poppies. This project
+      was shot and completed in Phoenix, AZ in 2022.  
     width: 30
     top: 200
     left: 10
