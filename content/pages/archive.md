@@ -209,63 +209,63 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-30.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-31.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-32.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-33.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-34.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-35.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-36.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-37.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-38.jpg
-    alt_text: Image Alt Text
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
