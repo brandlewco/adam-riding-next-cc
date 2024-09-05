@@ -5,8 +5,10 @@ seo:
   no_index: false
 collections:
   - content/collection/the-court.md
+  - content/collection/lulu-lafortune.md
   - content/collection/annotations.md
   - content/collection/taliesin-west.md
+  - content/collection/vortex.md
   - content/collection/schindler-house.md
   - content/collection/jotham-hung.md
   - content/collection/iceland.md
@@ -16,7 +18,5 @@ collections:
   - content/collection/florida-portraits.md
   - content/collection/nan-collective.md
   - content/collection/on-the-court.md
-  - content/collection/vortex.md
-  - content/collection/lulu-lafortune.md
   - content/collection/nyt-golf.md
 ---
