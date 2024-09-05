@@ -69,140 +69,140 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-10.jpg
-    alt_text: Image Alt Text
+    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-11.jpg
-    alt_text: Image Alt Text
+    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-12.jpg
-    alt_text: Image Alt Text
+    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-13.jpg
-    alt_text: Image Alt Text
+    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-14.jpg
-    alt_text: Image Alt Text
+    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-15.jpg
-    alt_text: Image Alt Text
+    alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-16.jpg
-    alt_text: Image Alt Text
+    alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-17.jpg
-    alt_text: Image Alt Text
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-18.jpg
-    alt_text: Image Alt Text
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-19.jpg
-    alt_text: Image Alt Text
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-20.jpg
-    alt_text: Image Alt Text
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-21.jpg
-    alt_text: Image Alt Text
+    alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-22.jpg
-    alt_text: Image Alt Text
+    alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-23.jpg
-    alt_text: Image Alt Text
+    alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-24.jpg
-    alt_text: Image Alt Text
+    alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
-    alt_text: Image Alt Text
+    alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-26.jpg
-    alt_text: Image Alt Text
+    alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-27.jpg
-    alt_text: Image Alt Text
+    alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-28.jpg
-    alt_text: Image Alt Text
+    alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-29.jpg
-    alt_text: Image Alt Text
+    alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
     top: 0
     left: 0
