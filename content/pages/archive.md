@@ -566,98 +566,98 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-81.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-82.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-83.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-84.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-85.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-86.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-87.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-88.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-89.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-90.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-91.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-92.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-93.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-94.jpg
-    alt_text: Image Alt Text
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
