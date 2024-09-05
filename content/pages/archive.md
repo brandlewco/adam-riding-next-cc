@@ -314,84 +314,84 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-45.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-46.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-47.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-48.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-49.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-50.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-51.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-52.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-53.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-54.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-55.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-56.jpg
-    alt_text: Image Alt Text
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
