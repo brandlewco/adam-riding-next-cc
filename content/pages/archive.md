@@ -517,49 +517,49 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-74.jpg
-    alt_text: Image Alt Text
+    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-75.jpg
-    alt_text: Image Alt Text
+    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-76.jpg
-    alt_text: Image Alt Text
+    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-77.jpg
-    alt_text: Image Alt Text
+    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-78.jpg
-    alt_text: Image Alt Text
+    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-79.jpg
-    alt_text: Image Alt Text
+    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-80.jpg
-    alt_text: Image Alt Text
+    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
