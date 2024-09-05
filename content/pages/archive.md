@@ -272,42 +272,42 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-39.jpg
-    alt_text: Image Alt Text
+    alt_text: Extreme Heat - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-40.jpg
-    alt_text: Image Alt Text
+    alt_text: Extreme Heat - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-41.jpg
-    alt_text: Image Alt Text
+    alt_text: Extreme Heat - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-42.jpg
-    alt_text: Image Alt Text
+    alt_text: Extreme Heat - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-43.jpg
-    alt_text: Image Alt Text
+    alt_text: Extreme Heat - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-44.jpg
-    alt_text: Image Alt Text
+    alt_text: Extreme Heat - Zeit
     width: 30
     top: 0
     left: 0
