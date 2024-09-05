@@ -103,14 +103,14 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-15.jpg
+    image_path: /uploads/AR_ARCHIVE-16.jpg
     alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-16.jpg
+    image_path: /uploads/AR_ARCHIVE-15.jpg
     alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
     width: 30
     top: 0
@@ -762,140 +762,140 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-109.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-110.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-111.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-112.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-113.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-114.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-115.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-116.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-117.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-118.jpg
-    alt_text: Image Alt Text
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-119.jpg
-    alt_text: Image Alt Text
+    alt_text: Pine, AZ - 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-120.jpg
-    alt_text: Image Alt Text
+    alt_text: Pine, AZ - 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-121.jpg
-    alt_text: Image Alt Text
+    alt_text: Pine, AZ - 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-122.jpg
-    alt_text: Image Alt Text
+    alt_text: Pine, AZ - 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-123.jpg
-    alt_text: Image Alt Text
+    alt_text: Suberbowl 23 - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-124.jpg
-    alt_text: Image Alt Text
+    alt_text: NYC - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-125.jpg
-    alt_text: Image Alt Text
+    alt_text: Pilot Trey Thriffiley - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-126.jpg
-    alt_text: Image Alt Text
+    alt_text: Pilot Trey Thriffiley - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-127.jpg
-    alt_text: Image Alt Text
+    alt_text: The Farmer and His Crop - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-128.jpg
-    alt_text: Image Alt Text
+    alt_text: The Farmer and His Crop - Personal Project
     width: 30
     top: 0
     left: 0
