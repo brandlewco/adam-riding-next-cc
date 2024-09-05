@@ -1000,98 +1000,98 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-143.jpg
-    alt_text: Image Alt Text
+    alt_text: Stem - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-144.jpg
-    alt_text: Image Alt Text
+    alt_text: Stem - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-145.jpg
-    alt_text: Image Alt Text
+    alt_text: American Race Car Driver Jeff Gordon - Phoenix Children's Foundation
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-146.jpg
-    alt_text: Image Alt Text
+    alt_text: American Race Car Driver Jeff Gordon - Phoenix Children's Foundation
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-147.jpg
-    alt_text: Image Alt Text
+    alt_text: 7-Eleven Murder - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-148.jpg
-    alt_text: Image Alt Text
+    alt_text: 7-Eleven Murder - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-149.jpg
-    alt_text: Image Alt Text
+    alt_text: Honda v Toyota - Road and Track
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-150.jpg
-    alt_text: Image Alt Text
+    alt_text: Honda v Toyota - Road and Track
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-151.jpg
-    alt_text: Image Alt Text
+    alt_text: 6x6 Jeep - Road and Track
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-152.jpg
-    alt_text: Image Alt Text
+    alt_text: 6x6 Jeep - Road and Track
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-153.jpg
-    alt_text: Image Alt Text
+    alt_text: Musician Cal-X - 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-154.jpg
-    alt_text: Image Alt Text
+    alt_text: Musician Cal-X - 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-155.jpg
-    alt_text: Image Alt Text
+    alt_text: Fourth of July - 2021
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-156.jpg
-    alt_text: Image Alt Text
+    alt_text: Fourth of July - 2021
     width: 30
     top: 0
     left: 0
