@@ -664,14 +664,14 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-95.jpg
-    alt_text: Image Alt Text
+    alt_text: Elvis - Nashville, TN 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-96.jpg
-    alt_text: Image Alt Text
+    alt_text: Elvis - Nashville, TN 2023
     width: 30
     top: 0
     left: 0
