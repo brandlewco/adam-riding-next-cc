@@ -49,28 +49,53 @@ content_blocks:
     right: 15
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-4.jpg
-    alt_text: Image 4
+    alt_text: >-
+      Two athletes running side by side in a snowy forrest. They are running
+      behind a tree in the foreground that blocks their path. The image is shot
+      in black and white. Dream Run Camp features the running camp hosted by
+      Michael Fitzgerald, a runner living with long covid,  that's hosted in
+      Flagstaff, AZ.  This commission was originally commissioned by The New
+      York Times.
     width: 30
     top: 200
     left: 10
     right: 5
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-5.jpg
-    alt_text: Image 5
+    alt_text: >-
+      An athlete running through the snowy forrest, with snow flakes bouncing
+      off of his shoulder as he moves through the forest. A black and white shot
+      image, focusing on a close up of the runners movements. Dream Run Camp
+      features the running camp hosted by Michael Fitzgerald, a runner living
+      with long covid,  that's hosted in Flagstaff, AZ.  This commission was
+      originally commissioned by The New York Times.
     width: 55
     top: 250
     left: 20
     right: 10
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
-    alt_text: Image 6
+    alt_text: >-
+      Snow flakes are caught within a female runner's braided hair. Set against
+      the backdrop of a snowy forrest, she wears a blue colored hair band and a
+      cyan long sleeve jacket. This detail is a close-up, and tight photograph
+      of her hair. Dream Run Camp features the running camp hosted by Michael
+      Fitzgerald, a runner living with long covid,  that's hosted in Flagstaff,
+      AZ.  This commission was originally commissioned by The New York Times. 
     width: 45
     top: 100
     left: 15
     right: 15
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-7.jpg
-    alt_text: Image 7
+    alt_text: >-
+      A posed portrait of Michael Fitzgerald within a snowy forest. The black
+      and white photograph capturesFitzgerald in black and white set against
+      falling snow. The flash captures a snow flake falling directly in the
+      center of the image. Dream Run Camp features the running camp hosted by
+      Michael Fitzgerald, a runner living with long covid,  that's hosted in
+      Flagstaff, AZ.  This commission was originally commissioned by The New
+      York Times.
     width: 35
     top: 150
     left: 10
