@@ -440,63 +440,63 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-63.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-64.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-65.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-66.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-67.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-68.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-69.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-70.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-71.jpg
-    alt_text: Image Alt Text
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
