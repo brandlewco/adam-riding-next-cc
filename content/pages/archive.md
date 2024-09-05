@@ -902,14 +902,14 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-129.jpg
-    alt_text: Image Alt Text
+    alt_text: My Street at 12:01 AM - 2020
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-130.jpg
-    alt_text: Image Alt Text
+    alt_text: My Street at 12:01 AM - 2020
     width: 30
     top: 0
     left: 0
