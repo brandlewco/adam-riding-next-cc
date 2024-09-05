@@ -916,14 +916,14 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-131.jpg
-    alt_text: Image Alt Text
+    alt_text: Big Tech Makes a Big Bet - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-132.jpg
-    alt_text: Image Alt Text
+    alt_text: Big Tech Makes a Big Bet - The New York Times
     width: 30
     top: 0
     left: 0
