@@ -831,6 +831,76 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-157.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-158.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-159.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-160.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-161.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-162.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-163.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-164.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-165.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-166.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-119.jpg
     alt_text: Pine, AZ - 2021
     width: 30
