@@ -59,7 +59,11 @@ content_blocks:
     right: 5
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-5.jpg
-    alt_text: Image 5
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a winding
+      green, hairy stem, and floral bulb set against a pale green backdrop. The
+      arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in2022.  
     width: 55
     top: 250
     left: 20
