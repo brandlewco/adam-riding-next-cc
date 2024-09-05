@@ -70,49 +70,78 @@ content_blocks:
     right: 10
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-6.jpg
-    alt_text: Image 6
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a curving
+      stem, and hanging flower set against a dark grey backdrop in black and
+      white. The arrangements in this project include flowers like tulips and
+      Icelandic poppies. This project was shot and completed in Phoenix, AZ in
+      2022.  
     width: 45
     top: 100
     left: 15
     right: 15
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-7.jpg
-    alt_text: Image 7
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a green,
+      hairy stem and poppy flower, set against a pale yellow backdrop. The
+      arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 35
     top: 150
     left: 10
     right: 20
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-8.jpg
-    alt_text: Image 8
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a decaying
+      monstera leaf, set against a light grey backdrop shot in black and white.
+      The arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-9.jpg
-    alt_text: Image 9
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a broken
+      tulip, set against a black backdrop shot in black and white. The
+      arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-10.jpg
-    alt_text: Image 10
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a decaying
+      monstera leaf, set against a yellow backdrop shot in a warm color palette.
+      The arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-11.jpg
-    alt_text: Image 11
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a thin
+      flower wire hanging down, set against a pale blue backdrop. The
+      arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-12.jpg
-    alt_text: Image 12
+    alt_text: >-
+      Annotations is a floral still life personal project featuring a winding
+      green, hairy stem and poppy flower, set against a dark yellow backdrop.
+      The arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
     width: 30
     top: 0
     left: 0
