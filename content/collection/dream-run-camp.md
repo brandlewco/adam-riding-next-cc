@@ -102,35 +102,55 @@ content_blocks:
     right: 20
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-8.jpg
-    alt_text: Image 8
+    alt_text: >-
+      Athlete leaning against a tree set against a snowy forest in Flagstaff,
+      AZ. Dream Run Camp features the running camp hosted by Michael Fitzgerald,
+      a runner living with long covid,  that's hosted in Flagstaff, AZ.  This
+      commission was originally commissioned by The New York Times.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-9.jpg
-    alt_text: Image 9
+    alt_text: >-
+      Motion blurred, action shot of a Michael Fitzgerald running through the
+      snowy forest. Dream Run Camp features the running camp hosted by Michael
+      Fitzgerald, a runner living with long covid,  that's hosted in Flagstaff,
+      AZ.  This commission was originally commissioned by The New York Times.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-10.jpg
-    alt_text: Image 10
+    alt_text: >-
+      Two athletes side by side running through falling snowfall in a forest.
+      Dream Run Camp features the running camp hosted by Michael Fitzgerald, a
+      runner living with long covid,  that's hosted in Flagstaff, AZ.  This
+      commission was originally commissioned by The New York Times.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-11.jpg
-    alt_text: Image 11
+    alt_text: >-
+      Female athlete posed against a snowy forest in Flagstaff, AZ. Dream Run
+      Camp features the running camp hosted by Michael Fitzgerald, a runner
+      living with long covid,  that's hosted in Flagstaff, AZ.  This commission
+      was originally commissioned by The New York Times.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-12.jpg
-    alt_text: Image 12
+    alt_text: >-
+      Two athletes running side by side in a snowy forest, with snowfall all
+      around them. Dream Run Camp features the running camp hosted by Michael
+      Fitzgerald, a runner living with long covid,  that's hosted in Flagstaff,
+      AZ.  This commission was originally commissioned by The New York Times.
     width: 30
     top: 0
     left: 0
