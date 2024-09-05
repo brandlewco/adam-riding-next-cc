@@ -398,42 +398,42 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-57.jpg
-    alt_text: Image Alt Text
+    alt_text: Malibu - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-58.jpg
-    alt_text: Image Alt Text
+    alt_text: Malibu - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-59.jpg
-    alt_text: Image Alt Text
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-60.jpg
-    alt_text: Image Alt Text
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-61.jpg
-    alt_text: Image Alt Text
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-62.jpg
-    alt_text: Image Alt Text
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
     top: 0
     left: 0
