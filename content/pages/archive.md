@@ -972,28 +972,28 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-139.jpg
-    alt_text: Image Alt Text
+    alt_text: The Grand Canyon - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-140.jpg
-    alt_text: Image Alt Text
+    alt_text: The Grand Canyon - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-141.jpg
-    alt_text: Image Alt Text
+    alt_text: Refugee Abwe Songolo - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-142.jpg
-    alt_text: Image Alt Text
+    alt_text: Refugee Abwe Songolo - The New York Times
     width: 30
     top: 0
     left: 0
