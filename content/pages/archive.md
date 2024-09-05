@@ -678,84 +678,84 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-97.jpg
-    alt_text: Image Alt Text
+    alt_text: Logan Glennie - AZ Foothills Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-98.jpg
-    alt_text: Image Alt Text
+    alt_text: Logan Glennie - AZ Foothills Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-99.jpg
-    alt_text: Image Alt Text
+    alt_text: Logan Glennie - AZ Foothills Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-100.jpg
-    alt_text: Image Alt Text
+    alt_text: Philip Gabriel Collection - F/W 2022
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-101.jpg
-    alt_text: Image Alt Text
+    alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-102.jpg
-    alt_text: Image Alt Text
+    alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-103.jpg
-    alt_text: Image Alt Text
+    alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-104.jpg
-    alt_text: Image Alt Text
+    alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-105.jpg
-    alt_text: Image Alt Text
+    alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-106.jpg
-    alt_text: Image Alt Text
+    alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-107.jpg
-    alt_text: Image Alt Text
+    alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-108.jpg
-    alt_text: Image Alt Text
+    alt_text: Idaho Rodeo - 2022
     width: 30
     top: 0
     left: 0
