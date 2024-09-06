@@ -141,19 +141,21 @@ function HomePage({ page, collections }) {
                     onAnimationComplete={handleAnimationComplete}
                     style={{ originX: '50%', originY: 0 }}
                   >
-                    <ExportedImage
-                      src={collection.firstImagePath}
-                      alt={collection.firstImageAlt || 'Collection image'}
-                      width={collection.width}
-                      height={collection.height}
+                    <div
                       style={{
-                        transition: 'transform 0.3s ease-in-out',
+                        position: 'relative',
                         width: '100%',
-                        height: 'auto',
-                        objectFit: 'cover',
+                        paddingBottom: `${(collection.height / collection.width) * 100}%`, // Maintain aspect ratio
                       }}
-                      priority
-                    />
+                    >
+                      <ExportedImage
+                        src={collection.firstImagePath}
+                        alt={collection.firstImageAlt || 'Collection image'}
+                        fill
+                        priority
+                        style={{ objectFit: 'contain' }}
+                      />
+                    </div>
                     <motion.span
                       ref={(el) => (titleRefs.current[collectionIndex] = el)}
                       data-index={collectionIndex}
@@ -200,7 +202,7 @@ export async function getStaticProps() {
         collections.push({
           title: collection.data.title,
           path: correctedPath,
-          slug: collection.data.slug,
+          slug: collection.data.slug || correctedPath.split('/').pop(), // Ensure slug is set correctly
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || 'Default Alt Text',
           width: dimensions.width,
@@ -212,7 +214,7 @@ export async function getStaticProps() {
         collections.push({
           title: collection.data.title,
           path: correctedPath,
-          slug: collection.data.slug,
+          slug: collection.data.slug || correctedPath.split('/').pop(), // Ensure slug is set correctly
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || 'Default Alt Text',
           width: 800, // Default width

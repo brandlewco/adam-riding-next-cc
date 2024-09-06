@@ -50,9 +50,9 @@ function InnerApp({ Component, pageProps }) {
       y: 0,
       transition: {
         type: 'spring',
-        stiffness: 100,
-        damping: 20,
-        duration: 0.3,
+        stiffness: 150,
+        damping: 25,
+        duration: 0.7,
       },
     },
     exit: (direction) => ({
@@ -60,9 +60,9 @@ function InnerApp({ Component, pageProps }) {
       y: direction === 'up' ? '80%' : direction === 'down' ? '-80%' : 0,
       transition: {
         type: 'spring',
-        stiffness: 200,
-        damping: 20,
-        duration: 0.3,
+        stiffness: 150,
+        damping: 25,
+        duration: 0.7,
       },
     }),
   };

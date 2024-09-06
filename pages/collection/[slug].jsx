@@ -59,26 +59,28 @@ const CollectionPage = ({ page }) => {
 
   return (
     <DefaultLayout page={page}>
+      {/* Collection Info in the Top Right Corner */}
       <div className="absolute top-4 left-4 text-left">
-        <div className="text-lg font-bold">{page.data.title}</div>
-        <div className="text-lg font-bold">{`${currentImage + 1} / ${imageCount}`}</div>
+        <div className="text-sm font-bold">{page.data.title}</div>
+        <div className="text-sm font-bold">{`${currentImage + 1} / ${imageCount}`}</div>
       </div>
 
       <div
         id="click-left"
-        className="absolute left-0 top-1/6 h-4/6 w-1/6 cursor-pointer clickable-area"
+        className="absolute left-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
         onClick={() => handleAreaClick('left')}
         style={{ zIndex: 10 }}
       />
       <div
         id="click-right"
-        className="absolute right-0 top-1/6 h-4/6 w-1/6 cursor-pointer clickable-area"
+        className="absolute right-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
         onClick={() => handleAreaClick('right')}
         style={{ zIndex: 10 }}
       />
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={currentImage}
+          layoutId={`collection-${page.data.slug}`} // Ensure layoutId matches the one in index.jsx
           variants={internalVariants}
           initial="enter"
           animate="center"
@@ -108,31 +110,35 @@ MemoizedCollectionPage.displayName = 'CollectionPage';
 export default MemoizedCollectionPage;
 
 export async function getStaticPaths() {
-  const slugs = (await filer.listItemSlugs('collection')).map((slug) => ({
-    params: { slug },
+  const collections = await filer.getItems('collection');
+  const paths = collections.map((collection) => ({
+    params: { slug: collection.data.slug || collection.slug },
   }));
-  const ignored = { 404: true };
+
   return {
-    paths: slugs.filter(({ params }) => !ignored[params.slug]),
+    paths,
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const slugs = await filer.listItemSlugs('collection');
+  const collections = await filer.getItems('collection');
+  const collection = collections.find((col) => col.data.slug === params.slug || col.slug === params.slug);
+
+  if (!collection) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const slugs = collections.map((col) => col.data.slug || col.slug);
   const currentIndex = slugs.indexOf(params.slug);
-  const nextSlug =
-    currentIndex >= 0 && currentIndex < slugs.length - 1
-      ? slugs[currentIndex + 1]
-      : slugs[0];
-  const prevSlug =
-    currentIndex > 0 ? slugs[currentIndex - 1] : slugs[slugs.length - 1];
-  const page = await filer.getItem(`${params.slug}.md`, {
-    folder: 'collection',
-  });
+  const nextSlug = currentIndex >= 0 && currentIndex < slugs.length - 1 ? slugs[currentIndex + 1] : slugs[0];
+  const prevSlug = currentIndex > 0 ? slugs[currentIndex - 1] : slugs[slugs.length - 1];
+
   return {
     props: {
-      page: JSON.parse(JSON.stringify(page)),
+      page: JSON.parse(JSON.stringify(collection)),
       nextSlug,
       prevSlug,
     },
