@@ -3,31 +3,22 @@ import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/layouts/navigation";
-import { AnimationDirectionProvider, useAnimationDirection } from '../hooks/AnimationDirectionContext';
 
 function InnerApp({ Component, pageProps }) {
   const router = useRouter();
-  const { direction, setDirection } = useAnimationDirection();
+  const [direction, setDirection] = useState('');
   const [pageKey, setPageKey] = useState(router.pathname);
-  const [isCollectionTransition, setIsCollectionTransition] = useState(false);
 
   const handleRouteChangeStart = useCallback((url) => {
     const isCurrentCollection = router.pathname.includes("/collection/");
     const isNextCollection = url.includes("/collection/");
     const isCollectionToCollection = isCurrentCollection && isNextCollection;
 
-    setIsCollectionTransition(isCollectionToCollection);
-
+    // Only set the page key on route change start
     if (isCollectionToCollection) {
-      console.log(`Direction: ${direction}`);
-      console.log(`Current path: ${router.pathname}, Next path: ${url}`);
-    } else {
-      setDirection(''); // Clear direction for non-collection transitions
-      console.log('Non-collection transition');
+      setPageKey(url);
     }
-
-    setPageKey(url);
-  }, [router.pathname, setDirection, direction]);
+  }, [router.pathname]);
 
   useEffect(() => {
     router.events.on("routeChangeStart", handleRouteChangeStart);
@@ -40,35 +31,40 @@ function InnerApp({ Component, pageProps }) {
     const nextSlug = pageProps.nextSlug;
     const prevSlug = pageProps.prevSlug;
 
-    if (area === 'right') {
-      setDirection('right');
+    if (area === 'down' && nextSlug) {
+      setDirection('down');
       router.push(`/collection/${nextSlug}`);
-    } else if (area === 'left') {
-      setDirection('left');
+    } else if (area === 'up' && prevSlug) {
+      setDirection('up');
       router.push(`/collection/${prevSlug}`);
     }
   };
 
   const pageVariants = {
-    initial: {
-      opacity: 1,
-      x: direction === 'left' ? '-80%' : direction === 'right' ? '80%' : 0,
-    },
+    initial: (direction) => ({
+      opacity: 0,
+      y: direction === 'up' ? '-80%' : direction === 'down' ? '80%' : 0,
+    }),
     animate: {
       opacity: 1,
-      x: 0,
       y: 0,
       transition: {
-        duration: 0.5,
+        type: 'spring',
+        stiffness: 100,
+        damping: 20,
+        duration: 0.3,
       },
     },
-    exit: {
-      opacity: 1,
-      x: direction === 'left' ? '80%' : direction === 'right' ? '-80%' : 0,
+    exit: (direction) => ({
+      opacity: 0,
+      y: direction === 'up' ? '80%' : direction === 'down' ? '-80%' : 0,
       transition: {
-        duration: 0.5,
+        type: 'spring',
+        stiffness: 200,
+        damping: 20,
+        duration: 0.3,
       },
-    },
+    }),
   };
 
   return (
@@ -76,26 +72,28 @@ function InnerApp({ Component, pageProps }) {
       {router.pathname.includes("/collection/") && (
         <>
           <div
-            id="click-left"
-            className="absolute left-0 top-0 h-full w-1/6 cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('left')}
+            id="click-up"
+            className="absolute left-0 top-0 h-1/6 w-full cursor-pointer clickable-area"
+            onClick={() => handleAreaClick('up')}
             style={{ zIndex: 10 }}
           />
           <div
-            id="click-right"
-            className="absolute right-0 top-0 h-full w-1/6 cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('right')}
+            id="click-down"
+            className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer clickable-area"
+            onClick={() => handleAreaClick('down')}
             style={{ zIndex: 10 }}
           />
         </>
       )}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false} custom={direction}>
         <motion.div
           key={pageKey}
           initial="initial"
           animate="animate"
           exit="exit"
+          custom={direction}
           variants={pageVariants}
+          style={{ position: 'relative' }}
         >
           <Component {...pageProps} />
         </motion.div>
@@ -106,10 +104,10 @@ function InnerApp({ Component, pageProps }) {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AnimationDirectionProvider>
+    <>
       <InnerApp Component={Component} pageProps={pageProps} />
       <Navigation />
-    </AnimationDirectionProvider>
+    </>
   );
 }
 

@@ -1,19 +1,17 @@
-import { motion } from 'framer-motion';
-import { useAnimationDirection } from '../../hooks/AnimationDirectionContext';
+import { motion, AnimatePresence } from 'framer-motion';
 import DefaultLayout from '../../components/layouts/default';
 import Filer from '@cloudcannon/filer';
 import Blocks from '../../components/shared/blocks';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, memo } from 'react';
 import { useRouter } from 'next/router';
 
 const filer = new Filer({ path: 'content' });
 
-function CollectionPage({ page, nextSlug, prevSlug }) {
+const CollectionPage = ({ page }) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const { direction, setDirection } = useAnimationDirection();
+  const [direction, setDirection] = useState('');
   const router = useRouter();
   const imageCount = page.data.content_blocks.length;
-  const isOverview = Boolean(router.query.overview);
 
   useEffect(() => {
     const imageIndex = parseInt(router.query.image);
@@ -22,122 +20,73 @@ function CollectionPage({ page, nextSlug, prevSlug }) {
     }
   }, [router.query.image, imageCount]);
 
-  const handleAreaClick = (area) => {
+  const handleAreaClick = useCallback((area) => {
     if (area === 'right') {
       setDirection('right');
-      router.push(`/collection/${nextSlug}`);
+      setCurrentImage((prevImage) => (prevImage + 1) % imageCount);
     } else if (area === 'left') {
       setDirection('left');
-      router.push(`/collection/${prevSlug}`);
-    } else if (area === 'down') {
-      setDirection('down');
-      setCurrentImage((prevImage) => (prevImage + 1) % imageCount);
-    } else if (area === 'up') {
-      setDirection('up');
       setCurrentImage((prevImage) => (prevImage - 1 + imageCount) % imageCount);
     }
-  };
-
-  const handleKeyDown = useCallback(
-    (event) => {
-      if (event.key === 'ArrowRight') {
-        setDirection('right');
-        router.push(`/collection/${nextSlug}`);
-      } else if (event.key === 'ArrowLeft') {
-        setDirection('left');
-        router.push(`/collection/${prevSlug}`);
-      } else if (event.key === 'ArrowDown') {
-        setDirection('down');
-        setCurrentImage((prevImage) => (prevImage + 1) % imageCount);
-      } else if (event.key === 'ArrowUp') {
-        setDirection('up');
-        setCurrentImage((prevImage) => (prevImage - 1 + imageCount) % imageCount);
-      }
-    },
-    [currentImage, nextSlug, prevSlug, imageCount, router, setDirection]
-  );
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleKeyDown]);
+  }, [imageCount]);
 
   const internalVariants = {
     enter: (direction) => ({
       opacity: 0,
-      y: direction === 'up' ? '80%' : direction === 'down' ? '-80%' : 0,
+      x: direction === 'left' ? '100%' : direction === 'right' ? '-100%' : 0,
     }),
     center: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        duration: 0.5,
-        opacity: { duration: 0.5 },
+        type: 'spring',
+        stiffness: 200,
+        damping: 30,
+        duration: 0.2,
       },
     },
     exit: (direction) => ({
       opacity: 0,
-      y: direction === 'up' ? '-80%' : direction === 'down' ? '80%' : 0,
+      x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
       transition: {
-        duration: 0.5,
-        opacity: { duration: 0.5 },
+        type: 'spring',
+        stiffness: 200,
+        damping: 30,
+        duration: 0.2,
       },
     }),
   };
 
-  const generateFigureStyle = (block) => ({
-    width: block.width ? `${block.width}%` : '100%',
-    marginTop: block.top || '0px',
-    marginLeft: block.left || '0px',
-    marginRight: block.right || '0px',
-  });
-
   return (
     <DefaultLayout page={page}>
-      {!isOverview && (
-        <>
-          <div
-            id="click-up"
-            className="absolute left-0 top-0 h-1/6 w-full cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('up')}
-            style={{ zIndex: 10 }}
-          />
-          <div
-            id="click-down"
-            className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('down')}
-            style={{ zIndex: 10 }}
-          />
-        </>
-      )}
-      <motion.div
-        key={currentImage}
-        custom={direction}
-        layoutId={`collection-${page.slug}`}
-        data-layoutId={`collection-${page.slug}`}
-        variants={internalVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        transition={{
-          y: { type: 'tween', ease: 'easeInOut', duration: 0.5 },
-          opacity: { duration: 0.5 },
-        }}
-        className={`relative w-auto right-0 ${
-          isOverview
-            ? 'flex flex-wrap justify-between items-center overflow-y-scroll p-12 h-screen'
-            : 'overflow-y-hidden'
-        }`}
-      >
-        {isOverview ? (
-          page.data.content_blocks.map((block, i) => (
-            <figure key={i} style={generateFigureStyle(block)}>
-              <Blocks content_blocks={[block]} currentImage={0} />
-            </figure>
-          ))
-        ) : (
+      <div className="absolute top-4 left-4 text-left">
+        <div className="text-lg font-bold">{page.data.title}</div>
+        <div className="text-lg font-bold">{`${currentImage + 1} / ${imageCount}`}</div>
+      </div>
+
+      <div
+        id="click-left"
+        className="absolute left-0 top-1/6 h-4/6 w-1/6 cursor-pointer clickable-area"
+        onClick={() => handleAreaClick('left')}
+        style={{ zIndex: 10 }}
+      />
+      <div
+        id="click-right"
+        className="absolute right-0 top-1/6 h-4/6 w-1/6 cursor-pointer clickable-area"
+        onClick={() => handleAreaClick('right')}
+        style={{ zIndex: 10 }}
+      />
+      <AnimatePresence custom={direction} mode="wait">
+        <motion.div
+          key={currentImage}
+          variants={internalVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          custom={direction}
+          className="relative w-auto overflow-hidden"
+          style={{ position: 'relative' }} // Ensures the positioning is correct
+        >
           <section
             className="photo flex justify-end items-start w-auto relative overflow-hidden"
             style={{ height: '100vh' }}
@@ -147,13 +96,16 @@ function CollectionPage({ page, nextSlug, prevSlug }) {
               currentImage={currentImage}
             />
           </section>
-        )}
-      </motion.div>
+        </motion.div>
+      </AnimatePresence>
     </DefaultLayout>
   );
-}
+};
 
-export default React.memo(CollectionPage);
+const MemoizedCollectionPage = memo(CollectionPage);
+MemoizedCollectionPage.displayName = 'CollectionPage';
+
+export default MemoizedCollectionPage;
 
 export async function getStaticPaths() {
   const slugs = (await filer.listItemSlugs('collection')).map((slug) => ({
