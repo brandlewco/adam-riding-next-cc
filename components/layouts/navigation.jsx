@@ -42,7 +42,7 @@ export default function Navigation({ page }) {
       <header style={{ zIndex: "9999" }} className={'fixed w-full '}
           id="mainnavigationBar">
         <nav
-          className="container-fluid flex flex-row justify-between w-full px-4 fixed bottom-0 mb-4 text-sm font-bold"
+          className="container-fluid flex flex-row justify-between w-full p-4 fixed bottom-0 text-sm font-bold"
         >
             <div className="pointer-none">ADAM RIDING</div>
             <Link href="/">INDEX</Link>

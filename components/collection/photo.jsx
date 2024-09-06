@@ -29,7 +29,7 @@ export default function CollectionPhoto({ block, dataBinding }) {
   }, [block.image_path]);
 
   if (dimensions.width === 0 || dimensions.height === 0) {
-    return <div>Loading image...</div>;
+    return <div></div>;
   }
 
   return (
@@ -39,7 +39,7 @@ export default function CollectionPhoto({ block, dataBinding }) {
       priority
       width={dimensions.width}
       height={dimensions.height}
-      style={{ maxHeight: "70vh", margin: "1rem 1rem 0 0" }}
+      style={{ maxHeight: "75vh", margin: "1rem 1rem 0 0" }}
       unoptimized // Add this property if you don't have a custom loader
     />
   );

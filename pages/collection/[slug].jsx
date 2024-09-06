@@ -20,15 +20,23 @@ const CollectionPage = ({ page }) => {
     }
   }, [router.query.image, imageCount]);
 
-  const handleAreaClick = useCallback((area) => {
-    if (area === 'right') {
-      setDirection('right');
-      setCurrentImage((prevImage) => (prevImage + 1) % imageCount);
-    } else if (area === 'left') {
-      setDirection('left');
-      setCurrentImage((prevImage) => (prevImage - 1 + imageCount) % imageCount);
-    }
-  }, [imageCount]);
+  const handleAreaClick = useCallback(
+    (area) => {
+      if (area === 'right') {
+        setDirection('right');
+        setCurrentImage((prevImage) => (prevImage + 1) % imageCount);
+      } else if (area === 'left') {
+        setDirection('left');
+        setCurrentImage((prevImage) => (prevImage - 1 + imageCount) % imageCount);
+      }
+    },
+    [imageCount]
+  );
+
+  const handleThumbnailClick = (index) => {
+    setCurrentImage(index);
+    setDirection('');
+  };
 
   const internalVariants = {
     enter: (direction) => ({
@@ -40,9 +48,11 @@ const CollectionPage = ({ page }) => {
       x: 0,
       transition: {
         type: 'spring',
-        stiffness: 200,
-        damping: 30,
-        duration: 0.2,
+        stiffness: 150,
+        damping: 25,
+        duration: 0.4, // Slightly slower movement
+        delay: -0.2, // Starts entering slightly before exit completes
+        opacity: { duration: 0.6, ease: 'easeOut' }, // Slower opacity change
       },
     },
     exit: (direction) => ({
@@ -50,12 +60,14 @@ const CollectionPage = ({ page }) => {
       x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
       transition: {
         type: 'spring',
-        stiffness: 200,
-        damping: 30,
-        duration: 0.2,
+        stiffness: 150,
+        damping: 25,
+        duration: 0.2, // Keeps the exit quick
       },
     }),
   };
+  
+  
 
   return (
     <DefaultLayout page={page}>
@@ -93,13 +105,34 @@ const CollectionPage = ({ page }) => {
             className="photo flex justify-end items-start w-auto relative overflow-hidden"
             style={{ height: '100vh' }}
           >
-            <Blocks
-              content_blocks={page.data.content_blocks}
-              currentImage={currentImage}
-            />
+            <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
           </section>
         </motion.div>
       </AnimatePresence>
+
+      {/* Thumbnail Selector */}
+      <div className="absolute bottom-24 left-0 right-0 flex justify-center overflow-none space-x-2 z-50">
+        {page.data.content_blocks.map((block, index) => (
+          <motion.div
+            key={index}
+            onClick={() => handleThumbnailClick(index)}
+            className={`cursor-pointer ${
+              currentImage === index ? 'scale-110' : 'scale-100'
+            }`}
+            style={{
+              transition: 'transform 0.3s',
+              transformOrigin: 'center',
+            }}
+          >
+            <img
+              src={block.image_path}
+              alt={block.alt_text || 'Thumbnail'}
+              className="object-cover w-8 h-8" // Adjusts the size without overflow
+            />
+          </motion.div>
+        ))}
+      </div>
+
     </DefaultLayout>
   );
 };
@@ -123,7 +156,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const collections = await filer.getItems('collection');
-  const collection = collections.find((col) => col.data.slug === params.slug || col.slug === params.slug);
+  const collection = collections.find(
+    (col) => col.data.slug === params.slug || col.slug === params.slug
+  );
 
   if (!collection) {
     return {

@@ -76,7 +76,6 @@ function HomePage({ page, collections }) {
         const newVisibleIndices = new Set(visibleIndices);
         entries.forEach((entry) => {
           const index = parseInt(entry.target.dataset.index, 10);
-          console.log(`Title Entry ${index}: isIntersecting=${entry.isIntersecting}, intersectionRatio=${entry.intersectionRatio}`);
           if (entry.isIntersecting) {
             newVisibleIndices.add(index);
           } else {
@@ -108,20 +107,12 @@ function HomePage({ page, collections }) {
     };
   }, [collections.length, visibleIndices]);
 
-  useEffect(() => {
-    console.log('Visible Indices:', Array.from(visibleIndices));
-  }, [visibleIndices]);
-
   return (
     <DefaultLayout page={page}>
       <div className="p-4 border border-gray-300 overflow-y-auto h-screen">
-        <ul className="flex flex-col sm:flex-row items-end sm:items-start gap-4 p-4">
+        <ul className="flex flex-col sm:flex-row items-end sm:items-start gap-4">
           {collections.map((collection, collectionIndex) => {
-            const aspectRatio = collection.width / collection.height;
             const maxWidthClass = getMaxWidthClass(collections.length);
-
-            console.log(`Rendering collection: ${collection.slug}, layoutId: collection-${collection.slug}`);
-
             return (
               <li
                 key={collectionIndex}
@@ -141,21 +132,14 @@ function HomePage({ page, collections }) {
                     onAnimationComplete={handleAnimationComplete}
                     style={{ originX: '50%', originY: 0 }}
                   >
-                    <div
-                      style={{
-                        position: 'relative',
-                        width: '100%',
-                        paddingBottom: `${(collection.height / collection.width) * 100}%`, // Maintain aspect ratio
-                      }}
-                    >
                       <ExportedImage
                         src={collection.firstImagePath}
                         alt={collection.firstImageAlt || 'Collection image'}
-                        fill
+                        width={collection.width}
+                        height={collection.height}
                         priority
                         style={{ objectFit: 'contain' }}
                       />
-                    </div>
                     <motion.span
                       ref={(el) => (titleRefs.current[collectionIndex] = el)}
                       data-index={collectionIndex}
@@ -168,7 +152,7 @@ function HomePage({ page, collections }) {
                             : 0,
                       }}
                       transition={{ duration: 0.33 }}
-                      className='font-bold leading-tight'
+                      className='text-sm font-bold leading-tight'
                     >
                       {collection.title}
                     </motion.span>
