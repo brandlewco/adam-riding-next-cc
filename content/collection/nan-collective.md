@@ -18,10 +18,6 @@ content_blocks:
       Collective. Styled by Alexa Miramontes and Benjamin Font. Located in the
       Silverlake Apartment in Los Angeles, Ca designed by RM Schindler.
       Photographed originally for NAN Collective.
-    width: 40
-    top: 100
-    left: 10
-    right: 5
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-2.jpg
     alt_text: >-
@@ -29,36 +25,20 @@ content_blocks:
       studio with a Senufo stool. Styled by Alexa Miramontes and Benjamin Font.
       Located in the Silverlake Apartment in Los Angeles, Ca designed by RM
       Schindler. Photographed originally for NAN Collective.
-    width: 50
-    top: 150
-    left: 20
-    right: 10
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-3.jpg
     alt_text: >-
       Portrait of Benjamin Font of NAN Collective. Photographed originally for
       NAN Collective in Los Angeles, Ca.
-    width: 60
-    top: 50
-    left: 15
-    right: 15
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-4.jpg
     alt_text: >-
       Portrait of Alexa Miramontes of NAN Collective. Photographed originally
       for NAN Collective in Los Angeles, Ca.
-    width: 30
-    top: 200
-    left: 10
-    right: 5
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-5.jpg
     alt_text: >-
       NAN Collective. Styled by Alexa Miramontes and Benjamin Font. Located in
       the Silverlake Apartment in Los Angeles, Ca designed by RM Schindler.
       Photographed originally for NAN Collective.
-    width: 55
-    top: 250
-    left: 20
-    right: 10
 ---
