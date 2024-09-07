@@ -4,6 +4,7 @@ import Filer from '@cloudcannon/filer';
 import Blocks from '../../components/shared/blocks';
 import React, { useEffect, useState, useCallback, memo } from 'react';
 import { useRouter } from 'next/router';
+import ExportedImage from 'next-image-export-optimizer';
 
 const filer = new Filer({ path: 'content' });
 
@@ -93,6 +94,7 @@ const CollectionPage = ({ page }) => {
         <motion.div
           key={currentImage}
           layoutId={`collection-${page.data.slug}`} // Ensure layoutId matches the one in index.jsx
+          layout
           variants={internalVariants}
           initial="enter"
           animate="center"
@@ -124,10 +126,15 @@ const CollectionPage = ({ page }) => {
               transformOrigin: 'center',
             }}
           >
-            <img
+            <ExportedImage
               src={block.image_path}
               alt={block.alt_text || 'Thumbnail'}
-              className="object-cover w-8 h-8" // Adjusts the size without overflow
+              className="object-cover w-8 h-8 opacity-50 hover:opacity-100 overflow-hidden"
+              height={32}
+              width={32}
+              style={{
+                transition: 'opacity 0.33s',
+              }} // Adjusts the size without overflow
             />
           </motion.div>
         ))}

@@ -14,8 +14,6 @@ const filer = new Filer({ path: 'content' });
 
 function HomePage({ page, collections }) {
   const router = useRouter();
-  const isInitialLoad = useStore((state) => state.isInitialLoad);
-  const setInitialLoad = useStore((state) => state.setInitialLoad);
   const [hoverIndex, setHoverIndex] = useState(-1);
   const hoverRefs = useRef([]);
   const titleRefs = useRef([]);
@@ -26,21 +24,8 @@ function HomePage({ page, collections }) {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const hasNavigated = sessionStorage.getItem('hasNavigated');
-      if (hasNavigated) {
-        setInitialLoad(false);
-      } else {
-        sessionStorage.setItem('hasNavigated', 'true');
-        setInitialLoad(true);
-      }
-    }
-  }, [setInitialLoad]);
-
-  useEffect(() => {
     const handleRouteChange = () => {
-      setInitialLoad(false);
-      console.log('Route change complete, setting initial load to false');
+      console.log('Route change complete');
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -48,7 +33,7 @@ function HomePage({ page, collections }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.events, setInitialLoad]);
+  }, [router.events]);
 
   useEffect(() => {
     hoverRefs.current.forEach((ref) => {
@@ -123,23 +108,25 @@ function HomePage({ page, collections }) {
                 data-index={collectionIndex}
               >
                 <Link href={`/collection/${collection.slug}`} passHref>
-                  <motion.div
+                <motion.div
                     layoutId={`collection-${collection.slug}`}
-                    initial={{ opacity: isInitialLoad ? 0 : 1 }}
+                    layout
+                    initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.33, delay: isInitialLoad ? 0.33 + collectionIndex * 0.1 : 0 }}
+                    transition={{ opacity: { duration: 0.33, delay: collectionIndex * 0.1 } }} // Apply delay only to opacity animation
                     onAnimationComplete={handleAnimationComplete}
-                    style={{ originX: '50%', originY: 0 }}
+                    style={{ originX: '50%', originY: 0}}
+                    className="flex flex-col"
                   >
-                      <ExportedImage
-                        src={collection.firstImagePath}
-                        alt={collection.firstImageAlt || 'Collection image'}
-                        width={collection.width}
-                        height={collection.height}
-                        priority
-                        style={{ objectFit: 'contain' }}
-                      />
+                    <ExportedImage
+                      src={collection.firstImagePath}
+                      alt={collection.firstImageAlt || 'Collection image'}
+                      width={collection.width}
+                      height={collection.height}
+                      priority
+                      sizes="(max-width: 480px) 100vw, 480px"
+                    />
                     <motion.span
                       ref={(el) => (titleRefs.current[collectionIndex] = el)}
                       data-index={collectionIndex}
@@ -151,8 +138,8 @@ function HomePage({ page, collections }) {
                             ? 1
                             : 0,
                       }}
-                      transition={{ duration: 0.33 }}
-                      className='text-sm font-bold leading-tight'
+                      transition={{ duration: 0.33, }}
+                      className='text-sm leading-tight'
                     >
                       {collection.title}
                     </motion.span>
@@ -183,14 +170,18 @@ export async function getStaticProps() {
       try {
         const imagePath = path.join(process.cwd(), 'public', firstPhotoBlock.image_path);
         const dimensions = sizeOf(imagePath);
+        const aspectRatio = dimensions.width / dimensions.height;
+        const newWidth = 480;
+        const newHeight = Math.round(newWidth / aspectRatio);
+
         collections.push({
           title: collection.data.title,
           path: correctedPath,
           slug: collection.data.slug || correctedPath.split('/').pop(), // Ensure slug is set correctly
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || 'Default Alt Text',
-          width: dimensions.width,
-          height: dimensions.height,
+          width: newWidth,
+          height: newHeight,
         });
       } catch (error) {
         console.error(`Error getting dimensions for image ${firstPhotoBlock.image_path}:`, error);
@@ -201,8 +192,8 @@ export async function getStaticProps() {
           slug: collection.data.slug || correctedPath.split('/').pop(), // Ensure slug is set correctly
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || 'Default Alt Text',
-          width: 800, // Default width
-          height: 600, // Default height
+          width: 480, // Default width
+          height: auto, // Default height assuming a 3:2 aspect ratio
         });
       }
     } else {

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ExportedImage from 'next-image-export-optimizer';
 import sizeOf from 'image-size';
 import path from 'path';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 const filer = new Filer({ path: 'content' });
@@ -12,13 +12,14 @@ const filer = new Filer({ path: 'content' });
 function ArchivePage({ page, photos }) {
   const [currentImage, setCurrentImage] = useState(null);
   const [direction, setDirection] = useState('');
-  const [initialLoad, setInitialLoad] = useState(true);
+  const [isReturningFromExpandedView, setIsReturningFromExpandedView] = useState(false);
   const router = useRouter();
+  const initialLoadRef = useRef(true);
 
   const handleImageClick = useCallback((index) => {
     setCurrentImage(index);
     setDirection('');
-    setInitialLoad(false);
+    setIsReturningFromExpandedView(true);
   }, []);
 
   const handleNavigation = useCallback(
@@ -44,7 +45,6 @@ function ArchivePage({ page, photos }) {
     const handleRouteChange = (url) => {
       if (url === '/archive') {
         handleClose();
-        setInitialLoad(false);
       }
     };
 
@@ -54,6 +54,14 @@ function ArchivePage({ page, photos }) {
       router.events.off('routeChangeStart', handleRouteChange);
     };
   }, [router, handleClose]);
+
+  useEffect(() => {
+    if (initialLoadRef.current) {
+      initialLoadRef.current = false;
+    } else {
+      setIsReturningFromExpandedView(false);
+    }
+  }, [router.asPath]);
 
   // Variants for the overall expanded view container (used for showing and hiding)
   const expandedViewVariants = {
@@ -104,8 +112,8 @@ function ArchivePage({ page, photos }) {
       opacity: 1,
       transform: 'none',
       transition: {
-        delay: initialLoad ? index * 0.025 : 0,
         duration: 0.3,
+        delay: index * 0.1,
       },
     }),
   };
@@ -113,15 +121,15 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <div className={`h-screen p-4 ${currentImage !== null ? 'overflow-hidden' : 'overflow-y-auto'}`}>
-        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(15,minmax(0,1fr))] gap-4 gap-y-8">
+        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-8">
           {photos.map((photo, index) => (
             <motion.li
               key={index}
-              initial={initialLoad ? 'hidden' : false}
+              initial="hidden"
               animate="visible"
               exit="exit"
-              variants={gridVariants}
               custom={index}
+              variants={gridVariants}
               className={`flex justify-center items-start overflow-hidden ${
                 currentImage !== null ? 'hidden' : ''
               } relative cursor-pointer hover:scale-105 transition-transform duration-200`}
@@ -192,7 +200,7 @@ function ArchivePage({ page, photos }) {
                     transform: 'none',
                   }}
                 />
-                <div className="text-sm font-bold mt-2">
+                <div className="text-sm mt-2">
                   {photos[currentImage].alt_text || 'Expanded image'}
                 </div>
               </motion.section>
@@ -215,7 +223,7 @@ function ArchivePage({ page, photos }) {
         {/* Close Button - Fixed outside the expanded image */}
         {currentImage !== null && (
           <div
-            className="fixed text-sm font-bold cursor-pointer uppercase"
+            className="fixed text-sm cursor-pointer uppercase"
             style={{ left: '1rem', top: '1rem', zIndex: 100 }}
             onClick={handleClose}
           >

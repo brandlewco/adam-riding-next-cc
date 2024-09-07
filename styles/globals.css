@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apply to the root or body to affect the entire page */
+html {
+  scrollbar-gutter: stable both-edges; /* Prevents scrollbar from affecting layout */
+}
+
+
+*::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+  height: 4px; /* Height of the scrollbar for horizontal scroll */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black; /* Scrollbar thumb color */
+  border-radius: 4px; /* Rounded edges */
+}
+
+*::-webkit-scrollbar-track {
+  background: white; /* Scrollbar track color */
+}
+
+
+
 body {
   @apply overflow-hidden;
   cursor: pointer;

@@ -40,7 +40,6 @@ export default function CollectionPhoto({ block, dataBinding }) {
       width={dimensions.width}
       height={dimensions.height}
       style={{ maxHeight: "75vh", margin: "1rem 1rem 0 0" }}
-      unoptimized // Add this property if you don't have a custom loader
     />
   );
 }
