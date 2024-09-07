@@ -7,38 +7,40 @@ seo:
   author_twitter_handle: 
   open_graph_type:
   no_index: false
-content_blocks:
-  - _bookshop_name: contact/hero
-    title: Let's talk.
-    description: Have a question or suggestion? Feel free to drop us a message!
-  - _bookshop_name: contact/form
-    address:
-      heading: Office Address
-      address: 123 Train St, San Francisco, CA 9107
-    phone:
-      heading: Phone
-      cell: (123) 456 - 7895
-      image: /images/contact/call-add.svg
-      image_alt: call-add
-    email:
-      heading: Email
-      email: info@example.com
-      image: /images/contact/directbox-send.svg
-      image_alt: send-box
-    form:
-      heading: Say Hello
-      fullname:
-        heading: Full Name
-        placeholder: Enter First Name
-      phone_number:
-        heading: Phone number
-        placeholder: Enter Phone Number
-      email:
-        heading: Email Address
-        placeholder: Enter Email Address
-      message:
-        heading: Your Messages
-        placeholder: Enter your message
-      submit_button:
-        text: Send message
+column_1: >-
+  STUDIO & COMMISSIONS
+
+  BASED IN LOS ANGELES
+
+  EMAIL
+  480 823 8833
+
+  @ADAMRIDING
+
+column_2: >-
+  SELECT EDITORIAL & COMMERCIAL CLIENTS
+
+  The New York Times Magazine, Under Armour, Forbes, GQ, House Beautiful, Barrons, The Atlantic, WSJ,
+  Road and Track, The Guardian, The New York Times, Inc Magazine, Eater, Los Angeles Times,                                                                                                                            Golf Digest, The Global Ambassador, and DIE ZEIT.
+
+  FEATURES & INTERVIEWS
+
+  Fisheye Magazine
+  “Les Fictions de la Nuit Noire par Adam Riding”
+  September 15, 2022
+
+  Booooooom
+  “The Cellar Door”
+  July 26, 2022
+
+  Nowhere Diary
+  “STORY 89: ADAM RIDING”
+  July 16, 2021
+
+
+  BOOKS & PRINTS
+
+  DIRT
+  Self Published Broadsheet
+  First edition of 20
 ---

@@ -5,18 +5,20 @@ import ExportedImage from 'next-image-export-optimizer';
 import sizeOf from 'image-size';
 import path from 'path';
 import { useState, useCallback, useEffect } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter
+import { useRouter } from 'next/router';
 
 const filer = new Filer({ path: 'content' });
 
 function ArchivePage({ page, photos }) {
   const [currentImage, setCurrentImage] = useState(null);
   const [direction, setDirection] = useState('');
+  const [initialLoad, setInitialLoad] = useState(true);
   const router = useRouter();
 
   const handleImageClick = useCallback((index) => {
     setCurrentImage(index);
     setDirection('');
+    setInitialLoad(false);
   }, []);
 
   const handleNavigation = useCallback(
@@ -38,11 +40,11 @@ function ArchivePage({ page, photos }) {
     setCurrentImage(null);
   }, []);
 
-  // Close the expanded view when navigating to ARCHIVE
   useEffect(() => {
     const handleRouteChange = (url) => {
       if (url === '/archive') {
         handleClose();
+        setInitialLoad(false);
       }
     };
 
@@ -53,7 +55,23 @@ function ArchivePage({ page, photos }) {
     };
   }, [router, handleClose]);
 
-  const internalVariants = {
+  // Variants for the overall expanded view container (used for showing and hiding)
+  const expandedViewVariants = {
+    enter: { opacity: 0 },
+    center: {
+      opacity: 1,
+      transition: {
+        opacity: { duration: 0.4 },
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  // Variants for the image navigation inside the expanded view (left and right movement)
+  const navigationVariants = {
     enter: (direction) => ({
       opacity: 0,
       x: direction === 'left' ? '100%' : direction === 'right' ? '-100%' : 0,
@@ -74,47 +92,59 @@ function ArchivePage({ page, photos }) {
       opacity: 0,
       x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
       transition: {
-        type: 'spring',
-        stiffness: 150,
-        damping: 25,
-        duration: 0.2,
+        opacity: { duration: 0.3 },
       },
     }),
   };
 
+  // Variants for the grid items with simple opacity control
   const gridVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, transform: 'none' },
     visible: (index) => ({
       opacity: 1,
-      transition: { delay: index * 0.1, duration: 0.3 },
+      transform: 'none',
+      transition: {
+        delay: initialLoad ? index * 0.025 : 0,
+        duration: 0.3,
+      },
     }),
   };
 
   return (
     <DefaultLayout page={page}>
       <div className={`h-screen p-4 ${currentImage !== null ? 'overflow-hidden' : 'overflow-y-auto'}`}>
-        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(15,minmax(0,1fr))] gap-4">
+        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(15,minmax(0,1fr))] gap-4 gap-y-8">
           {photos.map((photo, index) => (
-            <li
+            <motion.li
               key={index}
+              initial={initialLoad ? 'hidden' : false}
+              animate="visible"
+              exit="exit"
+              variants={gridVariants}
+              custom={index}
               className={`flex justify-center items-start overflow-hidden ${
                 currentImage !== null ? 'hidden' : ''
-              }`}
-              style={{ alignItems: 'flex-start' }}
+              } relative cursor-pointer hover:scale-105 transition-transform duration-200`}
+              style={{
+                alignItems: 'flex-start',
+                transform: 'none !important',
+                transformOrigin: 'center !important',
+              }}
               onClick={() => handleImageClick(index)}
             >
-              <motion.div
-                layout
-                layoutId={`image-${photo.slug}-${photo.image_path}`}
-                initial="hidden"
-                animate="visible"
-                variants={gridVariants}
-                custom={index}
-                className="relative cursor-pointer hover:scale-105 transition-transform duration-200"
-              >
-                <PhotoBlock photo={photo} />
-              </motion.div>
-            </li>
+              <ExportedImage
+                src={photo.image_path}
+                alt={photo.alt_text || 'Photo image'}
+                width={photo.width}
+                height={photo.height}
+                sizes="(max-width: 800px) 100vw, 20vw"
+                style={{
+                  objectFit: 'contain',
+                  height: 'auto',
+                  width: '100%',
+                }}
+              />
+            </motion.li>
           ))}
         </ul>
 
@@ -124,7 +154,7 @@ function ArchivePage({ page, photos }) {
             <motion.div
               key={currentImage}
               layoutId={`image-${photos[currentImage].slug}-${photos[currentImage].image_path}`}
-              variants={internalVariants}
+              variants={expandedViewVariants} // Use for overall expanded view animations
               initial="enter"
               animate="center"
               exit="exit"
@@ -137,31 +167,33 @@ function ArchivePage({ page, photos }) {
                 position: 'relative',
                 width: 'auto',
                 overflow: 'hidden',
+                transform: 'none',
               }}
             >
               <motion.section
-                className="photo flex w-auto relative overflow-hidden"
-                style={{ height: '100vh' }}
+                className="photo flex flex-col items-end w-auto relative overflow-hidden"
+                style={{ height: '100vh', width: '100%' }}
+                variants={navigationVariants} // Use for left and right navigation animations
+                initial="enter"
+                animate="center"
+                exit="exit"
+                custom={direction}
               >
-                <div
-                  className="flex flex-col justify-end items-end w-auto relative overflow-hidden"
-                  style={{ height: '70vh' }}
-                >
-                  <ExportedImage
-                    src={photos[currentImage].image_path}
-                    alt={photos[currentImage].alt_text || 'Expanded image'}
-                    width={photos[currentImage].width}
-                    height={photos[currentImage].height}
-                    style={{
-                      objectFit: 'contain',
-                      width: 'auto',
-                      height: '70vh',
-                    }}
-                  />
-                  {/* Caption below the expanded image */}
-                  <div className="text-sm font-bold mt-2">
-                    {photos[currentImage].alt_text || 'Expanded image'}
-                  </div>
+                <ExportedImage
+                  src={photos[currentImage].image_path}
+                  alt={photos[currentImage].alt_text || 'Expanded image'}
+                  width={photos[currentImage].width}
+                  height={photos[currentImage].height}
+                  sizes="(max-width: 1080px) 100vw, 1080px"
+                  style={{
+                    objectFit: 'contain',
+                    width: 'auto',
+                    maxHeight: '70vh',
+                    transform: 'none',
+                  }}
+                />
+                <div className="text-sm font-bold mt-2">
+                  {photos[currentImage].alt_text || 'Expanded image'}
                 </div>
               </motion.section>
 
@@ -192,21 +224,6 @@ function ArchivePage({ page, photos }) {
         )}
       </div>
     </DefaultLayout>
-  );
-}
-
-function PhotoBlock({ photo }) {
-  return (
-    <div className="flex justify-center items-start overflow-hidden" style={{ width: '100%', height: 'auto' }}>
-      <ExportedImage
-        src={photo.image_path}
-        alt={photo.alt_text || 'Photo image'}
-        width={photo.width}
-        height={photo.height}
-        sizes="(max-width: 800px) 100vw, 50vw"
-        style={{ objectFit: 'contain' }}
-      />
-    </div>
   );
 }
 
