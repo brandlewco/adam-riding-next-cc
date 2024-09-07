@@ -8,22 +8,24 @@ seo:
   open_graph_type:
   no_index: false
 column_1: >-
-  STUDIO & COMMISSIONS
+  **STUDIO & COMMISSIONS**
 
   BASED IN LOS ANGELES
 
   EMAIL
+
   480 823 8833
 
   @ADAMRIDING
 
 column_2: >-
-  SELECT EDITORIAL & COMMERCIAL CLIENTS
+  **SELECT EDITORIAL & COMMERCIAL CLIENTS**
 
   The New York Times Magazine, Under Armour, Forbes, GQ, House Beautiful, Barrons, The Atlantic, WSJ,
-  Road and Track, The Guardian, The New York Times, Inc Magazine, Eater, Los Angeles Times,                                                                                                                            Golf Digest, The Global Ambassador, and DIE ZEIT.
+  Road and Track, The Guardian, The New York Times, Inc Magazine, Eater, Los Angeles Times,
+  Golf Digest, The Global Ambassador, and DIE ZEIT.
 
-  FEATURES & INTERVIEWS
+  **FEATURES & INTERVIEWS**
 
   Fisheye Magazine
   “Les Fictions de la Nuit Noire par Adam Riding”
@@ -37,8 +39,7 @@ column_2: >-
   “STORY 89: ADAM RIDING”
   July 16, 2021
 
-
-  BOOKS & PRINTS
+  **BOOKS & PRINTS**
 
   DIRT
   Self Published Broadsheet
