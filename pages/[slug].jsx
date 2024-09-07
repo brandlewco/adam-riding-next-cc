@@ -18,6 +18,7 @@ export async function getStaticPaths() {
 		blog: true,
 		"404": true,
 		"archive": true,
+		"contact": true,
 		feed: true
 	};
 
