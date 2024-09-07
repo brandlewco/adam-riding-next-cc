@@ -74,8 +74,7 @@ const CollectionPage = ({ page }) => {
     <DefaultLayout page={page}>
       {/* Collection Info in the Top Right Corner */}
       <div className="absolute top-4 left-4 text-left">
-        <div className="text-sm font-bold">{page.data.title}</div>
-        <div className="text-sm font-bold">{`${currentImage + 1} / ${imageCount}`}</div>
+        <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
       </div>
 
       <div
