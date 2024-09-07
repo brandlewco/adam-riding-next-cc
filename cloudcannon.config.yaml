@@ -101,6 +101,10 @@ _inputs:
     type: select
     options:
       values: collections.collection
+  column_1:
+    type: markdown
+  column_2:
+    type: markdown
 _structures:
   features:
     values:
