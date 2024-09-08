@@ -75,7 +75,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-21.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-21.jpg
     alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
