@@ -12,6 +12,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-108.jpg
+    alt_text: Idaho Rodeo - 2022
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-2.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -791,13 +798,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-107.jpg
     alt_text: Payson Rodeo - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-108.jpg
-    alt_text: Idaho Rodeo - 2022
     width: 30
     top: 0
     left: 0
