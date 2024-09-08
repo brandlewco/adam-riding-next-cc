@@ -12,6 +12,15 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-1.jpg
+    alt_text: >-
+      Unfinished ceramics from the studio of Jotham Hung. Jotham Hung Ceramics
+      based in Los Angeles, Ca shot originally for NAN Collective.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_LAFORTUNE-1.jpg
     alt_text: >-
       A table with drawing materials, Hermes purse, and jacket with an ornate
@@ -80,15 +89,6 @@ content_blocks:
       Desk details from the studio of Lulu LaFortune. The studio of Lulu
       LaFortune, a designer based in Los Angeles, Ca. Shot originally for House
       Beautiful publication.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-1.jpg
-    alt_text: >-
-      Unfinished ceramics from the studio of Jotham Hung. Jotham Hung Ceramics
-      based in Los Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
