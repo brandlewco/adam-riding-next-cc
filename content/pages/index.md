@@ -8,8 +8,8 @@ collections:
   - content/collection/iceland.md
   - content/collection/annotations.md
   - content/collection/the-court.md
-  - content/collection/dream-run-camp.md
   - content/collection/nan-collective.md
+  - content/collection/dream-run-camp.md
   - content/collection/vortex.md
   - content/collection/nyt-golf.md
 ---
