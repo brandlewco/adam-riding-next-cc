@@ -5,6 +5,41 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-1.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-2.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-3.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-4.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-5.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-1.jpg
     alt_text: Last Call - Personal Project
     width: 30
@@ -1162,41 +1197,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-156.jpg
     alt_text: Fourth of July - 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-1.jpg
-    alt_text: Florida Portraits - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-2.jpg
-    alt_text: Florida Portraits - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-3.jpg
-    alt_text: Florida Portraits - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-4.jpg
-    alt_text: Florida Portraits - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-5.jpg
-    alt_text: Florida Portraits - 2024
     width: 30
     top: 0
     left: 0
