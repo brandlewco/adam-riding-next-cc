@@ -572,15 +572,22 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-3.jpg
-    alt_text: Florida Portraits - 2024
+    image_path: /uploads/AR_ARCHIVE-59.jpg
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-6.jpg
-    alt_text: Florida Portraits - 2024
+    image_path: /uploads/AR_ARCHIVE-77.jpg
+    alt_text: Arizona Department of Corrections - Hustle 2.0
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-89.jpg
+    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
@@ -588,6 +595,27 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-3.jpg
     alt_text: Last Call - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-3.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-83.jpg
+    alt_text: The Cellar Door - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-6.jpg
+    alt_text: Florida Portraits - 2024
     width: 30
     top: 0
     left: 0
@@ -789,13 +817,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-59.jpg
-    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-60.jpg
     alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
@@ -873,13 +894,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-77.jpg
-    alt_text: Arizona Department of Corrections - Hustle 2.0
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-79.jpg
     alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
@@ -889,13 +903,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-80.jpg
     alt_text: Arizona Department of Corrections - Hustle 2.0
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-83.jpg
-    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
@@ -923,13 +930,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-88.jpg
-    alt_text: The Cellar Door - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-89.jpg
     alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
