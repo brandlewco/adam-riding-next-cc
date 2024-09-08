@@ -747,6 +747,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-60.jpg
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-19.jpg
     alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
@@ -889,13 +896,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-58.jpg
     alt_text: Malibu - 2023
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-60.jpg
-    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
     top: 0
     left: 0
