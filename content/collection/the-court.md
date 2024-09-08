@@ -109,77 +109,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-1.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, wearing black Nike athletic
-      clothing, Shot for a personal project focused on athletics in Phoenix, AZ
-      in 2023.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-3.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, stretching and wearing black
-      Nike athletic clothing, Shot for a personal project focused on athletics
-      in Phoenix, AZ in 2023.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ILISIA-5.jpg
-    alt_text: >-
-      Ascension is an athletic basketball project featuring an athlete dunking
-      the basketball, set against a sky backdrop. This project was shot and
-      completed in Phoenix, AZ in 2024.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-4.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, playing basketball and wearing
-      black Nike athletic clothing, Shot for a personal project focused on
-      athletics in Phoenix, AZ in 2023.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-6.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, wearing black Nike athletic
-      clothing, Shot for a personal project focused on athletics in Phoenix, AZ
-      in 2023.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-8.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, stretching and wearing black
-      Nike athletic clothing, Shot for a personal project focused on athletics
-      in Phoenix, AZ in 2023.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_KAEDON-8.jpg
-    alt_text: >-
-      Player dribbling the basketball with hair flowing and backlit. Friends
-      playing basketball. On The Court was a personal project that depicts
-      friends coming together to play basketball outside. Shot and completed in
-      Scottsdale, AZ in 2023.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-2.jpg
     alt_text: >-
       Liana Levi, founder of Forma Pilates LA, in the middle of a pilates
@@ -199,17 +128,38 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ILISIA-3.jpg
+    image_path: /uploads/AR_KAEDON-8.jpg
     alt_text: >-
-      Ascension is an athletic basketball project featuring an athlete dunking
-      the basketball, set against a sky backdrop. This project was shot and
-      completed in Phoenix, AZ in 2024.
+      Player dribbling the basketball with hair flowing and backlit. Friends
+      playing basketball. On The Court was a personal project that depicts
+      friends coming together to play basketball outside. Shot and completed in
+      Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ILISIA-4.jpg
+    image_path: /uploads/AR_IVORY-4.jpg
+    alt_text: >-
+      Ivory Williams, model repped by Agency Az, playing basketball and wearing
+      black Nike athletic clothing, Shot for a personal project focused on
+      athletics in Phoenix, AZ in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-3.jpg
+    alt_text: >-
+      Ivory Williams, model repped by Agency Az, stretching and wearing black
+      Nike athletic clothing, Shot for a personal project focused on athletics
+      in Phoenix, AZ in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ILISIA-3.jpg
     alt_text: >-
       Ascension is an athletic basketball project featuring an athlete dunking
       the basketball, set against a sky backdrop. This project was shot and
@@ -226,7 +176,27 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-4.jpg
+    image_path: /uploads/AR_IVORY-1.jpg
+    alt_text: >-
+      Ivory Williams, model repped by Agency Az, wearing black Nike athletic
+      clothing, Shot for a personal project focused on athletics in Phoenix, AZ
+      in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-6.jpg
+    alt_text: >-
+      Ivory Williams, model repped by Agency Az, wearing black Nike athletic
+      clothing, Shot for a personal project focused on athletics in Phoenix, AZ
+      in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FORMA-6.jpg
     alt_text: >-
       Liana Levi, founder of Forma Pilates LA, in the middle of a pilates
       workout in The Global Ambassador pilates gym in Scottsdale, AZ.
@@ -235,7 +205,37 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-6.jpg
+    image_path: /uploads/AR_ILISIA-5.jpg
+    alt_text: >-
+      Ascension is an athletic basketball project featuring an athlete dunking
+      the basketball, set against a sky backdrop. This project was shot and
+      completed in Phoenix, AZ in 2024.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-8.jpg
+    alt_text: >-
+      Ivory Williams, model repped by Agency Az, stretching and wearing black
+      Nike athletic clothing, Shot for a personal project focused on athletics
+      in Phoenix, AZ in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ILISIA-4.jpg
+    alt_text: >-
+      Ascension is an athletic basketball project featuring an athlete dunking
+      the basketball, set against a sky backdrop. This project was shot and
+      completed in Phoenix, AZ in 2024.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FORMA-4.jpg
     alt_text: >-
       Liana Levi, founder of Forma Pilates LA, in the middle of a pilates
       workout in The Global Ambassador pilates gym in Scottsdale, AZ.
