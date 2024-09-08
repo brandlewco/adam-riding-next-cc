@@ -964,7 +964,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-152.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-152.jpg
     alt_text: 6x6 Jeep - Road and Track
     width: 30
     top: 0
@@ -985,14 +985,14 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-35.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-35.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-19.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-19.jpg
     alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
