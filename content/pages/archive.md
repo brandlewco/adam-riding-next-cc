@@ -635,8 +635,36 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-6.jpg
-    alt_text: Florida Portraits - 2024
+    image_path: /uploads/AR_ARCHIVE-8.jpg
+    alt_text: Sebastian Vargas - Phoenix, 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-64.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-74.jpg
+    alt_text: Arizona Department of Corrections - Hustle 2.0
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-90.jpg
+    alt_text: The Cellar Door - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-115.jpg
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
@@ -649,8 +677,22 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-8.jpg
-    alt_text: Sebastian Vargas - Phoenix, 2021
+    image_path: /uploads/AR_ARCHIVE-151.jpg
+    alt_text: 6x6 Jeep - Road and Track
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-48.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-6.jpg
+    alt_text: Florida Portraits - 2024
     width: 30
     top: 0
     left: 0
@@ -782,13 +824,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-48.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-49.jpg
     alt_text: The Produce Garden Blooms - The New York Times
     width: 30
@@ -845,13 +880,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-64.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-66.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
@@ -882,13 +910,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-71.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-74.jpg
-    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
@@ -937,13 +958,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-88.jpg
-    alt_text: The Cellar Door - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-90.jpg
     alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
@@ -1021,13 +1035,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-114.jpg
-    alt_text: The Global Ambassador Hotel - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-115.jpg
     alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
@@ -1176,13 +1183,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-150.jpg
     alt_text: Honda v Toyota - Road and Track
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-151.jpg
-    alt_text: 6x6 Jeep - Road and Track
     width: 30
     top: 0
     left: 0
