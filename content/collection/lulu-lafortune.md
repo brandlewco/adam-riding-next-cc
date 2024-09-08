@@ -95,35 +95,45 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-2.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      ortrait of Jotham Hung in the studio of Jotham Hung. Jotham Hung Ceramics
+      based in Los Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-3.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Hand of Jotham Hung, working on pottery. Jotham Hung Ceramics based in Los
+      Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-4.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Studio details from the studio of Jotham Hung. Jotham Hung Ceramics based
+      in Los Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-5.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Jotham Hung working on pottery in his studio. Jotham Hung Ceramics based
+      in Los Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-6.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Studio details from the studio of Jotham Hung. Jotham Hung Ceramics based
+      in Los Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
