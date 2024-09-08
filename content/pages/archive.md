@@ -1166,4 +1166,46 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-1.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-2.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-3.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-4.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-5.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-6.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
