@@ -19,6 +19,55 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-6.jpg
+    alt_text: Sebastian Vargas - Phoenix, 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-2.jpg
+    alt_text: Last Call - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-116.jpg
+    alt_text: The Global Ambassador Hotel - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-10.jpg
+    alt_text: Overland Expo - GQ
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-45.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-72.jpg
+    alt_text: Shelly - 2022
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-78.jpg
+    alt_text: Arizona Department of Corrections - Hustle 2.0
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-2.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -61,13 +110,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-2.jpg
-    alt_text: Last Call - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-3.jpg
     alt_text: Last Call - Personal Project
     width: 30
@@ -89,13 +131,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-6.jpg
-    alt_text: Sebastian Vargas - Phoenix, 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-7.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
@@ -112,13 +147,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-9.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-10.jpg
-    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
@@ -362,13 +390,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-45.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-46.jpg
     alt_text: The Produce Garden Blooms - The New York Times
     width: 30
@@ -551,13 +572,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-72.jpg
-    alt_text: Shelly - 2022
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-73.jpg
     alt_text: F+V - 2022
     width: 30
@@ -587,13 +601,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-77.jpg
-    alt_text: Arizona Department of Corrections - Hustle 2.0
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-78.jpg
     alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
@@ -846,13 +853,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-115.jpg
-    alt_text: The Global Ambassador Hotel - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-116.jpg
     alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
