@@ -320,6 +320,48 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-117.jpg
+    alt_text: The Global Ambassador Hotel - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-14.jpg
+    alt_text: Overland Expo - GQ
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-121.jpg
+    alt_text: Pine, AZ - 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-126.jpg
+    alt_text: Pilot Trey Thriffiley - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-86.jpg
+    alt_text: The Cellar Door - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-111.jpg
+    alt_text: The Global Ambassador Hotel - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-3.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -371,13 +413,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-14.jpg
-    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
@@ -768,13 +803,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-86.jpg
-    alt_text: The Cellar Door - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-87.jpg
     alt_text: The Cellar Door - Personal Project
     width: 30
@@ -894,13 +922,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-111.jpg
-    alt_text: The Global Ambassador Hotel - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-112.jpg
     alt_text: The Global Ambassador Hotel - 2024
     width: 30
@@ -923,13 +944,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-115.jpg
-    alt_text: The Global Ambassador Hotel - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-117.jpg
     alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
@@ -985,13 +999,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-121.jpg
-    alt_text: Pine, AZ - 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-122.jpg
     alt_text: Pine, AZ - 2021
     width: 30
@@ -1001,13 +1008,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-124.jpg
     alt_text: NYC - 2023
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-126.jpg
-    alt_text: Pilot Trey Thriffiley - The New York Times
     width: 30
     top: 0
     left: 0
