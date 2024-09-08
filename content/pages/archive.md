@@ -68,6 +68,62 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-101.jpg
+    alt_text: Payson Rodeo - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-21.jpg
+    alt_text: A Very American Death - The Guardian
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-25.jpg
+    alt_text: Phoenix Sky Harbor Airport - WSJ
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-4.jpg
+    alt_text: Last Call - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-15.jpg
+    alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-46.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-142.jpg
+    alt_text: Refugee Abwe Songolo - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-18.jpg
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-2.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -117,13 +173,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-4.jpg
-    alt_text: Last Call - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-5.jpg
     alt_text: Last Call - Personal Project
     width: 30
@@ -166,6 +215,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-157.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-13.jpg
     alt_text: Overland Expo - GQ
     width: 30
@@ -187,21 +243,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-15.jpg
-    alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-17.jpg
-    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-18.jpg
     alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
@@ -217,13 +259,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-20.jpg
     alt_text: Furniture Designer Levi Christiansen - Dozer Chair
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-21.jpg
-    alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
     left: 0
@@ -245,13 +280,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-24.jpg
     alt_text: A Very American Death - The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-25.jpg
-    alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
     top: 0
     left: 0
@@ -385,13 +413,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-44.jpg
     alt_text: Extreme Heat - Zeit
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-46.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
@@ -761,13 +782,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-101.jpg
-    alt_text: Payson Rodeo - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-102.jpg
     alt_text: Payson Rodeo - Personal Project
     width: 30
@@ -868,13 +882,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-118.jpg
     alt_text: The Global Ambassador Hotel - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-157.jpg
-    alt_text: PUBLIC Hotel New York City - 2023
     width: 30
     top: 0
     left: 0
@@ -1098,13 +1105,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-141.jpg
-    alt_text: Refugee Abwe Songolo - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-142.jpg
     alt_text: Refugee Abwe Songolo - The New York Times
     width: 30
     top: 0
