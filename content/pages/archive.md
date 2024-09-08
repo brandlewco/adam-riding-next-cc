@@ -831,7 +831,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-150.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-150.jpg
     alt_text: Honda v Toyota - Road and Track
     width: 30
     top: 0
