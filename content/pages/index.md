@@ -10,7 +10,6 @@ collections:
   - content/collection/vortex.md
   - content/collection/iceland.md
   - content/collection/dream-run-camp.md
-  - content/collection/florida-portraits.md
   - content/collection/nan-collective.md
   - content/collection/nyt-golf.md
 ---
