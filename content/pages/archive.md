@@ -817,8 +817,50 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-19.jpg
-    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
+    image_path: /uploads/AR_ARCHIVE-144.jpg
+    alt_text: Stem - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-150.jpg
+    alt_text: Honda v Toyota - Road and Track
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-44.jpg
+    alt_text: Extreme Heat - Zeit
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-38.jpg
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-76.jpg
+    alt_text: Arizona Department of Corrections - Hustle 2.0
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-106.jpg
+    alt_text: Payson Rodeo - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-69.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
@@ -826,6 +868,20 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-22.jpg
     alt_text: A Very American Death - The Guardian
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-66.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-19.jpg
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
     left: 0
@@ -866,13 +922,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-38.jpg
-    alt_text: A Troubling Sign for 2024 -  The Atlantic
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-39.jpg
     alt_text: Extreme Heat - Zeit
     width: 30
@@ -895,13 +944,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-43.jpg
-    alt_text: Extreme Heat - Zeit
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-44.jpg
     alt_text: Extreme Heat - Zeit
     width: 30
     top: 0
@@ -950,29 +992,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-66.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-67.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-69.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-76.jpg
-    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
@@ -1056,13 +1077,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-105.jpg
-    alt_text: Payson Rodeo - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-106.jpg
     alt_text: Payson Rodeo - Personal Project
     width: 30
     top: 0
@@ -1181,21 +1195,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-144.jpg
-    alt_text: Stem - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-149.jpg
-    alt_text: Honda v Toyota - Road and Track
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-150.jpg
     alt_text: Honda v Toyota - Road and Track
     width: 30
     top: 0
