@@ -383,6 +383,69 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-29.jpg
+    alt_text: Phoenix Sky Harbor Airport - WSJ
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-24.jpg
+    alt_text: A Very American Death - The Guardian
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-120.jpg
+    alt_text: Pine, AZ - 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-16.jpg
+    alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-1.jpg
+    alt_text: Last Call - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-162.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-30.jpg
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-147.jpg
+    alt_text: 7-Eleven Murder - Zeit
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-138.jpg
+    alt_text: Secretary of State Adrian Fontes -  The Guardian
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-3.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -399,13 +462,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-6.jpg
     alt_text: Florida Portraits - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-1.jpg
-    alt_text: Last Call - Personal Project
     width: 30
     top: 0
     left: 0
@@ -434,13 +490,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-16.jpg
-    alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
     width: 30
     top: 0
     left: 0
@@ -481,29 +530,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-24.jpg
-    alt_text: A Very American Death - The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-26.jpg
     alt_text: Phoenix Sky Harbor Airport - WSJ
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-29.jpg
-    alt_text: Phoenix Sky Harbor Airport - WSJ
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-30.jpg
-    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
@@ -964,13 +992,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-162.jpg
-    alt_text: PUBLIC Hotel New York City - 2023
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-163.jpg
     alt_text: PUBLIC Hotel New York City - 2023
     width: 30
@@ -987,13 +1008,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-165.jpg
     alt_text: PUBLIC Hotel New York City - 2023
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-120.jpg
-    alt_text: Pine, AZ - 2021
     width: 30
     top: 0
     left: 0
@@ -1090,13 +1104,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-138.jpg
-    alt_text: Secretary of State Adrian Fontes -  The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-139.jpg
     alt_text: The Grand Canyon - 2023
     width: 30
@@ -1134,13 +1141,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-145.jpg
     alt_text: American Race Car Driver Jeff Gordon - Phoenix Children's Foundation
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-147.jpg
-    alt_text: 7-Eleven Murder - Zeit
     width: 30
     top: 0
     left: 0
