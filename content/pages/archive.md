@@ -894,7 +894,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-32.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-32.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
@@ -915,7 +915,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-31.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-31.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
@@ -936,7 +936,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-128.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
     alt_text: The Farmer and His Crop - Personal Project
     width: 30
     top: 0
