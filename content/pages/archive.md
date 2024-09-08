@@ -880,8 +880,29 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-19.jpg
-    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
+    image_path: /uploads/AR_ARCHIVE-105.jpg
+    alt_text: Payson Rodeo - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-32.jpg
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-131.jpg
+    alt_text: Big Tech Makes a Big Bet - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-67.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
@@ -894,8 +915,36 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-32.jpg
-    alt_text: A Troubling Sign for 2024 -  The Atlantic
+    image_path: /uploads/AR_ARCHIVE-85.jpg
+    alt_text: The Cellar Door - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-52.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-128.jpg
+    alt_text: The Farmer and His Crop - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-79.jpg
+    alt_text: Arizona Department of Corrections - Hustle 2.0
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-19.jpg
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
     left: 0
@@ -964,13 +1013,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-52.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-55.jpg
     alt_text: The Produce Garden Blooms - The New York Times
     width: 30
@@ -992,29 +1034,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-67.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-79.jpg
-    alt_text: Arizona Department of Corrections - Hustle 2.0
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-80.jpg
     alt_text: Arizona Department of Corrections - Hustle 2.0
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-85.jpg
-    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
@@ -1076,13 +1097,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-105.jpg
-    alt_text: Payson Rodeo - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-107.jpg
     alt_text: Payson Rodeo - Personal Project
     width: 30
@@ -1118,13 +1132,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-128.jpg
-    alt_text: The Farmer and His Crop - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-129.jpg
     alt_text: My Street at 12:01 AM - 2020
     width: 30
@@ -1134,13 +1141,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-130.jpg
     alt_text: My Street at 12:01 AM - 2020
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-131.jpg
-    alt_text: Big Tech Makes a Big Bet - The New York Times
     width: 30
     top: 0
     left: 0
