@@ -12,6 +12,16 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_KAEDON-1.jpg
+    alt_text: >-
+      Black and white image of friends playing basketball. On The Court was a
+      personal project that depicts friends coming together to play basketball
+      outside. Shot and completed in Scottsdale, AZ in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-1.jpg
     alt_text: >-
       Ivory Williams, model repped by Agency Az, wearing black Nike athletic
@@ -117,16 +127,6 @@ content_blocks:
       Ivory Williams, model repped by Agency Az, stretching and wearing black
       Nike athletic clothing, Shot for a personal project focused on athletics
       in Phoenix, AZ in 2023.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_KAEDON-1.jpg
-    alt_text: >-
-      Black and white image of friends playing basketball. On The Court was a
-      personal project that depicts friends coming together to play basketball
-      outside. Shot and completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
