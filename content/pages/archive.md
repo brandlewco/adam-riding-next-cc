@@ -509,14 +509,70 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-3.jpg
-    alt_text: Florida Portraits - 2024
+    image_path: /uploads/AR_ARCHIVE-155.jpg
+    alt_text: Fourth of July - 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-7.jpg
+    alt_text: Sebastian Vargas - Phoenix, 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-148.jpg
+    alt_text: 7-Eleven Murder - Zeit
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-5.jpg
+    alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-65.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-91.jpg
+    alt_text: The Cellar Door - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-163.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-20.jpg
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-50.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-3.jpg
     alt_text: Florida Portraits - 2024
     width: 30
     top: 0
@@ -544,13 +600,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-7.jpg
-    alt_text: Sebastian Vargas - Phoenix, 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
@@ -566,13 +615,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-19.jpg
-    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-20.jpg
     alt_text: Furniture Designer Levi Christiansen - Dozer Chair
     width: 30
     top: 0
@@ -705,13 +747,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-50.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-52.jpg
     alt_text: The Produce Garden Blooms - The New York Times
     width: 30
@@ -776,13 +811,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-64.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-65.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
@@ -915,13 +943,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-91.jpg
-    alt_text: The Cellar Door - Personal Project
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-97.jpg
     alt_text: Logan Glennie - AZ Foothills Magazine
     width: 30
@@ -1007,13 +1028,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-159.jpg
-    alt_text: PUBLIC Hotel New York City - 2023
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-163.jpg
     alt_text: PUBLIC Hotel New York City - 2023
     width: 30
     top: 0
@@ -1153,13 +1167,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-148.jpg
-    alt_text: 7-Eleven Murder - Zeit
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-149.jpg
     alt_text: Honda v Toyota - Road and Track
     width: 30
@@ -1190,13 +1197,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-153.jpg
     alt_text: Musician Cal-X - 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-155.jpg
-    alt_text: Fourth of July - 2021
     width: 30
     top: 0
     left: 0
