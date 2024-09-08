@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Interiors
-slug: interiors
+title: Spaces
+slug: spaces
 seo:
   page_description:
   canonical_url:
