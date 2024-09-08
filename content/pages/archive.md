@@ -1201,11 +1201,4 @@ content_blocks:
     top: 0
     left: 0
     right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-98.jpg
-    alt_text: Logan Glennie - AZ Foothills Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
 ---
