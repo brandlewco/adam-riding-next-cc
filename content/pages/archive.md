@@ -285,7 +285,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-166.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-166.jpg
     alt_text: PUBLIC Hotel New York City - 2023
     width: 30
     top: 0
