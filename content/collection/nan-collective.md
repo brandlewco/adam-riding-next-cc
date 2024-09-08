@@ -103,4 +103,60 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-2.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-1.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-3.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-4.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-5.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-6.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-7.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-8.jpg
+    alt_text: Image Alt Text
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
