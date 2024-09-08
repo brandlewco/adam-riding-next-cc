@@ -34,24 +34,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_NANCOLLECTIVE-3.jpg
-    alt_text: >-
-      Portrait of Benjamin Font of NAN Collective. Photographed originally for
-      NAN Collective in Los Angeles, Ca.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_NANCOLLECTIVE-4.jpg
-    alt_text: >-
-      Portrait of Alexa Miramontes of NAN Collective. Photographed originally
-      for NAN Collective in Los Angeles, Ca.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-5.jpg
     alt_text: >-
       NAN Collective. Styled by Alexa Miramontes and Benjamin Font. Located in
@@ -63,42 +45,54 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-1.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-2.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-3.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-5.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-6.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-7.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
