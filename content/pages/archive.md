@@ -1139,7 +1139,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-159.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-159.jpg
     alt_text: PUBLIC Hotel New York City - 2023
     width: 30
     top: 0
@@ -1188,7 +1188,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-127.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
     alt_text: The Farmer and His Crop - Personal Project
     width: 30
     top: 0
