@@ -145,8 +145,50 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-61.jpg
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-36.jpg
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-2.jpg
     alt_text: Florida Portraits - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-28.jpg
+    alt_text: Phoenix Sky Harbor Airport - WSJ
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-51.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-9.jpg
+    alt_text: Sebastian Vargas - Phoenix, 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-63.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
@@ -209,13 +251,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
-    alt_text: Sebastian Vargas - Phoenix, 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-9.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
     top: 0
@@ -313,13 +348,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-28.jpg
-    alt_text: Phoenix Sky Harbor Airport - WSJ
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-29.jpg
     alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
@@ -363,13 +391,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-35.jpg
-    alt_text: A Troubling Sign for 2024 -  The Atlantic
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-36.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
@@ -460,13 +481,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-51.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-52.jpg
     alt_text: The Produce Garden Blooms - The New York Times
     width: 30
@@ -530,22 +544,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-61.jpg
-    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-62.jpg
     alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-63.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
