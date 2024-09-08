@@ -42,11 +42,48 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-2.jpg
+    alt_text: >-
+      Portrait of Jotham Hung in the studio of Jotham Hung. Jotham Hung Ceramics
+      based in Los Angeles, Ca shot originally for NAN Collective.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-7.jpg
+    alt_text: >-
+      Hand of Jotham Hung, working on pottery. Jotham Hung Ceramics based in Los
+      Angeles, Ca shot originally for NAN Collective.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-7.jpg
+    alt_text: >-
+      Desk details from the studio of Lulu LaFortune. The studio of Lulu
+      LaFortune, a designer based in Los Angeles, Ca. Shot originally for House
+      Beautiful publication.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_LAFORTUNE-3.jpg
     alt_text: >-
       Portrait of Lulu LaFortune in her studio. The studio of Lulu LaFortune, a
       designer based in Los Angeles, Ca. Shot originally for House Beautiful
       publication.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-4.jpg
+    alt_text: >-
+      Studio details from the studio of Jotham Hung. Jotham Hung Ceramics based
+      in Los Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
@@ -74,75 +111,10 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-6.jpg
-    alt_text: >-
-      Vintage sideboard, lamp, books, and frame from NAN Collective in the
-      studio of Lulu LaFortune. The studio of Lulu LaFortune, a designer based
-      in Los Angeles, Ca. Shot originally for House Beautiful publication. 
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-7.jpg
-    alt_text: >-
-      Desk details from the studio of Lulu LaFortune. The studio of Lulu
-      LaFortune, a designer based in Los Angeles, Ca. Shot originally for House
-      Beautiful publication.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-2.jpg
-    alt_text: >-
-      ortrait of Jotham Hung in the studio of Jotham Hung. Jotham Hung Ceramics
-      based in Los Angeles, Ca shot originally for NAN Collective.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-3.jpg
-    alt_text: >-
-      Hand of Jotham Hung, working on pottery. Jotham Hung Ceramics based in Los
-      Angeles, Ca shot originally for NAN Collective.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-4.jpg
-    alt_text: >-
-      Studio details from the studio of Jotham Hung. Jotham Hung Ceramics based
-      in Los Angeles, Ca shot originally for NAN Collective.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-5.jpg
     alt_text: >-
       Jotham Hung working on pottery in his studio. Jotham Hung Ceramics based
       in Los Angeles, Ca shot originally for NAN Collective.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-6.jpg
-    alt_text: >-
-      Studio details from the studio of Jotham Hung. Jotham Hung Ceramics based
-      in Los Angeles, Ca shot originally for NAN Collective.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-7.jpg
-    alt_text: >-
-      Hand of Jotham Hung, working on pottery. Jotham Hung Ceramics based in Los
-      Angeles, Ca shot originally for NAN Collective.
     width: 30
     top: 0
     left: 0
