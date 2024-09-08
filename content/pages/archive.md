@@ -754,15 +754,36 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-19.jpg
-    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
+    image_path: /uploads/AR_ARCHIVE-68.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-22.jpg
-    alt_text: A Very American Death - The Guardian
+    image_path: /uploads/AR_ARCHIVE-156.jpg
+    alt_text: Fourth of July - 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-141.jpg
+    alt_text: Refugee Abwe Songolo - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-26.jpg
+    alt_text: Phoenix Sky Harbor Airport - WSJ
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-133.jpg
+    alt_text: Crypto -WSJ
     width: 30
     top: 0
     left: 0
@@ -775,8 +796,36 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-26.jpg
-    alt_text: Phoenix Sky Harbor Airport - WSJ
+    image_path: /uploads/AR_ARCHIVE-62.jpg
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-71.jpg
+    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-75.jpg
+    alt_text: Arizona Department of Corrections - Hustle 2.0
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-19.jpg
+    alt_text: Furniture Designer Levi Christiansen - Dozer Chair
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-22.jpg
+    alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
     left: 0
@@ -901,13 +950,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-62.jpg
-    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-66.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
@@ -922,29 +964,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-68.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-69.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-71.jpg
-    alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-75.jpg
-    alt_text: Arizona Department of Corrections - Hustle 2.0
     width: 30
     top: 0
     left: 0
@@ -1118,13 +1139,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-133.jpg
-    alt_text: Crypto -WSJ
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-135.jpg
     alt_text: Art Theft - The New York Times
     width: 30
@@ -1160,13 +1174,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-141.jpg
-    alt_text: Refugee Abwe Songolo - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-143.jpg
     alt_text: Stem - 2024
     width: 30
@@ -1197,13 +1204,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-152.jpg
     alt_text: 6x6 Jeep - Road and Track
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-156.jpg
-    alt_text: Fourth of July - 2021
     width: 30
     top: 0
     left: 0
