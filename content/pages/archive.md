@@ -306,6 +306,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-119.jpg
+    alt_text: Pine, AZ - 2021
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-3.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -966,13 +973,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-165.jpg
     alt_text: PUBLIC Hotel New York City - 2023
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-119.jpg
-    alt_text: Pine, AZ - 2021
     width: 30
     top: 0
     left: 0
