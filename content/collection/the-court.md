@@ -123,91 +123,132 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-1.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Black and white image of friends playing basketball. On The Court was a
+      personal project that depicts friends coming together to play basketball
+      outside. Shot and completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-2.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Detail shot of the eye of one of the players. On The Court was a personal
+      project that depicts friends coming together to play basketball outside.
+      Shot and completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-3.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Friends playing basketball. On The Court was a personal project that
+      depicts friends coming together to play basketball outside. Shot and
+      completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-4.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Detail of a ball dribbling with hair of the player. On The Court was a
+      personal project that depicts friends coming together to play basketball
+      outside. Shot and completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-6.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Player dribbling the basketball with hair flowing and backlit. Friends
+      playing basketball. On The Court was a personal project that depicts
+      friends coming together to play basketball outside. Shot and completed in
+      Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-5.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Friends playing basketball. On The Court was a personal project that
+      depicts friends coming together to play basketball outside. Shot and
+      completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-7.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Friends playing basketball. On The Court was a personal project that
+      depicts friends coming together to play basketball outside. Shot and
+      completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-8.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Player dribbling the basketball with hair flowing and backlit. Friends
+      playing basketball. On The Court was a personal project that depicts
+      friends coming together to play basketball outside. Shot and completed in
+      Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-1.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Ascension is an athletic basketball project featuring an athlete dunking
+      the basketball, set against a sky backdrop. This project was shot and
+      completed in Phoenix, AZ in 2024.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-2.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Ascension is an athletic basketball project featuring an athlete dunking
+      the basketball, set against a sky backdrop. This project was shot and
+      completed in Phoenix, AZ in 2024.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-3.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Ascension is an athletic basketball project featuring an athlete dunking
+      the basketball, set against a sky backdrop. This project was shot and
+      completed in Phoenix, AZ in 2024.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-4.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Ascension is an athletic basketball project featuring an athlete dunking
+      the basketball, set against a sky backdrop. This project was shot and
+      completed in Phoenix, AZ in 2024.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-5.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Ascension is an athletic basketball project featuring an athlete dunking
+      the basketball, set against a sky backdrop. This project was shot and
+      completed in Phoenix, AZ in 2024.
     width: 30
     top: 0
     left: 0
