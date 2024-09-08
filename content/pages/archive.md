@@ -614,6 +614,27 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-145.jpg
+    alt_text: American Race Car Driver Jeff Gordon - Phoenix Children's Foundation
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-84.jpg
+    alt_text: The Cellar Door - Personal Project
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-54.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-6.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -782,13 +803,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-54.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-55.jpg
     alt_text: The Produce Garden Blooms - The New York Times
     width: 30
@@ -903,13 +917,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-80.jpg
     alt_text: Arizona Department of Corrections - Hustle 2.0
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-84.jpg
-    alt_text: The Cellar Door - Personal Project
     width: 30
     top: 0
     left: 0
@@ -1155,13 +1162,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-144.jpg
     alt_text: Stem - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-145.jpg
-    alt_text: American Race Car Driver Jeff Gordon - Phoenix Children's Foundation
     width: 30
     top: 0
     left: 0
