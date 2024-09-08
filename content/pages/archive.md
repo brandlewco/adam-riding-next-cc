@@ -243,7 +243,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-123.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-123.jpg
     alt_text: Suberbowl 23 - The New York Times
     width: 30
     top: 0
