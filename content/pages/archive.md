@@ -124,6 +124,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-157.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-2.jpg
     alt_text: Florida Portraits - 2024
     width: 30
@@ -210,13 +217,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-12.jpg
     alt_text: Overland Expo - GQ
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-157.jpg
-    alt_text: PUBLIC Hotel New York City - 2023
     width: 30
     top: 0
     left: 0
