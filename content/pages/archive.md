@@ -425,7 +425,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-30.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
