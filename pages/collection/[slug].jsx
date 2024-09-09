@@ -147,7 +147,6 @@ const MemoizedCollectionPage = memo(CollectionPage);
 MemoizedCollectionPage.displayName = 'CollectionPage';
 
 export default MemoizedCollectionPage;
-
 export async function getStaticPaths() {
   const collections = await filer.getItems('collection');
   const paths = collections.map((collection) => ({
@@ -162,6 +161,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const collections = await filer.getItems('collection');
+  const indexPage = await filer.getItem('index.md', { folder: 'pages' });
+
   const collection = collections.find(
     (col) => col.data.slug === params.slug || col.slug === params.slug
   );
@@ -172,10 +173,14 @@ export async function getStaticProps({ params }) {
     };
   }
 
-  const slugs = collections.map((col) => col.data.slug || col.slug);
-  const currentIndex = slugs.indexOf(params.slug);
-  const nextSlug = currentIndex >= 0 && currentIndex < slugs.length - 1 ? slugs[currentIndex + 1] : slugs[0];
-  const prevSlug = currentIndex > 0 ? slugs[currentIndex - 1] : slugs[slugs.length - 1];
+  const orderedSlugs = indexPage.data.collections.map((collectionPath) => {
+    const parts = collectionPath.split('/');
+    return parts[parts.length - 1].replace('.md', '');
+  });
+
+  const currentIndex = orderedSlugs.indexOf(params.slug);
+  const nextSlug = currentIndex >= 0 && currentIndex < orderedSlugs.length - 1 ? orderedSlugs[currentIndex + 1] : orderedSlugs[0];
+  const prevSlug = currentIndex > 0 ? orderedSlugs[currentIndex - 1] : orderedSlugs[orderedSlugs.length - 1];
 
   return {
     props: {
