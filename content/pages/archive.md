@@ -677,7 +677,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-151.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-151.jpg
     alt_text: 6x6 Jeep - Road and Track
     width: 30
     top: 0
@@ -691,7 +691,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-48.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-48.jpg
     alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
@@ -733,7 +733,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-134.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-134.jpg
     alt_text: Crypto -WSJ
     width: 30
     top: 0
@@ -971,7 +971,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-124.jpg
+    image_path: /uploads/FIXED_AR_ARCHIVE-124.jpg
     alt_text: NYC - 2023
     width: 30
     top: 0
