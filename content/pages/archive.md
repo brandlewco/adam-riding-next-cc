@@ -390,13 +390,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-24.jpg
-    alt_text: A Very American Death - The Guardian
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-120.jpg
     alt_text: Pine, AZ - 2021
     width: 30
@@ -406,6 +399,13 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-16.jpg
     alt_text: Psychedelic Toxins of the Sonoran Desert Toad - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-24.jpg
+    alt_text: A Very American Death - The Guardian
     width: 30
     top: 0
     left: 0
