@@ -334,15 +334,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-121.jpg
-    alt_text: Pine, AZ - 2021
+    image_path: /uploads/AR_ARCHIVE-126.jpg
+    alt_text: Pilot Trey Thriffiley - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-126.jpg
-    alt_text: Pilot Trey Thriffiley - The New York Times
+    image_path: /uploads/AR_ARCHIVE-34.jpg
+    alt_text: A Troubling Sign for 2024 -  The Atlantic
     width: 30
     top: 0
     left: 0
@@ -362,8 +362,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-34.jpg
-    alt_text: A Troubling Sign for 2024 -  The Atlantic
+    image_path: /uploads/AR_ARCHIVE-121.jpg
+    alt_text: Pine, AZ - 2021
     width: 30
     top: 0
     left: 0
