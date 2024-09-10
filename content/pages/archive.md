@@ -159,15 +159,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-61.jpg
-    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
+    image_path: /uploads/AR_ARCHIVE-28.jpg
+    alt_text: Phoenix Sky Harbor Airport - WSJ
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-9.jpg
-    alt_text: Sebastian Vargas - Phoenix, 2021
+    image_path: /uploads/AR_ARCHIVE-61.jpg
+    alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
     width: 30
     top: 0
     left: 0
@@ -180,8 +180,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-28.jpg
-    alt_text: Phoenix Sky Harbor Airport - WSJ
+    image_path: /uploads/AR_ARCHIVE-9.jpg
+    alt_text: Sebastian Vargas - Phoenix, 2021
     width: 30
     top: 0
     left: 0
