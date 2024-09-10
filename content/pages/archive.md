@@ -971,15 +971,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-124.jpg
-    alt_text: NYC - 2023
+    image_path: /uploads/AR_ARCHIVE-136.jpg
+    alt_text: Art Theft - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-136.jpg
-    alt_text: Art Theft - The New York Times
+    image_path: /uploads/FIXED_AR_ARCHIVE-124.jpg
+    alt_text: NYC - 2023
     width: 30
     top: 0
     left: 0
