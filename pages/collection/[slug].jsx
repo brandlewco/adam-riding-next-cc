@@ -118,7 +118,7 @@ const CollectionPage = ({ page }) => {
           style={{ position: 'relative' }} // Ensures the positioning is correct
         >
           <section
-            className="photo flex flex-col sm:flex-row  sm:justify-end items-end sm:items-start w-auto relative overflow-hidden sm:mt-0"
+            className="photo flex flex-col sm:flex-row  sm:justify-end items-end sm:items-start w-auto relative overflow-hidden mt-4 ml-4 mr-4  sm:mt-0"
             style={{ height: '100vh' }}
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
