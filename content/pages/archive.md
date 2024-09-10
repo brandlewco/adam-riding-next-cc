@@ -327,8 +327,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-14.jpg
-    alt_text: Overland Expo - GQ
+    image_path: /uploads/AR_ARCHIVE-58.jpg
+    alt_text: Malibu - 2023
     width: 30
     top: 0
     left: 0
@@ -565,8 +565,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-50.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
+    image_path: /uploads/AR_ARCHIVE-129.jpg
+    alt_text: My Street at 12:01 AM - 2020
     width: 30
     top: 0
     left: 0
@@ -1153,15 +1153,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-58.jpg
-    alt_text: Malibu - 2023
+    image_path: /uploads/AR_ARCHIVE-100.jpg
+    alt_text: Philip Gabriel Collection - F/W 2022
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-100.jpg
-    alt_text: Philip Gabriel Collection - F/W 2022
+    image_path: /uploads/AR_ARCHIVE-14.jpg
+    alt_text: Overland Expo - GQ
     width: 30
     top: 0
     left: 0
@@ -1181,8 +1181,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-129.jpg
-    alt_text: My Street at 12:01 AM - 2020
+    image_path: /uploads/AR_ARCHIVE-50.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
