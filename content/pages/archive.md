@@ -194,6 +194,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-11.jpg
+    alt_text: Overland Expo - GQ
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-81.jpg
     alt_text: The Cellar Door - Personal Project
     width: 30
@@ -229,8 +236,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-11.jpg
-    alt_text: Overland Expo - GQ
+    image_path: /uploads/FIXED_AR_ARCHIVE-123.jpg
+    alt_text: Suberbowl 23 - The New York Times
     width: 30
     top: 0
     left: 0
@@ -238,13 +245,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-118.jpg
     alt_text: The Global Ambassador Hotel - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-123.jpg
-    alt_text: Suberbowl 23 - The New York Times
     width: 30
     top: 0
     left: 0
