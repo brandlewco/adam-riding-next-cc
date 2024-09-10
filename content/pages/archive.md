@@ -712,15 +712,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-56.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
+    image_path: /uploads/AR_ARCHIVE-114.jpg
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-114.jpg
-    alt_text: The Global Ambassador Hotel - 2024
+    image_path: /uploads/AR_ARCHIVE-56.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
