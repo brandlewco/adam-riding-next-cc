@@ -761,6 +761,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-141.jpg
+    alt_text: Refugee Abwe Songolo - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-68.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
     width: 30
@@ -770,13 +777,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-156.jpg
     alt_text: Fourth of July - 2021
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-141.jpg
-    alt_text: Refugee Abwe Songolo - The New York Times
     width: 30
     top: 0
     left: 0
