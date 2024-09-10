@@ -73,7 +73,7 @@ const CollectionPage = ({ page }) => {
   return (
     <DefaultLayout page={page}>
       {/* Collection Info in the Top Right Corner */}
-      <div className="absolute top-4 left-4 text-left">
+      <div className="hidden sm:block sm:absolute top-4 left-4 text-left">
         <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
       </div>
 
@@ -118,16 +118,19 @@ const CollectionPage = ({ page }) => {
           style={{ position: 'relative' }} // Ensures the positioning is correct
         >
           <section
-            className="photo flex justify-end items-start w-auto relative overflow-hidden mt-8 sm:mt-0"
+            className="photo flex flex-col sm:flex-row  sm:justify-end items-end sm:items-start w-auto relative overflow-hidden sm:mt-0"
             style={{ height: '100vh' }}
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
+            <div className="relative sm:hidden top-4 left-4 mr-8 text-left">
+              <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
+            </div>
           </section>
         </motion.div>
       </AnimatePresence>
 
       {/* Thumbnail Selector */}
-      <div className="absolute bottom-24 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
+      <div className="fixed bottom-24 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
         {page.data.content_blocks.map((block, index) => (
           <motion.div
             key={index}

@@ -120,7 +120,7 @@ function ArchivePage({ page, photos }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className={`h-screen p-4 ${currentImage !== null ? 'overflow-hidden' : 'overflow-y-auto'}`}>
+      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto p-4 pb-24 sm:pb-4 '}`}>
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-32">
           {photos.map((photo, index) => (
             <motion.li
@@ -167,20 +167,11 @@ function ArchivePage({ page, photos }) {
               animate="center"
               exit="exit"
               custom={direction}
-              className="fixed z-50 overflow-x-hidden mt-8 sm:mt-0"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                position: 'relative',
-                width: 'auto',
-                overflow: 'hidden',
-                transform: 'none',
-              }}
+              className="fixed flex flex-col sm:flex-row flex-end w-full transform-none z-50 overflow-x-hidden mt-8 sm:mt-0"
             >
               <motion.section
-                className="photo flex flex-col items-end w-auto relative overflow-hidden"
-                style={{ height: '100vh', width: '100%' }}
+                className="photo flex flex-col items-end w-auto relative overflow-hidden pr-4 pl-4 sm:pl-0 sm:pr-6 pt-4"
+                style={{ height: '100vh', width: '100%', maxWidth: '100vw' }}
                 variants={navigationVariants} // Use for left and right navigation animations
                 initial="enter"
                 animate="center"
@@ -193,7 +184,7 @@ function ArchivePage({ page, photos }) {
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
                   sizes="(max-width: 1080px) 100vw, 1080px"
-                  className='sm:max-h-75vh'
+                 className="sm:max-h-75vh w-auto"
                   style={{
                     objectFit: 'contain',
                     width: 'auto',

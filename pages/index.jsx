@@ -72,7 +72,7 @@ function HomePage({ page, collections }) {
         }
       },
       {
-        rootMargin: '-20% 0px -20% 0px', // Adjust root margin to trigger 20% from top and bottom
+        rootMargin: '-10% 0px -10% 0px', // Adjust root margin to trigger 20% from top and bottom
         threshold: [0, 1], // Detect when the title is fully in view and fully out of view
       }
     );
@@ -94,7 +94,7 @@ function HomePage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="p-4 border border-gray-300 overflow-y-auto h-screen">
+      <div className="p-4 pb-24 sm:pb-4 border border-gray-300 overflow-y-auto h-screen">
         <ul className="flex flex-col sm:flex-row items-end sm:items-start gap-4">
           {collections.map((collection, collectionIndex) => {
             const maxWidthClass = getMaxWidthClass(collections.length);
