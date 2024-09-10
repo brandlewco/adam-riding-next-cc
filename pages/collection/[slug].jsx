@@ -81,14 +81,29 @@ const CollectionPage = ({ page }) => {
         id="click-left"
         className="absolute left-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
         onClick={() => handleAreaClick('left')}
-        style={{ zIndex: 10 }}
-      />
+        style={{ zIndex: 10 }}>
+          <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute sm:hidden h-8 w-8 top-1/2"
+          fill="currentColor"
+          viewBox="0 0 320 512">
+            <path d="M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z" />
+          </svg>
+      </div>
       <div
         id="click-right"
         className="absolute right-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
         onClick={() => handleAreaClick('right')}
         style={{ zIndex: 10 }}
-      />
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute sm:hidden h-8 w-8 top-1/2 right-0"
+          fill="currentColor"
+          viewBox="0 0 320 512">
+            <path d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z" />
+        </svg>  
+      </div>
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={currentImage}
@@ -103,7 +118,7 @@ const CollectionPage = ({ page }) => {
           style={{ position: 'relative' }} // Ensures the positioning is correct
         >
           <section
-            className="photo flex justify-end items-start w-auto relative overflow-hidden"
+            className="photo flex justify-end items-start w-auto relative overflow-hidden mt-8 sm:mt-0"
             style={{ height: '100vh' }}
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
@@ -112,13 +127,13 @@ const CollectionPage = ({ page }) => {
       </AnimatePresence>
 
       {/* Thumbnail Selector */}
-      <div className="absolute bottom-24 left-0 right-0 flex justify-center overflow-none space-x-2 z-50">
+      <div className="absolute bottom-24 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
         {page.data.content_blocks.map((block, index) => (
           <motion.div
             key={index}
             onClick={() => handleThumbnailClick(index)}
             className={`cursor-pointer ${
-              currentImage === index ? 'scale-110' : 'scale-100'
+              currentImage === index ? 'opacity-100' : 'opacity-50'
             }`}
             style={{
               transition: 'transform 0.3s',
@@ -128,7 +143,7 @@ const CollectionPage = ({ page }) => {
             <ExportedImage
               src={block.image_path}
               alt={block.alt_text || 'Thumbnail'}
-              className="object-cover w-8 h-8 opacity-50 hover:opacity-100 overflow-hidden"
+              className="object-cover w-8 h-8hover:opacity-100 overflow-hidden"
               height={32}
               width={32}
               style={{

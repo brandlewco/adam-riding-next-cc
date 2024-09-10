@@ -29,10 +29,10 @@ body {
   cursor: pointer;
 }
 
-.photo img {
+/* .photo img {
   width: auto !important;
   height: 100% !important;
-}
+} */
 
 .origin-top {
   transform-origin: top center;

@@ -17,10 +17,6 @@ spec:
 blueprint:
   image_path: /uploads/riding-fitnesstest-1.jpg
   alt_text: Image Alt Text
-  width: 30
-  top: 0
-  left: 0
-  right: 0
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

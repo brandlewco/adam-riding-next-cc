@@ -69,7 +69,7 @@ function ArchivePage({ page, photos }) {
     center: {
       opacity: 1,
       transition: {
-        opacity: { duration: 0.4 },
+        opacity: { duration: 0.3 },
       },
     },
     exit: {
@@ -112,8 +112,8 @@ function ArchivePage({ page, photos }) {
       opacity: 1,
       transform: 'none',
       transition: {
-        duration: 0.3,
-        delay: index * 0.1,
+        duration: 0.33,
+        delay: index * 0.05,
       },
     }),
   };
@@ -121,7 +121,7 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <div className={`h-screen p-4 ${currentImage !== null ? 'overflow-hidden' : 'overflow-y-auto'}`}>
-        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-8">
+        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-32">
           {photos.map((photo, index) => (
             <motion.li
               key={index}
@@ -167,7 +167,7 @@ function ArchivePage({ page, photos }) {
               animate="center"
               exit="exit"
               custom={direction}
-              className="fixed z-50 overflow-x-hidden"
+              className="fixed z-50 overflow-x-hidden mt-8 sm:mt-0"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -193,10 +193,10 @@ function ArchivePage({ page, photos }) {
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
                   sizes="(max-width: 1080px) 100vw, 1080px"
+                  className='sm:max-h-75vh'
                   style={{
                     objectFit: 'contain',
                     width: 'auto',
-                    maxHeight: '70vh',
                     transform: 'none',
                   }}
                 />
@@ -207,15 +207,31 @@ function ArchivePage({ page, photos }) {
 
               {/* Navigation Controls */}
               <div
-                className="absolute top-[10%] left-0 h-full w-1/6 cursor-pointer clickable-area"
+                className="fixed top-0 left-0 h-full w-1/6 cursor-pointer clickable-area"
                 onClick={() => handleNavigation('left')}
                 id="click-left"
-              />
+              >
+                        <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute sm:hidden h-8 w-8 top-1/2"
+                  fill="currentColor"
+                  viewBox="0 0 320 512">
+                    <path d="M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z" />
+                  </svg>
+              </div>
               <div
-                className="absolute top-[10%] right-0 h-full w-1/6 cursor-pointer clickable-area"
+                className="fixed top-0 right-0 h-full w-1/6 cursor-pointer clickable-area"
                 onClick={() => handleNavigation('right')}
                 id="click-right"
-              />
+              >
+                        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute sm:hidden h-8 w-8 top-1/2 right-0"
+                fill="currentColor"
+                viewBox="0 0 320 512">
+                  <path d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z" />
+              </svg>  
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
