@@ -1139,13 +1139,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-57.jpg
-    alt_text: Malibu - 2023
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-103.jpg
     alt_text: Payson Rodeo - Personal Project
     width: 30
@@ -1153,8 +1146,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-100.jpg
-    alt_text: Philip Gabriel Collection - F/W 2022
+    image_path: /uploads/AR_ARCHIVE-57.jpg
+    alt_text: Malibu - 2023
     width: 30
     top: 0
     left: 0
@@ -1167,8 +1160,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-47.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
+    image_path: /uploads/AR_ARCHIVE-100.jpg
+    alt_text: Philip Gabriel Collection - F/W 2022
     width: 30
     top: 0
     left: 0
@@ -1181,6 +1174,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-47.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-129.jpg
     alt_text: My Street at 12:01 AM - 2020
     width: 30
@@ -1188,15 +1188,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-55.jpg
-    alt_text: The Produce Garden Blooms - The New York Times
+    image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
+    alt_text: The Farmer and His Crop - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
-    alt_text: The Farmer and His Crop - Personal Project
+    image_path: /uploads/AR_ARCHIVE-55.jpg
+    alt_text: The Produce Garden Blooms - The New York Times
     width: 30
     top: 0
     left: 0
