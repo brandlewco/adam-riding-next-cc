@@ -39,7 +39,7 @@ export default function CollectionPhoto({ block, dataBinding }) {
       priority
       width={dimensions.width}
       height={dimensions.height}
-      className="sm:max-h-75vh w-full"
+      className="sm:max-h-75vh w-full sm:w-auto"
     />
   );
 }
