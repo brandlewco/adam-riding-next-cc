@@ -184,14 +184,14 @@ function ArchivePage({ page, photos }) {
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
                   sizes="(max-width: 1080px) 100vw, 1080px"
-                 className="sm:max-h-75vh w-auto"
+                 className="sm:max-h-75vh w-auto self-end"
                   style={{
                     objectFit: 'contain',
                     width: 'auto',
                     transform: 'none',
                   }}
                 />
-                <div className="text-sm mt-2">
+                <div className="text-sm mt-2 self-end">
                   {photos[currentImage].alt_text || 'Expanded image'}
                 </div>
               </motion.section>
