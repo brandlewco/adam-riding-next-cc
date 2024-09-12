@@ -229,7 +229,7 @@ function ArchivePage({ page, photos }) {
         {/* Close Button - Fixed outside the expanded image */}
         {currentImage !== null && (
           <div
-            className="absolute text-sm cursor-pointer uppercase p-4 top-0 left-0"
+            className="absolute text-sm cursor-pointer uppercase p-4 top-0 left-0 z-0"
             onClick={handleClose}
           >
             CLOSE
