@@ -51,3 +51,12 @@ body {
 #click-left:hover {
   cursor: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2230%22 viewBox=%220 0 320 512%22%3E%3Cpath d=%22M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z%22/%3E%3C/svg%3E') 15 15, auto;
 }
+
+
+.contact h2 {
+  @apply font-bold pb-4;
+}
+
+.contact div > h2:not(:first-of-type) {
+  @apply pt-4;
+}

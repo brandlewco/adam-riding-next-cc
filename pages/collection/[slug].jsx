@@ -67,7 +67,6 @@ const CollectionPage = ({ page }) => {
       },
     }),
   };
-  
 
   return (
     <DefaultLayout page={page}>
@@ -130,30 +129,32 @@ const CollectionPage = ({ page }) => {
 
       {/* Thumbnail Selector */}
       <div className="fixed bottom-24 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
-        {page.data.content_blocks.map((block, index) => (
-          <motion.div
-            key={index}
-            onClick={() => handleThumbnailClick(index)}
-            className={`cursor-pointer ${
-              currentImage === index ? 'opacity-100' : 'opacity-50'
-            }`}
-            style={{
-              transition: 'transform 0.3s',
-              transformOrigin: 'center',
-            }}
-          >
-            <ExportedImage
-              src={block.image_path}
-              alt={block.alt_text || 'Thumbnail'}
-              className="object-cover w-8 h-8hover:opacity-100 overflow-hidden"
-              height={32}
-              width={32}
+        <div className="grid grid-cols-10 gap-2">
+          {page.data.content_blocks.map((block, index) => (
+            <motion.div
+              key={index}
+              onClick={() => handleThumbnailClick(index)}
+              className={`cursor-pointer relative h-8 w-8 ${
+                currentImage === index ? 'opacity-100' : 'opacity-50'
+              }`}
               style={{
-                transition: 'opacity 0.33s',
-              }} // Adjusts the size without overflow
-            />
-          </motion.div>
-        ))}
+                transition: 'transform 0.3s',
+                transformOrigin: 'center',
+              }}
+            >
+              <ExportedImage
+                src={block.image_path}
+                alt={block.alt_text || 'Thumbnail'}
+                className="absolute top-0 left-0 object-cover w-full h-full hover:opacity-100 overflow-hidden"
+                height={32}
+                width={32}
+                style={{
+                  transition: 'opacity 0.33s',
+                }} // Adjusts the size without overflow
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
 
     </DefaultLayout>
@@ -164,6 +165,7 @@ const MemoizedCollectionPage = memo(CollectionPage);
 MemoizedCollectionPage.displayName = 'CollectionPage';
 
 export default MemoizedCollectionPage;
+
 export async function getStaticPaths() {
   const collections = await filer.getItems('collection');
   const paths = collections.map((collection) => ({

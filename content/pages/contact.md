@@ -7,41 +7,80 @@ seo:
   author_twitter_handle: 
   open_graph_type:
   no_index: false
+heading: Adam Riding is a photographer based in Los Angeles, Ca.
 column_1: >-
-  **STUDIO & COMMISSIONS**
+  ## Studio & Commissions
 
-  BASED IN LOS ANGELES
+  Email  
+    
+  Instagram  
 
-  EMAIL
 
-  480 823 8833
+  ## Books & Prints
 
-  @ADAMRIDING
-
+  DIRT  
+    
+  Self Published Broadsheet  
+    
+  First edition of 20  
 column_2: >-
-  **SELECT EDITORIAL & COMMERCIAL CLIENTS**
+  ## Select Clients
 
-  The New York Times Magazine, Under Armour, Forbes, GQ, House Beautiful, Barrons, The Atlantic, WSJ,
-  Road and Track, The Guardian, The New York Times, Inc Magazine, Eater, Los Angeles Times,
-  Golf Digest, The Global Ambassador, and DIE ZEIT.
+  The New York Times Magazine  
+    
+  Under Armour  
+    
+  Forbes  
+    
+  GQ  
+    
+  House Beautiful  
+    
+  Barrons  
+    
+  The Atlantic  
+    
+  WSJ  
+    
+  Road and Track  
+    
+  The Guardian  
+    
+  The New York Times  
+    
+  Inc Magazine  
+    
+  Eater  
+    
+  Los Angeles Times  
+    
+  Golf Digest  
+    
+  The Global Ambassador  
+    
+  DIE ZEIT  
+column_3: >- 
+  ## Select Press
 
-  **FEATURES & INTERVIEWS**
+  Fisheye Magazine  
+    
+  "Les Fictions de la Nuit Noire par Adam Riding"  
+    
+  Booooooom "The Cellar Door"  
+    
+  Nowhere Diary "STORY 89: ADAM RIDING"  
 
-  Fisheye Magazine
-  “Les Fictions de la Nuit Noire par Adam Riding”
-  September 15, 2022
 
-  Booooooom
-  “The Cellar Door”
-  July 26, 2022
+  ## Group Exhibitions
 
-  Nowhere Diary
-  “STORY 89: ADAM RIDING”
-  July 16, 2021
+  Galbut Prize Exhibition  
+    
+  2022 MFA + BFA Select Harry Wood Gallery  
+    
+  What Was Left Behind 2022 BFA Group Show Gallery 100  
+    
+  Shared Experiences 2021 Artist Group Show Northlight Gallery  
+    
+  Emergence 2020 Artist Select Group Show Art Intersection  
 
-  **BOOKS & PRINTS**
-
-  DIRT
-  Self Published Broadsheet
-  First edition of 20
 ---

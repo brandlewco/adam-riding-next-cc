@@ -183,11 +183,10 @@ function ArchivePage({ page, photos }) {
                   alt={photos[currentImage].alt_text || 'Expanded image'}
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
-                  sizes="(max-width: 1080px) 100vw, 1080px"
-                 className="sm:max-h-75vh w-auto self-end"
+                  sizes="(max-width: 800px) 100vw, (max-width: 1920px) 40vw, 33vw"
+                  className="sm:h-75vh  w-auto self-end"
                   style={{
                     objectFit: 'contain',
-                    width: 'auto',
                     transform: 'none',
                   }}
                 />
