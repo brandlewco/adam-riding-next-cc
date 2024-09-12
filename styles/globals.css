@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apply to the root or body to affect the entire page */
-html {
-  scrollbar-gutter: stable both-edges; /* Prevents scrollbar from affecting layout */
-}
+
 
 
 *::-webkit-scrollbar {
@@ -59,4 +56,12 @@ body {
 
 .contact div > h2:not(:first-of-type) {
   @apply pt-4;
+}
+
+.contact p {
+  @apply pb-2;
+}
+
+.contact div > p:last-of-type {
+  @apply pb-0
 }

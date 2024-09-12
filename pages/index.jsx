@@ -94,7 +94,7 @@ function HomePage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="p-4 pb-28 sm:pb-4 border border-gray-300 overflow-y-auto h-screen">
+      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-28 sm:pb-4 border border-gray-300 overflow-y-auto h-screen">
         <ul className="flex flex-col sm:flex-row items-end sm:items-start gap-4">
           {collections.map((collection, collectionIndex) => {
             const maxWidthClass = getMaxWidthClass(collections.length);

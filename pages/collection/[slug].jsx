@@ -116,11 +116,11 @@ const CollectionPage = ({ page }) => {
           style={{ position: 'relative' }} // Ensures the positioning is correct
         >
           <section
-            className="photo flex flex-col sm:flex-row  sm:justify-end items-end sm:items-start w-auto relative overflow-hidden mt-4 ml-4 mr-4"
+            className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start w-auto relative overflow-hidden p-4"
             style={{ height: '100vh' }}
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
-            <div className="relative sm:hidden top-4 left-4 mr-8 text-left">
+            <div className="relative sm:hidden pt-4 text-left">
               <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
             </div>
           </section>
@@ -129,7 +129,7 @@ const CollectionPage = ({ page }) => {
 
       {/* Thumbnail Selector */}
       <div className="fixed bottom-24 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
-        <div className="grid grid-cols-10 gap-2">
+        <div className="grid grid-cols-10 sm:grid-flow-col gap-2 overflow-hidden">
           {page.data.content_blocks.map((block, index) => (
             <motion.div
               key={index}

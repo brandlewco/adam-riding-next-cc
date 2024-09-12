@@ -11,12 +11,12 @@ function ContactPage({ page }) {
   return (
     <DefaultLayout page={page}>
       {/* Main wrapper with height set to allow scrolling */}
-      <div className="mx-auto p-4 contact h-screen overflow-y-auto pb-32 sm:mb-0">
+      <div className="mx-auto p-4 contact h-screen overflow-y-auto pb-32 sm:mb-0 cursor-default">
         {/* Main Grid Container */}
         <div className="grid grid-cols-1 sm:grid-cols-6 gap-8">
           {/* Heading - Full Width Row */}
           <div
-            className="col-span-6 mb-20 text-2xl"
+            className="col-span-6 mb-16 sm:mb-10 text-2xl pb-0"
             dangerouslySetInnerHTML={{ __html: md.render(heading) }}
           />
 

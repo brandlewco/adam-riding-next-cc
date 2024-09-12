@@ -120,7 +120,7 @@ function ArchivePage({ page, photos }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto p-4 pb-24 sm:pb-4 '}`}>
+      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24 sm:pb-4'}`}>
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-32">
           {photos.map((photo, index) => (
             <motion.li
@@ -167,10 +167,10 @@ function ArchivePage({ page, photos }) {
               animate="center"
               exit="exit"
               custom={direction}
-              className="fixed flex flex-col sm:flex-row flex-end w-full transform-none z-50 overflow-x-hidden mt-8 sm:mt-0"
+              className="fixed flex flex-col sm:flex-row flex-end w-full transform-none z-50 overflow-x-hidden p-4 mt-8 sm:mt-0"
             >
               <motion.section
-                className="photo flex flex-col items-end w-auto relative overflow-hidden pr-4 pl-4 sm:pl-0 sm:pr-6 pt-4"
+                className="photo flex flex-col items-end w-auto relative overflow-hidden"
                 style={{ height: '100vh', width: '100%', maxWidth: '100vw' }}
                 variants={navigationVariants} // Use for left and right navigation animations
                 initial="enter"
@@ -184,7 +184,7 @@ function ArchivePage({ page, photos }) {
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
                   sizes="(max-width: 800px) 100vw, (max-width: 1920px) 40vw, 33vw"
-                  className="sm:h-75vh  w-auto self-end"
+                  className="sm:h-75vh w-full sm:w-auto self-end"
                   style={{
                     objectFit: 'contain',
                     transform: 'none',
@@ -229,8 +229,7 @@ function ArchivePage({ page, photos }) {
         {/* Close Button - Fixed outside the expanded image */}
         {currentImage !== null && (
           <div
-            className="fixed text-sm cursor-pointer uppercase"
-            style={{ left: '1rem', top: '1rem', zIndex: 100 }}
+            className="absolute text-sm cursor-pointer uppercase p-4 top-0 left-0"
             onClick={handleClose}
           >
             CLOSE
