@@ -6,6 +6,7 @@ const md = new MarkdownIt({ html: true });
 
 export default function CollectionPhoto({ block, setImageLoaded }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [imageLoaded, setImageLoadedLocal] = useState(false);
 
   useEffect(() => {
     if (!block.image_path) {
@@ -21,6 +22,7 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
         width: img.naturalWidth,
         height: img.naturalHeight,
       });
+      setImageLoadedLocal(true);
       setImageLoaded(true);
     };
 
@@ -29,8 +31,8 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
     };
   }, [block.image_path, setImageLoaded]);
 
-  if (dimensions.width === 0 || dimensions.height === 0) {
-    return <div></div>;
+  if (!imageLoaded) {
+    return <div style={{ height: dimensions.height, width: dimensions.width }}></div>;
   }
 
   return (
@@ -40,7 +42,7 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
       priority
       width={dimensions.width}
       height={dimensions.height}
-      sizes="(max-width: 800px) 100vw, (max-width: 1920px) 40vw, 33vw"
+      sizes="(max-width: 640px) 100vw, (max-width: 1920px) 40vw, 33vw"
       className="sm:h-75vh w-full sm:w-auto"
     />
   );

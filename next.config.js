@@ -20,7 +20,7 @@ module.exports = {
 
     // If you want to cache the remote images, you can set the time to live of the cache in seconds.
     // The default value is 0 seconds.
-    nextImageExportOptimizer_remoteImageCacheTTL: "0",
+    nextImageExportOptimizer_remoteImageCacheTTL: "86400",
   },
   reactStrictMode: true,
   webpack: (config, options) => {

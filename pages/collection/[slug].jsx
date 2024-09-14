@@ -131,7 +131,7 @@ const CollectionPage = ({ page }) => {
       </AnimatePresence>
 
       {/* Thumbnail Selector */}
-      <div className="fixed bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
+      <div className="absolute bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
         <div className="grid grid-cols-10 sm:grid-flow-col gap-2 overflow-hidden">
           {page.data.content_blocks.map((block, index) => (
             <motion.div

@@ -145,7 +145,7 @@ function ArchivePage({ page, photos }) {
                 alt={photo.alt_text || 'Photo image'}
                 width={photo.width}
                 height={photo.height}
-                sizes="(max-width: 800px) 100vw, 20vw"
+                sizes="(max-width: 640px) 100vw, 20vw"
                 style={{
                   objectFit: 'contain',
                   height: 'auto',
@@ -183,7 +183,7 @@ function ArchivePage({ page, photos }) {
                   alt={photos[currentImage].alt_text || 'Expanded image'}
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
-                  sizes="(max-width: 800px) 100vw, (max-width: 1920px) 40vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1920px) 40vw, 33vw"
                   className="sm:h-75vh w-full sm:w-auto self-end"
                   style={{
                     objectFit: 'contain',
@@ -229,7 +229,7 @@ function ArchivePage({ page, photos }) {
         {/* Close Button - Fixed outside the expanded image */}
         {currentImage !== null && (
           <div
-            className="absolute text-sm cursor-pointer uppercase p-4 top-0 left-0 z-0"
+            className="absolute text-sm cursor-pointer uppercase p-4 top-0 left-0 z-50"
             onClick={handleClose}
           >
             CLOSE
