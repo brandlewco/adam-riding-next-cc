@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const md = new MarkdownIt({ html: true });
 
-export default function CollectionPhoto({ block, dataBinding }) {
+export default function CollectionPhoto({ block }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
