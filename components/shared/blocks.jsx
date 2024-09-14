@@ -4,7 +4,7 @@ const getComponentKey = (name) => {
     return `../../components/${name}.jsx`;
 };
 
-function Blocks({ content_blocks, currentImage }) {
+function Blocks({ content_blocks, currentImage, setImageLoaded }) {
     // Assuming each content block corresponds to one image or set of related content.
     return (
       <>
@@ -21,7 +21,7 @@ function Blocks({ content_blocks, currentImage }) {
             }
   
             return (
-              <TargetComponent block={block} dataBinding={newDataBinding} key={i} />
+              <TargetComponent block={block} dataBinding={newDataBinding} key={i} setImageLoaded={setImageLoaded} />
             );
           }
           return null; // Only render the active block

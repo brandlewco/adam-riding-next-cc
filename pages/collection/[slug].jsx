@@ -11,6 +11,7 @@ const filer = new Filer({ path: 'content' });
 const CollectionPage = ({ page }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [direction, setDirection] = useState('');
+  const [imageLoaded, setImageLoaded] = useState(false);
   const router = useRouter();
   const imageCount = page.data.content_blocks.length;
 
@@ -119,10 +120,12 @@ const CollectionPage = ({ page }) => {
             className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start w-auto relative overflow-hidden p-4"
             style={{ height: '100vh' }}
           >
-            <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} />
-            <div className="relative sm:hidden pt-4 text-left">
-              <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
-            </div>
+            <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} setImageLoaded={setImageLoaded} />
+            {imageLoaded && (
+              <div className="relative sm:hidden pt-4 text-left">
+                <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
+              </div>
+            )}
           </section>
         </motion.div>
       </AnimatePresence>

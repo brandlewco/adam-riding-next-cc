@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const md = new MarkdownIt({ html: true });
 
-export default function CollectionPhoto({ block }) {
+export default function CollectionPhoto({ block, setImageLoaded }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -21,12 +21,13 @@ export default function CollectionPhoto({ block }) {
         width: img.naturalWidth,
         height: img.naturalHeight,
       });
+      setImageLoaded(true);
     };
 
     img.onerror = (error) => {
       console.error(`Failed to load image: ${block.image_path}`, error);
     };
-  }, [block.image_path]);
+  }, [block.image_path, setImageLoaded]);
 
   if (dimensions.width === 0 || dimensions.height === 0) {
     return <div></div>;
