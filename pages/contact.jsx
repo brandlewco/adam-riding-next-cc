@@ -25,19 +25,19 @@ function ContactPage({ page }) {
 
           {/* Column 1 - Studio & Commissions */}
           <div
-            className="flex flex-col col-span-6 sm:col-span-1"
+            className="flex flex-col col-span-6 sm:col-span-1 text-sm"
             dangerouslySetInnerHTML={{ __html: md.render(column_1) }}
           />
 
           {/* Column 2 */}
           <div
-            className="flex flex-col col-span-6 sm:col-span-1"
+            className="flex flex-col col-span-6 sm:col-span-1 text-sm"
             dangerouslySetInnerHTML={{ __html: md.render(column_2) }}
           />
 
           {/* Column 3 */}
           <div
-            className="flex flex-col col-span-6 sm:col-span-1"
+            className="flex flex-col col-span-6 sm:col-span-1 text-sm"
             dangerouslySetInnerHTML={{ __html: md.render(column_3) }}
           />
         </div>

@@ -121,7 +121,7 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24 sm:pb-4'}`}>
-        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-32">
+        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
           {photos.map((photo, index) => (
             <motion.li
               key={index}
@@ -130,28 +130,32 @@ function ArchivePage({ page, photos }) {
               exit="exit"
               custom={index}
               variants={gridVariants}
-              className={`flex justify-center items-start overflow-hidden ${
+              className={`flex justify-center items-start ${
                 currentImage !== null ? 'hidden' : ''
-              } relative cursor-pointer hover:scale-105 transition-transform duration-200`}
+              } relative cursor-pointer transition-transform duration-200`}
               style={{
                 alignItems: 'flex-start',
                 transform: 'none !important',
-                transformOrigin: 'center !important',
+                transformOrigin: 'top center !important',
               }}
               onClick={() => handleImageClick(index)}
             >
-              <ExportedImage
-                src={photo.image_path}
-                alt={photo.alt_text || 'Photo image'}
-                width={photo.width}
-                height={photo.height}
-                sizes="(max-width: 640px) 100vw, 20vw"
-                style={{
-                  objectFit: 'contain',
-                  height: 'auto',
-                  width: '100%',
-                }}
-              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.33 }}
+                whileHover={{ scale: 1.1 }}
+                className="relative origin-center origin-top"
+              >
+                <ExportedImage
+                  src={photo.image_path}
+                  alt={photo.alt_text || 'Photo image'}
+                  width={photo.width}
+                  height={photo.height}
+                  sizes="(max-width: 640px) 400vw, 20vw"
+                  className='object-contain h-auto w-full'
+                />
+              </motion.div>
             </motion.li>
           ))}
         </ul>
@@ -184,7 +188,7 @@ function ArchivePage({ page, photos }) {
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
                   sizes="(max-width: 640px) 100vw, (max-width: 1920px) 40vw, 33vw"
-                  className="sm:h-75vh w-full sm:w-auto self-end"
+                  className="md:h-75vh w-full md:w-auto self-end"
                   style={{
                     objectFit: 'contain',
                     transform: 'none',
@@ -201,26 +205,28 @@ function ArchivePage({ page, photos }) {
                 onClick={() => handleNavigation('left')}
                 id="click-left"
               >
-                        <svg
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute sm:hidden h-8 w-8 top-1/2"
                   fill="currentColor"
-                  viewBox="0 0 320 512">
-                    <path d="M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z" />
-                  </svg>
+                  viewBox="0 0 320 512"
+                >
+                  <path d="M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z" />
+                </svg>
               </div>
               <div
                 className="fixed top-0 right-0 h-full w-1/6 cursor-pointer clickable-area"
                 onClick={() => handleNavigation('right')}
                 id="click-right"
               >
-                        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute sm:hidden h-8 w-8 top-1/2 right-0"
-                fill="currentColor"
-                viewBox="0 0 320 512">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute sm:hidden h-8 w-8 top-1/2 right-0"
+                  fill="currentColor"
+                  viewBox="0 0 320 512"
+                >
                   <path d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z" />
-              </svg>  
+                </svg>
               </div>
             </motion.div>
           )}

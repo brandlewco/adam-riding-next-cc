@@ -32,7 +32,7 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
   }, [block.image_path, setImageLoaded]);
 
   if (!imageLoaded) {
-    return <div style={{ height: dimensions.height, width: dimensions.width }}></div>;
+    return "";
   }
 
   return (
@@ -43,7 +43,10 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
       width={dimensions.width}
       height={dimensions.height}
       sizes="(max-width: 640px) 100vw, (max-width: 1920px) 40vw, 33vw"
-      className="sm:h-75vh w-full sm:w-auto"
+      className="md:h-75vh w-full md:w-auto"
+      style={{
+        objectFit: 'contain'
+      }}
     />
   );
 }

@@ -101,9 +101,13 @@ _inputs:
     type: select
     options:
       values: collections.collection
+  heading:
+    type: markdown
   column_1:
     type: markdown
   column_2:
+    type: markdown
+  column_3:
     type: markdown
 _structures:
   features:
