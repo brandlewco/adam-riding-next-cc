@@ -16,7 +16,7 @@ function ContactPage({ page }) {
         <div className="grid grid-cols-1 sm:grid-cols-6 gap-8">
           {/* Heading - Full Width Row */}
           <div
-            className="col-span-6 mb-16 sm:mb-10 text-2xl pb-0"
+            className="col-span-6 pb-64 sm:pb-10 text-2xl"
             dangerouslySetInnerHTML={{ __html: md.render(heading) }}
           />
 
