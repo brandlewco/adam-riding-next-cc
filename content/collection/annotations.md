@@ -12,6 +12,14 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ANNOTATIONS-3.jpg
+    alt_text: >-
+      Annotations is a floral still life personal project featuring an Icelandic
+      poppy in a vintage vase, set abasing a dark background. The image has
+      saturated colors and a large motion blur, personifying the flower itself.
+      The arrangements in this project include flowers like tulips and Icelandic
+      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-1.jpg
     alt_text: >-
       Annotations is a floral still life personal project featuring a green,
@@ -23,14 +31,6 @@ content_blocks:
     alt_text: >-
       Annotations is a floral still life personal project featuring a decaying
       monstera leaf, set against a light grey backdrop shot in black and white.
-      The arrangements in this project include flowers like tulips and Icelandic
-      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-3.jpg
-    alt_text: >-
-      Annotations is a floral still life personal project featuring an Icelandic
-      poppy in a vintage vase, set abasing a dark background. The image has
-      saturated colors and a large motion blur, personifying the flower itself.
       The arrangements in this project include flowers like tulips and Icelandic
       poppies. This project was shot and completed in Phoenix, AZ in 2022.  
   - _bookshop_name: collection/photo
