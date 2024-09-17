@@ -12,13 +12,19 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-1.jpg
+    image_path: /uploads/AR_VORTEX-6.jpg
     alt_text: >-
       Vortex images shot at Cathedral Rock in Sedona, AZ. Photographed through
       glass to create unique, and abstract images. Vortex was originally
       commissioned by The Los Angeles Times in 2023.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_VORTEX-2.jpg
+    alt_text: >-
+      Vortex images shot at Cathedral Rock in Sedona, AZ. Photographed through
+      glass to create unique, and abstract images. Vortex was originally
+      commissioned by The Los Angeles Times in 2023.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_VORTEX-1.jpg
     alt_text: >-
       Vortex images shot at Cathedral Rock in Sedona, AZ. Photographed through
       glass to create unique, and abstract images. Vortex was originally
@@ -37,12 +43,6 @@ content_blocks:
       Angeles Times in 2023.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_VORTEX-5.jpg
-    alt_text: >-
-      Vortex images shot at Cathedral Rock in Sedona, AZ. Photographed through
-      glass to create unique, and abstract images. Vortex was originally
-      commissioned by The Los Angeles Times in 2023.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-6.jpg
     alt_text: >-
       Vortex images shot at Cathedral Rock in Sedona, AZ. Photographed through
       glass to create unique, and abstract images. Vortex was originally
@@ -71,10 +71,6 @@ content_blocks:
       Vortex images shot at Cathedral Rock in Sedona, AZ. Photographed through
       glass to create unique, and abstract images. Vortex was originally
       commissioned by The Los Angeles Times in 2023.
-    
-    
-    
-    
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_VORTEX-11.jpg
     alt_text: >-
