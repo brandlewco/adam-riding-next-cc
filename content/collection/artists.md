@@ -12,12 +12,6 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-3.jpg
-    alt_text: >-
-      Portrait of Lulu LaFortune in her studio. The studio of Lulu LaFortune, a
-      designer based in Los Angeles, Ca. Shot originally for House Beautiful
-      publication.
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-1.jpg
     alt_text: >-
       Unfinished ceramics from the studio of Jotham Hung. Jotham Hung Ceramics
@@ -63,6 +57,12 @@ content_blocks:
       jackets, and floral arrangement in the studio of Lulu LaFortune. The
       studio of Lulu LaFortune, a designer based in Los Angeles, Ca. Shot
       originally for House Beautiful publication.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-3.jpg
+    alt_text: >-
+      Portrait of Lulu LaFortune in her studio. The studio of Lulu LaFortune, a
+      designer based in Los Angeles, Ca. Shot originally for House Beautiful
+      publication.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_LAFORTUNE-5.jpg
     alt_text: >-
