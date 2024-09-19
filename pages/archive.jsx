@@ -122,42 +122,45 @@ function ArchivePage({ page, photos }) {
     <DefaultLayout page={page}>
       <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24 sm:pb-4'}`}>
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
-          {photos.map((photo, index) => (
-            <motion.li
-              key={index}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              custom={index}
-              variants={gridVariants}
-              className={`flex justify-center items-start ${
-                currentImage !== null ? 'hidden' : ''
-              } relative cursor-pointer transition-transform duration-200`}
-              style={{
-                alignItems: 'flex-start',
-                transform: 'none !important',
-                transformOrigin: 'top center !important',
-              }}
-              onClick={() => handleImageClick(index)}
-            >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.33 }}
-                whileHover={{ scale: 1.1 }}
-                className="relative origin-center origin-top"
+          <AnimatePresence>
+            {photos.map((photo, index) => (
+              <motion.li
+                key={index}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                custom={index}
+                variants={gridVariants}
+                className={`flex justify-center items-start ${
+                  currentImage !== null ? 'hidden' : ''
+                } relative cursor-pointer transition-transform duration-200`}
+                style={{
+                  alignItems: 'flex-start',
+                  transform: 'none !important',
+                  transformOrigin: 'top center !important',
+                }}
+                onClick={() => handleImageClick(index)}
               >
-                <ExportedImage
-                  src={photo.image_path}
-                  alt={photo.alt_text || 'Photo image'}
-                  width={photo.width}
-                  height={photo.height}
-                  sizes="(max-width: 640px) 400vw, 20vw"
-                  className='object-contain h-auto w-full'
-                />
-              </motion.div>
-            </motion.li>
-          ))}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.33 }}
+                  whileHover={{ scale: 1.1 }}
+                  className="relative origin-center origin-top"
+                >
+                  <ExportedImage
+                    src={photo.image_path}
+                    alt={photo.alt_text || 'Photo image'}
+                    width={photo.width}
+                    height={photo.height}
+                    sizes="(max-width: 640px) 400vw, 20vw"
+                    className='object-contain h-auto w-full'
+                    priority
+                  />
+                </motion.div>
+              </motion.li>
+            ))}
+          </AnimatePresence>
         </ul>
 
         {/* Expanded Image View */}

@@ -19,6 +19,9 @@ collections_config:
       default:
         name: New Page
         path: schemas/page.md
+      contact:
+        name: Contact
+        path: schemas/contact.md
   collection:
     path: content/collection
     url: '/collection/[slug]'

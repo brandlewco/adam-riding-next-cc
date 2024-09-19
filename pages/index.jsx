@@ -1,6 +1,6 @@
 import DefaultLayout from '../components/layouts/default';
 import Filer from '@cloudcannon/filer';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import ExportedImage from 'next-image-export-optimizer';
 import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
@@ -18,10 +18,6 @@ function HomePage({ page, collections }) {
   const hoverRefs = useRef([]);
   const titleRefs = useRef([]);
   const [visibleIndices, setVisibleIndices] = useState(new Set());
-
-  const handleAnimationComplete = useCallback(() => {
-    console.log('Animation complete');
-  }, []);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -92,62 +88,85 @@ function HomePage({ page, collections }) {
     };
   }, [collections.length, visibleIndices]);
 
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: (index) => ({
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.1,
+      },
+    }),
+  };
+
   return (
     <DefaultLayout page={page}>
       <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-28 sm:pb-4 border border-gray-300 overflow-y-auto h-screen">
         <ul className="flex flex-col sm:flex-row items-end sm:items-start gap-4">
-          {collections.map((collection, collectionIndex) => {
-            const maxWidthClass = getMaxWidthClass(collections.length);
-            return (
-              <li
-                key={collectionIndex}
-                className={`flex-1 max-w-[50%] sm:max-w-[calc((100%-${collections.length - 1}*1rem)/${collections.length})] ml-auto ${maxWidthClass} text-right`}
-                onMouseEnter={() => handleMouseEnter(collectionIndex)}
-                onMouseLeave={handleMouseLeave}
-                ref={(el) => (hoverRefs.current[collectionIndex] = el)}
-                data-index={collectionIndex}
-              >
-                <Link href={`/collection/${collection.slug}`} passHref>
-                <motion.div
-                    layoutId={`collection-${collection.slug}`}
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ opacity: { duration: 0.33, delay: collectionIndex * 0.1 } }} // Apply delay only to opacity animation
-                    onAnimationComplete={handleAnimationComplete}
-                    style={{ originX: '50%', originY: 0}}
-                    className="flex flex-col"
-                  >
-                    <ExportedImage
-                      src={collection.firstImagePath}
-                      alt={collection.firstImageAlt || 'Collection image'}
-                      width={collection.width}
-                      height={collection.height}
-                      priority
-                      sizes="(max-width: 480px) 100vw, 480px"
-                    />
-                    <motion.span
-                      ref={(el) => (titleRefs.current[collectionIndex] = el)}
-                      data-index={collectionIndex}
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity:
-                          hoverIndex === collectionIndex ||
-                          (visibleIndices.has(collectionIndex) && window.innerWidth < 640)
-                            ? 1
-                            : 0,
+          <AnimatePresence>
+            {collections.map((collection, collectionIndex) => {
+              const maxWidthClass = getMaxWidthClass(collections.length);
+              return (
+                <motion.li
+                  key={collectionIndex}
+                  className={`flex-1 max-w-[50%] sm:max-w-[calc((100%-${collections.length - 1}*1rem)/${collections.length})] ml-auto ${maxWidthClass} text-right`}
+                  onMouseEnter={() => handleMouseEnter(collectionIndex)}
+                  onMouseLeave={handleMouseLeave}
+                  ref={(el) => (hoverRefs.current[collectionIndex] = el)}
+                  data-index={collectionIndex}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  custom={collectionIndex}
+                  variants={gridVariants}
+                >
+                  <Link href={`/collection/${collection.slug}`} passHref>
+                    <motion.div
+                      layoutId={`collection-${collection.slug}`}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{
+                        scale: { duration: 0.2 },
                       }}
-                      transition={{ duration: 0.33, }}
-                      className='text-sm leading-tight'
+                      style={{ originX: '50%', originY: 0 }}
+                      className="flex flex-col"
                     >
-                      {collection.title}
-                    </motion.span>
-                  </motion.div>
-                </Link>
-              </li>
-            );
-          })}
+                      <div className="relative w-full" style={{ paddingTop: `${(collection.height / collection.width) * 100}%` }}>
+                        <motion.div
+                          className="absolute top-0 left-0 w-full h-full"
+                          layoutId={`image-${collection.slug}`}
+                        >
+                          <ExportedImage
+                            src={collection.firstImagePath}
+                            alt={collection.firstImageAlt || 'Collection image'}
+                            fill
+                            style={{ objectFit: 'cover' }}
+                            priority
+                            sizes="(max-width: 480px) 50vw, 300px"
+                          />
+                        </motion.div>
+                      </div>
+                      <motion.span
+                        ref={(el) => (titleRefs.current[collectionIndex] = el)}
+                        data-index={collectionIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{
+                          opacity:
+                            hoverIndex === collectionIndex ||
+                            (visibleIndices.has(collectionIndex) && window.innerWidth < 640)
+                              ? 1
+                              : 0,
+                        }}
+                        transition={{ duration: 0.33 }}
+                        className="text-sm leading-tight"
+                      >
+                        {collection.title}
+                      </motion.span>
+                    </motion.div>
+                  </Link>
+                </motion.li>
+              );
+            })}
+          </AnimatePresence>
         </ul>
       </div>
     </DefaultLayout>
@@ -164,7 +183,9 @@ export async function getStaticProps() {
     const correctedPath = collectionPath.replace(/^content\//, '');
     const collection = await filer.getItem(correctedPath, { folder: '' });
 
-    const firstPhotoBlock = collection.data.content_blocks.find(block => block._bookshop_name === 'collection/photo');
+    const firstPhotoBlock = collection.data.content_blocks.find(
+      (block) => block._bookshop_name === 'collection/photo'
+    );
 
     if (firstPhotoBlock && firstPhotoBlock.image_path) {
       try {
@@ -193,7 +214,7 @@ export async function getStaticProps() {
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || 'Default Alt Text',
           width: 480, // Default width
-          height: auto, // Default height assuming a 3:2 aspect ratio
+          height: 320, // Default height assuming a 3:2 aspect ratio
         });
       }
     } else {
@@ -204,7 +225,7 @@ export async function getStaticProps() {
   return {
     props: {
       page: JSON.parse(JSON.stringify(page)),
-      collections
-    }
+      collections,
+    },
   };
 }
