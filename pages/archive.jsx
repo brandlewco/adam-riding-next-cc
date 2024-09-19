@@ -153,7 +153,7 @@ function ArchivePage({ page, photos }) {
                     alt={photo.alt_text || 'Photo image'}
                     width={photo.width}
                     height={photo.height}
-                    sizes="(max-width: 640px) 400vw, 20vw"
+                    sizes="(max-width: 640px) 50vw, 20vw"
                     className='object-contain h-auto w-full'
                     priority
                   />
