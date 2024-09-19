@@ -101,7 +101,7 @@ function HomePage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-28 sm:pb-4 border border-gray-300 overflow-y-auto h-screen">
+      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-36 sm:pb-4 border border-gray-300 overflow-y-auto h-screen">
         <ul className="flex flex-col sm:flex-row items-end sm:items-start gap-4">
           <AnimatePresence>
             {collections.map((collection, collectionIndex) => {
@@ -109,7 +109,7 @@ function HomePage({ page, collections }) {
               return (
                 <motion.li
                   key={collectionIndex}
-                  className={`flex-1 max-w-[50%] sm:max-w-[calc((100%-${collections.length - 1}*1rem)/${collections.length})] ml-auto ${maxWidthClass} text-right`}
+                  className={`flex-1 w-[50%] sm:max-w-[calc((100%-${collections.length - 1}*1rem)/${collections.length})] ml-auto ${maxWidthClass} text-right`}
                   onMouseEnter={() => handleMouseEnter(collectionIndex)}
                   onMouseLeave={handleMouseLeave}
                   ref={(el) => (hoverRefs.current[collectionIndex] = el)}
