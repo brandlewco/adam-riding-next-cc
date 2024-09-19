@@ -113,14 +113,14 @@ function ArchivePage({ page, photos }) {
       transform: 'none',
       transition: {
         duration: 0.33,
-        delay: index * 0.05,
+        delay: 0.3 + index * 0.03,
       },
     }),
   };
 
   return (
     <DefaultLayout page={page}>
-      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24 sm:pb-4'}`}>
+      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24 sm:pb-36'}`}>
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
           <AnimatePresence>
             {photos.map((photo, index) => (
@@ -153,9 +153,9 @@ function ArchivePage({ page, photos }) {
                     alt={photo.alt_text || 'Photo image'}
                     width={photo.width}
                     height={photo.height}
-                    sizes="(max-width: 640px) 50vw, 20vw"
+                    sizes="(max-width: 640px) 30vw, 12vw"
                     className='object-contain h-auto w-full'
-                    priority
+                    loading="lazy"
                   />
                 </motion.div>
               </motion.li>
@@ -190,12 +190,13 @@ function ArchivePage({ page, photos }) {
                   alt={photos[currentImage].alt_text || 'Expanded image'}
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1920px) 40vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, 30vw"
                   className="md:h-75vh w-full md:w-auto self-end"
                   style={{
                     objectFit: 'contain',
                     transform: 'none',
                   }}
+                  loading="eager" // Ensure the expanded view image loads immediately when viewed
                 />
                 <div className="text-sm mt-2 self-end">
                   {photos[currentImage].alt_text || 'Expanded image'}
