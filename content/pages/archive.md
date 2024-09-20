@@ -1212,7 +1212,7 @@ content_blocks:
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-170.jpg
-    alt_text: Image Alt Text
+    alt_text: Visual Artist Philip Gabriel - 2021
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-171.jpg
     alt_text: Image Alt Text
