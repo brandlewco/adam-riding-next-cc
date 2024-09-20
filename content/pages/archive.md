@@ -1203,13 +1203,13 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-167.jpg
-    alt_text: Image Alt Text
+    alt_text: Golf Digest - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-168.jpg
-    alt_text: Image Alt Text
+    alt_text: San Fransisco - 2020
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-169.jpg
-    alt_text: Image Alt Text
+    alt_text: Yoshinobu Yamamto - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-170.jpg
     alt_text: Visual Artist Philip Gabriel - 2021
@@ -1218,14 +1218,14 @@ content_blocks:
     alt_text: Yoshinobu Yamamto - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-172.jpg
-    alt_text: Image Alt Text
+    alt_text: Phoenix - 2020
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-173.jpg
-    alt_text: Image Alt Text
+    alt_text: Pinehurst - Golf Digest
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-174.jpg
-    alt_text: Image Alt Text
+    alt_text: Golf Digest - 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-175.jpg
-    alt_text: Image Alt Text
+    alt_text: Shohei Ohtani - The New York Times
 ---
