@@ -1215,7 +1215,7 @@ content_blocks:
     alt_text: Visual Artist Philip Gabriel - 2021
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-171.jpg
-    alt_text: Image Alt Text
+    alt_text: Yoshinobu Yamamto - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-172.jpg
     alt_text: Image Alt Text
