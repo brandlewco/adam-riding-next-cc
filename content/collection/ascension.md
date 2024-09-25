@@ -1,6 +1,6 @@
 ---
 _schema: collection
-title: Ascension
+title: Athletics I
 slug: ascension
 seo:
   page_description:
