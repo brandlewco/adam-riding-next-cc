@@ -37,5 +37,8 @@ content_blocks:
       Collective.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-5.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Styled by Alexa Miramontes and Benjamin Font. Located in the Silverlake
+      Apartment in Los Angeles, Ca designed by RM Schindler. Photographed
+      originally for NAN Collective.
 ---
