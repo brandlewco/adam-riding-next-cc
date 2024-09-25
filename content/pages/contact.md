@@ -1,5 +1,5 @@
 ---
-_schemas: contact
+_schemas: Contact
 title: Contact
 seo:
   page_description: 
@@ -63,9 +63,7 @@ column_2: >-
 column_3: >- 
   ## Select Press
 
-  Fisheye Magazine  
-    
-  "Les Fictions de la Nuit Noire par Adam Riding"  
+  [Fisheye Magazine "Les Fictions de la Nuit Noire par Adam Riding"](https://www.fisheyemagazine.fr/rdv/portfolios/les-fictions-de-la-nuit-noire-par-adam-riding/)
     
   Booooooom "The Cellar Door"  
     
@@ -74,9 +72,7 @@ column_3: >-
 
   ## Group Exhibitions
 
-  Galbut Prize Exhibition  
-    
-  2022 MFA + BFA Select Harry Wood Gallery  
+  Galbut Prize Exhibition 2022 MFA + BFA Select Harry Wood Gallery  
     
   What Was Left Behind 2022 BFA Group Show Gallery 100  
     
