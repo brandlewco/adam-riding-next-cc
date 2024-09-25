@@ -32,7 +32,9 @@ content_blocks:
       Collective.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-4.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Alexa Miramontes of NAN Collective. Photographed originally for NAN
+      Collective.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-5.jpg
     alt_text: Image Alt Text
