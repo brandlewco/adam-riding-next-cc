@@ -20,10 +20,16 @@ content_blocks:
       Photographed originally for NAN Collective.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-2.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Orgiginal pieces from Jotham Hung and NAN Collective. Styled by Alexa
+      Miramontes and Benjamin Font. Located in the Silverlake Apartment in Los
+      Angeles, Ca designed by RM Schindler. Photographed originally for NAN
+      Collective.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-3.jpg
-    alt_text: Image Alt Text
+    alt_text: >-
+      Benjamin Kyle Font of NAN Collective. Photographed originally for NAN
+      Collective.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-4.jpg
     alt_text: Image Alt Text
