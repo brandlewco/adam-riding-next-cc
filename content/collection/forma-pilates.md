@@ -27,12 +27,12 @@ content_blocks:
       Female athlete in the middle of a Forma Pilates LA workout, founded by
       Liana Levi, in The Global Ambassador pilates gym in Scottsdale, AZ. 
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-4.jpg
-    alt_text: >-
-      Liana Levi, founder of Forma Pilates LA,  in the middle of a pilates
-      workout in The Global Ambassador pilates gym in Scottsdale, AZ. 
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-5.jpg
+    alt_text: >-
+      Female athlete in the middle of a Forma Pilates LA workout, founded by
+      Liana Levi, in The Global Ambassador pilates gym in Scottsdale, AZ. 
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FORMA-7.jpg
     alt_text: >-
       Female athlete in the middle of a Forma Pilates LA workout, founded by
       Liana Levi, in The Global Ambassador pilates gym in Scottsdale, AZ. 
@@ -41,11 +41,6 @@ content_blocks:
     alt_text: >-
       Liana Levi, founder of Forma Pilates LA,  in the middle of a pilates
       workout in The Global Ambassador pilates gym in Scottsdale, AZ. 
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-7.jpg
-    alt_text: >-
-      Female athlete in the middle of a Forma Pilates LA workout, founded by
-      Liana Levi, in The Global Ambassador pilates gym in Scottsdale, AZ. 
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-8.jpg
     alt_text: >-
