@@ -18,4 +18,22 @@ content_blocks:
       mirror, and studio shelving in the background. The studio of Lulu
       LaFortune, a designer based in Los Angeles, Ca. Shot originally for House
       Beautiful publication.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-2.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-3.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-4.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-5.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-6.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-7.jpg
+    alt_text: Image Alt Text
 ---
