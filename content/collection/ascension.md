@@ -1,7 +1,7 @@
 ---
 _schema: collection
 title: Athletics I
-slug: ascension
+slug: Athletics I
 seo:
   page_description:
   canonical_url:
