@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: On The Court
-slug: on-the-court
+title: Athletics III
+slug: Athletics III
 seo:
   page_description:
   canonical_url:
@@ -23,40 +23,24 @@ content_blocks:
       Detail shot of the eye of one of the players. On The Court was a personal
       project that depicts friends coming together to play basketball outside.
       Shot and completed in Scottsdale, AZ in 2023.
-    
-    
-    
-    
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-3.jpg
     alt_text: >-
       Friends playing basketball. On The Court was a personal project that
       depicts friends coming together to play basketball outside. Shot and
       completed in Scottsdale, AZ in 2023.
-    
-    
-    
-    
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-4.jpg
     alt_text: >-
       Detail of a ball dribbling with hair of the player. On The Court was a
       personal project that depicts friends coming together to play basketball
       outside. Shot and completed in Scottsdale, AZ in 2023.
-    
-    
-    
-    
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-5.jpg
     alt_text: >-
       Friends playing basketball. On The Court was a personal project that
       depicts friends coming together to play basketball outside. Shot and
       completed in Scottsdale, AZ in 2023.
-    
-    
-    
-    
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-6.jpg
     alt_text: >-
@@ -64,20 +48,12 @@ content_blocks:
       playing basketball. On The Court was a personal project that depicts
       friends coming together to play basketball outside. Shot and completed in
       Scottsdale, AZ in 2023.
-    
-    
-    
-    
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-7.jpg
     alt_text: >-
       Friends playing basketball. On The Court was a personal project that
       depicts friends coming together to play basketball outside. Shot and
       completed in Scottsdale, AZ in 2023.
-    
-    
-    
-    
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-8.jpg
     alt_text: >-
@@ -85,8 +61,4 @@ content_blocks:
       playing basketball. On The Court was a personal project that depicts
       friends coming together to play basketball outside. Shot and completed in
       Scottsdale, AZ in 2023.
-    
-    
-    
-    
 ---
