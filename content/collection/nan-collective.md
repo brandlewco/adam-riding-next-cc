@@ -12,9 +12,22 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ILISIA-1.jpg
+    image_path: /uploads/AR_NANCOLLECTIVE-1.jpg
     alt_text: >-
-      Ascension is an athletic basketball project featuring an athlete dunking
-      the basketball, set against a sky backdrop. This project was shot and
-      completed in Phoenix, AZ in 2024.  
+      Custom chair from Lulu LaFortune studio with other pieces from NAN
+      Collective. Styled by Alexa Miramontes and Benjamin Font. Located in the
+      Silverlake Apartment in Los Angeles, Ca designed by RM Schindler.
+      Photographed originally for NAN Collective.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_NANCOLLECTIVE-2.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_NANCOLLECTIVE-3.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_NANCOLLECTIVE-4.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_NANCOLLECTIVE-5.jpg
+    alt_text: Image Alt Text
 ---
