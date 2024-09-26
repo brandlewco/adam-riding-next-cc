@@ -44,8 +44,8 @@ export default function Navigation({ page }) {
         <nav
           className="container-fluid flex flex-row justify-between text-sm font-bold"
         >
-            <div className="pointer-none leading-none">ADAM RIDING</div>
-            <Link className="leading-none" href="/">INDEX</Link>
+            <Link className="leading-none" href="/">ADAM RIDING</Link>
+            <Link className="leading-none" href="/index">INDEX</Link>
             <Link className="leading-none" href="/archive">ARCHIVE</Link>
             <Link className="leading-none" href="/contact">CONTACT</Link>
         </nav>
