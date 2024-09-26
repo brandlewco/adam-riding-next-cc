@@ -1,4 +1,4 @@
-import DefaultLayout from '../../components/layouts/default';
+import DefaultLayout from '../components/layouts/default';
 import Filer from '@cloudcannon/filer';
 import { motion, AnimatePresence } from 'framer-motion';
 import ExportedImage from 'next-image-export-optimizer';
@@ -103,9 +103,8 @@ function IndexPage({ page, collections }) {
               <ExportedImage
                 src={collections[hoverIndex].firstImagePath}
                 alt={collections[hoverIndex].firstImageAlt || 'Collection image'}
-                width={collections[hoverIndex].width}
-                height={collections[hoverIndex].height}
                 sizes="(max-width: 680px) 100vw, 60vw"
+                fill
                 className="md:h-85vh w-full md:w-auto self-end"
                 style={{
                   objectFit: 'contain',
@@ -124,7 +123,7 @@ function IndexPage({ page, collections }) {
 export default React.memo(IndexPage);
 
 export async function getStaticProps() {
-  const page = await filer.getItem('index.md', { folder: 'index-list' });
+  const page = await filer.getItem('index-list.md', { folder: 'pages' });
   const collections = [];
 
   for (const collectionPath of page.data.collections) {

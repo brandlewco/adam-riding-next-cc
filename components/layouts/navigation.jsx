@@ -45,7 +45,7 @@ export default function Navigation({ page }) {
           className="container-fluid flex flex-row justify-between text-sm font-bold"
         >
             <Link className="leading-none" href="/">ADAM RIDING</Link>
-            <Link className="leading-none" href="/index">INDEX</Link>
+            <Link className="leading-none" href="/index-list">INDEX</Link>
             <Link className="leading-none" href="/archive">ARCHIVE</Link>
             <Link className="leading-none" href="/contact">CONTACT</Link>
         </nav>
