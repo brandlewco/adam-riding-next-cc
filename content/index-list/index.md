@@ -1,5 +1,5 @@
 ---
-_schema: index
+_schema: index-list
 title: Adam Riding
 seo:
   no_index: false

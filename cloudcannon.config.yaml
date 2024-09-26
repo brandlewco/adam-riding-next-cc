@@ -33,6 +33,17 @@ collections_config:
       default:
         name: New Page
         path: schemas/collection.md
+  index:
+    path: content/index-list
+    url: '/index'
+    output: true
+    icon: wysiwyg
+    _enabled_editors:
+      - visual
+    schemas:
+      default:
+        name: New Page
+        path: schemas/index-list.md
   blog:
     path: content/posts
     output: true
