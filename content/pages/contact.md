@@ -1,5 +1,5 @@
 ---
-_schemas: Contact
+_schema: contact
 title: Contact
 seo:
   page_description: 
