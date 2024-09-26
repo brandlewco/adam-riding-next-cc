@@ -6,6 +6,7 @@ import sizeOf from 'image-size';
 import path from 'path';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
+import { useSwipeable } from 'react-swipeable';
 
 const filer = new Filer({ path: 'content' });
 
@@ -62,6 +63,31 @@ function ArchivePage({ page, photos }) {
       setIsReturningFromExpandedView(false);
     }
   }, [router.asPath]);
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === 'ArrowRight') {
+        handleNavigation('right');
+      } else if (event.key === 'ArrowLeft') {
+        handleNavigation('left');
+      }
+    },
+    [handleNavigation]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => handleNavigation('right'),
+    onSwipedRight: () => handleNavigation('left'),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   // Variants for the overall expanded view container (used for showing and hiding)
   const expandedViewVariants = {
@@ -175,6 +201,7 @@ function ArchivePage({ page, photos }) {
               exit="exit"
               custom={direction}
               className="fixed flex flex-col sm:flex-row flex-end w-full transform-none z-50 overflow-x-hidden p-4 mt-8 sm:mt-0"
+              {...swipeHandlers} // Add swipe handlers
             >
               <motion.section
                 className="photo flex flex-col items-end w-auto relative overflow-hidden"
@@ -191,7 +218,7 @@ function ArchivePage({ page, photos }) {
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
                   sizes="(max-width: 640px) 100vw, 30vw"
-                  className="md:h-75vh w-full md:w-auto self-end"
+                  className="md:h-85vh w-full md:w-auto self-end"
                   style={{
                     objectFit: 'contain',
                     transform: 'none',

@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       height : {
-        '75vh': '75vh',
+        '85vh': '85vh',
       },
       maxHeight: {
-        '75vh': '75vh', // Adds a custom max-height class of 70vh
+        '85vh': '85vh', // Adds a custom max-height class of 70vh
       },
     },
   },

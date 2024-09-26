@@ -19,6 +19,7 @@ export async function getStaticPaths() {
 		"404": true,
 		"archive": true,
 		"contact": true,
+		"adam-riding": true,
 		feed: true
 	};
 

@@ -3,6 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/layouts/navigation";
+import { useSwipeable } from 'react-swipeable';
 
 function InnerApp({ Component, pageProps }) {
   const router = useRouter();
@@ -39,6 +40,31 @@ function InnerApp({ Component, pageProps }) {
       router.push(`/collection/${prevSlug}`);
     }
   };
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === 'ArrowDown') {
+        handleAreaClick('down');
+      } else if (event.key === 'ArrowUp') {
+        handleAreaClick('up');
+      }
+    },
+    [handleAreaClick]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
+
+  const swipeHandlers = useSwipeable({
+    onSwipedUp: () => handleAreaClick('down'),
+    onSwipedDown: () => handleAreaClick('up'),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   const pageVariants = {
     initial: (direction) => ({
@@ -94,6 +120,7 @@ function InnerApp({ Component, pageProps }) {
           custom={direction}
           variants={pageVariants}
           style={{ position: 'relative' }}
+          {...swipeHandlers} // Add swipe handlers
         >
           <Component {...pageProps} />
         </motion.div>

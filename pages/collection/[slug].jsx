@@ -5,6 +5,8 @@ import Blocks from '../../components/shared/blocks';
 import React, { useEffect, useState, useCallback, memo } from 'react';
 import { useRouter } from 'next/router';
 import ExportedImage from 'next-image-export-optimizer';
+import Head from 'next/head';
+import { useSwipeable } from 'react-swipeable';
 
 const filer = new Filer({ path: 'content' });
 
@@ -21,6 +23,21 @@ const CollectionPage = ({ page }) => {
       setCurrentImage(imageIndex);
     }
   }, [router.query.image, imageCount]);
+
+  const preloadImage = (src) => {
+    const img = new Image();
+    img.src = src;
+  };
+
+  useEffect(() => {
+    if (imageCount > 0) {
+      const nextImageIndex = (currentImage + 1) % imageCount;
+      const prevImageIndex = (currentImage - 1 + imageCount) % imageCount;
+
+      preloadImage(page.data.content_blocks[nextImageIndex].image_path);
+      preloadImage(page.data.content_blocks[prevImageIndex].image_path);
+    }
+  }, [currentImage, imageCount, page.data.content_blocks]);
 
   const handleAreaClick = useCallback(
     (area) => {
@@ -40,6 +57,31 @@ const CollectionPage = ({ page }) => {
     setDirection('');
   };
 
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === 'ArrowRight') {
+        handleAreaClick('right');
+      } else if (event.key === 'ArrowLeft') {
+        handleAreaClick('left');
+      }
+    },
+    [handleAreaClick]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => handleAreaClick('right'),
+    onSwipedRight: () => handleAreaClick('left'),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
+
   const internalVariants = {
     enter: (direction) => ({
       opacity: 0,
@@ -52,9 +94,9 @@ const CollectionPage = ({ page }) => {
         type: 'spring',
         stiffness: 150,
         damping: 25,
-        duration: 0.4, // Slightly slower movement
-        delay: -0.2, // Starts entering slightly before exit completes
-        opacity: { duration: 0.6, ease: 'easeOut' }, // Slower opacity change
+        duration: 0.1, // Reduced duration for quicker movement
+        delay: 0, // Removed delay
+        opacity: { duration: 0.1, ease: 'easeOut' }, // Reduced opacity change duration
       },
     },
     exit: (direction) => ({
@@ -64,13 +106,23 @@ const CollectionPage = ({ page }) => {
         type: 'spring',
         stiffness: 150,
         damping: 25,
-        duration: 0.2, // Keeps the exit quick
+        duration: 0.1, // Reduced duration for quicker exit
       },
     }),
   };
 
   return (
     <DefaultLayout page={page}>
+      <Head>
+        {/* Preload next and previous images */}
+        {imageCount > 0 && (
+          <>
+            <link rel="preload" as="image" href={page.data.content_blocks[(currentImage + 1) % imageCount].image_path} />
+            <link rel="preload" as="image" href={page.data.content_blocks[(currentImage - 1 + imageCount) % imageCount].image_path} />
+          </>
+        )}
+      </Head>
+
       {/* Collection Info in the Top Right Corner */}
       <div className="hidden sm:block sm:absolute top-4 left-4 text-left">
         <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
@@ -115,6 +167,7 @@ const CollectionPage = ({ page }) => {
           custom={direction}
           className="relative w-auto overflow-hidden"
           style={{ position: 'relative' }} // Ensures the positioning is correct
+          {...swipeHandlers} // Add swipe handlers
         >
           <section
             className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start w-auto relative overflow-hidden p-4"

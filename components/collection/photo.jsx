@@ -43,7 +43,7 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
       width={dimensions.width}
       height={dimensions.height}
       sizes="(max-width: 640px) 100vw, (max-width: 1920px) 40vw, 33vw"
-      className="md:h-75vh w-full md:w-auto"
+      className="md:h-85vh w-full md:w-auto"
       style={{
         objectFit: 'contain'
       }}
