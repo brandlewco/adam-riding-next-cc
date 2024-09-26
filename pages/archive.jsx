@@ -146,7 +146,7 @@ function ArchivePage({ page, photos }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24 sm:pb-36'}`}>
+      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24'}`}>
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
           <AnimatePresence>
             {photos.map((photo, index) => (

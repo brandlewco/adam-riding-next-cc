@@ -36,7 +36,7 @@ function HomePage({ page, collections }) {
       if (ref) {
         ref.style.setProperty('transform-origin', 'top left', 'important');
       }
-    });
+    }); 
   }, [hoverIndex, collections.length]);
 
   const handleMouseEnter = useCallback((index) => {

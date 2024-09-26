@@ -10,6 +10,15 @@ import { useSwipeable } from 'react-swipeable';
 
 const filer = new Filer({ path: 'content' });
 
+const getOptimizedImagePath = (imagePath) => {
+  const extensionIndex = imagePath.lastIndexOf('.');
+  const baseName = imagePath.substring(0, extensionIndex);
+  const pathParts = baseName.split('/');
+  const fileName = pathParts.pop();
+  const optimizedPath = `${pathParts.join('/')}/opt/${fileName}-opt-10.WEBP`;
+  return optimizedPath;
+};
+
 const CollectionPage = ({ page }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [direction, setDirection] = useState('');
@@ -85,7 +94,7 @@ const CollectionPage = ({ page }) => {
   const internalVariants = {
     enter: (direction) => ({
       opacity: 0,
-      x: direction === 'left' ? '100%' : direction === 'right' ? '-100%' : 0,
+      x: direction === 'left' ? '80%' : direction === 'right' ? '-50%' : 0,
     }),
     center: {
       opacity: 1,
@@ -96,12 +105,12 @@ const CollectionPage = ({ page }) => {
         damping: 25,
         duration: 0.1, // Reduced duration for quicker movement
         delay: 0, // Removed delay
-        opacity: { duration: 0.1, ease: 'easeOut' }, // Reduced opacity change duration
+        opacity: { duration: 0.3, ease: 'easeOut' }, // Reduced opacity change duration
       },
     },
     exit: (direction) => ({
       opacity: 0,
-      x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
+      x: direction === 'left' ? '-80%' : direction === 'right' ? '50%' : 0,
       transition: {
         type: 'spring',
         stiffness: 150,
@@ -117,8 +126,16 @@ const CollectionPage = ({ page }) => {
         {/* Preload next and previous images */}
         {imageCount > 0 && (
           <>
-            <link rel="preload" as="image" href={page.data.content_blocks[(currentImage + 1) % imageCount].image_path} />
-            <link rel="preload" as="image" href={page.data.content_blocks[(currentImage - 1 + imageCount) % imageCount].image_path} />
+            <link
+              rel="preload"
+              as="image"
+              href={getOptimizedImagePath(page.data.content_blocks[(currentImage + 1) % imageCount].image_path)}
+            />
+            <link
+              rel="preload"
+              as="image"
+              href={getOptimizedImagePath(page.data.content_blocks[(currentImage - 1 + imageCount) % imageCount].image_path)}
+            />
           </>
         )}
       </Head>
@@ -132,29 +149,14 @@ const CollectionPage = ({ page }) => {
         id="click-left"
         className="absolute left-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
         onClick={() => handleAreaClick('left')}
-        style={{ zIndex: 10 }}>
-          <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute sm:hidden h-8 w-8 top-1/2"
-          fill="currentColor"
-          viewBox="0 0 320 512">
-            <path d="M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z" />
-          </svg>
-      </div>
+        style={{ zIndex: 10 }}
+      ></div>
       <div
         id="click-right"
         className="absolute right-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
         onClick={() => handleAreaClick('right')}
         style={{ zIndex: 10 }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute sm:hidden h-8 w-8 top-1/2 right-0"
-          fill="currentColor"
-          viewBox="0 0 320 512">
-            <path d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z" />
-        </svg>  
-      </div>
+      ></div>
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={currentImage}
