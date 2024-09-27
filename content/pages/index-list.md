@@ -6,10 +6,16 @@ seo:
   no_index: false
 collections:
   - content/collection/annotations.md
-  - content/collection/athletics.md
-  - content/collection/artists.md
-  - content/collection/iceland.md
-  - content/collection/spaces.md
-  - content/collection/vortex.md
   - content/collection/dirt-zine.md
+  - content/collection/ascension.md
+  - content/collection/dream-run-camp.md
+  - content/collection/iceland.md
+  - content/collection/schindler-house.md
+  - content/collection/athletics-ii.md
+  - content/collection/jotham-hung-ceramics.md
+  - content/collection/forma-pilates.md
+  - content/collection/vortex.md
+  - content/collection/on-the-court.md
+  - content/collection/taliesin-west.md
+  - content/collection/nan-collective.md
 ---
