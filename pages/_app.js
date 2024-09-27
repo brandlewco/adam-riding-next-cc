@@ -28,7 +28,7 @@ function InnerApp({ Component, pageProps }) {
     };
   }, [handleRouteChangeStart]);
 
-  const handleAreaClick = (area) => {
+  const handleAreaClick = useCallback((area) => {
     const nextSlug = pageProps.nextSlug;
     const prevSlug = pageProps.prevSlug;
 
@@ -39,7 +39,7 @@ function InnerApp({ Component, pageProps }) {
       setDirection('up');
       router.push(`/collection/${prevSlug}`);
     }
-  };
+  }, [pageProps.nextSlug, pageProps.prevSlug, router]);
 
   const handleKeyDown = useCallback(
     (event) => {

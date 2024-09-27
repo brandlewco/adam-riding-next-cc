@@ -1,25 +1,24 @@
 import Link from "next/link";
-import { useRouter } from "next/router"; // Import useRouter
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState, useCallback } from "react";
 
-export default function Navigation({ page }) {
+const Navigation = ({ page }) => {
   const router = useRouter();
   const [isSticky, setSticky] = useState(false);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     setSticky(window.scrollY >= 70);
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   // Function to toggle the overview mode
-  const handleOverviewClick = () => {
-    const currentPath = router.asPath;
+  const handleOverviewClick = useCallback(() => {
     const basePath = router.pathname;
     const newQuery = { ...router.query };
 
@@ -35,21 +34,20 @@ export default function Navigation({ page }) {
       pathname: basePath,
       query: newQuery,
     });
-  };
+  }, [router]);
 
   return (
     <>
-      <header style={{ zIndex: "9999" }} className={'w-full p-4 absolute bottom-0 left-0'}
-          id="mainnavigationBar">
-        <nav
-          className="container-fluid flex flex-row justify-between text-sm font-bold"
-        >
-            <Link className="leading-none" href="/">ADAM RIDING</Link>
-            <Link className="leading-none" href="/index-list">INDEX</Link>
-            <Link className="leading-none" href="/archive">ARCHIVE</Link>
-            <Link className="leading-none" href="/contact">CONTACT</Link>
+      <header style={{ zIndex: "9999" }} className="w-full p-4 absolute bottom-0 left-0" id="mainnavigationBar">
+        <nav className="container-fluid flex flex-row justify-between text-sm font-bold">
+          <Link href="/" className="leading-none">ADAM RIDING</Link>
+          <Link href="/index-list" className="leading-none">INDEX</Link>
+          <Link href="/archive" className="leading-none">ARCHIVE</Link>
+          <Link href="/contact" className="leading-none">CONTACT</Link>
         </nav>
       </header>
     </>
   );
-}
+};
+
+export default Navigation;

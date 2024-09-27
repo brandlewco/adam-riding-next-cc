@@ -65,7 +65,7 @@ function IndexPage({ page, collections }) {
             {collections.map((collection, collectionIndex) => (
               <motion.li
                 key={collectionIndex}
-                className="text-xl md:text-6xl cursor-pointer"
+                className="text-xl md:text-4xl cursor-pointer"
                 onMouseEnter={() => handleMouseEnter(collectionIndex)}
                 onMouseLeave={handleMouseLeave}
                 ref={(el) => (hoverRefs.current[collectionIndex] = el)}

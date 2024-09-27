@@ -94,7 +94,7 @@ const CollectionPage = ({ page }) => {
   const internalVariants = {
     enter: (direction) => ({
       opacity: 0,
-      x: direction === 'left' ? '80%' : direction === 'right' ? '-50%' : 0,
+      x: direction === 'left' ? '100%' : direction === 'right' ? '-100%' : 0,
     }),
     center: {
       opacity: 1,
@@ -103,19 +103,16 @@ const CollectionPage = ({ page }) => {
         type: 'spring',
         stiffness: 150,
         damping: 25,
-        duration: 0.1, // Reduced duration for quicker movement
-        delay: 0, // Removed delay
-        opacity: { duration: 0.3, ease: 'easeOut' }, // Reduced opacity change duration
+        duration: 0.4,
+        delay: -0.2,
+        opacity: { duration: 0.6, ease: 'easeOut' },
       },
     },
     exit: (direction) => ({
       opacity: 0,
-      x: direction === 'left' ? '-80%' : direction === 'right' ? '50%' : 0,
+      x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
       transition: {
-        type: 'spring',
-        stiffness: 150,
-        damping: 25,
-        duration: 0.1, // Reduced duration for quicker exit
+        opacity: { duration: 0.3 },
       },
     }),
   };
