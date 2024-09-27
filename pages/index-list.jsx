@@ -13,7 +13,7 @@ const filer = new Filer({ path: "content" });
 
 function IndexPage({ page, collections }) {
   const router = useRouter();
-  const [hoverIndex, setHoverIndex] = useState(-1); // Set initial hoverIndex to 0
+  const [hoverIndex, setHoverIndex] = useState(-1);
   const hoverRefs = useRef([]);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -65,19 +65,21 @@ function IndexPage({ page, collections }) {
             {collections.map((collection, collectionIndex) => (
               <motion.li
                 key={collectionIndex}
-                className="text-xl md:text-4xl cursor-pointer"
-                onMouseEnter={() => handleMouseEnter(collectionIndex)}
-                onMouseLeave={handleMouseLeave}
+                className="text-xl md:text-2xl cursor-pointer"
                 ref={(el) => (hoverRefs.current[collectionIndex] = el)}
                 data-index={collectionIndex}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: collectionIndex * 0.1, duration: 0.1 }}
+                transition={{ delay: 0.3 + collectionIndex * 0.1, duration: 0.1 }}
               >
-                <Link href={`/collection/${collection.slug}`} passHref>
-                  <motion.span className="leading-tight text-black">
-                    {collection.title}
-                  </motion.span>
+                <Link
+                  href={`/collection/${collection.slug}`}
+                  passHref
+                  className="leading-tight text-black"
+                  onMouseEnter={() => handleMouseEnter(collectionIndex)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {collection.title}
                 </Link>
               </motion.li>
             ))}
@@ -85,34 +87,39 @@ function IndexPage({ page, collections }) {
         </div>
 
         {/* Image on the right */}
-        {hoverIndex !== -1 && (
-          <motion.div
-            className="photo md:w-2/3 w-full flex flex-col sm:flex-row sm:justify-end items-end sm:items-start relative overflow-hidden p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ExportedImage
-              src={collections[hoverIndex].firstImagePath}
-              alt={collections[hoverIndex].firstImageAlt || "Collection image"}
-              priority
-              width={collections[hoverIndex].width}
-              height={collections[hoverIndex].height}
-              sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
-              className="md:h-85vh w-full md:w-auto"
-              style={{
-                objectFit: "contain",
-              }}
-            />
-          </motion.div>
-        )}
+        <div className="photo md:w-2/3 w-full flex flex-col sm:flex-row sm:justify-end items-end sm:items-start relative overflow-hidden p-4">
+          <AnimatePresence mode="wait">
+            {hoverIndex !== -1 && (
+              <motion.div
+                key={hoverIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, delay: 0 }}
+                className="absolute right-4 top-4"
+              >
+                <ExportedImage
+                  src={collections[hoverIndex].firstImagePath}
+                  alt={collections[hoverIndex].firstImageAlt || "Collection image"}
+                  priority
+                  width={collections[hoverIndex].width}
+                  height={collections[hoverIndex].height}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
+                  className="md:h-85vh w-full md:w-auto"
+                  style={{
+                    objectFit: "contain",
+                  }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </DefaultLayout>
   );
 }
 
-export default React.memo(IndexPage);
+export default IndexPage;
 
 export async function getStaticProps() {
   const page = await filer.getItem("index-list.md", { folder: "pages" });

@@ -144,7 +144,7 @@ const CollectionPage = ({ page }) => {
 
       <div
         id="click-left"
-        className="absolute left-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
+        className="absolute left-0 top-[10%] h-[80%] w-1/6 md:w-1/2 cursor-pointer clickable-area"
         onClick={() => handleAreaClick('left')}
         style={{ zIndex: 10 }}
       ></div>

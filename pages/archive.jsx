@@ -232,32 +232,16 @@ function ArchivePage({ page, photos }) {
 
               {/* Navigation Controls */}
               <div
-                className="fixed top-0 left-0 h-full w-1/6 cursor-pointer clickable-area"
+                className="fixed top-0 left-0 h-full w-1/6 md:w-1/2 cursor-pointer clickable-area"
                 onClick={() => handleNavigation('left')}
                 id="click-left"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute sm:hidden h-8 w-8 top-1/2"
-                  fill="currentColor"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M15 239c-9.4 9.4-9.4 24.6 0 33.9L207 465c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L65.9 256 241 81c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L15 239z" />
-                </svg>
               </div>
               <div
                 className="fixed top-0 right-0 h-full w-1/6 cursor-pointer clickable-area"
                 onClick={() => handleNavigation('right')}
                 id="click-right"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute sm:hidden h-8 w-8 top-1/2 right-0"
-                  fill="currentColor"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M305 239c9.4 9.4 9.4 24.6 0 33.9L113 465c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l175-175L79 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L305 239z" />
-                </svg>
               </div>
             </motion.div>
           )}
