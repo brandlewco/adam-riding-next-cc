@@ -1,10 +1,12 @@
 import MarkdownIt from "markdown-it";
 import ExportedImage from "next-image-export-optimizer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 const md = new MarkdownIt({ html: true });
 
-export default function CollectionPhoto({ block, setImageLoaded }) {
+const MemoizedExportedImage = memo(ExportedImage);
+
+function CollectionPhoto({ block, setImageLoaded }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [imageLoaded, setImageLoadedLocal] = useState(false);
 
@@ -36,7 +38,7 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
   }
 
   return (
-    <ExportedImage
+    <MemoizedExportedImage
       src={block.image_path}
       alt={block.alt_text || "Slide Image"}
       priority
@@ -50,3 +52,5 @@ export default function CollectionPhoto({ block, setImageLoaded }) {
     />
   );
 }
+
+export default memo(CollectionPhoto);

@@ -3,14 +3,26 @@ import Filer from '@cloudcannon/filer';
 import { motion, AnimatePresence } from 'framer-motion';
 import ExportedImage from 'next-image-export-optimizer';
 import Link from 'next/link';
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, memo } from 'react';
 import { useRouter } from 'next/router';
-import useStore from '../lib/store';
 import React from 'react';
 import sizeOf from 'image-size';
 import path from 'path';
 
 const filer = new Filer({ path: 'content' });
+
+const MemoizedExportedImage = memo(({ src, alt, width, height }) => (
+  <ExportedImage
+    src={src}
+    alt={alt}
+    priority
+    width={width}
+    height={height}
+    style={{ objectFit: 'cover' }}
+    sizes="(max-width: 480px) 50vw, 300px"
+  />
+));
+MemoizedExportedImage.displayName = 'MemoizedExportedImage';
 
 function HomePage({ page, collections }) {
   const router = useRouter();
@@ -36,7 +48,7 @@ function HomePage({ page, collections }) {
       if (ref) {
         ref.style.setProperty('transform-origin', 'top left', 'important');
       }
-    }); 
+    });
   }, [hoverIndex, collections.length]);
 
   const handleMouseEnter = useCallback((index) => {
@@ -135,13 +147,11 @@ function HomePage({ page, collections }) {
                           className="absolute top-0 left-0 w-full h-full"
                           layoutId={`image-${collection.slug}`}
                         >
-                          <ExportedImage
+                          <MemoizedExportedImage
                             src={collection.firstImagePath}
                             alt={collection.firstImageAlt || 'Collection image'}
-                            fill
-                            style={{ objectFit: 'cover' }}
-                            priority
-                            sizes="(max-width: 480px) 50vw, 300px"
+                            width={collection.width}
+                            height={collection.height}
                           />
                         </motion.div>
                       </div>
@@ -191,9 +201,6 @@ export async function getStaticProps() {
       try {
         const imagePath = path.join(process.cwd(), 'public', firstPhotoBlock.image_path);
         const dimensions = sizeOf(imagePath);
-        const aspectRatio = dimensions.width / dimensions.height;
-        const newWidth = 480;
-        const newHeight = Math.round(newWidth / aspectRatio);
 
         collections.push({
           title: collection.data.title,
@@ -201,8 +208,8 @@ export async function getStaticProps() {
           slug: collection.data.slug || correctedPath.split('/').pop(), // Ensure slug is set correctly
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || 'Default Alt Text',
-          width: newWidth,
-          height: newHeight,
+          width: dimensions.width,
+          height: dimensions.height,
         });
       } catch (error) {
         console.error(`Error getting dimensions for image ${firstPhotoBlock.image_path}:`, error);

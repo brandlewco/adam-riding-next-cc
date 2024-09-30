@@ -7,17 +7,11 @@ import { useRouter } from 'next/router';
 import ExportedImage from 'next-image-export-optimizer';
 import Head from 'next/head';
 import { useSwipeable } from 'react-swipeable';
+import CollectionPhoto from '../../components/collection/photo'; // Ensure this import
 
 const filer = new Filer({ path: 'content' });
 
-const getOptimizedImagePath = (imagePath) => {
-  const extensionIndex = imagePath.lastIndexOf('.');
-  const baseName = imagePath.substring(0, extensionIndex);
-  const pathParts = baseName.split('/');
-  const fileName = pathParts.pop();
-  const optimizedPath = `${pathParts.join('/')}/opt/${fileName}-opt-10.WEBP`;
-  return optimizedPath;
-};
+const MemoizedExportedImage = memo(ExportedImage);
 
 const CollectionPage = ({ page }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -33,10 +27,10 @@ const CollectionPage = ({ page }) => {
     }
   }, [router.query.image, imageCount]);
 
-  const preloadImage = (src) => {
+  const preloadImage = useCallback((src) => {
     const img = new Image();
     img.src = src;
-  };
+  }, []);
 
   useEffect(() => {
     if (imageCount > 0) {
@@ -46,7 +40,7 @@ const CollectionPage = ({ page }) => {
       preloadImage(page.data.content_blocks[nextImageIndex].image_path);
       preloadImage(page.data.content_blocks[prevImageIndex].image_path);
     }
-  }, [currentImage, imageCount, page.data.content_blocks]);
+  }, [currentImage, imageCount, page.data.content_blocks, preloadImage]);
 
   const handleAreaClick = useCallback(
     (area) => {
@@ -61,10 +55,10 @@ const CollectionPage = ({ page }) => {
     [imageCount]
   );
 
-  const handleThumbnailClick = (index) => {
+  const handleThumbnailClick = useCallback((index) => {
     setCurrentImage(index);
     setDirection('');
-  };
+  }, []);
 
   const handleKeyDown = useCallback(
     (event) => {
@@ -126,12 +120,12 @@ const CollectionPage = ({ page }) => {
             <link
               rel="preload"
               as="image"
-              href={getOptimizedImagePath(page.data.content_blocks[(currentImage + 1) % imageCount].image_path)}
+              href={page.data.content_blocks[(currentImage + 1) % imageCount].image_path}
             />
             <link
               rel="preload"
               as="image"
-              href={getOptimizedImagePath(page.data.content_blocks[(currentImage - 1 + imageCount) % imageCount].image_path)}
+              href={page.data.content_blocks[(currentImage - 1 + imageCount) % imageCount].image_path}
             />
           </>
         )}
@@ -204,7 +198,7 @@ const CollectionPage = ({ page }) => {
                   transformOrigin: 'center',
                 }}
               >
-                <ExportedImage
+                <MemoizedExportedImage
                   src={block.image_path}
                   alt={block.alt_text || 'Thumbnail'}
                   width={32} // Fixed width
