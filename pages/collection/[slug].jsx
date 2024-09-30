@@ -4,14 +4,10 @@ import Filer from '@cloudcannon/filer';
 import Blocks from '../../components/shared/blocks';
 import React, { useEffect, useState, useCallback, memo } from 'react';
 import { useRouter } from 'next/router';
-import ExportedImage from 'next-image-export-optimizer';
 import Head from 'next/head';
 import { useSwipeable } from 'react-swipeable';
-import CollectionPhoto from '../../components/collection/photo'; // Ensure this import
 
 const filer = new Filer({ path: 'content' });
-
-const MemoizedExportedImage = memo(ExportedImage);
 
 const CollectionPage = ({ page }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -198,7 +194,7 @@ const CollectionPage = ({ page }) => {
                   transformOrigin: 'center',
                 }}
               >
-                <MemoizedExportedImage
+                <img
                   src={block.image_path}
                   alt={block.alt_text || 'Thumbnail'}
                   width={32} // Fixed width

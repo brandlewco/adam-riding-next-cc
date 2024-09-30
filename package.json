@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next-image-export-optimizer",
+    "buildjam": "next build && jampack ./out",
     "start": "next start",
     "prebuild:fetch-theme-color": "node fetch-theme-color.js",
     "lint": "next lint"
@@ -12,6 +13,7 @@
   "dependencies": {
     "@cloudcannon/filer": "^0.0.3",
     "@cloudcannon/react-connector": "^2.0.0",
+    "@divriots/jampack": "^0.28.0",
     "@googlemaps/js-api-loader": "^1.12.2",
     "@makotot/ghostui": "^2.0.0",
     "eslint-config-next": "^13.0.4",
