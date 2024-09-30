@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next-image-export-optimizer",
-    "buildjam": "next build && jampack ./out",
     "start": "next start",
     "prebuild:fetch-theme-color": "node fetch-theme-color.js",
     "lint": "next lint"

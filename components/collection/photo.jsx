@@ -1,7 +1,10 @@
 import MarkdownIt from "markdown-it";
+import ExportedImage from "next-image-export-optimizer";
 import { useState, useEffect, memo } from "react";
 
 const md = new MarkdownIt({ html: true });
+
+const MemoizedExportedImage = memo(ExportedImage);
 
 function CollectionPhoto({ block, setImageLoaded }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -35,9 +38,12 @@ function CollectionPhoto({ block, setImageLoaded }) {
   }
 
   return (
-    <img
+    <MemoizedExportedImage
       src={block.image_path}
       alt={block.alt_text || "Slide Image"}
+      priority
+      width={dimensions.width}
+      height={dimensions.height}
       sizes="(max-width: 640px) 100vw, (max-width: 1920px) 40vw, 33vw"
       className="md:h-85vh w-full md:w-auto"
       style={{
