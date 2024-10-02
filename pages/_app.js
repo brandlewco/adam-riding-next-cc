@@ -95,7 +95,7 @@ function InnerApp({ Component, pageProps }) {
 
   return (
     <>
-      {router.pathname.includes("/collection/") && (
+      {/* {router.pathname.includes("/collection/") && (
         <>
           <div
             id="click-up"
@@ -110,7 +110,7 @@ function InnerApp({ Component, pageProps }) {
             style={{ zIndex: 10 }}
           />
         </>
-      )}
+      )} */}
       <AnimatePresence mode="wait" initial={false} custom={direction}>
         <motion.div
           key={pageKey}
