@@ -32,7 +32,7 @@ body {
 }
 
 #click-up:hover {
-  cursor: url('/images/previous.png'), auto;
+  cursor: url('/images/prev.png'), auto;
 }
 
 #click-down:hover {
@@ -61,4 +61,18 @@ body {
 
 .contact div > p:last-of-type {
   @apply pb-0;
+}
+
+.img-w {
+  height: auto !important;
+  width: auto !important;
+  right: 0 !important;
+  inset: initial !important;
+  position: relative !important;
+}
+
+@media screen(md) {
+  .img-w {
+  height: 100% !important;
+  }
 }

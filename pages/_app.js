@@ -120,6 +120,7 @@ function InnerApp({ Component, pageProps }) {
           custom={direction}
           variants={pageVariants}
           style={{ position: 'relative' }}
+          className="h-screen"
           {...swipeHandlers} // Add swipe handlers
         >
           <Component {...pageProps} />

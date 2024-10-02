@@ -5,12 +5,52 @@ import Blocks from '../../components/shared/blocks';
 import React, { useEffect, useState, useCallback, memo } from 'react';
 import { useRouter } from 'next/router';
 import ExportedImage from 'next-image-export-optimizer';
-import Head from 'next/head';
 import { useSwipeable } from 'react-swipeable';
 
 const filer = new Filer({ path: 'content' });
 
-const MemoizedExportedImage = memo(ExportedImage);
+const MemoizedExportedImage = memo(({ src, alt, width, height }) => (
+  <ExportedImage
+    src={src}
+    alt={alt}
+    priority
+    width={width}
+    height={height}
+    style={{ objectFit: 'cover' }}
+    sizes="(max-width: 640px) 5vw, 1vw"
+  />
+));
+MemoizedExportedImage.displayName = 'MemoizedExportedImage';
+
+const Thumbnail = memo(({ block, index, currentImage, handleThumbnailClick }) => (
+  <motion.div
+    key={index}
+    onClick={() => handleThumbnailClick(index)}
+    className={`cursor-pointer relative mb-2 ${
+      currentImage === index ? 'opacity-100' : 'opacity-50'
+    }`}
+    style={{
+      transition: 'transform 0.3s',
+      transformOrigin: 'center',
+      width: '32px',
+      height: '32px',
+    }}
+  >
+    <MemoizedExportedImage
+      src={block.image_path}
+      alt={block.alt_text || 'Thumbnail'}
+      width={32}
+      height={32}
+      sizes="(max-width: 640px) 10vw, 1vw"
+      className="hover:opacity-100"
+      style={{
+        objectFit: 'contain',
+        transition: 'opacity 0.33s',
+      }}
+    />
+  </motion.div>
+));
+Thumbnail.displayName = 'Thumbnail';
 
 const CollectionPage = ({ page }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -25,21 +65,6 @@ const CollectionPage = ({ page }) => {
       setCurrentImage(imageIndex);
     }
   }, [router.query.image, imageCount]);
-
-  const preloadImage = useCallback((src) => {
-    const img = new Image();
-    img.src = src;
-  }, []);
-
-  useEffect(() => {
-    if (imageCount > 0) {
-      const nextImageIndex = (currentImage + 1) % imageCount;
-      const prevImageIndex = (currentImage - 1 + imageCount) % imageCount;
-
-      preloadImage(page.data.content_blocks[nextImageIndex].image_path);
-      preloadImage(page.data.content_blocks[prevImageIndex].image_path);
-    }
-  }, [currentImage, imageCount, page.data.content_blocks, preloadImage]);
 
   const handleAreaClick = useCallback(
     (area) => {
@@ -112,24 +137,6 @@ const CollectionPage = ({ page }) => {
 
   return (
     <DefaultLayout page={page}>
-      <Head>
-        {/* Preload next and previous images */}
-        {imageCount > 0 && (
-          <>
-            <link
-              rel="preload"
-              as="image"
-              href={page.data.content_blocks[(currentImage + 1) % imageCount].image_path}
-            />
-            <link
-              rel="preload"
-              as="image"
-              href={page.data.content_blocks[(currentImage - 1 + imageCount) % imageCount].image_path}
-            />
-          </>
-        )}
-      </Head>
-
       {/* Collection Info in the Top Right Corner */}
       <div className="hidden sm:block sm:absolute top-4 left-4 text-left">
         <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
@@ -157,13 +164,12 @@ const CollectionPage = ({ page }) => {
           animate="center"
           exit="exit"
           custom={direction}
-          className="relative w-auto overflow-hidden"
+          className="relative w-auto overflow-hidden p-4"
           style={{ position: 'relative' }} // Ensures the positioning is correct
           {...swipeHandlers} // Add swipe handlers
         >
           <section
-            className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start w-auto relative overflow-hidden p-4"
-            style={{ height: '100vh' }}
+            className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start relative overflow-hidden md:h-85vh h-screen w-full md:w-auto"
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} setImageLoaded={setImageLoaded} />
             {imageLoaded && (
@@ -178,42 +184,17 @@ const CollectionPage = ({ page }) => {
       {/* Thumbnail Selector */}
       <div className="fixed bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
         <div className="grid grid-cols-10 md:grid-flow-col gap-2">
-          {page.data.content_blocks.map((block, index) => {
-            // Check if image dimensions are available
-            const imageWidth = block.image_width || 32;
-            const imageHeight = block.image_height
-              ? Math.round((block.image_height / block.image_width) * 32)
-              : 32;
-
-            return (
-              <motion.div
-                key={index}
-                onClick={() => handleThumbnailClick(index)}
-                className={`cursor-pointer relative ${
-                  currentImage === index ? 'opacity-100' : 'opacity-50'
-                }`}
-                style={{
-                  transition: 'transform 0.3s',
-                  transformOrigin: 'center',
-                }}
-              >
-                <MemoizedExportedImage
-                  src={block.image_path}
-                  alt={block.alt_text || 'Thumbnail'}
-                  width={32} // Fixed width
-                  height={imageHeight} // Calculated or default height
-                  className="hover:opacity-100"
-                  sizes="(max-width: 640px) 10vw, 5vw"
-                  style={{
-                    transition: 'opacity 0.33s',
-                  }}
-                />
-              </motion.div>
-            );
-          })}
+          {page.data.content_blocks.map((block, index) => (
+            <Thumbnail
+              key={index}
+              block={block}
+              index={index}
+              currentImage={currentImage}
+              handleThumbnailClick={handleThumbnailClick}
+            />
+          ))}
         </div>
       </div>
-
     </DefaultLayout>
   );
 };
