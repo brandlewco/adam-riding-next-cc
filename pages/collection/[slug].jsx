@@ -135,6 +135,21 @@ const CollectionPage = ({ page }) => {
     }),
   };
 
+  const gridClasses = {
+    1: 'grid-cols-1',
+    2: 'grid-cols-2',
+    3: 'grid-cols-3',
+    4: 'grid-cols-4',
+    5: 'grid-cols-5',
+    6: 'grid-cols-6',
+    7: 'grid-cols-7',
+    8: 'grid-cols-8',
+    9: 'grid-cols-9',
+    10: 'grid-cols-10',
+  };
+
+  const gridClass = imageCount <= 9 ? gridClasses[imageCount] : 'grid-cols-10';
+
   return (
     <DefaultLayout page={page}>
       {/* Collection Info in the Top Right Corner */}
@@ -183,7 +198,7 @@ const CollectionPage = ({ page }) => {
 
       {/* Thumbnail Selector */}
       <div className="fixed bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
-        <div className="grid grid-cols-10 md:grid-flow-col gap-2">
+        <div className={`grid gap-2 ${gridClass} md:grid-flow-col justify-center sm:justify-start`}>
           {page.data.content_blocks.map((block, index) => (
             <Thumbnail
               key={index}
