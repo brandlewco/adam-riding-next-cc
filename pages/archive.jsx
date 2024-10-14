@@ -2,25 +2,38 @@ import DefaultLayout from '../components/layouts/default';
 import Filer from '@cloudcannon/filer';
 import { motion, AnimatePresence } from 'framer-motion';
 import ExportedImage from 'next-image-export-optimizer';
-import sizeOf from 'image-size';
-import path from 'path';
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, memo } from 'react';
 import { useRouter } from 'next/router';
 import { useSwipeable } from 'react-swipeable';
+import { useInView } from 'react-intersection-observer'; // Import useInView
 
 const filer = new Filer({ path: 'content' });
+
+const MemoizedExportedImage = memo(
+  ({ src, alt, width, height, loading, className, style, sizes, ...rest }) => (
+    <ExportedImage
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      className={className}
+      style={style}
+      sizes={sizes}
+      {...rest} // Pass any additional props
+    />
+  )
+);
+MemoizedExportedImage.displayName = 'MemoizedExportedImage';
 
 function ArchivePage({ page, photos }) {
   const [currentImage, setCurrentImage] = useState(null);
   const [direction, setDirection] = useState('');
-  const [isReturningFromExpandedView, setIsReturningFromExpandedView] = useState(false);
   const router = useRouter();
-  const initialLoadRef = useRef(true);
 
   const handleImageClick = useCallback((index) => {
     setCurrentImage(index);
     setDirection('');
-    setIsReturningFromExpandedView(true);
   }, []);
 
   const handleNavigation = useCallback(
@@ -55,14 +68,6 @@ function ArchivePage({ page, photos }) {
       router.events.off('routeChangeStart', handleRouteChange);
     };
   }, [router, handleClose]);
-
-  useEffect(() => {
-    if (initialLoadRef.current) {
-      initialLoadRef.current = false;
-    } else {
-      setIsReturningFromExpandedView(false);
-    }
-  }, [router.asPath]);
 
   const handleKeyDown = useCallback(
     (event) => {
@@ -130,8 +135,6 @@ function ArchivePage({ page, photos }) {
       },
     }),
   };
-
-  // Variants for the grid items with simple opacity control
   const gridVariants = {
     hidden: { opacity: 0, transform: 'none' },
     visible: (index) => ({
@@ -146,7 +149,11 @@ function ArchivePage({ page, photos }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24'}`}>
+      <div
+        className={`h-screen ${
+          currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24'
+        }`}
+      >
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
           <AnimatePresence>
             {photos.map((photo, index) => (
@@ -174,15 +181,7 @@ function ArchivePage({ page, photos }) {
                   whileHover={{ scale: 1.1 }}
                   className="relative origin-center origin-top"
                 >
-                  <ExportedImage
-                    src={photo.image_path}
-                    alt={photo.alt_text || 'Photo image'}
-                    width={photo.width}
-                    height={photo.height}
-                    sizes="(max-width: 640px) 30vw, 12vw"
-                    className='object-contain h-auto w-full'
-                    loading="lazy"
-                  />
+                  <LazyImage photo={photo} />
                 </motion.div>
               </motion.li>
             ))}
@@ -195,24 +194,24 @@ function ArchivePage({ page, photos }) {
             <motion.div
               key={currentImage}
               layoutId={`image-${photos[currentImage].slug}-${photos[currentImage].image_path}`}
-              variants={expandedViewVariants} // Use for overall expanded view animations
+              variants={expandedViewVariants}
               initial="enter"
               animate="center"
               exit="exit"
               custom={direction}
               className="fixed flex flex-col sm:flex-row flex-end w-full transform-none z-50 overflow-x-hidden p-4 mt-8 sm:mt-0"
-              {...swipeHandlers} // Add swipe handlers
+              {...swipeHandlers}
             >
               <motion.section
                 className="photo flex flex-col items-end w-auto relative overflow-hidden"
                 style={{ height: '100vh', width: '100%', maxWidth: '100vw' }}
-                variants={navigationVariants} // Use for left and right navigation animations
+                variants={navigationVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
                 custom={direction}
               >
-                <ExportedImage
+                <MemoizedExportedImage
                   src={photos[currentImage].image_path}
                   alt={photos[currentImage].alt_text || 'Expanded image'}
                   width={photos[currentImage].width}
@@ -223,7 +222,7 @@ function ArchivePage({ page, photos }) {
                     objectFit: 'contain',
                     transform: 'none',
                   }}
-                  loading="eager" // Ensure the expanded view image loads immediately when viewed
+                  loading="eager" // Load immediately when expanded
                 />
                 <div className="text-sm mt-2 self-end">
                   {photos[currentImage].alt_text || 'Expanded image'}
@@ -235,14 +234,12 @@ function ArchivePage({ page, photos }) {
                 className="fixed top-0 left-0 h-full w-1/6 md:w-1/2 cursor-pointer clickable-area"
                 onClick={() => handleNavigation('left')}
                 id="click-left"
-              >
-              </div>
+              ></div>
               <div
                 className="fixed top-0 right-0 h-full w-1/6 cursor-pointer clickable-area"
                 onClick={() => handleNavigation('right')}
                 id="click-right"
-              >
-              </div>
+              ></div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -263,35 +260,58 @@ function ArchivePage({ page, photos }) {
 
 export default ArchivePage;
 
+// LazyImage Component
+function LazyImage({ photo }) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '200px 0px', // Adjust rootMargin as needed
+  });
+
+  return (
+    <div ref={ref}>
+      {inView ? (
+        <MemoizedExportedImage
+          src={photo.image_path}
+          alt={photo.alt_text || 'Photo image'}
+          width={photo.width}
+          height={photo.height}
+          sizes="(max-width: 640px) 30vw, 12vw"
+          className="object-contain h-auto w-full"
+          loading="lazy"
+        />
+      ) : (
+        // Placeholder to maintain layout
+        <div
+          style={{
+            width: photo.width,
+            height: photo.height,
+            backgroundColor: '#f0f0f0', // Optional placeholder styling
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
 export async function getStaticProps() {
   const page = await filer.getItem('archive.md', { folder: 'pages' });
   const photos = [];
 
   for (const photoBlock of page.data.content_blocks) {
     if (photoBlock._bookshop_name === 'collection/photo' && photoBlock.image_path) {
-      try {
-        const imagePath = path.join(process.cwd(), 'public', photoBlock.image_path);
-        const dimensions = sizeOf(imagePath);
+      // Adjust image_path to be relative to 'public' directory
+      const imagePath = photoBlock.image_path.startsWith('/uploads/')
+        ? photoBlock.image_path
+        : `/uploads/${photoBlock.image_path}`;
 
-        photos.push({
-          title: photoBlock.title || null,
-          slug: photoBlock.slug || null,
-          image_path: photoBlock.image_path,
-          alt_text: photoBlock.alt_text || 'Photo image',
-          width: dimensions.width,
-          height: dimensions.height,
-        });
-      } catch (error) {
-        console.error(`Error getting dimensions for image ${photoBlock.image_path}:`, error);
-        photos.push({
-          title: photoBlock.title || null,
-          slug: photoBlock.slug || null,
-          image_path: photoBlock.image_path,
-          alt_text: photoBlock.alt_text || 'Photo image',
-          width: 800,
-          height: 600,
-        });
-      }
+      photos.push({
+        title: photoBlock.title || null,
+        slug: photoBlock.slug || null,
+        image_path: imagePath,
+        alt_text: photoBlock.alt_text || 'Photo image',
+        width: photoBlock.width || 800,
+        height: photoBlock.height || 600,
+      });
     }
   }
 
