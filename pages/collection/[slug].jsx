@@ -153,7 +153,7 @@ const CollectionPage = ({ page }) => {
   return (
     <DefaultLayout page={page}>
       {/* Collection Info in the Top Right Corner */}
-      <div className="hidden sm:block sm:absolute top-4 left-4 text-left">
+      <div className="hidden md:block md:absolute top-4 left-4 text-left">
         <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
       </div>
 
@@ -184,11 +184,11 @@ const CollectionPage = ({ page }) => {
           {...swipeHandlers} // Add swipe handlers
         >
           <section
-            className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start relative overflow-hidden md:h-85vh h-screen w-full md:w-auto overflow-hidden"
+            className="photo flex flex-col flex-col md:flex-row md:justify-end items-end md:items-start relative overflow-hidden md:h-85vh h-screen w-full md:w-auto"
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} setImageLoaded={setImageLoaded} />
             {imageLoaded && (
-              <div className="relative sm:hidden pt-4 text-left">
+              <div className="relative md:hidden pt-4 text-left">
                 <div className="text-sm">{page.data.title} - {`${currentImage + 1} / ${imageCount}`}</div>
               </div>
             )}
@@ -197,8 +197,8 @@ const CollectionPage = ({ page }) => {
       </AnimatePresence>
 
       {/* Thumbnail Selector */}
-      <div className="fixed bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 sm:px-0">
-        <div className={`grid gap-2 ${gridClass} md:grid-flow-col justify-center sm:justify-start`}>
+      <div className="fixed bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 md:px-0">
+        <div className={`grid gap-2 ${gridClass} md:grid-flow-col justify-center md:justify-start`}>
           {page.data.content_blocks.map((block, index) => (
             <Thumbnail
               key={index}

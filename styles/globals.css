@@ -65,7 +65,7 @@ body {
 
 .img-w {
   height: auto !important;
-  width: auto !important;
+  width: 100% !important;
   right: 0 !important;
   inset: initial !important;
   position: relative !important;
@@ -74,5 +74,6 @@ body {
 @media screen(md) {
   .img-w {
   height: 100% !important;
+  width: auto !important;
   }
 }
