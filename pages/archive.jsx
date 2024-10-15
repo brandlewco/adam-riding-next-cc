@@ -151,7 +151,7 @@ function ArchivePage({ page, photos }) {
     <DefaultLayout page={page}>
       <div
         className={`h-screen ${
-          currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto pt-4 pl-4 pr-3 pb-24'
+          currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24'
         }`}
       >
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">

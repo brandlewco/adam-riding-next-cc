@@ -184,7 +184,7 @@ const CollectionPage = ({ page }) => {
           {...swipeHandlers} // Add swipe handlers
         >
           <section
-            className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start relative overflow-hidden md:h-85vh h-screen w-full md:w-auto"
+            className="photo flex flex-col sm:flex-row sm:justify-end items-end sm:items-start relative overflow-hidden md:h-85vh h-screen w-full md:w-auto overflow-hidden"
           >
             <Blocks content_blocks={page.data.content_blocks} currentImage={currentImage} setImageLoaded={setImageLoaded} />
             {imageLoaded && (
