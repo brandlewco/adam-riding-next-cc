@@ -10,21 +10,45 @@ import { useInView } from "react-intersection-observer"; // Import useInView
 const filer = new Filer({ path: "content" });
 
 const MemoizedExportedImage = memo(
-  ({ src, alt, width, height, className, style, sizes, ...rest }) => (
+  ({ src, alt, width, height, className, loading, style, sizes, ...rest }) => (
     <ExportedImage
       src={src}
       alt={alt}
       width={width}
       height={height}
-      loading="lazy"
+      loading={loading}
       className={className}
       style={style}
       sizes={sizes}
-      {...rest} // Pass any additional props
+      {...rest}
     />
   )
 );
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
+
+// Place the LazyImage function here
+function LazyImage({ photo }) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '100px 0px',
+  });
+
+  return (
+    <div ref={ref}>
+      {inView && (
+        <MemoizedExportedImage
+          src={photo.image_path}
+          alt={photo.alt_text || "Photo image"}
+          width={photo.width}
+          height={photo.height}
+          sizes="(max-width: 640px) 30vw, 12vw"
+          className="object-contain h-auto w-full"
+          loading="lazy"
+        />
+      )}
+    </div>
+  );
+}
 
 function ArchivePage({ page, photos }) {
   const [currentImage, setCurrentImage] = useState(null);
@@ -183,15 +207,7 @@ function ArchivePage({ page, photos }) {
                   whileHover={{ scale: 1.1 }}
                   className="relative origin-center origin-top"
                 >
-                  <MemoizedExportedImage
-                    src={photo.image_path}
-                    alt={photo.alt_text || "Photo image"}
-                    width={photo.width}
-                    height={photo.height}
-                    sizes="(max-width: 640px) 30vw, 12vw"
-                    className="object-contain h-auto w-full"
-                    loading="lazy"
-                  />
+                  <LazyImage photo={photo} />
                 </motion.div>
               </motion.li>
             ))}
@@ -232,7 +248,7 @@ function ArchivePage({ page, photos }) {
                     objectFit: "contain",
                     transform: "none",
                   }}
-                  loading="lazy"
+                  loading="eager" // Load immediately in expanded view
                 />
                 <div className="text-sm mt-2 self-end">
                   {photos[currentImage].alt_text || "Expanded image"}
@@ -268,7 +284,9 @@ function ArchivePage({ page, photos }) {
   );
 }
 
+
 export default ArchivePage;
+
 
 export async function getStaticProps() {
   const page = await filer.getItem("archive.md", { folder: "pages" });
