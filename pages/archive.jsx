@@ -1,13 +1,13 @@
-import DefaultLayout from '../components/layouts/default';
-import Filer from '@cloudcannon/filer';
-import { motion, AnimatePresence } from 'framer-motion';
-import ExportedImage from 'next-image-export-optimizer';
-import { useState, useCallback, useEffect, useRef, memo } from 'react';
-import { useRouter } from 'next/router';
-import { useSwipeable } from 'react-swipeable';
-import { useInView } from 'react-intersection-observer'; // Import useInView
+import DefaultLayout from "../components/layouts/default";
+import Filer from "@cloudcannon/filer";
+import { motion, AnimatePresence } from "framer-motion";
+import ExportedImage from "next-image-export-optimizer";
+import { useState, useCallback, useEffect, useRef, memo } from "react";
+import { useRouter } from "next/router";
+import { useSwipeable } from "react-swipeable";
+import { useInView } from "react-intersection-observer"; // Import useInView
 
-const filer = new Filer({ path: 'content' });
+const filer = new Filer({ path: "content" });
 
 const MemoizedExportedImage = memo(
   ({ src, alt, width, height, className, style, sizes, ...rest }) => (
@@ -24,25 +24,25 @@ const MemoizedExportedImage = memo(
     />
   )
 );
-MemoizedExportedImage.displayName = 'MemoizedExportedImage';
+MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
 function ArchivePage({ page, photos }) {
   const [currentImage, setCurrentImage] = useState(null);
-  const [direction, setDirection] = useState('');
+  const [direction, setDirection] = useState("");
   const router = useRouter();
 
   const handleImageClick = useCallback((index) => {
     setCurrentImage(index);
-    setDirection('');
+    setDirection("");
   }, []);
 
   const handleNavigation = useCallback(
     (direction) => {
       setDirection(direction);
       setCurrentImage((prevIndex) => {
-        if (direction === 'right') {
+        if (direction === "right") {
           return (prevIndex + 1) % photos.length;
-        } else if (direction === 'left') {
+        } else if (direction === "left") {
           return (prevIndex - 1 + photos.length) % photos.length;
         }
         return prevIndex;
@@ -57,39 +57,39 @@ function ArchivePage({ page, photos }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      if (url === '/archive') {
+      if (url === "/archive") {
         handleClose();
       }
     };
 
-    router.events.on('routeChangeStart', handleRouteChange);
+    router.events.on("routeChangeStart", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
+      router.events.off("routeChangeStart", handleRouteChange);
     };
   }, [router, handleClose]);
 
   const handleKeyDown = useCallback(
     (event) => {
-      if (event.key === 'ArrowRight') {
-        handleNavigation('right');
-      } else if (event.key === 'ArrowLeft') {
-        handleNavigation('left');
+      if (event.key === "ArrowRight") {
+        handleNavigation("right");
+      } else if (event.key === "ArrowLeft") {
+        handleNavigation("left");
       }
     },
     [handleNavigation]
   );
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
 
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => handleNavigation('right'),
-    onSwipedRight: () => handleNavigation('left'),
+    onSwipedLeft: () => handleNavigation("right"),
+    onSwipedRight: () => handleNavigation("left"),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
@@ -113,33 +113,33 @@ function ArchivePage({ page, photos }) {
   const navigationVariants = {
     enter: (direction) => ({
       opacity: 0,
-      x: direction === 'left' ? '100%' : direction === 'right' ? '-100%' : 0,
+      x: direction === "left" ? "100%" : direction === "right" ? "-100%" : 0,
     }),
     center: {
       opacity: 1,
       x: 0,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 150,
         damping: 25,
         duration: 0.4,
         delay: -0.2,
-        opacity: { duration: 0.6, ease: 'easeOut' },
+        opacity: { duration: 0.6, ease: "easeOut" },
       },
     },
     exit: (direction) => ({
       opacity: 0,
-      x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
+      x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
       transition: {
         opacity: { duration: 0.3 },
       },
     }),
   };
   const gridVariants = {
-    hidden: { opacity: 0, transform: 'none' },
+    hidden: { opacity: 0, transform: "none" },
     visible: (index) => ({
       opacity: 1,
-      transform: 'none',
+      transform: "none",
       transition: {
         duration: 0.33,
         delay: 0.3 + index * 0.03,
@@ -151,7 +151,9 @@ function ArchivePage({ page, photos }) {
     <DefaultLayout page={page}>
       <div
         className={`h-screen ${
-          currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24'
+          currentImage !== null
+            ? "overflow-hidden p-0"
+            : "overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24"
         }`}
       >
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
@@ -165,12 +167,12 @@ function ArchivePage({ page, photos }) {
                 custom={index}
                 variants={gridVariants}
                 className={`flex justify-center items-start ${
-                  currentImage !== null ? 'hidden' : ''
+                  currentImage !== null ? "hidden" : ""
                 } relative cursor-pointer transition-transform duration-200`}
                 style={{
-                  alignItems: 'flex-start',
-                  transform: 'none !important',
-                  transformOrigin: 'top center !important',
+                  alignItems: "flex-start",
+                  transform: "none !important",
+                  transformOrigin: "top center !important",
                 }}
                 onClick={() => handleImageClick(index)}
               >
@@ -181,7 +183,15 @@ function ArchivePage({ page, photos }) {
                   whileHover={{ scale: 1.1 }}
                   className="relative origin-center origin-top"
                 >
-                  <LazyImage photo={photo} />
+                  <MemoizedExportedImage
+                    src={photo.image_path}
+                    alt={photo.alt_text || "Photo image"}
+                    width={photo.width}
+                    height={photo.height}
+                    sizes="(max-width: 640px) 30vw, 12vw"
+                    className="object-contain h-auto w-full"
+                    loading="lazy"
+                  />
                 </motion.div>
               </motion.li>
             ))}
@@ -204,7 +214,7 @@ function ArchivePage({ page, photos }) {
             >
               <motion.section
                 className="photo flex flex-col items-end w-auto relative overflow-hidden"
-                style={{ height: '100vh', width: '100%', maxWidth: '100vw' }}
+                style={{ height: "100vh", width: "100%", maxWidth: "100vw" }}
                 variants={navigationVariants}
                 initial="enter"
                 animate="center"
@@ -213,31 +223,31 @@ function ArchivePage({ page, photos }) {
               >
                 <MemoizedExportedImage
                   src={photos[currentImage].image_path}
-                  alt={photos[currentImage].alt_text || 'Expanded image'}
+                  alt={photos[currentImage].alt_text || "Expanded image"}
                   width={photos[currentImage].width}
                   height={photos[currentImage].height}
                   sizes="(max-width: 640px) 100vw, 30vw"
                   className="md:h-85vh w-full md:w-auto self-end"
                   style={{
-                    objectFit: 'contain',
-                    transform: 'none',
+                    objectFit: "contain",
+                    transform: "none",
                   }}
                   loading="lazy"
                 />
                 <div className="text-sm mt-2 self-end">
-                  {photos[currentImage].alt_text || 'Expanded image'}
+                  {photos[currentImage].alt_text || "Expanded image"}
                 </div>
               </motion.section>
 
               {/* Navigation Controls */}
               <div
                 className="fixed top-0 left-0 h-full w-1/6 md:w-1/2 cursor-pointer clickable-area"
-                onClick={() => handleNavigation('left')}
+                onClick={() => handleNavigation("left")}
                 id="click-left"
               ></div>
               <div
                 className="fixed top-0 right-0 h-full w-1/6 cursor-pointer clickable-area"
-                onClick={() => handleNavigation('right')}
+                onClick={() => handleNavigation("right")}
                 id="click-right"
               ></div>
             </motion.div>
@@ -260,61 +270,21 @@ function ArchivePage({ page, photos }) {
 
 export default ArchivePage;
 
-// LazyImage Component
-function LazyImage({ photo }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: '100px 0px',
-  });
-
-  useEffect(() => {
-    if (inView) {
-      setIsLoaded(true);
-    }
-  }, [inView]);
-
-  return (
-    <div ref={ref}>
-      {isLoaded ? (
-        <MemoizedExportedImage
-          src={photo.image_path}
-          alt={photo.alt_text || 'Photo image'}
-          width={photo.width}
-          height={photo.height}
-          sizes="(max-width: 640px) 30vw, 12vw"
-          className="object-contain h-auto w-full"
-          loading="lazy"
-        />
-      ) : (
-        <div
-          style={{
-            width: photo.width,
-            height: photo.height,
-            backgroundColor: '#eeeeee',
-          }}
-        />
-      )}
-    </div>
-  );
-}
-
 export async function getStaticProps() {
-  const page = await filer.getItem('archive.md', { folder: 'pages' });
+  const page = await filer.getItem("archive.md", { folder: "pages" });
   const photos = [];
 
   for (const photoBlock of page.data.content_blocks) {
-    if (photoBlock._bookshop_name === 'collection/photo' && photoBlock.image_path) {
+    if (
+      photoBlock._bookshop_name === "collection/photo" &&
+      photoBlock.image_path
+    ) {
       // Adjust image_path to be relative to 'public' directory
-      const imagePath = photoBlock.image_path.startsWith('/uploads/')
-        ? photoBlock.image_path
-        : `/uploads/${photoBlock.image_path}`;
-
       photos.push({
         title: photoBlock.title || null,
         slug: photoBlock.slug || null,
-        image_path: imagePath,
-        alt_text: photoBlock.alt_text || 'Photo image',
+        image_path: photoBlock.image_path,
+        alt_text: photoBlock.alt_text || "Photo image",
         width: photoBlock.width || 800,
         height: photoBlock.height || 600,
       });
