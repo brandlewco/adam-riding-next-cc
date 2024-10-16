@@ -10,13 +10,13 @@ import { useInView } from 'react-intersection-observer'; // Import useInView
 const filer = new Filer({ path: 'content' });
 
 const MemoizedExportedImage = memo(
-  ({ src, alt, width, height, loading, className, style, sizes, ...rest }) => (
+  ({ src, alt, width, height, className, style, sizes, ...rest }) => (
     <ExportedImage
       src={src}
       alt={alt}
       width={width}
       height={height}
-      loading={loading}
+      loading="lazy"
       className={className}
       style={style}
       sizes={sizes}
@@ -222,7 +222,6 @@ function ArchivePage({ page, photos }) {
                     objectFit: 'contain',
                     transform: 'none',
                   }}
-                  loading="eager" // Load immediately when expanded
                 />
                 <div className="text-sm mt-2 self-end">
                   {photos[currentImage].alt_text || 'Expanded image'}
@@ -277,7 +276,6 @@ function LazyImage({ photo }) {
           height={photo.height}
           sizes="(max-width: 640px) 30vw, 12vw"
           className="object-contain h-auto w-full"
-          loading="lazy"
         />
       ) : (
         // Placeholder to maintain layout
