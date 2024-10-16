@@ -222,6 +222,7 @@ function ArchivePage({ page, photos }) {
                     objectFit: 'contain',
                     transform: 'none',
                   }}
+                  loading="lazy"
                 />
                 <div className="text-sm mt-2 self-end">
                   {photos[currentImage].alt_text || 'Expanded image'}
@@ -261,14 +262,21 @@ export default ArchivePage;
 
 // LazyImage Component
 function LazyImage({ photo }) {
+  const [isLoaded, setIsLoaded] = useState(false);
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: '200px 0px', // Adjust rootMargin as needed
+    rootMargin: '100px 0px',
   });
+
+  useEffect(() => {
+    if (inView) {
+      setIsLoaded(true);
+    }
+  }, [inView]);
 
   return (
     <div ref={ref}>
-      {inView ? (
+      {isLoaded ? (
         <MemoizedExportedImage
           src={photo.image_path}
           alt={photo.alt_text || 'Photo image'}
@@ -276,14 +284,14 @@ function LazyImage({ photo }) {
           height={photo.height}
           sizes="(max-width: 640px) 30vw, 12vw"
           className="object-contain h-auto w-full"
+          loading="lazy"
         />
       ) : (
-        // Placeholder to maintain layout
         <div
           style={{
             width: photo.width,
             height: photo.height,
-            backgroundColor: '#f0f0f0', // Optional placeholder styling
+            backgroundColor: '#eeeeee',
           }}
         />
       )}
