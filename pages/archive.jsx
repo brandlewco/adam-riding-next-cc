@@ -144,12 +144,41 @@ function ArchivePage({ page, photos }) {
     }),
   };
 
+  // LazyLoad Component
+function LazyLoad({ children, rootMargin = '200px' }) {
+  const ref = useRef();
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(
+      ([entry], observer) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(entry.target); // Unobserve instead of disconnecting completely
+        }
+      },
+      {
+        rootMargin: '0px',
+        threshold: 0.1, // Load when 10% of the item is visible
+      }
+    );
+
+    observer.observe(ref.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [rootMargin]);
+
+  return <div ref={ref}>{isInView ? children : null}</div>;
+}
+
   return (
     <DefaultLayout page={page}>
-        <div
-        className={`h-screen ${
-          currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24'
-        }`}>
+      <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24'}`}>
         <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
           <AnimatePresence>
             {photos.map((photo, index) => (
@@ -177,15 +206,17 @@ function ArchivePage({ page, photos }) {
                   whileHover={{ scale: 1.1 }}
                   className="relative origin-center origin-top"
                 >
+                  <LazyLoad>
                   <ExportedImage
                     src={photo.image_path}
                     alt={photo.alt_text || 'Photo image'}
                     width={photo.width}
                     height={photo.height}
-                    sizes="(max-width: 640px) 30vw, 12vw"
+                    sizes="(max-width: 640px) 30vw, 10vw"
                     className='object-contain h-auto w-full'
                     loading="lazy"
                   />
+                  </LazyLoad>
                 </motion.div>
               </motion.li>
             ))}
@@ -279,20 +310,20 @@ export async function getStaticProps() {
         photos.push({
           title: photoBlock.title || null,
           slug: photoBlock.slug || null,
-          image_path: photoBlock.image_path,
+          image_path: photoBlock.image_path || null,
           alt_text: photoBlock.alt_text || 'Photo image',
-          width: dimensions.width,
-          height: dimensions.height,
+          width: dimensions.width  || 400,
+          height: dimensions.height || 300,
         });
       } catch (error) {
         console.error(`Error getting dimensions for image ${photoBlock.image_path}:`, error);
         photos.push({
           title: photoBlock.title || null,
           slug: photoBlock.slug || null,
-          image_path: photoBlock.image_path,
+          image_path: photoBlock.image_path  || null,
           alt_text: photoBlock.alt_text || 'Photo image',
-          width: 800,
-          height: 600,
+          width: 400,
+          height: 300,
         });
       }
     }
