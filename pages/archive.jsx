@@ -10,7 +10,7 @@ import { useSwipeable } from "react-swipeable";
 const filer = new Filer({ path: "content" });
 
 const MemoizedExportedImage = memo(
-  ({ src, alt, width, height, className, loading, style, sizes, ...rest }) => (
+  ({ src, alt, width, height, className, loading, style, sizes }) => (
     <ExportedImage
       src={src}
       alt={alt}
@@ -20,7 +20,6 @@ const MemoizedExportedImage = memo(
       className={className}
       style={style}
       sizes={sizes}
-      {...rest}
     />
   )
 );
