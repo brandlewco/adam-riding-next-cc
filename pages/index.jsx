@@ -152,6 +152,7 @@ function HomePage({ page, collections }) {
                             alt={collection.firstImageAlt || 'Collection image'}
                             width={collection.width}
                             height={collection.height}
+                            sizes="(max-width: 640px) 50vw, 16vw"
                           />
                         </motion.div>
                       </div>

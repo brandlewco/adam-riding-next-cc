@@ -241,8 +241,15 @@ function ArchivePage({ page, photos }) {
                   whileHover={{ scale: 1.1 }}
                   className="relative origin-center origin-top"
                 >
-                  <LazyImage photo={photo} />
-                </motion.div>
+        <MemoizedExportedImage
+          src={photo.image_path}
+          alt={photo.alt_text || 'Photo image'}
+          width={photo.width}
+          height={photo.height}
+          sizes='(max-width: 640px) 30vw, 12vw'
+          className='object-contain h-auto w-full'
+          loading='lazy'
+        />                </motion.div>
               </motion.li>
             ))}
           </AnimatePresence>
