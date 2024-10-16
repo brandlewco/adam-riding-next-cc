@@ -5,7 +5,7 @@ import ExportedImage from "next-image-export-optimizer";
 import { useState, useCallback, useEffect, useRef, memo } from "react";
 import { useRouter } from "next/router";
 import { useSwipeable } from "react-swipeable";
-import { useInView } from "react-intersection-observer"; // Import useInView
+
 
 const filer = new Filer({ path: "content" });
 
@@ -26,29 +26,63 @@ const MemoizedExportedImage = memo(
 );
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
-// Place the LazyImage function here
 function LazyImage({ photo }) {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: '100px 0px',
-  });
+  const containerRef = useRef();
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observerInstance.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: document.querySelector('.custom-scroll-container'), // Your scrollable container
+        rootMargin: '100px',
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div ref={ref}>
-      {inView && (
+    <div ref={containerRef}>
+      {isInView ? (
         <MemoizedExportedImage
           src={photo.image_path}
-          alt={photo.alt_text || "Photo image"}
+          alt={photo.alt_text || 'Photo image'}
           width={photo.width}
           height={photo.height}
-          sizes="(max-width: 640px) 30vw, 12vw"
-          className="object-contain h-auto w-full"
-          loading="lazy"
+          sizes='(max-width: 640px) 30vw, 12vw'
+          className='object-contain h-auto w-full'
+          loading='lazy'
+        />
+      ) : (
+        // Placeholder to maintain layout
+        <div
+          style={{
+            width: photo.width,
+            height: photo.height,
+            backgroundColor: '#eeeeee',
+          }}
         />
       )}
     </div>
   );
 }
+
 
 function ArchivePage({ page, photos }) {
   const [currentImage, setCurrentImage] = useState(null);
@@ -174,7 +208,7 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <div
-        className={`h-screen ${
+        className={`custom-scroll-container h-screen ${
           currentImage !== null
             ? "overflow-hidden p-0"
             : "overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24"
