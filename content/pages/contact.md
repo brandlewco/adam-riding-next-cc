@@ -60,7 +60,14 @@ column_2: |-
 
   DIE ZEIT
 column_3: >-
-  ## Select Press
+  ## Awards & Press
+
+
+  [Young Guns
+  22](https://www.oneclub.org/awards/youngguns/-award/54848/adam-riding/)
+
+
+  [American Photography 39](https://www.ai-ap.com/archive/AP/#)
 
 
   [Fisheye Magazine "Les Fictions de la Nuit Noire par Adam
