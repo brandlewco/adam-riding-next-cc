@@ -70,15 +70,14 @@ column_3: >-
   [American Photography 39](https://www.ai-ap.com/archive/AP/#)
 
 
-  [Fisheye Magazine "Les Fictions de la Nuit Noire par Adam
-  Riding"](https://www.fisheyemagazine.fr/rdv/portfolios/les-fictions-de-la-nuit-noire-par-adam-riding/)
+  [Fisheye
+  Magazine](https://www.fisheyemagazine.fr/rdv/portfolios/les-fictions-de-la-nuit-noire-par-adam-riding/)
 
 
-  [Booooooom "The Cellar
-  Door"](https://www.booooooom.com/2022/07/26/the-cellar-door-by-photographer-adam-riding/)
+  [Booooooom](https://www.booooooom.com/2022/07/26/the-cellar-door-by-photographer-adam-riding/)
 
 
-  Nowhere Diary "STORY 89: ADAM RIDING"
+  Nowhere Diary STORY 89
 
 
   ## Group Exhibitions
