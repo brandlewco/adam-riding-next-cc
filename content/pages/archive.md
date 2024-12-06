@@ -347,6 +347,9 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-156.jpg
     alt_text: Fourth of July - 2021
   - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_04.jpg
+    alt_text: Karl-Anthony Towns - Golf Digest
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-26.jpg
     alt_text: Phoenix Sky Harbor Airport - WSJ
   - _bookshop_name: collection/photo
