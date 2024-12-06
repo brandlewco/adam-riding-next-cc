@@ -239,6 +239,9 @@ content_blocks:
     image_path: /uploads/AR_FLORIDA-5.jpg
     alt_text: Florida Portraits - 2024
   - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_03.jpg
+    alt_text: Karl-Anthony Towns - Golf Digest
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-65.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
   - _bookshop_name: collection/photo
