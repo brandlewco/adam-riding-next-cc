@@ -27,6 +27,11 @@ content_blocks:
       Main living room that is at Taliesin West. Taliesin West was built by
       Frank Lloyd Wright in Scottsdale, AZ.
   - _bookshop_name: collection/photo
+    image_path: /uploads/Taliesin_Web_02.jpg
+    alt_text: >-
+      Red room that is at Taliesin West. Taliesin West was built by Frank Lloyd
+      Wright in Scottsdale, AZ.
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-3.jpg
     alt_text: >-
       Main living room that is at Taliesin West. Taliesin West was built by
@@ -41,6 +46,11 @@ content_blocks:
     alt_text: >-
       Study and workshop that is at Taliesin West. Taliesin West was built by
       Frank Lloyd Wright in Scottsdale, AZ.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Taliesin_Web_01.jpg
+    alt_text: >-
+      Red room that is at Taliesin West. Taliesin West was built by Frank Lloyd
+      Wright in Scottsdale, AZ.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-7.jpg
     alt_text: >-
