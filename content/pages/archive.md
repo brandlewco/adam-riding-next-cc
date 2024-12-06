@@ -494,6 +494,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-42.jpg
     alt_text: Extreme Heat - Zeit
   - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_05.jpg
+    alt_text: Karl-Anthony Towns - Golf Digest
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-39.jpg
     alt_text: Extreme Heat - Zeit
   - _bookshop_name: collection/photo
