@@ -151,4 +151,13 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Taliesin_Web_02.jpg
+    alt_text: >-
+      Red room at Taliesin West. Taliesin West was built by Frank Lloyd Wright
+      in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
