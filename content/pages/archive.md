@@ -74,8 +74,8 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-36.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-28.jpg
-    alt_text: Phoenix Sky Harbor Airport - WSJ
+    image_path: /uploads/GD_FIT_WEB_01.jpg
+    alt_text: Fitness -  Golf Digest
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-61.jpg
     alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
@@ -94,6 +94,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-81.jpg
     alt_text: The Cellar Door - Personal Project
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-28.jpg
+    alt_text: Phoenix Sky Harbor Airport - WSJ
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-95.jpg
     alt_text: Elvis - Nashville, TN 2023
@@ -283,6 +286,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-54.jpg
     alt_text: The Produce Garden Blooms - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/GD_FIT_WEB_02.jpg
+    alt_text: Fitness -  Golf Digest
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
