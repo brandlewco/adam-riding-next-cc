@@ -131,6 +131,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-146.jpg
     alt_text: American Race Car Driver Jeff Gordon - Phoenix Children's Foundation
   - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_02.jpg
+    alt_text: Karl-Anthony Towns - Golf Digest
+  - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-166.jpg
     alt_text: PUBLIC Hotel New York City - 2023
   - _bookshop_name: collection/photo
