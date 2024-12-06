@@ -127,6 +127,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/GD_FIT_WEB_01.jpg
+    alt_text: >-
+      Fitness instructor commissioned by Golf Digest. Shot in Pasadena, CA in
+      2024.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-1.jpg
     alt_text: >-
       Two athletes running side by side, one's face is in the foreground
