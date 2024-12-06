@@ -30,6 +30,11 @@ content_blocks:
       covid, that's hosted in Flagstaff, AZ. This commission was originally
       commissioned by The New York Times.
   - _bookshop_name: collection/photo
+    image_path: /uploads/GD_FIT_WEB_02.jpg
+    alt_text: >-
+      Fitness instructor commissioned by Golf Digest. Shot in Pasadena, CA in
+      2024.
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-9.jpg
     alt_text: >-
       Motion blurred, action shot of a Michael Fitzgerald running through the
