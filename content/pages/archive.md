@@ -290,11 +290,11 @@ content_blocks:
     image_path: /uploads/GD_FIT_WEB_02.jpg
     alt_text: Fitness -  Golf Digest
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-8.jpg
-    alt_text: Sebastian Vargas - Phoenix, 2021
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-64.jpg
     alt_text: The Problem of Marjorie Taylor Greene - The New York Times Magazine
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-8.jpg
+    alt_text: Sebastian Vargas - Phoenix, 2021
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-74.jpg
     alt_text: Arizona Department of Corrections - Hustle 2.0
