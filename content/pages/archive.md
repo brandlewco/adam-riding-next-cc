@@ -26,6 +26,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-45.jpg
     alt_text: The Produce Garden Blooms - The New York Times
   - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-1.jpg
+    alt_text: The Global Ambassador Hotel - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-72.jpg
     alt_text: Shelly - 2022
   - _bookshop_name: collection/photo
@@ -118,6 +121,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-12.jpg
     alt_text: Overland Expo - GQ
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-3.jpg
+    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-13.jpg
     alt_text: Overland Expo - GQ
@@ -236,6 +242,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-7.jpg
     alt_text: Sebastian Vargas - Phoenix, 2021
   - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-4.jpg
+    alt_text: The Global Ambassador Hotel - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-148.jpg
     alt_text: 7-Eleven Murder - Zeit
   - _bookshop_name: collection/photo
@@ -271,6 +280,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-3.jpg
     alt_text: Last Call - Personal Project
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-5.jpg
+    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-3.jpg
     alt_text: Florida Portraits - 2024
@@ -310,6 +322,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-151.jpg
     alt_text: 6x6 Jeep - Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-87.jpg
     alt_text: The Cellar Door - Personal Project
@@ -425,23 +440,23 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
     alt_text: The Farmer and His Crop - Personal Project
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-102.jpg
+    alt_text: Payson Rodeo - Personal Project
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-79.jpg
     alt_text: Arizona Department of Corrections - Hustle 2.0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-140.jpg
     alt_text: The Grand Canyon - 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-102.jpg
-    alt_text: Payson Rodeo - Personal Project
+    image_path: /uploads/FIXED_AR_ARCHIVE-124.jpg
+    alt_text: NYC - 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-152.jpg
     alt_text: 6x6 Jeep - Road and Track
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-136.jpg
     alt_text: Art Theft - The New York Times
-  - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-124.jpg
-    alt_text: NYC - 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-35.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
@@ -451,6 +466,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-107.jpg
     alt_text: Payson Rodeo - Personal Project
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-165.jpg
     alt_text: PUBLIC Hotel New York City - 2023
@@ -497,6 +515,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-104.jpg
     alt_text: Payson Rodeo - Personal Project
   - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-2.jpg
+    alt_text: The Global Ambassador Hotel - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-42.jpg
     alt_text: Extreme Heat - Zeit
   - _bookshop_name: collection/photo
@@ -529,6 +550,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-47.jpg
     alt_text: The Produce Garden Blooms - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-7.jpg
+    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-50.jpg
     alt_text: The Produce Garden Blooms - The New York Times
@@ -565,4 +589,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-175.jpg
     alt_text: Shohei Ohtani - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-8.jpg
+    alt_text: The Global Ambassador Hotel - 2024
 ---
