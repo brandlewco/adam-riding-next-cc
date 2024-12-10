@@ -20,11 +20,11 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-116.jpg
     alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/KAT_Web_01.jpg
-    alt_text: Karl-Anthony Towns - Golf Digest
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-45.jpg
     alt_text: The Produce Garden Blooms - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_01.jpg
+    alt_text: Karl-Anthony Towns - Golf Digest
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-1.jpg
     alt_text: The Global Ambassador Hotel - 2024
@@ -89,6 +89,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-61.jpg
     alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-28.jpg
+    alt_text: Phoenix Sky Harbor Airport - WSJ
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-51.jpg
     alt_text: The Produce Garden Blooms - The New York Times
   - _bookshop_name: collection/photo
@@ -103,9 +106,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-81.jpg
     alt_text: The Cellar Door - Personal Project
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-28.jpg
-    alt_text: Phoenix Sky Harbor Airport - WSJ
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-95.jpg
     alt_text: Elvis - Nashville, TN 2023
@@ -473,11 +473,11 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-152.jpg
     alt_text: 6x6 Jeep - Road and Track
   - _bookshop_name: collection/photo
-    image_path: /uploads/Malibu_Web-6.jpg
-    alt_text: Malibu - 2024
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-136.jpg
     alt_text: Art Theft - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-6.jpg
+    alt_text: Malibu - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-35.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
