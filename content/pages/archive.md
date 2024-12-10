@@ -29,6 +29,9 @@ content_blocks:
     image_path: /uploads/TGA_Web-1.jpg
     alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-12.jpg
+    alt_text: Malibu - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-72.jpg
     alt_text: Shelly - 2022
   - _bookshop_name: collection/photo
@@ -63,6 +66,9 @@ content_blocks:
     alt_text: Furniture Designer Levi Christiansen - Dozer Chair
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-157.jpg
+    alt_text: PUBLIC Hotel New York City - 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-3.jpg
     alt_text: PUBLIC Hotel New York City - 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-73.jpg
@@ -116,6 +122,9 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-123.jpg
     alt_text: Suberbowl 23 - The New York Times
   - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-10.jpg
+    alt_text: Malibu - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-118.jpg
     alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
@@ -152,6 +161,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-119.jpg
     alt_text: Pine, AZ - 2021
   - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-1.jpg
+    alt_text: Malibu - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-158.jpg
     alt_text: PUBLIC Hotel New York City - 2023
   - _bookshop_name: collection/photo
@@ -169,6 +181,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-86.jpg
     alt_text: The Cellar Door - Personal Project
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-11.jpg
+    alt_text: Malibu - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-111.jpg
     alt_text: The Global Ambassador Hotel - 2024
@@ -368,6 +383,9 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-156.jpg
     alt_text: Fourth of July - 2021
   - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-7.jpg
+    alt_text: Malibu - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/KAT_Web_04.jpg
     alt_text: Karl-Anthony Towns - Golf Digest
   - _bookshop_name: collection/photo
@@ -455,6 +473,9 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-152.jpg
     alt_text: 6x6 Jeep - Road and Track
   - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-6.jpg
+    alt_text: Malibu - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-136.jpg
     alt_text: Art Theft - The New York Times
   - _bookshop_name: collection/photo
@@ -500,8 +521,14 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-37.jpg
     alt_text: A Troubling Sign for 2024 -  The Atlantic
   - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_05.jpg
+    alt_text: Karl-Anthony Towns - Golf Digest
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-135.jpg
     alt_text: Art Theft - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-8.jpg
+    alt_text: Malibu - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-43.jpg
     alt_text: Extreme Heat - Zeit
@@ -520,9 +547,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-42.jpg
     alt_text: Extreme Heat - Zeit
-  - _bookshop_name: collection/photo
-    image_path: /uploads/KAT_Web_05.jpg
-    alt_text: Karl-Anthony Towns - Golf Digest
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-39.jpg
     alt_text: Extreme Heat - Zeit
@@ -548,6 +572,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-97.jpg
     alt_text: Logan Glennie - AZ Foothills Magazine
   - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-2.jpg
+    alt_text: Malibu - 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-47.jpg
     alt_text: The Produce Garden Blooms - The New York Times
   - _bookshop_name: collection/photo
@@ -562,6 +589,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-55.jpg
     alt_text: The Produce Garden Blooms - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-5.jpg
+    alt_text: Malibu - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-167.jpg
     alt_text: Golf Digest - 2024
@@ -592,4 +622,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-8.jpg
     alt_text: The Global Ambassador Hotel - 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-4.jpg
+    alt_text: Malibu - 2024
 ---
