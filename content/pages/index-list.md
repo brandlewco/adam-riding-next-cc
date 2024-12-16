@@ -7,6 +7,7 @@ seo:
 collections:
   - content/collection/annotations.md
   - content/collection/dirt-zine.md
+  - content/collection/dirt-zine.md
   - content/collection/ascension.md
   - content/collection/dream-run-camp.md
   - content/collection/iceland.md
