@@ -39,6 +39,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Web-1.jpg
+    alt_text: Neutra VDL studio and residence in Los Angeles, Ca.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-2.jpg
     alt_text: >-
       The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
