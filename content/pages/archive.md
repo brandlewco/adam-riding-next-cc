@@ -69,7 +69,7 @@ content_blocks:
     alt_text: PUBLIC Hotel New York City - 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/Malibu_Web-3.jpg
-    alt_text: PUBLIC Hotel New York City - 2023
+    alt_text: Malibu - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-73.jpg
     alt_text: F+V - 2022
