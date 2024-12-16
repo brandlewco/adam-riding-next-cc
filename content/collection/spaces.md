@@ -73,6 +73,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Web-3.jpg
+    alt_text: Neutra VDL studio and residence in Los Angeles, Ca.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_NANCOLLECTIVE-5.jpg
     alt_text: >-
       NAN Collective. Styled by Alexa Miramontes and Benjamin Font. Located in
@@ -96,6 +103,13 @@ content_blocks:
     alt_text: >-
       The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
       that focuses on beautiful home interiors.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Web-2.jpg
+    alt_text: Neutra VDL studio and residence in Los Angeles, Ca.
     width: 30
     top: 0
     left: 0
