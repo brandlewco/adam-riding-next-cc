@@ -30,12 +30,10 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_NANCOLLECTIVE-1.jpg
+    image_path: /uploads/AR_SCHINDLER-5.jpg
     alt_text: >-
-      Custom chair from Lulu LaFortune studio with other pieces from NAN
-      Collective. Styled by Alexa Miramontes and Benjamin Font. Located in the
-      Silverlake Apartment in Los Angeles, Ca designed by RM Schindler.
-      Photographed originally for NAN Collective.
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
@@ -50,30 +48,10 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-5.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-5.jpg
     alt_text: >-
       Main living room that is at Taliesin West. Taliesin West was built by
       Frank Lloyd Wright in Scottsdale, AZ.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_NANCOLLECTIVE-2.jpg
-    alt_text: >-
-      Custom glass coffee table from NAN Collective and Jotham Hung Ceramics
-      studio with a Senufo stool. Styled by Alexa Miramontes and Benjamin Font.
-      Located in the Silverlake Apartment in Los Angeles, Ca designed by RM
-      Schindler. Photographed originally for NAN Collective.
     width: 30
     top: 0
     left: 0
@@ -99,33 +77,6 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-4.jpg
-    alt_text: >-
-      Main living room that is at Taliesin West. Taliesin West was built by
-      Frank Lloyd Wright in Scottsdale, AZ.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-3.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-6.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_TALIESIN-7.jpg
     alt_text: >-
       Main living room that is at Taliesin West. Taliesin West was built by
       Frank Lloyd Wright in Scottsdale, AZ.
