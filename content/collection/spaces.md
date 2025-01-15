@@ -12,15 +12,6 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-1.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/Neutra_VDL_Analog-3.jpg
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
@@ -32,6 +23,15 @@ content_blocks:
     alt_text: >-
       Red chair that is at Taliesin West. Taliesin West was built by Frank Lloyd
       Wright in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_SCHINDLER-1.jpg
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
     width: 30
     top: 0
     left: 0
