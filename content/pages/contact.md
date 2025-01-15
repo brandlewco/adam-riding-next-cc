@@ -70,6 +70,10 @@ column_3: >-
   [American Photography 39](https://www.ai-ap.com/archive/AP/#)
 
 
+  [NYT Styles Best of
+  2024](https://www.nytimes.com/2024/12/26/style/law-roach-naomi-osaka-rnc-fashion-culture-photos.html)
+
+
   [Fisheye
   Magazine](https://www.fisheyemagazine.fr/rdv/portfolios/les-fictions-de-la-nuit-noire-par-adam-riding/)
 
