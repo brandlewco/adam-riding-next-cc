@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Annotations
-slug: annotations
+title: Overview
+slug: overview
 seo:
   page_description:
   canonical_url:
