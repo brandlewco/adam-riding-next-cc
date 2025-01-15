@@ -22,7 +22,7 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/Neutra_VDL_Analog-3.jpg
-    alt_text: Nuetra VDL studio in Los Angeles, California.
+    alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
     left: 0
@@ -37,10 +37,31 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-1.jpg
+    alt_text: Lulu LaFortune studio in Los Angeles, California.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-2.jpg
     alt_text: >-
       Main living room that is at Taliesin West. Taliesin West was built by
       Frank Lloyd Wright in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Analog-6.jpg
+    alt_text: Neutra VDL studio in Los Angeles, California.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_LAFORTUNE-2.jpg
+    alt_text: Lulu LaFortune studio in Los Angeles, California.
     width: 30
     top: 0
     left: 0
