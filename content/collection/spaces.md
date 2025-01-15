@@ -21,6 +21,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Analog-3.jpg
+    alt_text: Nuetra VDL studio in Los Angeles, California.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-1.jpg
     alt_text: >-
       Red chair that is at Taliesin West. Taliesin West was built by Frank Lloyd
