@@ -30,40 +30,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-5.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Web-1.jpg
-    alt_text: Neutra VDL studio and residence in Los Angeles, Ca.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-2.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_TALIESIN-5.jpg
-    alt_text: >-
-      Main living room that is at Taliesin West. Taliesin West was built by
-      Frank Lloyd Wright in Scottsdale, AZ.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-2.jpg
     alt_text: >-
       Main living room that is at Taliesin West. Taliesin West was built by
@@ -73,43 +39,10 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Web-3.jpg
-    alt_text: Neutra VDL studio and residence in Los Angeles, Ca.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_NANCOLLECTIVE-5.jpg
-    alt_text: >-
-      NAN Collective. Styled by Alexa Miramontes and Benjamin Font. Located in
-      the Silverlake Apartment in Los Angeles, Ca designed by RM Schindler.
-      Photographed originally for NAN Collective.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-4.jpg
     alt_text: >-
       Main living room that is at Taliesin West. Taliesin West was built by
       Frank Lloyd Wright in Scottsdale, AZ.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-7.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Web-2.jpg
-    alt_text: Neutra VDL studio and residence in Los Angeles, Ca.
     width: 30
     top: 0
     left: 0
