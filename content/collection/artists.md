@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Artists
-slug: artists
+title: Portraits
+slug: portraits
 seo:
   page_description:
   canonical_url:
