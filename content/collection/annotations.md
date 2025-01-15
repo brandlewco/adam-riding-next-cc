@@ -12,13 +12,14 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-3.jpg
-    alt_text: >-
-      Annotations is a floral still life personal project featuring an Icelandic
-      poppy in a vintage vase, set abasing a dark background. The image has
-      saturated colors and a large motion blur, personifying the flower itself.
-      The arrangements in this project include flowers like tulips and Icelandic
-      poppies. This project was shot and completed in Phoenix, AZ in 2022.  
+    image_path: /uploads/AR_VORTEX-2.jpg
+    alt_text: Sedona vortex.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-17.jpg
+    alt_text: Dirt gravel bike racers.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Camille_Port_Analog-1.jpg
+    alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-7.jpg
     alt_text: >-
@@ -26,4 +27,28 @@ content_blocks:
       hairy stem and poppy flower, set against a pale yellow backdrop. The
       arrangements in this project include flowers like tulips and Icelandic
       poppies. This project was shot and completed in Phoenix, AZ in 2022.  
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-7.jpg
+    alt_text: Portrait of Ivory Williams.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-2.jpg
+    alt_text: Landscape image of Malibu.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Analog-2.jpg
+    alt_text: Neutra VDL studio in Los Angeles, Ca.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-2.jpg
+    alt_text: Thorn bush in studio.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-1.jpg
+    alt_text: Boy in Iceland.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Analog-1.jpg
+    alt_text: Neutra VDL studio in Los Angeles, Ca.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-7.jpg
+    alt_text: Sea pillar in Iceland.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_VORTEX-6.jpg
+    alt_text: Sedona vortex.
 ---
