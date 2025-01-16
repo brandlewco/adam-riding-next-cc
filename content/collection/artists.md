@@ -37,31 +37,31 @@ content_blocks:
     alt_text: Portrait of Abwe Sangolo Family in Phoenix, AZ.
   - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-2.jpg
-    alt_text: Camille Misty.
+    alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-3.jpg
-    alt_text: Portrait of Abwe Sangolo Family in Phoenix, AZ.
+    alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-11.jpg
-    alt_text: DIRT
+    alt_text: DIRT, personal project biker portraits.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-6.jpg
-    alt_text: DIRT
+    alt_text: DIRT, personal project biker portraits.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-16.jpg
-    alt_text: DIRT
+    alt_text: DIRT, personal project biker portraits.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-8.jpg
-    alt_text: Run club
+    alt_text: 'Run club portrait '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-3.jpg
-    alt_text: Iceland
+    alt_text: Iceland portrait
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-11.jpg
-    alt_text: Iceland
+    alt_text: Iceland portrait
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-2.jpg
-    alt_text: Kaedon
+    alt_text: Portrait of Kaedon
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-1.jpg
     alt_text: Florida portrait
@@ -76,17 +76,17 @@ content_blocks:
     alt_text: Florida portrait
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-6.jpg
-    alt_text: Florida portrait
+    alt_text: Portrait of Sebastian Vargas
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-21.jpg
-    alt_text: Florida portrait
+    alt_text: Father and daughter portrait for The Guardian.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-32.jpg
-    alt_text: Florida portrait
+    alt_text: Bill Gates portrait for The Atlantic
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-62.jpg
-    alt_text: Florida portrait
+    alt_text: Ousted republican portrait for The Guardian.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-92.jpg
-    alt_text: Florida portrait
+    alt_text: 'The Cellar door personal project portrait. '
 ---
