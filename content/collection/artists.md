@@ -12,7 +12,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-4.jpg
+    image_path: /uploads/Camille_Home_4x5-1.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-9.jpg
