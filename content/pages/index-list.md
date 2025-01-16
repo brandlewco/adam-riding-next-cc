@@ -7,6 +7,7 @@ seo:
 collections:
   - content/collection/lulu-lafortune.md
   - content/collection/dirt-zine.md
+  - content/collection/camille.md
   - content/collection/neutra-vdl.md
   - content/collection/ascension.md
   - content/collection/dream-run-camp.md
