@@ -168,4 +168,32 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-2.jpg
+    alt_text: Ivory Williams.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-6.jpg
+    alt_text: Ivory Williams.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_KAEDON-5.jpg
+    alt_text: Kaedon basketball
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-3.jpg
+    alt_text: Kaedon basketball
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
