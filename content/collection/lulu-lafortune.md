@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Lulu LaFortune
-slug: Lulu LaFortune
+title: Annotations
+slug: annotations
 seo:
   page_description:
   canonical_url:
