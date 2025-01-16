@@ -12,8 +12,8 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-2.jpg
-    alt_text: Sedona vortex.
+    image_path: /uploads/Malibu_Web-2.jpg
+    alt_text: Landscape image of Malibu.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-17.jpg
     alt_text: Dirt gravel bike racers.
@@ -30,9 +30,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-7.jpg
     alt_text: Portrait of Ivory Williams.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Malibu_Web-2.jpg
-    alt_text: Landscape image of Malibu.
   - _bookshop_name: collection/photo
     image_path: /uploads/Neutra_VDL_Analog-2.jpg
     alt_text: Neutra VDL studio in Los Angeles, Ca.
