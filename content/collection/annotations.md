@@ -55,9 +55,6 @@ content_blocks:
     image_path: /uploads/Malibu_Web-8.jpg
     alt_text: Malibu.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Malibu_Web-1.jpg
-    alt_text: Malibu.
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_VORTEX-10.jpg
     alt_text: Vortex
   - _bookshop_name: collection/photo
@@ -126,9 +123,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-45.jpg
     alt_text: Stem
-  - _bookshop_name: collection/photo
-    image_path: /uploads/KAT_Web_01.jpg
-    alt_text: Karl-Anthony Towns
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-59.jpg
     alt_text: Ousted Republican
