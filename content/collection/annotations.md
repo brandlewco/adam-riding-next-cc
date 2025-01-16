@@ -132,10 +132,4 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-59.jpg
     alt_text: Ousted Republican
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-2.jpg
-    alt_text: Spa at The Global Ambassador
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-4.jpg
-    alt_text: Spa at The Global Ambassador
 ---
