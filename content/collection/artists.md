@@ -24,8 +24,17 @@ content_blocks:
     image_path: /uploads/AR_IVORY-5.jpg
     alt_text: Portrait of Ivory Williams.
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-6.jpg
+    alt_text: DIRT, personal project biker portraits.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-4.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-7.jpg
     alt_text: Portrait of runner.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-11.jpg
+    alt_text: Iceland portrait
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-2.jpg
     alt_text: Portrait of man on a beach.
@@ -39,41 +48,38 @@ content_blocks:
     image_path: /uploads/Camille_Port_Analog-2.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-3.jpg
-    alt_text: Portrait of Camille Misty.
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-11.jpg
     alt_text: DIRT, personal project biker portraits.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-6.jpg
-    alt_text: DIRT, personal project biker portraits.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-16.jpg
-    alt_text: DIRT, personal project biker portraits.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-8.jpg
-    alt_text: 'Run club portrait '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-3.jpg
     alt_text: Iceland portrait
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-11.jpg
-    alt_text: Iceland portrait
+    image_path: /uploads/AR_DIRT-16.jpg
+    alt_text: DIRT, personal project biker portraits.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-92.jpg
+    alt_text: 'The Cellar door personal project portrait. '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-8.jpg
+    alt_text: 'Run club portrait '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-6.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-62.jpg
+    alt_text: Ousted republican portrait for The Guardian.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-2.jpg
     alt_text: Portrait of Kaedon
   - _bookshop_name: collection/photo
+    image_path: /uploads/Camille_Port_Analog-3.jpg
+    alt_text: Portrait of Camille Misty.
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-1.jpg
     alt_text: Florida portrait
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-4.jpg
-    alt_text: Florida portrait
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-5.jpg
-    alt_text: Florida portrait
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-6.jpg
-    alt_text: Florida portrait
+    image_path: /uploads/AR_ARCHIVE-32.jpg
+    alt_text: Bill Gates portrait for The Atlantic
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-6.jpg
     alt_text: Portrait of Sebastian Vargas
@@ -81,12 +87,6 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-21.jpg
     alt_text: Father and daughter portrait for The Guardian.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-32.jpg
-    alt_text: Bill Gates portrait for The Atlantic
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-62.jpg
-    alt_text: Ousted republican portrait for The Guardian.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-92.jpg
-    alt_text: 'The Cellar door personal project portrait. '
+    image_path: /uploads/AR_FLORIDA-5.jpg
+    alt_text: Florida portrait
 ---
