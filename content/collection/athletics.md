@@ -196,4 +196,32 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-5.jpg
+    alt_text: Fitness at The Global Ambassador.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-7.jpg
+    alt_text: Fitness at The Global Ambassador.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-8.jpg
+    alt_text: Fitness at The Global Ambassador.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: Fitness at The Global Ambassador.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
