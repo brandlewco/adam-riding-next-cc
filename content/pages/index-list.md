@@ -5,7 +5,7 @@ title: Adam Riding
 seo:
   no_index: false
 collections:
-  - content/collection/annotations.md
+  - content/collection/lulu-lafortune.md
   - content/collection/dirt-zine.md
   - content/collection/neutra-vdl.md
   - content/collection/ascension.md
