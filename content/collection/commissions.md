@@ -96,8 +96,64 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/NAN_Additional-2.jpg
-    alt_text: Commission for NAN Collective design studio in Los Angeles, Ca.
+    image_path: /uploads/AR_RUNNING-8.jpg
+    alt_text: Commission from NYT to cover Dream Run Camp in Flagstaff, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-2.jpg
+    alt_text: Commission from NYT to cover Dream Run Camp in Flagstaff, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-12.jpg
+    alt_text: Commission from NYT to cover Dream Run Camp in Flagstaff, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-15.jpg
+    alt_text: Commission from NYT to cover the Sonoran Desert Toad in Tucson, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-22.jpg
+    alt_text: Commission from The Guardian for A Very American Death.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-23.jpg
+    alt_text: Commission from The Guardian for A Very American Death.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-59.jpg
+    alt_text: Commission from The Guardian for Ousted Rupublican.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-61.jpg
+    alt_text: Commission from The Guardian for Ousted Rupublican.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-61.jpg
+    alt_text: Commission from The Guardian for Ousted Rupublican.
     width: 30
     top: 0
     left: 0
