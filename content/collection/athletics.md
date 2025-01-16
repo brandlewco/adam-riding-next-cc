@@ -24,6 +24,20 @@ content_blocks:
       Fitness instructor commissioned by Golf Digest. Shot in Pasadena, CA in
       2024.
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-2.jpg
+    alt_text: Ivory Williams.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-6.jpg
+    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-12.jpg
     alt_text: >-
       Two athletes running side by side, one's face is in the foreground
@@ -52,6 +66,13 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-7.jpg
+    alt_text: Fitness at The Global Ambassador.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
     alt_text: >-
       Snow flakes are caught within a female runner's braided hair. Set against
@@ -61,11 +82,8 @@ content_blocks:
       Fitzgerald, a runner living with long covid, that's hosted in Flagstaff,
       AZ. This commission was originally commissioned by The New York Times.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-8.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, stretching and wearing black
-      Nike athletic clothing, Shot for a personal project focused on athletics
-      in Phoenix, AZ in 2023.
+    image_path: /uploads/AR_ARCHIVE-169.jpg
+    alt_text: The Dodgers
     width: 30
     top: 0
     left: 0
@@ -76,6 +94,13 @@ content_blocks:
       Black and white image of friends playing basketball. On The Court was a
       personal project that depicts friends coming together to play basketball
       outside. Shot and completed in Scottsdale, AZ in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-7.jpg
+    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
     width: 30
     top: 0
     left: 0
@@ -98,6 +123,13 @@ content_blocks:
       with long covid, that's hosted in Flagstaff, AZ. This commission was
       originally commissioned by The New York Times.
   - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-8.jpg
+    alt_text: Fitness at The Global Ambassador.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-1.jpg
     alt_text: >-
       Ascension is an athletic basketball project featuring an athlete dunking
@@ -116,10 +148,55 @@ content_blocks:
       with long covid, that's hosted in Flagstaff, AZ. This commission was
       originally commissioned by The New York Times.
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-171.jpg
+    alt_text: The Dodgers
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-10.jpg
+    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-1.jpg
     alt_text: >-
       Liana Levi, founder of Forma Pilates LA, in the middle of a pilates
       workout in The Global Ambassador pilates gym in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-8.jpg
+    alt_text: >-
+      Ivory Williams, model repped by Agency Az, stretching and wearing black
+      Nike athletic clothing, Shot for a personal project focused on athletics
+      in Phoenix, AZ in 2023.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: Fitness at The Global Ambassador.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-1.jpg
+    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-175.jpg
+    alt_text: The Dodgers
     width: 30
     top: 0
     left: 0
@@ -134,43 +211,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-10.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-1.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-6.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-7.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-3.jpg
     alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-2.jpg
-    alt_text: Ivory Williams.
     width: 30
     top: 0
     left: 0
@@ -191,7 +233,7 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-3.jpg
-    alt_text: Kaedon basketball
+    alt_text: Running club
     width: 30
     top: 0
     left: 0
@@ -199,48 +241,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-5.jpg
     alt_text: Fitness at The Global Ambassador.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-7.jpg
-    alt_text: Fitness at The Global Ambassador.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-8.jpg
-    alt_text: Fitness at The Global Ambassador.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-6.jpg
-    alt_text: Fitness at The Global Ambassador.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-169.jpg
-    alt_text: The Dodgers
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-171.jpg
-    alt_text: The Dodgers
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-175.jpg
-    alt_text: The Dodgers
     width: 30
     top: 0
     left: 0
