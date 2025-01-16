@@ -224,4 +224,25 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-169.jpg
+    alt_text: The Dodgers
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-171.jpg
+    alt_text: The Dodgers
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-175.jpg
+    alt_text: The Dodgers
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
