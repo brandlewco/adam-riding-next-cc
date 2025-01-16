@@ -44,8 +44,22 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Analog-2.jpg
+    alt_text: Neutra VDL studio in Los Angeles, California.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: Sky Harbor airport for WSJ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Analog-5.jpg
+    alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
     left: 0
@@ -81,6 +95,22 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_VDL_Analog-4.jpg
+    alt_text: Neutra VDL studio in Los Angeles, California.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_SCHINDLER-2.jpg
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-4.jpg
     alt_text: >-
       Main living room that is at Taliesin West. Taliesin West was built by
@@ -106,17 +136,17 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Taliesin_Web_02.jpg
-    alt_text: >-
-      Red room at Taliesin West. Taliesin West was built by Frank Lloyd Wright
-      in Scottsdale, AZ.
+    image_path: /uploads/Neutra_VDL_Analog-1.jpg
+    alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-160.jpg
-    alt_text: PUBLIC hotel in NYC.
+    image_path: /uploads/Taliesin_Web_02.jpg
+    alt_text: >-
+      Red room at Taliesin West. Taliesin West was built by Frank Lloyd Wright
+      in Scottsdale, AZ.
     width: 30
     top: 0
     left: 0
@@ -129,10 +159,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-2.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
+    image_path: /uploads/Neutra_VDL_Analog-6.jpg
+    alt_text: Neutra VDL studio in Los Angeles, California.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/FIXED_AR_ARCHIVE-160.jpg
+    alt_text: PUBLIC hotel in NYC.
     width: 30
     top: 0
     left: 0
@@ -142,41 +177,6 @@ content_blocks:
     alt_text: >-
       The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
       that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-4.jpg
-    alt_text: Neutra VDL studio in Los Angeles, California.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-1.jpg
-    alt_text: Neutra VDL studio in Los Angeles, California.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-2.jpg
-    alt_text: Neutra VDL studio in Los Angeles, California.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-5.jpg
-    alt_text: Neutra VDL studio in Los Angeles, California.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-6.jpg
-    alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
     left: 0
