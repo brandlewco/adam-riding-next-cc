@@ -12,46 +12,36 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-1.jpg
-    alt_text: >-
-      A table with drawing materials, Hermes purse, and jacket with an ornate
-      mirror, and studio shelving in the background. The studio of Lulu
-      LaFortune, a designer based in Los Angeles, Ca. Shot originally for House
-      Beautiful publication.
+    image_path: /uploads/AR_ANNOTATIONS-1.jpg
+    alt_text: Annotations personal project.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-2.jpg
-    alt_text: >-
-      Custom lamp in the studio of Lulu LaFortune. The studio of Lulu LaFortune,
-      a designer based in Los Angeles, Ca. Shot originally for House Beautiful
-      publication.
+    image_path: /uploads/AR_ANNOTATIONS-2.jpg
+    alt_text: Annotations personal project.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-3.jpg
-    alt_text: >-
-      Portrait of Lulu LaFortune in her studio. The studio of Lulu LaFortune, a
-      designer based in Los Angeles, Ca. Shot originally for House Beautiful
-      publication.
+    image_path: /uploads/AR_ANNOTATIONS-3.jpg
+    alt_text: Annotations personal project.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-4.jpg
-    alt_text: >-
-      Vintage dresser from NAN Collective with C-Stands holding purses and
-      jackets, and floral arrangement in the studio of Lulu LaFortune. The
-      studio of Lulu LaFortune, a designer based in Los Angeles, Ca. Shot
-      originally for House Beautiful publication.
+    image_path: /uploads/AR_ANNOTATIONS-4.jpg
+    alt_text: Annotations personal project.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-5.jpg
-    alt_text: >-
-      A table with drawing materials, Hermes purse, and jacket with an ornate
-      mirror, and studio shelving in the background. The studio of Lulu
-      LaFortune, a designer based in Los Angeles, Ca. Shot originally for House
-      Beautiful publication.
+    image_path: /uploads/AR_ANNOTATIONS-5.jpg
+    alt_text: Annotations personal project.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-6.jpg
-    alt_text: >-
-      The studio of Lulu LaFortune, a designer based in Los Angeles, Ca. Shot
-      originally for House Beautiful publication.
+    image_path: /uploads/AR_ANNOTATIONS-6.jpg
+    alt_text: Annotations personal project.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_LAFORTUNE-7.jpg
-    alt_text: >-
-      The studio of Lulu LaFortune, a designer based in Los Angeles, Ca. Shot
-      originally for House Beautiful publication.
+    image_path: /uploads/AR_ANNOTATIONS-7.jpg
+    alt_text: Annotations personal project.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ANNOTATIONS-8.jpg
+    alt_text: Annotations personal project.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ANNOTATIONS-9.jpg
+    alt_text: Annotations personal project.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ANNOTATIONS-10.jpg
+    alt_text: Annotations personal project.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ANNOTATIONS-11.jpg
+    alt_text: Annotations personal project.
 ---
