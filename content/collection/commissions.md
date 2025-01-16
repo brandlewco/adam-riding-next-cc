@@ -152,8 +152,71 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-61.jpg
-    alt_text: Commission from The Guardian for Ousted Rupublican.
+    image_path: /uploads/AR_ARCHIVE-46.jpg
+    alt_text: 'Commission from NYT covering drought farming. '
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-45.jpg
+    alt_text: 'Commission from NYT covering drought farming. '
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-47.jpg
+    alt_text: 'Commission from NYT covering drought farming. '
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_01.jpg
+    alt_text: Karl-Anthony Towns for Golf Digest
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/KAT_Web_03.jpg
+    alt_text: Karl-Anthony Towns for Golf Digest
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-1.jpg
+    alt_text: Commission for The Global Ambassador hotel in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-3.jpg
+    alt_text: Commission for The Global Ambassador hotel in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-4.jpg
+    alt_text: Commission for The Global Ambassador hotel in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: Commission for The Global Ambassador hotel in Scottsdale, AZ.
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: Commission for The Global Ambassador hotel in Scottsdale, AZ.
     width: 30
     top: 0
     left: 0
