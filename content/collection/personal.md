@@ -12,7 +12,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_Home_4x5-1.jpg
+    image_path: /uploads/AR_ANNOTATIONS-7.jpg
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
