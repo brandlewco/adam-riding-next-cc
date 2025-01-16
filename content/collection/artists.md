@@ -35,4 +35,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-142.jpg
     alt_text: Portrait of Abwe Sangolo Family in Phoenix, AZ.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Camille_Port_Analog-2.jpg
+    alt_text: Camille Misty.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Camille_Port_Analog-3.jpg
+    alt_text: Portrait of Abwe Sangolo Family in Phoenix, AZ.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-11.jpg
+    alt_text: DIRT
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-6.jpg
+    alt_text: DIRT
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-16.jpg
+    alt_text: DIRT
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-8.jpg
+    alt_text: Run club
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-3.jpg
+    alt_text: Iceland
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-11.jpg
+    alt_text: Iceland
 ---
