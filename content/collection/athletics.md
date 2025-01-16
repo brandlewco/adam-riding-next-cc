@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Sport
-slug: sport
+title: Athletics
+slug: athletics
 seo:
   page_description:
   canonical_url:
