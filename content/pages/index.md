@@ -6,6 +6,8 @@ seo:
 collections:
   - content/collection/annotations.md
   - content/collection/artists.md
+  - content/collection/commissions.md
   - content/collection/athletics.md
   - content/collection/spaces.md
+  - content/collection/personal.md
 ---
