@@ -59,4 +59,34 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-11.jpg
     alt_text: Iceland
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_KAEDON-2.jpg
+    alt_text: Kaedon
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-1.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-4.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-5.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-6.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-6.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-21.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-32.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-62.jpg
+    alt_text: Florida portrait
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-92.jpg
+    alt_text: Florida portrait
 ---
