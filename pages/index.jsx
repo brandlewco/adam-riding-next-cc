@@ -168,7 +168,7 @@ function HomePage({ page, collections }) {
                               : 0,
                         }}
                         transition={{ duration: 0.33 }}
-                        className="text-sm leading-tight"
+                        className="text-sm leading-none"
                       >
                         {collection.title}
                       </motion.span>

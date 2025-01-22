@@ -179,7 +179,7 @@ function LazyLoad({ children, rootMargin = '200px' }) {
   return (
     <DefaultLayout page={page}>
       <div className={`h-screen  ${currentImage !== null ? 'overflow-hidden p-0' : 'overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24'}`}>
-        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(9,minmax(0,1fr))] gap-4 gap-y-24">
+        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(10,minmax(0,1fr))] gap-4 gap-y-32">
           <AnimatePresence>
             {photos.map((photo, index) => (
               <motion.li

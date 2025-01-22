@@ -39,7 +39,7 @@ const Navigation = ({ page }) => {
   return (
     <>
       <header style={{ zIndex: "9999" }} className="w-full p-4 absolute bottom-0 left-0" id="mainnavigationBar">
-        <nav className="container-fluid flex flex-row justify-between text-sm font-bold">
+        <nav className="container-fluid flex flex-row justify-between text-sm">
           <Link href="/" className="leading-none">ADAM RIDING</Link>
           <Link href="/index-list" className="leading-none">INDEX</Link>
           <Link href="/archive" className="leading-none">ARCHIVE</Link>
