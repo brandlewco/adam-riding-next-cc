@@ -9,7 +9,7 @@ import { useSwipeable } from 'react-swipeable';
 
 const filer = new Filer({ path: 'content' });
 
-// 1) Memoized ExportedImage (ensures numeric width/height)
+// 1) Memoized ExportedImage
 const MemoizedExportedImage = memo(({ src, alt, width, height, ...rest }) => (
   <ExportedImage
     src={src}
@@ -21,10 +21,7 @@ const MemoizedExportedImage = memo(({ src, alt, width, height, ...rest }) => (
 ));
 MemoizedExportedImage.displayName = 'MemoizedExportedImage';
 
-/**
- * RowThumbnail (32×32 squares) => used only when source === 'index-list'.
- * We'll call this RowThumbnail to avoid confusion with the grid overlay component.
- */
+/** RowThumbnail => old row for 'index-list' collections */
 const RowThumbnail = memo(function RowThumbnail({
   block,
   index,
@@ -63,10 +60,7 @@ const RowThumbnail = memo(function RowThumbnail({
 });
 RowThumbnail.displayName = 'RowThumbnail';
 
-/**
- * GridThumbnail => used for the full-page overlay if source === 'index'.
- * These are larger thumbs, with staggered fade-in.
- */
+/** GridThumbnail => used for the full-page overlay if `source==='index'`. */
 const GridThumbnail = memo(function GridThumbnail({ block, index, onClick }) {
   return (
     <motion.div
@@ -99,20 +93,19 @@ GridThumbnail.displayName = 'GridThumbnail';
 //
 // Main CollectionPage
 //
-const CollectionPage = ({
-  page,
-  source,      // 'index' => we show overlay grid & "Thumbs" button; 'index-list' => old row
-  slugArray,   // used by _app.js for up/down
-  currentSlug, // used by _app.js for up/down
-}) => {
+const CollectionPage = ({ page, source, slugArray, currentSlug }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  // local direction for left/right images
   const [direction, setDirection] = useState('');
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [showThumbs, setShowThumbs] = useState(false); // toggles overlay if source === 'index'
+
+  // toggles the full-screen overlay of thumbs (if source==='index')
+  const [showThumbs, setShowThumbs] = useState(false);
+
   const router = useRouter();
   const imageCount = page.data.content_blocks.length;
 
-  // Possibly read ?image=N from URL
+  // Possibly read ?image=N from the URL
   useEffect(() => {
     const imageIndex = parseInt(router.query.image);
     if (!isNaN(imageIndex) && imageIndex >= 0 && imageIndex < imageCount) {
@@ -120,16 +113,51 @@ const CollectionPage = ({
     }
   }, [router.query.image, imageCount]);
 
-  // Left/Right arrow or clickable area logic
-  const handleAreaClick = useCallback((area) => {
-    if (area === 'right') {
-      setDirection('right');
-      setCurrentImage((prev) => (prev + 1) % imageCount);
-    } else if (area === 'left') {
-      setDirection('left');
-      setCurrentImage((prev) => (prev - 1 + imageCount) % imageCount);
-    }
-  }, [imageCount]);
+  // Left/Right for images. If at boundary => route to next/prev collection
+  const handleAreaClick = useCallback(
+    (area) => {
+      if (area === 'right') {
+        if (currentImage === imageCount - 1) {
+          // Last image => next collection => direction=down
+          const i = slugArray.indexOf(currentSlug);
+          if (i === -1) return;
+          const nextIndex = (i + 1) % slugArray.length;
+          const nextSlug = slugArray[nextIndex];
+          router.push(
+            {
+              pathname: `/collection/${nextSlug}`,
+              query: { direction: 'down' },
+            },
+            `/collection/${nextSlug}`
+          );
+        } else {
+          // next image
+          setDirection('right');
+          setCurrentImage((prev) => prev + 1);
+        }
+      } else if (area === 'left') {
+        if (currentImage === 0) {
+          // First image => prev collection => direction=up
+          const i = slugArray.indexOf(currentSlug);
+          if (i === -1) return;
+          const prevIndex = (i - 1 + slugArray.length) % slugArray.length;
+          const prevSlug = slugArray[prevIndex];
+          router.push(
+            {
+              pathname: `/collection/${prevSlug}`,
+              query: { direction: 'up' },
+            },
+            `/collection/${prevSlug}`
+          );
+        } else {
+          // previous image
+          setDirection('left');
+          setCurrentImage((prev) => prev - 1);
+        }
+      }
+    },
+    [currentImage, imageCount, slugArray, currentSlug, router]
+  );
 
   // On row or grid thumbnail click
   const handleThumbnailClick = useCallback((index) => {
@@ -138,7 +166,7 @@ const CollectionPage = ({
     setShowThumbs(false); // close overlay if open
   }, []);
 
-  // Keyboard arrow nav
+  // Keyboard arrow nav for left/right
   const handleKeyDown = useCallback((event) => {
     if (event.key === 'ArrowRight') {
       handleAreaClick('right');
@@ -160,7 +188,7 @@ const CollectionPage = ({
     trackMouse: true,
   });
 
-  // Basic framer-motion variants for the main image transitions
+  // Basic variants for left/right transitions on images
   const internalVariants = {
     enter: (dir) => ({
       opacity: 0,
@@ -181,13 +209,10 @@ const CollectionPage = ({
     exit: (dir) => ({
       opacity: 0,
       x: dir === 'left' ? '-100%' : dir === 'right' ? '100%' : 0,
-      transition: {
-        opacity: { duration: 0.3 },
-      },
+      transition: { opacity: { duration: 0.3 } },
     }),
   };
 
-  // Main displayed image area
   const MainImageSection = (
     <AnimatePresence custom={direction} mode="wait">
       <motion.div
@@ -209,6 +234,7 @@ const CollectionPage = ({
             currentImage={currentImage}
             setImageLoaded={setImageLoaded}
           />
+          {/* If we want to show mobile Title near the bottom of the image: */}
           {imageLoaded && (
             <div className="relative md:hidden pt-4 text-left">
               <div className="text-sm leading-none">
@@ -221,38 +247,17 @@ const CollectionPage = ({
     </AnimatePresence>
   );
 
-  // "Thumbs" button if source === 'index'
-  const ThumbsButton = (source === 'index') && (
-    <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-50">
-      <button
-        onClick={() => setShowThumbs(true)}
-        className="text-sm leading-none px-3 py-1 bg-white text-black"
-      >
-        Thumbs
-      </button>
-    </div>
-  );
-
-  // The overlay grid if source === 'index'
+  // 2) Fullscreen overlay for thumbs if `source==='index'`
   const containerVariants = {
-    hidden: {
-      opacity: 0,
-      transition: { when: 'afterChildren' },
-    },
+    hidden: { opacity: 0, transition: { when: 'afterChildren' } },
     show: {
       opacity: 1,
-      transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.05,
-      },
+      transition: { when: 'beforeChildren', staggerChildren: 0.05 },
     },
-    exit: {
-      opacity: 0,
-      transition: { when: 'afterChildren' },
-    },
+    exit: { opacity: 0, transition: { when: 'afterChildren' } },
   };
 
-  const ThumbsGridOverlay = (source === 'index') && (
+  const ThumbsOverlay = (source === 'index') && (
     <AnimatePresence>
       {showThumbs && (
         <motion.div
@@ -261,29 +266,17 @@ const CollectionPage = ({
           animate="show"
           exit="exit"
           variants={containerVariants}
-          // White full-screen background
           className="fixed inset-0 z-50 bg-white bg-opacity-80 flex flex-col items-center justify-center"
         >
-          {/* "Close" text exactly where the Thumbs button was */}
-          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
-            <span
-              onClick={() => setShowThumbs(false)}
-              className="cursor-pointer text-sm leading-none hover:opacity-60 transition-opacity"
-            >
-              Close
-            </span>
-          </div>
-
-          {/* Full-page grid, near full width */}
-          <div className="w-full h-full flex flex-col justify-center items-center overflow-y-auto pt-12 pb-24 px-4 ">
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4 justify-items-center w-full">
+          <div className="w-full h-full flex flex-col justify-center items-center overflow-y-auto pt-12 pb-24 px-40">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-8 justify-items-center w-full">
               {page.data.content_blocks.map((block, index) => (
                 <motion.div
                   key={index}
                   variants={{
                     hidden: { opacity: 0, y: 0 },
                     show:   { opacity: 1, y: 0 },
-                    exit:   { opacity: 0, y: 0},
+                    exit:   { opacity: 0, y: 0 },
                   }}
                   className="cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => handleThumbnailClick(index)}
@@ -305,7 +298,7 @@ const CollectionPage = ({
     </AnimatePresence>
   );
 
-  // If from index-list => old row of thumbs (32×32)
+  // 3) Old row if `source==='index-list'`
   const gridClasses = {
     1: 'grid-cols-1',
     2: 'grid-cols-2',
@@ -338,14 +331,39 @@ const CollectionPage = ({
 
   return (
     <DefaultLayout page={page}>
-      {/* Desktop Info */}
-      <div className="hidden md:block md:absolute top-4 left-4 text-left">
+      {/* 
+        Desktop Info: line 1 => "title - imageCount",
+        line 2 => if source==='index', show [Thumbs] or [Close].
+      */}
+      <div className="hidden md:block md:absolute top-4 left-4 text-left z-50">
         <div className="text-sm leading-none">
-          {page.data.title} - {`${currentImage + 1} / ${imageCount}`}
+          {page.data.title} - {currentImage + 1} / {imageCount}
         </div>
+
+        {source === 'index' && (
+          <div className="pt-2">
+            {showThumbs ? (
+              <button
+                onClick={() => setShowThumbs(false)}
+                className="text-sm leading-none py-1 text-black hover:opacity-80"
+              >
+                Close
+              </button>
+            ) : (
+              <button
+                onClick={() => setShowThumbs(true)}
+                className="text-sm leading-none py-1 text-black hover:opacity-80"
+              >
+                Thumbs
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
-      {/* Left/Right nav areas */}
+      {/* 
+        Left/Right clickable areas for images
+      */}
       <div
         id="click-left"
         className="absolute left-0 top-[10%] h-[80%] w-1/6 md:w-1/2 cursor-pointer clickable-area"
@@ -362,11 +380,10 @@ const CollectionPage = ({
       {/* Main single-image section */}
       {MainImageSection}
 
-      {/* "Thumbs" button & overlay if source === 'index' */}
-      {ThumbsButton}
-      {ThumbsGridOverlay}
+      {/* Fullscreen Thumbs overlay if `source==='index'` */}
+      {ThumbsOverlay}
 
-      {/* Old row if source === 'index-list' */}
+      {/* Old row if `source==='index-list'` */}
       {OldThumbRow}
     </DefaultLayout>
   );
@@ -377,28 +394,22 @@ MemoizedCollectionPage.displayName = 'CollectionPage';
 export default MemoizedCollectionPage;
 
 //
-// getStaticPaths & getStaticProps
+// getStaticPaths & getStaticProps remain the same
 //
 export async function getStaticPaths() {
   const collections = await filer.getItems('collection');
   const paths = collections.map((collection) => ({
     params: { slug: collection.data.slug || collection.slug },
   }));
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  // Your existing logic that returns `source`, `slugArray`, `currentSlug` for up/down in _app.js
-  // plus any nextSlug, prevSlug if you wish. We keep it intact.
-
   const collections = await filer.getItems('collection');
   const indexPage = await filer.getItem('index.md', { folder: 'pages' });
   const indexListPage = await filer.getItem('index-list.md', { folder: 'pages' });
 
-  // Build arrays of slugs from index.md and index-list.md
+  // Build slug arrays
   const indexSlugs = [];
   for (const path of indexPage.data.collections) {
     const coll = await filer.getItem(path.replace(/^content\//, ''), { folder: '' });
@@ -410,7 +421,7 @@ export async function getStaticProps({ params }) {
     if (coll && coll.data.slug) indexListSlugs.push(coll.data.slug);
   }
 
-  // Find the actual collection
+  // Find collection
   const collection = collections.find(
     (col) => col.data.slug === params.slug
   );
@@ -426,8 +437,6 @@ export async function getStaticProps({ params }) {
   }));
 
   const slug = collection.data.slug;
-
-  // Decide source & build slugArray for up/down in _app.js
   let source = 'none';
   let slugArray = [];
 
@@ -442,12 +451,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       page: JSON.parse(JSON.stringify(collection)),
-
-      // For up/down nav in _app.js
       slugArray,
       currentSlug: slug,
-
-      // New logic for row vs overlay
       source,
     },
   };

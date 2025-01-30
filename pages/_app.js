@@ -7,18 +7,17 @@ import { useSwipeable } from "react-swipeable";
 
 function InnerApp({ Component, pageProps }) {
   const router = useRouter();
-  const [direction, setDirection] = useState('');
+  const [direction, setDirection] = useState("");
   const [pageKey, setPageKey] = useState(router.pathname);
 
   // Track route changes among /collection/ pages to animate
   const handleRouteChangeStart = useCallback(
     (url) => {
-      const isCurrentCollection = router.pathname.includes("/collection/");
-      const isNextCollection = url.includes("/collection/");
-      const isCollectionToCollection = isCurrentCollection && isNextCollection;
-
-      // If navigating from one collection to another, set new page key
-      if (isCollectionToCollection) {
+      const isCurrent = router.pathname.includes("/collection/");
+      const isNext = url.includes("/collection/");
+      if (isCurrent && isNext) {
+        // If navigating from one /collection/ to another /collection/,
+        // we set a new pageKey so AnimatePresence triggers an exit/enter
         setPageKey(url);
       }
     },
@@ -32,114 +31,80 @@ function InnerApp({ Component, pageProps }) {
     };
   }, [handleRouteChangeStart]);
 
-  // Handle up/down navigation
-  const handleAreaClick = useCallback(
-    (area) => {
-      // Only navigate up/down if on a /collection/ page
-      if (!router.pathname.includes("/collection/")) return;
-
-      // Destructure needed props from pageProps
-      const { slugArray, currentSlug } = pageProps;
-      if (!slugArray || !currentSlug) return; // If missing data, do nothing
-
-      // Find currentIndex within slugArray
-      const currentIndex = slugArray.indexOf(currentSlug);
-      if (currentIndex === -1) return; // slug not found
-
-      let nextIndex;
-      if (area === 'down') {
-        nextIndex = (currentIndex + 1) % slugArray.length;
-        setDirection('down');
-      } else if (area === 'up') {
-        nextIndex = (currentIndex - 1 + slugArray.length) % slugArray.length;
-        setDirection('up');
-      } else {
-        return;
-      }
-
-      // Grab next slug from the array and route
-      const nextSlug = slugArray[nextIndex];
-      if (nextSlug) {
-        router.push(`/collection/${nextSlug}`);
-      }
-    },
-    [pageProps, router]
-  );
-
-  // Keyboard handlers
-  const handleKeyDown = useCallback(
-    (event) => {
-      if (event.key === 'ArrowDown') {
-        handleAreaClick('down');
-      } else if (event.key === 'ArrowUp') {
-        handleAreaClick('up');
-      }
-    },
-    [handleAreaClick]
-  );
-
+  // Whenever route changes, see if "direction" is in the query. If so, set local direction.
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
+    if (router.query.direction) {
+      setDirection(router.query.direction);
+    } else {
+      setDirection("");
+    }
+  }, [router.query.direction]);
 
-  // Swipe detection
-  const swipeHandlers = useSwipeable({
-    onSwipedUp: () => handleAreaClick('down'),
-    onSwipedDown: () => handleAreaClick('up'),
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  });
+  // Minimal swipe handlers (optional, unused for up/down)
+  const swipeHandlers = useSwipeable({});
 
-  // Page transition variants for Framer Motion
   const pageVariants = {
-    initial: (dir) => ({
-      opacity: 0,
-      y: dir === 'up' ? '-80%' : dir === 'down' ? '80%' : 0,
-    }),
+    /**
+     * direction='down': we want new page to come from top => 0,
+     * old page => 0 => +100%. So visually everything moves downward.
+     *
+     * direction='up': new page from bottom => 0,
+     * old page => 0 => -100%. So visually everything moves upward.
+     */
+    initial: (dir) => {
+      switch (dir) {
+        case "down":
+          return { y: "-100%", opacity: 0 };
+        case "up":
+          return { y: "100%", opacity: 0 };
+        default:
+          return { y: 0, opacity: 0 };
+      }
+    },
     animate: {
-      opacity: 1,
       y: 0,
+      opacity: 1,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 150,
         damping: 25,
         duration: 0.7,
       },
     },
-    exit: (dir) => ({
-      opacity: 0,
-      y: dir === 'up' ? '80%' : dir === 'down' ? '-80%' : 0,
-      transition: {
-        type: 'spring',
-        stiffness: 150,
-        damping: 25,
-        duration: 0.7,
-      },
-    }),
+    exit: (dir) => {
+      switch (dir) {
+        case "down":
+          // old page goes 0 => +100%
+          return {
+            y: "100%",
+            opacity: 0,
+            transition: {
+              type: "spring",
+              stiffness: 150,
+              damping: 25,
+              duration: 0.7,
+            },
+          };
+        case "up":
+          // old page goes 0 => -100%
+          return {
+            y: "-100%",
+            opacity: 0,
+            transition: {
+              type: "spring",
+              stiffness: 150,
+              damping: 25,
+              duration: 0.7,
+            },
+          };
+        default:
+          return { y: 0, opacity: 0 };
+      }
+    },
   };
 
   return (
     <>
-      {router.pathname.includes("/collection/") && (
-        <>
-          {/* Clickable area for arrow up */}
-          <div
-            id="click-up"
-            className="absolute left-0 top-0 w-full h-1/6 cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('up')}
-            style={{ zIndex: 10 }}
-          />
-          {/* Clickable area for arrow down */}
-          <div
-            id="click-down"
-            className="absolute left-0 bottom-0 w-full h-1/6 cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('down')}
-            style={{ zIndex: 10 }}
-          />
-        </>
-      )}
-
       <AnimatePresence mode="wait" initial={false} custom={direction}>
         <motion.div
           key={pageKey}
@@ -148,7 +113,7 @@ function InnerApp({ Component, pageProps }) {
           exit="exit"
           custom={direction}
           variants={pageVariants}
-          style={{ position: 'relative' }}
+          style={{ position: "relative" }}
           className="h-screen overflow-hidden"
           {...swipeHandlers}
         >
