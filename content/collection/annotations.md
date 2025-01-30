@@ -52,9 +52,6 @@ content_blocks:
     image_path: /uploads/Malibu_Web-12.jpg
     alt_text: Malibu.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-1.jpg
-    alt_text: Camille
-  - _bookshop_name: collection/photo
     image_path: /uploads/Neutra_VDL_Analog-4.jpg
     alt_text: Neutra VDL
   - _bookshop_name: collection/photo
