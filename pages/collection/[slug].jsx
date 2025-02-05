@@ -242,6 +242,7 @@ const CollectionPage = ({ page, source, slugArray, currentSlug }) => {
               </div>
             </div>
           )}
+          
         </section>
       </motion.div>
     </AnimatePresence>
@@ -266,7 +267,7 @@ const CollectionPage = ({ page, source, slugArray, currentSlug }) => {
           animate="show"
           exit="exit"
           variants={containerVariants}
-          className="fixed inset-0 z-50 bg-white bg-opacity-80 flex flex-col items-center justify-center"
+          className="fixed inset-0 z-40 bg-white bg-opacity-80 flex flex-col items-center justify-center"
         >
           <div className="w-full h-full flex flex-col justify-center items-center overflow-y-auto pt-12 pb-24 px-40">
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-8 justify-items-center w-full">
@@ -278,8 +279,10 @@ const CollectionPage = ({ page, source, slugArray, currentSlug }) => {
                     show:   { opacity: 1, y: 0 },
                     exit:   { opacity: 0, y: 0 },
                   }}
-                  className="cursor-pointer hover:opacity-80 transition-opacity"
+                  className="cursor-pointer hover:opacity-80 transition-opacity origin-center origin-top"
                   onClick={() => handleThumbnailClick(index)}
+                  transition={{ duration: 0.33 }}
+                  whileHover={{ scale: 1.1 }}
                 >
                   <ExportedImage
                     src={block.image_path}
@@ -335,26 +338,26 @@ const CollectionPage = ({ page, source, slugArray, currentSlug }) => {
         Desktop Info: line 1 => "title - imageCount",
         line 2 => if source==='index', show [Thumbs] or [Close].
       */}
-      <div className="hidden md:block md:absolute top-4 left-4 text-left z-50">
+      <div className="hidden md:flex flex-row items-center md:absolute top-4 left-4 text-left z-50 gap-2">
         <div className="text-sm leading-none">
           {page.data.title} - {currentImage + 1} / {imageCount}
         </div>
 
         {source === 'index' && (
-          <div className="pt-2">
+          <div>
             {showThumbs ? (
               <button
                 onClick={() => setShowThumbs(false)}
-                className="text-sm leading-none py-1 text-black hover:opacity-80"
+                className="text-sm leading-none text-black hover:opacity-80"
               >
-                Close
+                — Close
               </button>
             ) : (
               <button
                 onClick={() => setShowThumbs(true)}
-                className="text-sm leading-none py-1 text-black hover:opacity-80"
+                className="text-sm leading-none text-black hover:opacity-80"
               >
-                Thumbs
+                — Thumbnails
               </button>
             )}
           </div>

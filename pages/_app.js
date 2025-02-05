@@ -10,14 +10,12 @@ function InnerApp({ Component, pageProps }) {
   const [direction, setDirection] = useState("");
   const [pageKey, setPageKey] = useState(router.pathname);
 
-  // Track route changes among /collection/ pages to animate
   const handleRouteChangeStart = useCallback(
     (url) => {
       const isCurrent = router.pathname.includes("/collection/");
       const isNext = url.includes("/collection/");
       if (isCurrent && isNext) {
-        // If navigating from one /collection/ to another /collection/,
-        // we set a new pageKey so AnimatePresence triggers an exit/enter
+        // Switch "pageKey" so AnimatePresence triggers exit/enter for collections
         setPageKey(url);
       }
     },
@@ -31,7 +29,6 @@ function InnerApp({ Component, pageProps }) {
     };
   }, [handleRouteChangeStart]);
 
-  // Whenever route changes, see if "direction" is in the query. If so, set local direction.
   useEffect(() => {
     if (router.query.direction) {
       setDirection(router.query.direction);
@@ -40,81 +37,68 @@ function InnerApp({ Component, pageProps }) {
     }
   }, [router.query.direction]);
 
-  // Minimal swipe handlers (optional, unused for up/down)
   const swipeHandlers = useSwipeable({});
 
+  // No opacity, just vertical slides. 
+  // We'll do a quick linear .3s tween so pages overlap in transition.
   const pageVariants = {
-    /**
-     * direction='down': we want new page to come from top => 0,
-     * old page => 0 => +100%. So visually everything moves downward.
-     *
-     * direction='up': new page from bottom => 0,
-     * old page => 0 => -100%. So visually everything moves upward.
-     */
     initial: (dir) => {
       switch (dir) {
         case "down":
-          return { y: "-100%", opacity: 0 };
+          return { y: "-100%" };
         case "up":
-          return { y: "100%", opacity: 0 };
+          return { y: "100%" };
         default:
-          return { y: 0, opacity: 0 };
+          return { y: 0 };
       }
     },
     animate: {
       y: 0,
-      opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 150,
-        damping: 25,
-        duration: 0.7,
+        type: "tween",
+        ease: "linear",
+        duration: 0.3,
       },
     },
     exit: (dir) => {
       switch (dir) {
         case "down":
-          // old page goes 0 => +100%
+          // old page => 100% (slides down)
           return {
             y: "100%",
-            opacity: 0,
-            transition: {
-              type: "spring",
-              stiffness: 150,
-              damping: 25,
-              duration: 0.7,
-            },
+            transition: { type: "tween", ease: "linear", duration: 0.3 },
           };
         case "up":
-          // old page goes 0 => -100%
+          // old page => -100% (slides up)
           return {
             y: "-100%",
-            opacity: 0,
-            transition: {
-              type: "spring",
-              stiffness: 150,
-              damping: 25,
-              duration: 0.7,
-            },
+            transition: { type: "tween", ease: "linear", duration: 0.3 },
           };
         default:
-          return { y: 0, opacity: 0 };
+          return { y: 0 };
       }
     },
   };
 
   return (
     <>
-      <AnimatePresence mode="wait" initial={false} custom={direction}>
+      {/* mode="sync": old & new pages exist simultaneously */}
+      <AnimatePresence mode="sync" initial={false} custom={direction}>
         <motion.div
           key={pageKey}
+          variants={pageVariants}
           initial="initial"
           animate="animate"
           exit="exit"
           custom={direction}
-          variants={pageVariants}
-          style={{ position: "relative" }}
-          className="h-screen overflow-hidden"
+          // Absolutely position each route so they overlap 
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
           {...swipeHandlers}
         >
           <Component {...pageProps} />
@@ -127,7 +111,10 @@ function InnerApp({ Component, pageProps }) {
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <InnerApp Component={Component} pageProps={pageProps} />
+      {/* Outer container: no overflow hidden so partial pages are visible */}
+      <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+        <InnerApp Component={Component} pageProps={pageProps} />
+      </div>
       <Navigation />
     </>
   );
