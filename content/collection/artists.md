@@ -21,9 +21,6 @@ content_blocks:
     image_path: /uploads/AR_DIRT-14.jpg
     alt_text: Portrait of gravel rider.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-5.jpg
-    alt_text: Portrait of Ivory Williams.
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-6.jpg
     alt_text: DIRT, personal project biker portraits.
   - _bookshop_name: collection/photo
@@ -38,9 +35,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-2.jpg
     alt_text: Portrait of man on a beach.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-8.jpg
-    alt_text: Portrait of man in vortex.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-142.jpg
     alt_text: Portrait of Abwe Sangolo Family in Phoenix, AZ.
@@ -66,26 +60,14 @@ content_blocks:
     image_path: /uploads/AR_FLORIDA-6.jpg
     alt_text: Florida portrait
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-62.jpg
-    alt_text: Ousted republican portrait for The Guardian.
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_KAEDON-2.jpg
-    alt_text: Portrait of Kaedon
-  - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-3.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-1.jpg
     alt_text: Florida portrait
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-32.jpg
-    alt_text: Bill Gates portrait for The Atlantic
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-6.jpg
     alt_text: Portrait of Sebastian Vargas
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-21.jpg
-    alt_text: Father and daughter portrait for The Guardian.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-5.jpg
     alt_text: Florida portrait
