@@ -152,13 +152,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-158.jpg
-    alt_text: PUBLIC hotel in NYC.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/Neutra_VDL_Analog-6.jpg
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
