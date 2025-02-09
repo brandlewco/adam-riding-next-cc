@@ -15,18 +15,18 @@ content_blocks:
     image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
     alt_text: Neutra VDL Studio & Residence  in Los Angeles, CA.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-2.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-5.JPG
     alt_text: Neutra VDL Studio & Residence  in Los Angeles, CA.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-3.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-2.JPG
     alt_text: Neutra VDL Studio & Residence  in Los Angeles, CA.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-4.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-1.JPG
     alt_text: Neutra VDL Studio & Residence  in Los Angeles, CA.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-5.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-4.JPG
     alt_text: Neutra VDL Studio & Residence  in Los Angeles, CA.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-6.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-3.JPG
     alt_text: Neutra VDL Studio & Residence  in Los Angeles, CA.
 ---
