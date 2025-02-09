@@ -115,14 +115,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-1.jpg
-    alt_text: >-
-      Two athletes running side by side, one's face is in the foreground
-      blocking the other's face. An extreme close up shot. Dream Run Camp
-      features the running camp hosted by Michael Fitzgerald, a runner living
-      with long covid, that's hosted in Flagstaff, AZ. This commission was
-      originally commissioned by The New York Times.
-  - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-8.jpg
     alt_text: Fitness at The Global Ambassador.
     width: 30
@@ -183,13 +175,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-6.jpg
     alt_text: Fitness at The Global Ambassador.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-1.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
     width: 30
     top: 0
     left: 0
