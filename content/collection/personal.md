@@ -33,15 +33,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Malibu_Web-4.jpg
-    alt_text: >-
-      Malibu is an ongoing personal project that explores my relationship to the
-      coast.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-81.jpg
     alt_text: >-
       The Cellar Door is a personal project that depicts narrative and mystery
@@ -69,15 +60,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-4.jpg
     alt_text: 'DIRT a personal project that depicts gravel bike racers in Iceland. '
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-101.jpg
-    alt_text: >-
-      Rodeo is a personal project that depicts the pageantry and traditions of
-      rodeo riding. 
     width: 30
     top: 0
     left: 0
@@ -129,8 +111,10 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-11.jpg
-    alt_text: Iceland is a personal project that depicts Iceland's people and landscape.
+    image_path: /uploads/AR_ARCHIVE-92.jpg
+    alt_text: >-
+      The Cellar Door is a personal project that depicts narrative and mystery
+      through a variety of subject matter.
     width: 30
     top: 0
     left: 0
@@ -149,15 +133,6 @@ content_blocks:
     alt_text: >-
       Malibu is an ongoing personal project that explores my relationship to the
       coast.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-92.jpg
-    alt_text: >-
-      The Cellar Door is a personal project that depicts narrative and mystery
-      through a variety of subject matter.
     width: 30
     top: 0
     left: 0
