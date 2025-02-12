@@ -73,14 +73,14 @@ content_blocks:
     image_path: /uploads/AR_VORTEX-3.jpg
     alt_text: Vortex
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_VORTEX-8.jpg
+    alt_text: Vortex
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_VORTEX-10.jpg
     alt_text: Vortex
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-1.jpg
     alt_text: Jotham
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-8.jpg
-    alt_text: Vortex
   - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-5.jpg
     alt_text: Camille
@@ -99,7 +99,4 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-5.jpg
     alt_text: Ivory
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-143.jpg
-    alt_text: Stem
 ---
