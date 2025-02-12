@@ -89,18 +89,18 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_KAEDON-1.jpg
-    alt_text: >-
-      Black and white image of friends playing basketball. On The Court was a
-      personal project that depicts friends coming together to play basketball
-      outside. Shot and completed in Scottsdale, AZ in 2023.
+    image_path: /uploads/AR_DIRT-7.jpg
+    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-7.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    image_path: /uploads/AR_KAEDON-1.jpg
+    alt_text: >-
+      Black and white image of friends playing basketball. On The Court was a
+      personal project that depicts friends coming together to play basketball
+      outside. Shot and completed in Scottsdale, AZ in 2023.
     width: 30
     top: 0
     left: 0
@@ -114,6 +114,14 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-2.jpg
+    alt_text: >-
+      Two athletes running side by side, one's face is in the foreground
+      blocking the other's face. An extreme close up shot. Dream Run Camp
+      features the running camp hosted by Michael Fitzgerald, a runner living
+      with long covid, that's hosted in Flagstaff, AZ. This commission was
+      originally commissioned by The New York Times.
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-8.jpg
     alt_text: Fitness at The Global Ambassador.
@@ -131,14 +139,6 @@ content_blocks:
     top: 0
     left: 0
     right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-2.jpg
-    alt_text: >-
-      Two athletes running side by side, one's face is in the foreground
-      blocking the other's face. An extreme close up shot. Dream Run Camp
-      features the running camp hosted by Michael Fitzgerald, a runner living
-      with long covid, that's hosted in Flagstaff, AZ. This commission was
-      originally commissioned by The New York Times.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-171.jpg
     alt_text: The Dodgers
