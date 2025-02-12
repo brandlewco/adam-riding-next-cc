@@ -254,27 +254,43 @@ function CollectionPage({
   // Thumbs overlay if source==='index'
   const containerVariants = {
     hidden: { opacity: 0 },
-    show:   { opacity: 1 },
-    exit:   { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05 // Each child appears 0.1s apart
+      }
+    },
+    exit: { opacity: 0 }
+  };
+  
+  const thumbVariants = {
+    hidden: { opacity: 0},
+    show: {
+      opacity: 1,
+      transition: { duration: 0.3 }
+    },
+    exit: { opacity: 0, transition: { duration: 0.2 } }
   };
   const ThumbsOverlay = source === "index" && (
     <AnimatePresence>
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
+          className="fixed inset-0 z-40 bg-white bg-opacity-80 flex flex-col items-center justify-center"
+          variants={containerVariants}
           initial="hidden"
           animate="show"
           exit="exit"
-          variants={containerVariants}
-          className="fixed inset-0 z-40 bg-white bg-opacity-80 flex flex-col items-center justify-center"
         >
-          <div className="w-full h-full flex flex-col justify-center items-center overflow-y-auto pt-12 pb-24 px-8">
+          <div className="flex flex-wrap p-32 justify-center items-center overflow-y-auto">
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-6 justify-items-center w-full">
               {page.data.content_blocks.map((block, idx) => (
                 <motion.div
                   key={idx}
-                  className="cursor-pointer hover:opacity-80 transition-opacity"
+                  variants={thumbVariants}
                   onClick={() => handleThumbnailClick(idx)}
+                  whileHover={{ scale: 1.1 }}
+                  className="cursor-pointer transition-opacity origin-center origin-top"
                 >
                   <ExportedImage
                     src={block.image_path}
