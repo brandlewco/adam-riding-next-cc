@@ -338,9 +338,6 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-151.jpg
     alt_text: 6x6 Jeep - Road and Track
   - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-6.jpg
-    alt_text: The Global Ambassador Hotel - 2024
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-87.jpg
     alt_text: The Cellar Door - Personal Project
   - _bookshop_name: collection/photo
