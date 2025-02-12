@@ -49,11 +49,14 @@ content_blocks:
     image_path: /uploads/AR_VORTEX-6.jpg
     alt_text: Sedona vortex.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Malibu_Web-12.jpg
-    alt_text: Malibu.
-  - _bookshop_name: collection/photo
     image_path: /uploads/Neutra_VDL_Analog-4.jpg
     alt_text: Neutra VDL
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-2.jpg
+    alt_text: The Global Ambassador
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Malibu_Web-12.jpg
+    alt_text: Malibu.
   - _bookshop_name: collection/photo
     image_path: /uploads/Malibu_Web-8.jpg
     alt_text: Malibu.
@@ -81,6 +84,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-1.jpg
     alt_text: Jotham
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: The Global Ambassador
   - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-5.jpg
     alt_text: Camille
