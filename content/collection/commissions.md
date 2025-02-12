@@ -124,20 +124,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-2.jpg
-    alt_text: Commission for Jotham Hung Ceramics based in Los Angeles, Ca.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-3.jpg
-    alt_text: Commission for The Global Ambassador hotel in Scottsdale, AZ.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/NAN_Additional-2.jpg
     alt_text: Commission for NAN Collective design studio in Los Angeles, Ca.
     width: 30
