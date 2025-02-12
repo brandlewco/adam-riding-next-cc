@@ -267,9 +267,9 @@ function CollectionPage({
     hidden: { opacity: 0},
     show: {
       opacity: 1,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.33 }
     },
-    exit: { opacity: 0, transition: { duration: 0.2 } }
+    exit: { opacity: 0 }
   };
   const ThumbsOverlay = source === "index" && (
     <AnimatePresence>
@@ -289,8 +289,11 @@ function CollectionPage({
                   key={idx}
                   variants={thumbVariants}
                   onClick={() => handleThumbnailClick(idx)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.33 }}
                   whileHover={{ scale: 1.1 }}
-                  className="cursor-pointer transition-opacity origin-center origin-top"
+                  className="cursor-pointer transition-opacity origin-center origin-top ease-in-out"
                 >
                   <ExportedImage
                     src={block.image_path}
