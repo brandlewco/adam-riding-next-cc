@@ -28,15 +28,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-1.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_LAFORTUNE-1.jpg
     alt_text: Lulu LaFortune studio in Los Angeles, California.
     width: 30
