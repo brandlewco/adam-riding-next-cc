@@ -12,7 +12,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_Home_4x5-1.jpg
+    image_path: /uploads/Neutra_VDL_Analog-2.jpg
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -44,7 +44,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-2.jpg
+    image_path: /uploads/Neutra_Home_4x5-1.jpg
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -154,13 +154,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/Neutra_VDL_Analog-6.jpg
     alt_text: Neutra VDL studio in Los Angeles, California.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-160.jpg
-    alt_text: PUBLIC hotel in NYC.
     width: 30
     top: 0
     left: 0
