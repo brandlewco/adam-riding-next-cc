@@ -180,13 +180,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-175.jpg
-    alt_text: The Dodgers
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-2.jpg
     alt_text: >-
       Liana Levi, founder of Forma Pilates LA, in the middle of a pilates
