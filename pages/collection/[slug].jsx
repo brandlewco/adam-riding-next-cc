@@ -233,18 +233,23 @@ function CollectionPage({
         style={{ position: "relative" }}
         {...swipeHandlers}
       >
-        <section className="photo flex flex-col md:flex-row md:justify-end items-end md:items-start relative overflow-hidden md:h-85vh h-screen w-full md:w-auto">
+        <section className="photo flex flex-col items-end relative overflow-hidden  md:h-85vh h-screen w-full md:w-auto">
           <Blocks
             content_blocks={page.data.content_blocks}
             currentImage={currentImage}
             setImageLoaded={setImageLoaded}
           />
           {imageLoaded && (
-            <div className="relative md:hidden pt-4 text-left">
-              <div className="text-sm leading-none">
-                {page.data.title} - {currentImage + 1} / {imageCount}
-              </div>
+          <div className="relative md:hidden pt-4 text-left">
+            <div className="text-sm leading-none">
+              {page.data.title} - {currentImage + 1} / {imageCount}
             </div>
+          </div>
+          )}
+          {source === "index" && page.data.content_blocks[currentImage]?.alt_text && (
+              <p className="text-sm mt-2 self-end">
+                {page.data.content_blocks[currentImage].alt_text}
+              </p>
           )}
         </section>
       </motion.div>
