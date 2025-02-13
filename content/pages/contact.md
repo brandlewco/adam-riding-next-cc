@@ -5,7 +5,6 @@ seo:
   page_description:
   canonical_url:
   featured_image:
-  featured_image_alt:
   author_twitter_handle:
   open_graph_type:
   no_index: false
@@ -29,11 +28,13 @@ column_2: |-
 
   The New York Times Magazine
 
-  Under Armour
+  Nike
 
   Forbes
 
   GQ
+
+  Under Armour
 
   House Beautiful
 
@@ -88,14 +89,14 @@ column_3: >-
   ## Group Exhibitions
 
 
-  Galbut Prize Exhibition 2022 MFA + BFA Select Harry Wood Gallery
+  Harry Wood Gallery Galbut Prize  2022
 
 
-  What Was Left Behind 2022 BFA Group Show Gallery 100
+  What Was Left Behind BFA 2022
 
 
-  Shared Experiences 2021 Artist Group Show Northlight Gallery
+  Northlight Gallery Artist Group 2021
 
 
-  Emergence 2020 Artist Select Group Show Art Intersection
+  Art Intersection Emergence 2020
 ---

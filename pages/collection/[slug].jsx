@@ -247,7 +247,7 @@ function CollectionPage({
           </div>
           )}
           {source === "index" && page.data.content_blocks[currentImage]?.alt_text && (
-              <p className="text-sm mt-2 self-end">
+              <p className="text-sm mt-2 self-end text-right">
                 {page.data.content_blocks[currentImage].alt_text}
               </p>
           )}

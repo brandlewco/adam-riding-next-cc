@@ -12,22 +12,22 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-1.jpg
-    alt_text: >-
-      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
-      that focuses on beautiful home interiors.
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-2.jpg
     alt_text: >-
       The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
       that focuses on beautiful home interiors.
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-3.jpg
+    image_path: /uploads/AR_SCHINDLER-1.jpg
     alt_text: >-
       The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
       that focuses on beautiful home interiors.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_SCHINDLER-5.jpg
+    alt_text: >-
+      The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
+      that focuses on beautiful home interiors.
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_SCHINDLER-3.jpg
     alt_text: >-
       The house of RM Schindler in Los Angeles, Ca. Shot for a personal project
       that focuses on beautiful home interiors.
