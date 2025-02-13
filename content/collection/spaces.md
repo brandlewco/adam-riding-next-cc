@@ -12,7 +12,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-2.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-5.JPG
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -35,7 +35,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_Home_4x5-1.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-2.JPG
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -49,7 +49,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-5.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-4.JPG
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -65,7 +65,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-6.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-3.JPG
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -86,7 +86,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-4.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-1.JPG
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -127,7 +127,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-1.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
     alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
@@ -138,13 +138,6 @@ content_blocks:
     alt_text: >-
       Red room at Taliesin West. Taliesin West was built by Frank Lloyd Wright
       in Scottsdale, AZ.
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-6.jpg
-    alt_text: Neutra VDL studio in Los Angeles, California.
     width: 30
     top: 0
     left: 0
