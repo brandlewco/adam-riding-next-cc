@@ -15,18 +15,18 @@ content_blocks:
     image_path: /uploads/Camille_Port_Analog-1.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-2.jpg
+    image_path: /uploads/FIXED_Camille-4.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-3.jpg
+    image_path: /uploads/FIXED_Camille-1.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-4.jpg
+    image_path: /uploads/FIXED_Camille-2.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-5.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-6.jpg
+    image_path: /uploads/FIXED_Camille-3.jpg
     alt_text: Portrait of Camille Misty.
 ---
