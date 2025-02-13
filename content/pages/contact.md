@@ -28,13 +28,13 @@ column_2: |-
 
   The New York Times Magazine
 
-  Under Armour
+  Nike
 
   Forbes
 
   GQ
 
-  Nike
+  Under Armour
 
   House Beautiful
 
