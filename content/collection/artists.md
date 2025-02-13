@@ -12,7 +12,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Home_4x5-1.jpg
+    image_path: /uploads/FIXED_Camille-2.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-14.jpg
@@ -39,7 +39,7 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-142.jpg
     alt_text: Portrait of Abwe Sangolo Family in Phoenix, AZ.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-2.jpg
+    image_path: /uploads/FIXED_Camille-4.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-92.jpg
@@ -60,7 +60,7 @@ content_blocks:
     image_path: /uploads/AR_FLORIDA-6.jpg
     alt_text: Florida portrait
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-3.jpg
+    image_path: /uploads/FIXED_Camille-1.jpg
     alt_text: Portrait of Camille Misty.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FLORIDA-1.jpg
