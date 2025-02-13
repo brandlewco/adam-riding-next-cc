@@ -49,7 +49,7 @@ content_blocks:
     alt_text: Neutra VDL studio  - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-2.jpg
-    alt_text: The Global Ambassador - 2024
+    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/Malibu_Web-12.jpg
     alt_text: Malibu - 2024
@@ -82,7 +82,7 @@ content_blocks:
     alt_text: Jotham Hung Ceramics - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-6.jpg
-    alt_text: The Global Ambassador - 2024
+    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-5.jpg
     alt_text: Camille - 2024
