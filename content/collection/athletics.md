@@ -13,115 +13,82 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-9.jpg
-    alt_text: >-
-      Motion blurred, action shot of a Michael Fitzgerald running through the
-      snowy forest. Dream Run Camp features the running camp hosted by Michael
-      Fitzgerald, a runner living with long covid, that's hosted in Flagstaff,
-      AZ. This commission was originally commissioned by The New York Times.
+    alt_text: Dream Run Camp - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/GD_FIT_WEB_02.jpg
-    alt_text: >-
-      Fitness instructor commissioned by Golf Digest. Shot in Pasadena, CA in
-      2024.
+    alt_text: 'Fitness Trainers - Golf Digest '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-2.jpg
-    alt_text: Ivory Williams.
+    alt_text: Ivory - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-6.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    alt_text: DIRT - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-12.jpg
-    alt_text: >-
-      Two athletes running side by side, one's face is in the foreground
-      blocking the other's face. An extreme close up shot. Dream Run Camp
-      features the running camp hosted by Michael Fitzgerald, a runner living
-      with long covid, that's hosted in Flagstaff, AZ. This commission was
-      originally commissioned by The New York Times.
+    alt_text: Dream Run Camp - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-4.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, playing basketball and wearing
-      black Nike athletic clothing, Shot for a personal project focused on
-      athletics in Phoenix, AZ in 2023.
+    alt_text: Ivory - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-5.jpg
-    alt_text: >-
-      Ascension is an athletic basketball project featuring an athlete dunking
-      the basketball, set against a sky backdrop. This project was shot and
-      completed in Phoenix, AZ in 2024.
+    alt_text: Athletics - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-7.jpg
-    alt_text: Fitness at The Global Ambassador.
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
-    alt_text: >-
-      Snow flakes are caught within a female runner's braided hair. Set against
-      the backdrop of a snowy forrest, she wears a blue colored hair band and a
-      cyan long sleeve jacket. This detail is a close-up, and tight photograph
-      of her hair. Dream Run Camp features the running camp hosted by Michael
-      Fitzgerald, a runner living with long covid, that's hosted in Flagstaff,
-      AZ. This commission was originally commissioned by The New York Times.
+    alt_text: Dream Run Camp - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-169.jpg
-    alt_text: The Dodgers
+    alt_text: The Dodgers - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-7.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    alt_text: DIRT - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-1.jpg
-    alt_text: >-
-      Black and white image of friends playing basketball. On The Court was a
-      personal project that depicts friends coming together to play basketball
-      outside. Shot and completed in Scottsdale, AZ in 2023.
+    alt_text: Athletics - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/GD_FIT_WEB_01.jpg
-    alt_text: >-
-      Fitness instructor commissioned by Golf Digest. Shot in Pasadena, CA in
-      2024.
+    alt_text: 'Fitness Trainers - Golf Digest '
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-2.jpg
-    alt_text: >-
-      Two athletes running side by side, one's face is in the foreground
-      blocking the other's face. An extreme close up shot. Dream Run Camp
-      features the running camp hosted by Michael Fitzgerald, a runner living
-      with long covid, that's hosted in Flagstaff, AZ. This commission was
-      originally commissioned by The New York Times.
+    alt_text: Dream Run Camp - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-8.jpg
     alt_text: Fitness at The Global Ambassador.
@@ -131,94 +98,84 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-1.jpg
-    alt_text: >-
-      Ascension is an athletic basketball project featuring an athlete dunking
-      the basketball, set against a sky backdrop. This project was shot and
-      completed in Phoenix, AZ in 2024.
+    alt_text: Athletics - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-171.jpg
-    alt_text: The Dodgers
+    alt_text: The Dodgers - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-10.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    alt_text: DIRT - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-1.jpg
-    alt_text: >-
-      Liana Levi, founder of Forma Pilates LA, in the middle of a pilates
-      workout in The Global Ambassador pilates gym in Scottsdale, AZ.
+    alt_text: Forma Pilates - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-8.jpg
-    alt_text: >-
-      Ivory Williams, model repped by Agency Az, stretching and wearing black
-      Nike athletic clothing, Shot for a personal project focused on athletics
-      in Phoenix, AZ in 2023.
+    alt_text: Ivory - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-6.jpg
-    alt_text: Fitness at The Global Ambassador.
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-2.jpg
-    alt_text: >-
-      Liana Levi, founder of Forma Pilates LA, in the middle of a pilates
-      workout in The Global Ambassador pilates gym in Scottsdale, AZ.
+    alt_text: Forma Pilates - 2024
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-3.jpg
-    alt_text: 'DIRT a personal project that captures gravel bike riders Iceland. '
+    alt_text: DIRT - Personal Project
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-6.jpg
-    alt_text: Ivory Williams.
+    alt_text: Ivory - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-5.jpg
-    alt_text: Kaedon basketball
+    alt_text: Athletics - 2023
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-3.jpg
-    alt_text: Running club
+    alt_text: Dream Run Camp - The New York Times
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-5.jpg
-    alt_text: Fitness at The Global Ambassador.
+    alt_text: The Global Ambassador Hotel - 2024
     width: 30
     top: 0
     left: 0
