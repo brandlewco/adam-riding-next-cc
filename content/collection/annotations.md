@@ -28,7 +28,7 @@ content_blocks:
     alt_text: Ivory - 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/NEW_Neutra_Home_WEB-5.JPG
-    alt_text: Neutra VDL studio  - 2024
+    alt_text: Neutra VDL Studio  - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-2.jpg
     alt_text: Last Call - Personal Project
@@ -37,7 +37,7 @@ content_blocks:
     alt_text: Iceland - Personal Project
   - _bookshop_name: collection/photo
     image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
-    alt_text: Neutra VDL studio  - 2024
+    alt_text: Neutra VDL Studio  - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-7.jpg
     alt_text: Iceland - Personal Project
@@ -46,7 +46,7 @@ content_blocks:
     alt_text: Vortex - Los Angeles Times
   - _bookshop_name: collection/photo
     image_path: /uploads/NEW_Neutra_Home_WEB-1.JPG
-    alt_text: Neutra VDL studio  - 2024
+    alt_text: Neutra VDL Studio  - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-2.jpg
     alt_text: The Global Ambassador Hotel - 2024
