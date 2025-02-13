@@ -31,7 +31,7 @@ content_blocks:
     image_path: /uploads/AR_IVORY-7.jpg
     alt_text: Portrait of Ivory Williams.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-2.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-5.JPG
     alt_text: Neutra VDL studio in Los Angeles, Ca.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-2.jpg
@@ -40,7 +40,7 @@ content_blocks:
     image_path: /uploads/AR_ICELAND-1.jpg
     alt_text: Boy in Iceland.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-1.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
     alt_text: Neutra VDL studio in Los Angeles, Ca.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-7.jpg
@@ -49,7 +49,7 @@ content_blocks:
     image_path: /uploads/AR_VORTEX-6.jpg
     alt_text: Sedona vortex.
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_VDL_Analog-4.jpg
+    image_path: /uploads/NEW_Neutra_Home_WEB-1.JPG
     alt_text: Neutra VDL
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-2.jpg
