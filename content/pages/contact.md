@@ -34,6 +34,8 @@ column_2: |-
 
   GQ
 
+  Nike
+
   House Beautiful
 
   Barrons
