@@ -3,23 +3,28 @@ import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/layouts/navigation";
-import { useSwipeable } from 'react-swipeable';
+import { useSwipeable } from "react-swipeable";
 
 function InnerApp({ Component, pageProps }) {
   const router = useRouter();
-  const [direction, setDirection] = useState('');
-  const [pageKey, setPageKey] = useState(router.pathname);
+  const [direction, setDirection] = useState("");
+  const [pageKey, setPageKey] = useState(router.asPath);
 
-  const handleRouteChangeStart = useCallback((url) => {
-    const isCurrentCollection = router.pathname.includes("/collection/");
-    const isNextCollection = url.includes("/collection/");
-    const isCollectionToCollection = isCurrentCollection && isNextCollection;
+  // Parse ?direction=up|down when leaving one /collection/ to another
+  const handleRouteChangeStart = useCallback(
+    (url) => {
+      const isCurrentCollection = router.asPath.includes("/collection/");
+      const isNextCollection = url.includes("/collection/");
+      if (isCurrentCollection && isNextCollection) {
+        setPageKey(url);
 
-    // Only set the page key on route change start
-    if (isCollectionToCollection) {
-      setPageKey(url);
-    }
-  }, [router.pathname]);
+        // parse direction from ?direction=up|down
+        const match = url.match(/[?&]direction=(up|down)/);
+        setDirection(match ? match[1] : "");
+      }
+    },
+    [router.asPath]
+  );
 
   useEffect(() => {
     router.events.on("routeChangeStart", handleRouteChangeStart);
@@ -28,112 +33,95 @@ function InnerApp({ Component, pageProps }) {
     };
   }, [handleRouteChangeStart]);
 
-  const handleAreaClick = useCallback((area) => {
-    const nextSlug = pageProps.nextSlug;
-    const prevSlug = pageProps.prevSlug;
-
-    if (area === 'down' && nextSlug) {
-      setDirection('down');
-      router.push(`/collection/${nextSlug}`);
-    } else if (area === 'up' && prevSlug) {
-      setDirection('up');
-      router.push(`/collection/${prevSlug}`);
-    }
-  }, [pageProps.nextSlug, pageProps.prevSlug, router]);
-
-  const handleKeyDown = useCallback(
-    (event) => {
-      if (event.key === 'ArrowDown') {
-        handleAreaClick('down');
-      } else if (event.key === 'ArrowUp') {
-        handleAreaClick('up');
-      }
-    },
-    [handleAreaClick]
-  );
-
+  // Also on route complete, read direction from query
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleKeyDown]);
+    const dir = router.query.direction;
+    if (dir === "up" || dir === "down") {
+      setDirection(dir);
+    } else {
+      setDirection("");
+    }
+  }, [router.query.direction]);
 
-  const swipeHandlers = useSwipeable({
-    onSwipedUp: () => handleAreaClick('down'),
-    onSwipedDown: () => handleAreaClick('up'),
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  });
+  const swipeHandlers = useSwipeable({});
 
+  /**
+   * We want partial overlap:
+   * - Old page: from y=0 to y=-100% if direction='down', or y=+100% if direction='up'
+   * - New page: from y=+100% to y=0 if direction='down', or y=-100% if direction='up'
+   * => They meet in the middle, both half on screen at the same time.
+   */
   const pageVariants = {
-    initial: (direction) => ({
-      opacity: 0,
-      y: direction === 'up' ? '-80%' : direction === 'down' ? '80%' : 0,
-    }),
+    // For the old page’s exit or new page’s initial
+    initial: (dir) => {
+      if (dir === "down") {
+        // new page starts at +100% (below)
+        return { y: "100%", opacity: 1 };
+      } else if (dir === "up") {
+        // new page starts at -100% (above)
+        return { y: "-100%", opacity: 1 };
+      }
+      // no shift if no direction
+      return { y: 0, opacity: 1 };
+    },
     animate: {
-      opacity: 1,
+      // The new page slides to y=0
       y: 0,
+      opacity: 1,
       transition: {
-        type: 'spring',
-        stiffness: 150,
-        damping: 25,
-        duration: 0.7,
+        duration: 0.4,
+        ease: "easeInOut",
       },
     },
-    exit: (direction) => ({
-      opacity: 0,
-      y: direction === 'up' ? '80%' : direction === 'down' ? '-80%' : 0,
-      transition: {
-        type: 'spring',
-        stiffness: 150,
-        damping: 25,
-        duration: 0.7,
-      },
-    }),
+    exit: (dir) => {
+      // The old page slides out
+      if (dir === "down") {
+        // if direction=down => old page goes up => y:-100%
+        return {
+          y: "-100%",
+          opacity: 1,
+          transition: { duration: 0.4, ease: "easeInOut" },
+        };
+      } else if (dir === "up") {
+        // if direction=up => old page goes down => y:+100%
+        return {
+          y: "100%",
+          opacity: 1,
+          transition: { duration: 0.4, ease: "easeInOut" },
+        };
+      }
+      return { y: 0, opacity: 1 };
+    },
   };
 
   return (
-    <>
-      {/* {router.pathname.includes("/collection/") && (
-        <>
-          <div
-            id="click-up"
-            className="absolute left-0 top-0 h-1/6 w-full cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('up')}
-            style={{ zIndex: 10 }}
-          />
-          <div
-            id="click-down"
-            className="absolute left-0 bottom-14 h-1/6 w-full cursor-pointer clickable-area"
-            onClick={() => handleAreaClick('down')}
-            style={{ zIndex: 10 }}
-          />
-        </>
-      )} */}
-      <AnimatePresence mode="wait" initial={false} custom={direction}>
-        <motion.div
-          key={pageKey}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          custom={direction}
-          variants={pageVariants}
-          style={{ position: 'relative' }}
-          className="h-screen overflow-hidden"
-          {...swipeHandlers} // Add swipe handlers
-        >
-          <Component {...pageProps} />
-        </motion.div>
-      </AnimatePresence>
-    </>
+    /**
+     * We omit mode="wait" so old & new pages animate simultaneously ("sync" mode).
+     * => partial overlap: you'll see old sliding away while new slides in.
+     */
+    <AnimatePresence initial={false} custom={direction}>
+      <motion.div
+        key={pageKey}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        custom={direction}
+        variants={pageVariants}
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+        {...swipeHandlers}
+      >
+        <Component {...pageProps} />
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <InnerApp Component={Component} pageProps={pageProps} />
+      <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
+        <InnerApp Component={Component} pageProps={pageProps} />
+      </div>
       <Navigation />
     </>
   );
