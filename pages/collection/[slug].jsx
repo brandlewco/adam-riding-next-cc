@@ -229,11 +229,11 @@ function CollectionPage({
         animate="center"
         exit="exit"
         custom={direction}
-        className="relative w-auto overflow-hidden p-4"
+        className="relative w-auto p-4"
         style={{ position: "relative" }}
         {...swipeHandlers}
       >
-        <section className="photo flex flex-col items-end relative overflow-hidden  md:h-85vh h-screen w-full md:w-auto">
+        <section className="photo flex flex-col items-end relative md:h-85vh h-screen w-full md:w-auto">
           <Blocks
             content_blocks={page.data.content_blocks}
             currentImage={currentImage}
