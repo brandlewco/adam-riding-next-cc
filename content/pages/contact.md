@@ -26,7 +26,7 @@ column_1: |-
 column_2: |-
   ## Select Clients
 
-  The New York Times Magazine
+  NYT Magazine
 
   Nike
 
@@ -44,9 +44,9 @@ column_2: |-
 
   WSJ
 
-  Road and Track
-
   The Guardian
+
+  Road and Track
 
   The New York Times
 
@@ -57,8 +57,6 @@ column_2: |-
   Los Angeles Times
 
   Golf Digest
-
-  The Global Ambassador
 
   DIE ZEIT
 column_3: >-
@@ -89,14 +87,14 @@ column_3: >-
   ## Group Exhibitions
 
 
-  Harry Wood Gallery Galbut Prize  2022
+  Harry Wood Gallery 2022
 
 
-  What Was Left Behind BFA 2022
+  What Was Left Behind 2022
 
 
-  Northlight Gallery Artist Group 2021
+  Northlight Gallery 2021
 
 
-  Art Intersection Emergence 2020
+  Art Intersection 2020
 ---
