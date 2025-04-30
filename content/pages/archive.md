@@ -278,9 +278,6 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-102.jpg
     alt_text: Payson Rodeo - Personal Project
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-79.jpg
-    alt_text: Arizona Department of Corrections - Hustle 2.0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-140.jpg
     alt_text: The Grand Canyon - 2023
   - _bookshop_name: collection/photo
@@ -343,9 +340,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-47.jpg
     alt_text: The Produce Garden Blooms - The New York Times
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-7.jpg
-    alt_text: The Global Ambassador Hotel - 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
     alt_text: The Farmer and His Crop - Personal Project
