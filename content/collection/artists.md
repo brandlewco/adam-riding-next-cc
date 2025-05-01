@@ -12,14 +12,14 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/Portraits-1.jpg
+    alt_text: Alessandra
+  - _bookshop_name: collection/photo
     image_path: /uploads/Portraits-2.jpg
     alt_text: Caroline
   - _bookshop_name: collection/photo
     image_path: /uploads/Camille_Port_Analog-1.jpg
     alt_text: Camille
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Portraits-1.jpg
-    alt_text: Alessandra
   - _bookshop_name: collection/photo
     image_path: /uploads/Portraits-3.jpg
     alt_text: Raiven
