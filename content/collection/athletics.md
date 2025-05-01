@@ -33,7 +33,7 @@ content_blocks:
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-5.jpg
-    alt_text: Athletics - 2024
+    alt_text: Ilisia - 2024
     width: 30
     top: 0
     left: 0
@@ -53,7 +53,7 @@ content_blocks:
     alt_text: Dream Run Camp - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-1.jpg
-    alt_text: Athletics - 2024
+    alt_text: Ilisia - 2024
     width: 30
     top: 0
     left: 0
