@@ -13,5 +13,32 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-1.jpg
-    alt_text: Camille, 2024
+    alt_text: Coach, Brooklyn 28
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-2.jpg
+    alt_text: Orchid
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-3.jpg
+    alt_text: Eggs and watch
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-4.jpg
+    alt_text: Magnolia leaf and bracelet
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-5.jpg
+    alt_text: Coach, Brooklyn 28
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-6.jpg
+    alt_text: Hole punch
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-7.jpg
+    alt_text: Sea stones
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-9.jpg
+    alt_text: Coach, Brooklyn 28
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-8.jpg
+    alt_text: Leaf
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Still_Life-10.jpg
+    alt_text: Stones and eggs
 ---
