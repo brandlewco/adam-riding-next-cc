@@ -102,4 +102,25 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_SCHINDLER-5.jpg
+    alt_text: Schindler House - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-3.jpg
+    alt_text: Taliesin West - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/NAN_Additional-3.jpg
+    alt_text: NAN Collective - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
 ---
