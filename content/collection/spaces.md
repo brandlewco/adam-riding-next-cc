@@ -12,7 +12,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/NEW_Neutra_Home_WEB-5.JPG
+    image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
     alt_text: Neutra VDL Studio - 2024
     width: 30
     top: 0
@@ -21,6 +21,13 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-1.jpg
     alt_text: Taliesin West - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/NEW_Neutra_Home_WEB-5.JPG
+    alt_text: Neutra VDL Studio - 2024
     width: 30
     top: 0
     left: 0
@@ -35,6 +42,13 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/NEW_Neutra_Home_WEB-2.JPG
     alt_text: Neutra VDL Studio - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-3.jpg
+    alt_text: Taliesin West - 2024
     width: 30
     top: 0
     left: 0
@@ -61,6 +75,20 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_SCHINDLER-5.jpg
+    alt_text: Schindler House - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_TALIESIN-4.jpg
+    alt_text: Taliesin West - 2024
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_LAFORTUNE-2.jpg
     alt_text: Lulu LaFortune Studio - 2024
     width: 30
@@ -82,35 +110,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_TALIESIN-4.jpg
-    alt_text: Taliesin West - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_TALIESIN-6.jpg
-    alt_text: Taliesin West - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
-    alt_text: Neutra VDL Studio - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-5.jpg
-    alt_text: Schindler House - 2024
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_TALIESIN-3.jpg
     alt_text: Taliesin West - 2024
     width: 30
     top: 0
