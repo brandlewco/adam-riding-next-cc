@@ -13,7 +13,7 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-1.jpg
-    alt_text: Coach, Brooklyn 28
+    alt_text: Coach Brooklyn 28
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-2.jpg
     alt_text: Orchid
@@ -25,7 +25,7 @@ content_blocks:
     alt_text: Magnolia leaf and bracelet
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-5.jpg
-    alt_text: Coach, Brooklyn 28
+    alt_text: Coach Brooklyn 28
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-6.jpg
     alt_text: Hole punch
@@ -34,7 +34,7 @@ content_blocks:
     alt_text: Sea stones
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-9.jpg
-    alt_text: Coach, Brooklyn 28
+    alt_text: Coach Brooklyn 28
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-8.jpg
     alt_text: Leaf
