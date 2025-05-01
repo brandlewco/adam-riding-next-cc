@@ -47,6 +47,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-46.jpg
     alt_text: The Produce Garden Blooms - The New York Times
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-1.jpg
+    alt_text: Jotham Hung Ceramics
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-142.jpg
     alt_text: Refugee Abwe Songolo - The New York Times
   - _bookshop_name: collection/photo
@@ -176,6 +179,9 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-20.jpg
     alt_text: Furniture Designer Levi Christiansen - Dozer Chair
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-5.jpg
+    alt_text: Jotham Hung Ceramics
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-59.jpg
     alt_text: Ousted Republican Reflects on Trump, Democracy, and America - The Guardian
   - _bookshop_name: collection/photo
@@ -298,6 +304,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-49.jpg
     alt_text: The Produce Garden Blooms - The New York Times
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-7.jpg
+    alt_text: Jotham Hung Ceramics
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-132.jpg
     alt_text: Big Tech Makes a Big Bet - The New York Times
