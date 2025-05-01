@@ -43,7 +43,7 @@ content_blocks:
     alt_text: Dream Run Camp - The New York Times
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-1.jpg
-    alt_text: Athletics - 2023
+    alt_text: Court - 2023
     width: 30
     top: 0
     left: 0
