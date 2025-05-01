@@ -12,6 +12,6 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-1.jpg
+    image_path: /uploads/Still_Life-1.jpg
     alt_text: Camille, 2024
 ---
