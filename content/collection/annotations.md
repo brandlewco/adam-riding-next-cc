@@ -48,20 +48,11 @@ content_blocks:
     image_path: /uploads/Overview-12.jpg
     alt_text: Lalo
   - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-13.jpg
-    alt_text: Eggs and watch
-  - _bookshop_name: collection/photo
     image_path: /uploads/Overview-14.jpg
     alt_text: Carmen
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-15.jpg
     alt_text: Orchid
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-16.jpg
-    alt_text: Raiven
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-17.jpg
-    alt_text: Coach Brooklyn 28
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-18.jpg
     alt_text: Hole punch
@@ -87,21 +78,6 @@ content_blocks:
     image_path: /uploads/Overview-25.jpg
     alt_text: Carmen
   - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-26.jpg
-    alt_text: Lalo
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-27.jpg
-    alt_text: Leaf
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-28.jpg
-    alt_text: Raiven
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-29.jpg
-    alt_text: Raiven
-  - _bookshop_name: collection/photo
     image_path: /uploads/Malibu_Web-12.jpg
     alt_text: El Matador
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-31.jpg
-    alt_text: Sea stones
 ---
