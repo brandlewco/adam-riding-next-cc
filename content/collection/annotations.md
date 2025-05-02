@@ -80,4 +80,43 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/Malibu_Web-12.jpg
     alt_text: El Matador
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_VORTEX-10.jpg
+    alt_text: Vortex
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_VORTEX-2.jpg
+    alt_text: Vortex
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-5.jpg
+    alt_text: Iceland
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-7.jpg
+    alt_text: Iceland
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-6.jpg
+    alt_text: Iceland
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-9.jpg
+    alt_text: Dream Run Camp
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-5.jpg
+    alt_text: Ivory
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-7.jpg
+    alt_text: Ivory
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FORMA-1.jpg
+    alt_text: Forma Pilates
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_VORTEX-3.jpg
+    alt_text: Vortex
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_Home_4x5-1.jpg
+    alt_text: Neutra VDL Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-14.jpg
+    alt_text: DIRT
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-17.jpg
+    alt_text: DIRT
 ---
