@@ -18,8 +18,8 @@ content_blocks:
     image_path: /uploads/Overview-2.jpg
     alt_text: Coach Brooklyn 28
   - _bookshop_name: collection/photo
-    image_path: /uploads/Camille_Port_Analog-1.jpg
-    alt_text: Camille
+    image_path: /uploads/AR_VORTEX-2.jpg
+    alt_text: Vortex
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-4.jpg
     alt_text: Raiven
@@ -27,8 +27,8 @@ content_blocks:
     image_path: /uploads/Overview-5.jpg
     alt_text: Carmen
   - _bookshop_name: collection/photo
-    image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
-    alt_text: Neutra VDL Studio
+    image_path: /uploads/AR_IVORY-5.jpg
+    alt_text: Ivory
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-7.jpg
     alt_text: Caroline
@@ -36,14 +36,29 @@ content_blocks:
     image_path: /uploads/Overview-8.jpg
     alt_text: Magnolia leaf and bracelet
   - _bookshop_name: collection/photo
+    image_path: /uploads/NEW_Neutra_Home_WEB-6.JPG
+    alt_text: Neutra VDL Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_DIRT-17.jpg
+    alt_text: DIRT
+  - _bookshop_name: collection/photo
     image_path: /uploads/Malibu_Web-2.jpg
     alt_text: El Matador
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Neutra_Home_4x5-1.jpg
+    alt_text: Neutra VDL Studio
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-10.jpg
     alt_text: Raiven
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FORMA-1.jpg
+    alt_text: Forma Pilates
+  - _bookshop_name: collection/photo
     image_path: /uploads/Overview-11.jpg
     alt_text: Coach Brooklyn 28
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_VORTEX-10.jpg
+    alt_text: Vortex
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-12.jpg
     alt_text: Lalo
@@ -51,8 +66,17 @@ content_blocks:
     image_path: /uploads/Overview-14.jpg
     alt_text: Carmen
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-6.jpg
+    alt_text: Iceland
+  - _bookshop_name: collection/photo
     image_path: /uploads/Overview-15.jpg
     alt_text: Orchid
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Camille_Port_Analog-1.jpg
+    alt_text: Camille
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-5.jpg
+    alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-18.jpg
     alt_text: Hole punch
@@ -66,8 +90,17 @@ content_blocks:
     image_path: /uploads/Overview-21.jpg
     alt_text: Raiven
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-7.jpg
+    alt_text: Iceland
+  - _bookshop_name: collection/photo
     image_path: /uploads/Overview-22.jpg
     alt_text: Stones and eggs
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_RUNNING-9.jpg
+    alt_text: Dream Run Camp
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-7.jpg
+    alt_text: Ivory
   - _bookshop_name: collection/photo
     image_path: /uploads/Overview-23.jpg
     alt_text: Caroline
@@ -78,45 +111,12 @@ content_blocks:
     image_path: /uploads/Overview-25.jpg
     alt_text: Carmen
   - _bookshop_name: collection/photo
-    image_path: /uploads/Malibu_Web-12.jpg
-    alt_text: El Matador
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-10.jpg
-    alt_text: Vortex
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-2.jpg
-    alt_text: Vortex
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-5.jpg
-    alt_text: Iceland
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-7.jpg
-    alt_text: Iceland
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-6.jpg
-    alt_text: Iceland
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-9.jpg
-    alt_text: Dream Run Camp
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-5.jpg
-    alt_text: Ivory
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-7.jpg
-    alt_text: Ivory
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-1.jpg
-    alt_text: Forma Pilates
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_VORTEX-3.jpg
     alt_text: Vortex
   - _bookshop_name: collection/photo
-    image_path: /uploads/Neutra_Home_4x5-1.jpg
-    alt_text: Neutra VDL Studio
+    image_path: /uploads/Malibu_Web-12.jpg
+    alt_text: El Matador
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_DIRT-14.jpg
-    alt_text: DIRT
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-17.jpg
     alt_text: DIRT
 ---
