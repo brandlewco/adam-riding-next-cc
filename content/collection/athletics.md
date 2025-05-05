@@ -19,9 +19,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-9.jpg
-    alt_text: Dream Run Camp
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-1.jpg
     alt_text: Forma Pilates
     width: 30
@@ -36,7 +33,7 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-12.jpg
+    image_path: /uploads/AR_RUNNING-9.jpg
     alt_text: Dream Run Camp
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-4.jpg
@@ -46,8 +43,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-6.jpg
+    image_path: /uploads/AR_RUNNING-12.jpg
     alt_text: Dream Run Camp
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_KAEDON-1.jpg
+    alt_text: Court
+    width: 30
+    top: 0
+    left: 0
+    right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-1.jpg
     alt_text: Dream Run Camp
@@ -56,15 +60,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-7.jpg
-    alt_text: Ivory
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_KAEDON-1.jpg
-    alt_text: Court
+    image_path: /uploads/AR_FORMA-2.jpg
+    alt_text: Forma Pilates
     width: 30
     top: 0
     left: 0
@@ -75,13 +72,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ILISIA-1.jpg
     alt_text: Ilisia
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-2.jpg
-    alt_text: Forma Pilates
     width: 30
     top: 0
     left: 0
