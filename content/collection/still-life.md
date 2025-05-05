@@ -18,9 +18,6 @@ content_blocks:
     image_path: /uploads/Still_Life-3.jpg
     alt_text: Eggs and watch
   - _bookshop_name: collection/photo
-    image_path: /uploads/Still_Life-1.jpg
-    alt_text: Coach Brooklyn 28
-  - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-2.jpg
     alt_text: Orchid
   - _bookshop_name: collection/photo
