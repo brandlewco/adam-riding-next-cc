@@ -75,15 +75,15 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_SCHINDLER-5.jpg
-    alt_text: Schindler House
+    image_path: /uploads/AR_TALIESIN-4.jpg
+    alt_text: Taliesin West
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_TALIESIN-4.jpg
-    alt_text: Taliesin West
+    image_path: /uploads/NEW_Neutra_Home_WEB-1.JPG
+    alt_text: Neutra VDL Studio
     width: 30
     top: 0
     left: 0
@@ -96,8 +96,8 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/NEW_Neutra_Home_WEB-1.JPG
-    alt_text: Neutra VDL Studio
+    image_path: /uploads/AR_SCHINDLER-5.jpg
+    alt_text: Schindler House
     width: 30
     top: 0
     left: 0
