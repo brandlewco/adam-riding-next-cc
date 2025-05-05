@@ -30,6 +30,6 @@ content_blocks:
     image_path: /uploads/Still_Life-4.jpg
     alt_text: Magnolia leaf and bracelet
   - _bookshop_name: collection/photo
-    image_path: /uploads/Still_Life-5.jpg
+    image_path: /uploads/coach-1.jpg
     alt_text: Coach Brooklyn 28
 ---
