@@ -1,15 +1,15 @@
-import DefaultLayout from '../components/layouts/default';
-import Filer from '@cloudcannon/filer';
-import { motion, AnimatePresence } from 'framer-motion';
-import ExportedImage from 'next-image-export-optimizer';
-import Link from 'next/link';
-import { useState, useEffect, useCallback, useRef, memo } from 'react';
-import { useRouter } from 'next/router';
-import React from 'react';
-import sizeOf from 'image-size';
-import path from 'path';
+import DefaultLayout from "../components/layouts/default";
+import Filer from "@cloudcannon/filer";
+import { motion, AnimatePresence } from "framer-motion";
+import ExportedImage from "next-image-export-optimizer";
+import Link from "next/link";
+import { useState, useEffect, useCallback, useRef, memo } from "react";
+import { useRouter } from "next/router";
+import React from "react";
+import sizeOf from "image-size";
+import path from "path";
 
-const filer = new Filer({ path: 'content' });
+const filer = new Filer({ path: "content" });
 
 const MemoizedExportedImage = memo(({ src, alt, width, height }) => (
   <ExportedImage
@@ -18,11 +18,11 @@ const MemoizedExportedImage = memo(({ src, alt, width, height }) => (
     priority
     width={width}
     height={height}
-    style={{ objectFit: 'cover' }}
+    style={{ objectFit: "cover" }}
     sizes="(max-width: 480px) 50vw, 300px"
   />
 ));
-MemoizedExportedImage.displayName = 'MemoizedExportedImage';
+MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
 function HomePage({ page, collections }) {
   const router = useRouter();
@@ -33,20 +33,20 @@ function HomePage({ page, collections }) {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      console.log('Route change complete');
+      console.log("Route change complete");
     };
 
-    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 
   useEffect(() => {
     hoverRefs.current.forEach((ref) => {
       if (ref) {
-        ref.style.setProperty('transform-origin', 'top left', 'important');
+        ref.style.setProperty("transform-origin", "top left", "important");
       }
     });
   }, [hoverIndex, collections.length]);
@@ -80,7 +80,7 @@ function HomePage({ page, collections }) {
         }
       },
       {
-        rootMargin: '-10% 0px -10% 0px', // Adjust root margin to trigger 20% from top and bottom
+        rootMargin: "-10% 0px -10% 0px", // Adjust root margin to trigger 20% from top and bottom
         threshold: [0, 1], // Detect when the title is fully in view and fully out of view
       }
     );
@@ -113,15 +113,16 @@ function HomePage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-36 sm:pb-4 border border-gray-300 overflow-y-auto h-screen">
-        <ul className="flex flex-col sm:flex-row items-end sm:items-start gap-4">
+      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-36 sm:pb-4 borderoverflow-y-auto h-screen max-w-7xl ml-auto mr-auto mt-20">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 items-end sm:items-start">
           <AnimatePresence>
             {collections.map((collection, collectionIndex) => {
               const maxWidthClass = getMaxWidthClass(collections.length);
+              const imageCount = collection.imageCount || 0;
               return (
                 <motion.li
                   key={collectionIndex}
-                  className={`flex-1 w-[50%] sm:max-w-[calc((100%-${collections.length - 1}*1rem)/${collections.length})] ml-auto ${maxWidthClass} text-right`}
+                  className={`flex-1 ${maxWidthClass} text-right relative group`}
                   onMouseEnter={() => handleMouseEnter(collectionIndex)}
                   onMouseLeave={handleMouseLeave}
                   ref={(el) => (hoverRefs.current[collectionIndex] = el)}
@@ -139,39 +140,46 @@ function HomePage({ page, collections }) {
                       transition={{
                         scale: { duration: 0.2 },
                       }}
-                      style={{ originX: '50%', originY: 0 }}
-                      className="flex flex-col"
+                      style={{ originX: "50%", originY: 0 }}
+                      className="flex flex-col relative"
                     >
-                      <div className="relative w-full" style={{ paddingTop: `${(collection.height / collection.width) * 100}%` }}>
+                      <span
+                        className={`absolute left-0 -top-6 text-xs text-black bg-white bg-opacity-80 py-1 rounded pointer-events-none transition-opacity duration-200
+                          ${
+                            hoverIndex === collectionIndex
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                        style={{ zIndex: 2 }}
+                      >
+                        {collection.title}
+                      </span>
+                      <div
+                        className="relative w-full"
+                        style={{
+                          paddingTop: `${
+                            (collection.height / collection.width) * 100
+                          }%`,
+                        }}
+                      >
                         <motion.div
                           className="absolute top-0 left-0 w-full h-full"
                           layoutId={`image-${collection.slug}`}
                         >
                           <MemoizedExportedImage
                             src={collection.firstImagePath}
-                            alt={collection.firstImageAlt || 'Collection image'}
+                            alt={collection.firstImageAlt || "Collection image"}
                             width={collection.width}
                             height={collection.height}
                             sizes="(max-width: 640px) 50vw, 16vw"
                           />
                         </motion.div>
                       </div>
-                      <motion.span
-                        ref={(el) => (titleRefs.current[collectionIndex] = el)}
-                        data-index={collectionIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{
-                          opacity:
-                            hoverIndex === collectionIndex ||
-                            (visibleIndices.has(collectionIndex) && window.innerWidth < 640)
-                              ? 1
-                              : 0,
-                        }}
-                        transition={{ duration: 0.33 }}
-                        className="text-sm leading-none"
-                      >
-                        {collection.title}
-                      </motion.span>
+                      <div className="flex flex-row justify-end">
+                        <span className="mt-2 text-xs text-gray-700 font-mono">
+                          1/{imageCount}
+                        </span>
+                      </div>
                     </motion.div>
                   </Link>
                 </motion.li>
@@ -194,9 +202,15 @@ export async function getStaticProps() {
     const correctedPath = collectionPath.replace(/^content\//, "");
     const collection = await filer.getItem(correctedPath, { folder: "" });
 
-    const firstPhotoBlock = collection.data.content_blocks.find(
-      (block) => block._bookshop_name === "collection/photo"
-    );
+    let photoBlocks = [];
+    if (Array.isArray(collection.data.content_blocks)) {
+      photoBlocks = collection.data.content_blocks.filter(
+        (block) => block && block._bookshop_name === "collection/photo"
+      );
+    }
+
+    const imageCount = photoBlocks.length;
+    const firstPhotoBlock = photoBlocks[0];
 
     if (firstPhotoBlock && firstPhotoBlock.image_path) {
       try {
@@ -210,26 +224,23 @@ export async function getStaticProps() {
         collections.push({
           title: collection.data.title,
           path: correctedPath,
-          slug: collection.data.slug || correctedPath.split("/").pop(), // Ensure slug is set correctly
+          slug: collection.data.slug || correctedPath.split("/").pop(),
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
           width: dimensions.width,
           height: dimensions.height,
+          imageCount,
         });
       } catch (error) {
-        console.error(
-          `Error getting dimensions for image ${firstPhotoBlock.image_path}:`,
-          error
-        );
-        // Handle the error or set default dimensions
         collections.push({
           title: collection.data.title,
           path: correctedPath,
-          slug: collection.data.slug || correctedPath.split("/").pop(), // Ensure slug is set correctly
+          slug: collection.data.slug || correctedPath.split("/").pop(),
           firstImagePath: firstPhotoBlock.image_path,
           firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
-          width: 480, // Default width
-          height: 320, // Default height assuming a 3:2 aspect ratio
+          width: 480,
+          height: 320,
+          imageCount,
         });
       }
     } else {

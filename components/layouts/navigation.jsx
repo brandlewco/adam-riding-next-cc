@@ -17,33 +17,82 @@ const Navigation = ({ page }) => {
     };
   }, [handleScroll]);
 
-  // Function to toggle the overview mode
-  const handleOverviewClick = useCallback(() => {
-    const basePath = router.pathname;
-    const newQuery = { ...router.query };
-
-    // Toggle the 'overview' query parameter
-    if (newQuery.overview) {
-      delete newQuery.overview; // If overview is present, remove it
-    } else {
-      newQuery.overview = true; // If not present, add it
-    }
-
-    // Push the new URL with updated query parameters
-    router.push({
-      pathname: basePath,
-      query: newQuery,
-    });
-  }, [router]);
+  // Determine current route for highlighting
+  const pathname = router.pathname;
+  const isIndexGrid = pathname === "/index-grid";
+  const isIndexList = pathname === "/index-list";
+  const isIndex = isIndexGrid || isIndexList;
+  const isArchive = pathname === "/archive";
+  const isContact = pathname === "/contact";
+  // Home is only "/" and not index-grid or index-list
+  const isHome = pathname === "/" && !isIndex;
 
   return (
     <>
-      <header style={{ zIndex: "9999" }} className="w-full p-4 absolute bottom-0 left-0" id="mainnavigationBar">
+      <header
+        style={{ zIndex: "9999" }}
+        className="w-full p-4 absolute bottom-0 left-0"
+        id="mainnavigationBar"
+      >
         <nav className="container-fluid flex flex-row justify-between text-sm">
-          <Link href="/" className="leading-none">ADAM RIDING</Link>
-          <Link href="/index-list" className="leading-none">INDEX</Link>
-          <Link href="/archive" className="leading-none">ARCHIVE</Link>
-          <Link href="/contact" className="leading-none">CONTACT</Link>
+          <Link
+            href="/"
+            className={`leading-none${isHome ? " font-bold" : ""}`}
+          >
+            ADAM RIDING
+          </Link>
+          {/* INDEX nav item with Grid/List options */}
+          <span className="relative flex flex-row items-end">
+            <Link
+              href="/index-grid"
+              className={`leading-none${isIndex ? " font-bold" : ""}`}
+              style={{ marginRight: 4 }}
+            >
+              INDEX
+            </Link>
+            {/* Reserve space for grid/list always, but only show links when on index */}
+            <span
+              className="ml-1 flex flex-row items-center"
+              style={{
+                minWidth: "90px", // enough for "- Grid, List"
+                display: "inline-flex",
+                visibility: isIndex ? "visible" : "hidden",
+                opacity: isIndex ? 1 : 0,
+                transition: "opacity 0.2s",
+              }}
+            >
+              <span className="text-xs text-black/40">—</span>
+              <Link
+                href="/index-grid"
+                className={`text-xs ml-1 leading-none ${
+                  isIndexGrid ? "text-black/80" : "text-black/40"
+                }`}
+              >
+                Grid
+              </Link>
+              <span className="text-xs text-black/40">,</span>
+              <Link
+                href="/index-list"
+                className={`text-xs ml-1 leading-none ${
+                  isIndexList ? "text-black/80" : "text-black/40"
+                }`}
+              >
+                List
+              </Link>
+            </span>
+          </span>
+          <Link
+            href="/archive"
+            className={`leading-none${isArchive ? " font-bold" : ""}`}
+          >
+            ARCHIVE
+          </Link>
+          <Link
+            href="/contact"
+            className={`leading-none${isContact ? " font-bold" : ""}`}
+          >
+            CONTACT
+          </Link>
         </nav>
       </header>
     </>
