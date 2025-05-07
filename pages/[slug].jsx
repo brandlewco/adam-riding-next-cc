@@ -20,6 +20,7 @@ export async function getStaticPaths() {
 		"archive": true,
 		"contact": true,
 		"index-list": true,
+		"index-grid": true,
 		feed: true
 	};
 
