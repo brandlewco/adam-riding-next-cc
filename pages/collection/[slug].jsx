@@ -9,7 +9,7 @@ import { useSwipeable } from "react-swipeable";
 
 const filer = new Filer({ path: "content" });
 
-/** 
+/**
  * HiddenPreloadImage => preloads the next/prev image or next/prev collection's first image
  */
 function HiddenPreloadImage({ src, width = 64, height = 64 }) {
@@ -28,14 +28,27 @@ const MemoizedExportedImage = memo(function MemoizedExportedImage({
   height,
   ...rest
 }) {
-  return <ExportedImage src={src} alt={alt} width={width} height={height} {...rest} />;
+  return (
+    <ExportedImage
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      {...rest}
+    />
+  );
 });
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
 /**
  * RowThumbnail => used for 'index-list' row of 32×32
  */
-const RowThumbnail = memo(function RowThumbnail({ block, index, currentImage, handleThumbnailClick }) {
+const RowThumbnail = memo(function RowThumbnail({
+  block,
+  index,
+  currentImage,
+  handleThumbnailClick,
+}) {
   return (
     <motion.div
       key={index}
@@ -71,8 +84,8 @@ const GridThumbnail = memo(function GridThumbnail({ block, index, onClick }) {
       className="cursor-pointer hover:opacity-80 transition-opacity w-24 h-24 sm:w-20 sm:h-20 md:w-16 md:h-16 lg:w-14 lg:h-14 overflow-hidden"
       variants={{
         hidden: { opacity: 0, y: 10 },
-        show:   { opacity: 1, y: 0},
-        exit:   { opacity: 0, y: -10 },
+        show: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -10 },
       }}
     >
       <MemoizedExportedImage
@@ -124,6 +137,18 @@ function CollectionPage({
   // 1) handle area click
   const handleAreaClick = useCallback(
     (area) => {
+      // Special case: on home page (index.jsx, source === "home"), loop within overview collection only
+      if (source === "home") {
+        if (area === "right") {
+          setDirection("right");
+          setCurrentImage((prev) => (prev + 1) % imageCount);
+        } else if (area === "left") {
+          setDirection("left");
+          setCurrentImage((prev) => (prev - 1 + imageCount) % imageCount);
+        }
+        return;
+      }
+      // ...existing code for index-list/index (cross-collection navigation)...
       if (area === "right") {
         if (currentImage === imageCount - 1) {
           // last image => go next collection => direction='down', ?image=0
@@ -158,14 +183,14 @@ function CollectionPage({
         }
       }
     },
-    [currentImage, imageCount, nextSlug, prevSlug, router]
+    [currentImage, imageCount, nextSlug, prevSlug, router, source]
   );
 
-  // 2) handle thumbnail click => jump to index
+  // 2) handle thumbnail click => jump to index (and open thumbs grid if not already open)
   const handleThumbnailClick = useCallback((index) => {
+    setShowThumbs(true);
     setCurrentImage(index);
     setDirection("");
-    setShowThumbs(false);
   }, []);
 
   // 3) handle area hover => set hoveredArea
@@ -218,65 +243,132 @@ function CollectionPage({
     }),
   };
 
-  const MainImageSection = (
-    <AnimatePresence custom={direction} mode="wait">
-      <motion.div
-        key={currentImage}
-        layoutId={`collection-${page.data.slug}`}
-        layout
-        variants={internalVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        custom={direction}
-        className="relative w-auto p-4"
-        style={{ position: "relative" }}
-        {...swipeHandlers}
-      >
-        <section className="photo flex flex-col items-end relative md:h-85vh h-screen w-full md:w-auto">
-          <Blocks
-            content_blocks={page.data.content_blocks}
-            currentImage={currentImage}
-            setImageLoaded={setImageLoaded}
-          />
-          {imageLoaded && (
-          <div className="relative md:hidden pt-4 text-left">
-            <div className="text-sm leading-none">
-              {page.data.title} - {currentImage + 1} / {imageCount}
+  // Main image section with title beside image (default view only)
+  const MainImageSection =
+    source !== "index-list" && source !== "index" ? (
+      <AnimatePresence custom={direction} mode="wait">
+        <motion.div
+          key={currentImage}
+          layoutId={`collection-${page.data.slug}`}
+          layout
+          variants={internalVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          custom={direction}
+          className="relative w-full p-4"
+          style={{ position: "relative" }}
+          {...swipeHandlers}
+        >
+          <section className="flex flex-col md:flex-row items-stretch md:h-85vh h-screen w-full">
+            {/* Spacer for left 1/2 (title is absolutely positioned) */}
+            <div className="hidden md:block w-1/2" />
+            {/* Image on right */}
+            <div className="flex flex-col items-end w-full ml-auto">
+              <Blocks
+                content_blocks={page.data.content_blocks}
+                currentImage={currentImage}
+                setImageLoaded={setImageLoaded}
+              />
+              {/* Count and thumbnail button below image, right-aligned */}
+              <div className="w-full flex flex-col items-end mt-2 z-20">
+                <div className="flex flex-row items-center gap-2">
+                  <span className="text-sm leading-none">
+                    {currentImage + 1} / {imageCount}
+                  </span>
+                  {/* Show thumbnail button for index.jsx (source === "home") */}
+                  {source === "home" && (
+                    <div>
+                      {showThumbs ? (
+                        <button
+                          onClick={() => setShowThumbs(false)}
+                          className="text-sm leading-none text-black hover:opacity-80"
+                        >
+                          — Close
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => setShowThumbs(true)}
+                          className="text-sm leading-none text-black hover:opacity-80"
+                        >
+                          — Thumbnails
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
+                {/* Mobile: title under count/buttons, right-aligned */}
+                <div className="block md:hidden text-sm mt-2 text-right w-full">
+                  {page.data.title}
+                </div>
+              </div>
             </div>
-          </div>
-          )}
-          {source === "index" && page.data.content_blocks[currentImage]?.alt_text && (
-              <p className="text-sm mt-2 self-end text-right">
-                {page.data.content_blocks[currentImage].alt_text}
-              </p>
-          )}
-        </section>
-      </motion.div>
-    </AnimatePresence>
-  );
+          </section>
+        </motion.div>
+      </AnimatePresence>
+    ) : (
+      // Existing code for index-list and index
+      <AnimatePresence custom={direction} mode="wait">
+        <motion.div
+          key={currentImage}
+          layoutId={`collection-${page.data.slug}`}
+          layout
+          variants={internalVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          custom={direction}
+          className="relative w-auto p-4"
+          style={{ position: "relative" }}
+          {...swipeHandlers}
+        >
+          <section className="photo flex flex-col items-end relative md:h-85vh h-screen w-full md:w-auto">
+            <Blocks
+              content_blocks={page.data.content_blocks}
+              currentImage={currentImage}
+              setImageLoaded={setImageLoaded}
+            />
+            {imageLoaded && (
+              <div className="relative md:hidden pt-4 text-left">
+                <div className="text-sm leading-none">
+                  {page.data.title} - {currentImage + 1} / {imageCount}
+                </div>
+              </div>
+            )}
+            {source === "index" &&
+              page.data.content_blocks[currentImage]?.alt_text && (
+                <p className="text-sm mt-2 self-end text-right">
+                  {page.data.content_blocks[currentImage].alt_text}
+                </p>
+              )}
+          </section>
+        </motion.div>
+      </AnimatePresence>
+    );
 
-  // Thumbs overlay if source==='index'
+  // Thumbs overlay for all non-index-list/index pages (including index.jsx/"home")
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05 // Each child appears 0.1s apart
-      }
+        staggerChildren: 0.05,
+      },
     },
-    exit: { opacity: 0 }
+    exit: { opacity: 0 },
   };
-  
+
   const thumbVariants = {
-    hidden: { opacity: 0},
+    hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { duration: 0.33 }
+      transition: { duration: 0.33 },
     },
-    exit: { opacity: 0 }
+    exit: { opacity: 0 },
   };
-  const ThumbsOverlay = source === "index" && (
+
+  // Show thumbs overlay for "home" (index.jsx) and "index"
+  const ThumbsOverlay = (source === "home" || source === "index") && (
     <AnimatePresence>
       {showThumbs && (
         <motion.div
@@ -287,29 +379,58 @@ function CollectionPage({
           animate="show"
           exit="exit"
         >
-          <div className="flex flex-wrap p-32 justify-center items-center overflow-y-auto">
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-6 justify-items-center w-full">
-              {page.data.content_blocks.map((block, idx) => (
-                <motion.div
-                  key={idx}
-                  variants={thumbVariants}
-                  onClick={() => handleThumbnailClick(idx)}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.33 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="cursor-pointer transition-opacity origin-center origin-top ease-in-out"
-                >
-                  <ExportedImage
-                    src={block.image_path}
-                    alt={block.alt_text || "Thumbnail"}
-                    width={block.width}
-                    height={block.height}
-                    sizes="(max-width:640px)30vw,10vw"
-                    className="object-contain w-full h-auto"
-                  />
-                </motion.div>
-              ))}
+          {/* Overlay background for easier click target */}
+          <div
+            className="absolute inset-0"
+            style={{ zIndex: 0 }}
+            aria-hidden="true"
+            onMouseDown={(e) => {
+              // Only close if clicking directly on the background (not on children)
+              if (e.target === e.currentTarget) setShowThumbs(false);
+            }}
+          />
+          {/* Close button, absolutely positioned above overlay */}
+          <button
+            className="absolute top-2 right-2 text-sm leading-none text-black z-50 p-2"
+            onClick={() => setShowThumbs(false)}
+          >
+            Close
+          </button>
+          <div
+            className="flex flex-wrap p-4 md:p-32 justify-center items-center overflow-y-auto w-full"
+            style={{ zIndex: 1 }}
+            // Prevent click from bubbling to overlay background
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            <div className="max-w-7xl">
+              <div className="grid grid-cols-4 gap-4  md:gap-24 justify-items-center w-full">
+                {page.data.content_blocks.map((block, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={thumbVariants}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentImage(idx);
+                      setShowThumbs(false);
+                      setDirection("");
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.33 }}
+                    whileHover={{ scale: 1.1 }}
+                    className="cursor-pointer transition-opacity origin-center origin-top ease-in-out"
+                  >
+                    <ExportedImage
+                      src={block.image_path}
+                      alt={block.alt_text || "Thumbnail"}
+                      width={block.width}
+                      height={block.height}
+                      sizes="(max-width:640px)30vw,10vw"
+                      className="object-contain w-full h-auto"
+                    />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
@@ -334,7 +455,9 @@ function CollectionPage({
 
   const OldThumbRow = source === "index-list" && (
     <div className="fixed bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 md:px-0">
-      <div className={`grid gap-2 ${gridClass} md:grid-flow-col justify-center md:justify-start`}>
+      <div
+        className={`grid gap-2 ${gridClass} md:grid-flow-col justify-center md:justify-start`}
+      >
         {page.data.content_blocks.map((block, idx) => (
           <RowThumbnail
             key={idx}
@@ -359,17 +482,13 @@ function CollectionPage({
       ? page.data.content_blocks[currentImage + 1]
       : null;
   const prevImageInSameCollection =
-    currentImage > 0
-      ? page.data.content_blocks[currentImage - 1]
-      : null;
+    currentImage > 0 ? page.data.content_blocks[currentImage - 1] : null;
 
   return (
     <DefaultLayout page={page}>
       {/* Top-left info for desktop */}
-      <div className="hidden md:flex flex-row items-center md:absolute top-4 left-4 text-left z-50 gap-2">
-        <div className="text-sm leading-none">
-          {page.data.title} - {currentImage + 1} / {imageCount}
-        </div>
+      <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/4 text-left z-20 gap-2">
+        <div className="text-sm leading-none">{page.data.title}</div>
         {source === "index" && (
           <div className="flex">
             {showThumbs ? (
@@ -408,9 +527,9 @@ function CollectionPage({
       )}
 
       {/* Preload next/prev collection's first image if boundary */}
-      {hoveredArea === "right" && currentImage === imageCount - 1 && nextFirstImage && (
-        <HiddenPreloadImage src={nextFirstImage} />
-      )}
+      {hoveredArea === "right" &&
+        currentImage === imageCount - 1 &&
+        nextFirstImage && <HiddenPreloadImage src={nextFirstImage} />}
       {hoveredArea === "left" && currentImage === 0 && prevFirstImage && (
         <HiddenPreloadImage src={prevFirstImage} />
       )}
@@ -465,17 +584,23 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const collections = await filer.getItems("collection");
   const indexPage = await filer.getItem("index.md", { folder: "pages" });
-  const indexListPage = await filer.getItem("index-list.md", { folder: "pages" });
+  const indexListPage = await filer.getItem("index-list.md", {
+    folder: "pages",
+  });
 
   // build slug arrays
   const indexSlugs = [];
   for (const path of indexPage.data.collections) {
-    const c = await filer.getItem(path.replace(/^content\//, ""), { folder: "" });
+    const c = await filer.getItem(path.replace(/^content\//, ""), {
+      folder: "",
+    });
     if (c && c.data.slug) indexSlugs.push(c.data.slug);
   }
   const indexListSlugs = [];
   for (const path of indexListPage.data.collections) {
-    const c = await filer.getItem(path.replace(/^content\//, ""), { folder: "" });
+    const c = await filer.getItem(path.replace(/^content\//, ""), {
+      folder: "",
+    });
     if (c && c.data.slug) indexListSlugs.push(c.data.slug);
   }
 
@@ -486,11 +611,13 @@ export async function getStaticProps({ params }) {
   }
 
   // fallback dimension
-  collection.data.content_blocks = collection.data.content_blocks.map((block) => ({
-    ...block,
-    width: block.width || 32,
-    height: block.height || 32,
-  }));
+  collection.data.content_blocks = collection.data.content_blocks.map(
+    (block) => ({
+      ...block,
+      width: block.width || 32,
+      height: block.height || 32,
+    })
+  );
 
   const slug = collection.data.slug;
   let source = "none";
@@ -522,21 +649,29 @@ export async function getStaticProps({ params }) {
   // if we have nextSlug, load that collection => get content_blocks[0]
   if (nextSlug) {
     const nextColl = collections.find((c) => c.data.slug === nextSlug);
-    if (nextColl && nextColl.data.content_blocks && nextColl.data.content_blocks.length > 0) {
+    if (
+      nextColl &&
+      nextColl.data.content_blocks &&
+      nextColl.data.content_blocks.length > 0
+    ) {
       // ensure fallback dimension
       const firstBlock = {
         ...nextColl.data.content_blocks[0],
         width: nextColl.data.content_blocks[0].width || 32,
         height: nextColl.data.content_blocks[0].height || 32,
       };
-      nextFirstImage = firstBlock.image_path; 
+      nextFirstImage = firstBlock.image_path;
     }
   }
 
   // if we have prevSlug, load that collection => get content_blocks[0]
   if (prevSlug) {
     const prevColl = collections.find((c) => c.data.slug === prevSlug);
-    if (prevColl && prevColl.data.content_blocks && prevColl.data.content_blocks.length > 0) {
+    if (
+      prevColl &&
+      prevColl.data.content_blocks &&
+      prevColl.data.content_blocks.length > 0
+    ) {
       const firstBlock = {
         ...prevColl.data.content_blocks[0],
         width: prevColl.data.content_blocks[0].width || 32,

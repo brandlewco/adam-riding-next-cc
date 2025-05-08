@@ -113,8 +113,8 @@ function HomePage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-36 sm:pb-4 borderoverflow-y-auto h-screen max-w-7xl ml-auto mr-auto mt-20">
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-24 items-end sm:items-start">
+      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-36 sm:pb-4 borderoverflow-y-auto h-screen max-w-7xl ml-auto mr-auto md:mt-20">
+        <ul className="grid grid-cols-4 gap-4 md:gap-24 items-end sm:items-start">
           <AnimatePresence>
             {collections.map((collection, collectionIndex) => {
               const maxWidthClass = getMaxWidthClass(collections.length);

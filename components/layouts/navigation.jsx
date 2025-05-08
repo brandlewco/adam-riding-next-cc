@@ -42,7 +42,7 @@ const Navigation = ({ page }) => {
             ADAM RIDING
           </Link>
           {/* INDEX nav item with Grid/List options */}
-          <span className="relative flex flex-row items-end">
+          <span className="relative flex flex-row items-end ">
             <Link
               href="/index-grid"
               className={`leading-none${isIndex ? " font-bold" : ""}`}
@@ -52,10 +52,9 @@ const Navigation = ({ page }) => {
             </Link>
             {/* Reserve space for grid/list always, but only show links when on index */}
             <span
-              className="ml-1 flex flex-row items-center"
+              className="ml-1 flex flex-row items-center hidden sm:inline-flex"
               style={{
                 minWidth: "90px", // enough for "- Grid, List"
-                display: "inline-flex",
                 visibility: isIndex ? "visible" : "hidden",
                 opacity: isIndex ? 1 : 0,
                 transition: "opacity 0.2s",
