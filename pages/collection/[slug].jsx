@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import DefaultLayout from "../../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
-import React, { useEffect, useState, useCallback, memo } from "react";
+import React, { useEffect, useState, useCallback, memo, useRef } from "react";
 import { useRouter } from "next/router";
 import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
@@ -127,12 +127,33 @@ function CollectionPage({
   // track user hover area for preloading
   const [hoveredArea, setHoveredArea] = useState(null);
 
+  // Ref for the overlay content (thumbnails grid)
+  const overlayContentRef = useRef(null);
+
   useEffect(() => {
     const queryIndex = parseInt(router.query.image);
     if (!isNaN(queryIndex) && queryIndex >= 0 && queryIndex < imageCount) {
       setCurrentImage(queryIndex);
     }
   }, [router.query.image, imageCount]);
+
+  // SVG for the "thumbnails" button
+  const ThumbnailsIcon = (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24.01 24.01"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "inline", verticalAlign: "middle" }}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect fill="#010101" width="10" height="10" />
+      <rect fill="#010101" y="14.01" width="10" height="10" />
+      <rect fill="#010101" x="14.01" y="14.01" width="10" height="10" />
+      <rect fill="#010101" x="14.01" width="10" height="10" />
+    </svg>
+  );
 
   // 1) handle area click
   const handleAreaClick = useCallback(
@@ -283,6 +304,7 @@ function CollectionPage({
                         <button
                           onClick={() => setShowThumbs(false)}
                           className="text-sm leading-none text-black hover:opacity-80"
+                          aria-label="Close thumbnails"
                         >
                           — Close
                         </button>
@@ -290,8 +312,14 @@ function CollectionPage({
                         <button
                           onClick={() => setShowThumbs(true)}
                           className="text-sm leading-none text-black hover:opacity-80"
+                          aria-label="Show thumbnails"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 4,
+                          }}
                         >
-                          — Thumbnails
+                          {ThumbnailsIcon}
                         </button>
                       )}
                     </div>
@@ -379,15 +407,12 @@ function CollectionPage({
           animate="show"
           exit="exit"
         >
-          {/* Overlay background for easier click target */}
+          {/* Overlay background for click-to-close */}
           <div
             className="absolute inset-0"
             style={{ zIndex: 0 }}
             aria-hidden="true"
-            onMouseDown={(e) => {
-              // Only close if clicking directly on the background (not on children)
-              if (e.target === e.currentTarget) setShowThumbs(false);
-            }}
+            onClick={() => setShowThumbs(false)}
           />
           {/* Close button, absolutely positioned above overlay */}
           <button
@@ -397,10 +422,10 @@ function CollectionPage({
             Close
           </button>
           <div
-            className="flex flex-wrap p-4 md:p-32 justify-center items-center overflow-y-auto w-full"
-            style={{ zIndex: 1 }}
+            className="flex flex-wrap p-4 md:p-32 justify-center items-center overflow-y-auto w-full pointer-events-none"
+            style={{ zIndex: 1, position: "relative" }}
             // Prevent click from bubbling to overlay background
-            onMouseDown={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="max-w-7xl">
               <div className="grid grid-cols-4 gap-4  md:gap-24 justify-items-center w-full">
@@ -426,7 +451,7 @@ function CollectionPage({
                       width={block.width}
                       height={block.height}
                       sizes="(max-width:640px)30vw,10vw"
-                      className="object-contain w-full h-auto"
+                      className="object-contain w-full h-auto pointer-events-auto"
                     />
                   </motion.div>
                 ))}
@@ -495,6 +520,7 @@ function CollectionPage({
               <button
                 onClick={() => setShowThumbs(false)}
                 className="text-sm leading-none text-black hover:opacity-80"
+                aria-label="Close thumbnails"
               >
                 — Close
               </button>
@@ -502,8 +528,10 @@ function CollectionPage({
               <button
                 onClick={() => setShowThumbs(true)}
                 className="text-sm leading-none text-black hover:opacity-80"
+                aria-label="Show thumbnails"
+                style={{ display: "flex", alignItems: "center", gap: 4 }}
               >
-                — Thumbnails
+                {ThumbnailsIcon}
               </button>
             )}
           </div>
