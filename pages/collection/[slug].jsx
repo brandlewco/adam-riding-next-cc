@@ -281,7 +281,7 @@ function CollectionPage({
           style={{ position: "relative" }}
           {...swipeHandlers}
         >
-          <section className="flex flex-col md:flex-row items-stretch md:h-85vh h-screen w-full">
+          <section className="flex flex-col md:flex-row justify-center md:justify-start items-stretch md:h-85vh h-screen w-full">
             {/* Spacer for left 1/2 (title is absolutely positioned) */}
             <div className="hidden md:block w-1/2" />
             {/* Image on right */}
@@ -422,12 +422,12 @@ function CollectionPage({
             Close
           </button>
           <div
-            className="flex flex-wrap p-4 md:p-16 justify-center items-center overflow-y-auto w-full relative"
+            className="flex flex-wrap p-4 md:p-16 mt-8 md:mt-0 justify-center items-center overflow-y-auto w-full relative"
             style={{ zIndex: 2 }}
             onClick={() => setShowThumbs(false)}
           >
             <div className="max-w-9xl w-full relative pointer-events-none">
-              <div className="grid grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
                 {page.data.content_blocks.map((block, idx) => (
                   <motion.div
                     key={idx}
