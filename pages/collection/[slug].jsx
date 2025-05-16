@@ -140,8 +140,8 @@ function CollectionPage({
   // SVG for the "thumbnails" button
   const ThumbnailsIcon = (
     <svg
-      width="16"
-      height="16"
+      width="12"
+      height="12"
       viewBox="0 0 24.01 24.01"
       xmlns="http://www.w3.org/2000/svg"
       style={{ display: "inline", verticalAlign: "middle" }}
@@ -401,7 +401,7 @@ function CollectionPage({
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
-          className="fixed inset-0 z-40 bg-white bg-opacity-80 flex flex-col items-center justify-center"
+          className="fixed inset-0 z-40 bg-white bg-opacity-90 flex flex-col items-center justify-center"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -416,19 +416,18 @@ function CollectionPage({
           />
           {/* Close button, absolutely positioned above overlay */}
           <button
-            className="absolute top-2 right-2 text-sm leading-none text-black z-50 p-2"
+            className="absolute top-2 left-2 text-sm leading-none text-black z-50 p-2"
             onClick={() => setShowThumbs(false)}
           >
             Close
           </button>
           <div
-            className="flex flex-wrap p-4 md:p-32 justify-center items-center overflow-y-auto w-full pointer-events-none"
-            style={{ zIndex: 1, position: "relative" }}
-            // Prevent click from bubbling to overlay background
-            onClick={(e) => e.stopPropagation()}
+            className="flex flex-wrap p-4 md:p-16 justify-center items-center overflow-y-auto w-full relative"
+            style={{ zIndex: 2 }}
+            onClick={() => setShowThumbs(false)}
           >
-            <div className="max-w-7xl">
-              <div className="grid grid-cols-4 gap-4  md:gap-24 justify-items-center w-full">
+            <div className="max-w-9xl w-full relative pointer-events-none">
+              <div className="grid grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
                 {page.data.content_blocks.map((block, idx) => (
                   <motion.div
                     key={idx}
@@ -443,7 +442,7 @@ function CollectionPage({
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.33 }}
                     whileHover={{ scale: 1.1 }}
-                    className="cursor-pointer transition-opacity origin-center origin-top ease-in-out"
+                    className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto"
                   >
                     <ExportedImage
                       src={block.image_path}
@@ -451,7 +450,7 @@ function CollectionPage({
                       width={block.width}
                       height={block.height}
                       sizes="(max-width:640px)30vw,10vw"
-                      className="object-contain w-full h-auto pointer-events-auto"
+                      className="object-contain w-full h-auto"
                     />
                   </motion.div>
                 ))}
@@ -512,8 +511,12 @@ function CollectionPage({
   return (
     <DefaultLayout page={page}>
       {/* Top-left info for desktop */}
-      <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/4 text-left z-20 gap-2">
-        <div className="text-sm leading-none">{page.data.title}</div>
+      <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/6 text-left z-20 gap-2 mt-[-8px]">
+        <div className="text-sm leading-none">
+          {source === "home"
+            ? page.data.content_blocks[currentImage]?.alt_text || ""
+            : page.data.title}
+        </div>
         {source === "index" && (
           <div className="flex">
             {showThumbs ? (

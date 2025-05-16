@@ -13,6 +13,13 @@ module.exports = {
       maxHeight: {
         '85vh': '85vh', // Adds a custom max-height class of 70vh
       },
+      inset: {
+        '1/6': '16.666667%', 
+      },
+      maxWidth: {
+        '8xl': '90rem',   // 1440 px
+        '9xl': '100rem',  // 1600 px
+      },
     },
   },
   plugins: [],

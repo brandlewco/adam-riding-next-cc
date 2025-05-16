@@ -16,10 +16,10 @@ const MemoizedExportedImage = memo(({ src, alt, width, height }) => (
     src={src}
     alt={alt}
     priority
-    width={width}
-    height={height}
-    style={{ objectFit: "cover" }}
-    sizes="(max-width: 480px) 50vw, 300px"
+    width={192}
+    height={192}
+    className="object-contain w-full h-auto"
+    sizes="(max-width:640px)30vw,10vw"
   />
 ));
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
@@ -113,80 +113,71 @@ function HomePage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="pl-4 pr-3 sm:pr-4 pt-4 pb-36 sm:pb-4 borderoverflow-y-auto h-screen max-w-7xl ml-auto mr-auto md:mt-20">
-        <ul className="grid grid-cols-4 gap-4 md:gap-24 items-end sm:items-start">
-          <AnimatePresence>
-            {collections.map((collection, collectionIndex) => {
-              const maxWidthClass = getMaxWidthClass(collections.length);
-              const imageCount = collection.imageCount || 0;
-              return (
-                <motion.li
-                  key={collectionIndex}
-                  className={`flex-1 ${maxWidthClass} text-right relative group`}
-                  onMouseEnter={() => handleMouseEnter(collectionIndex)}
-                  onMouseLeave={handleMouseLeave}
-                  ref={(el) => (hoverRefs.current[collectionIndex] = el)}
-                  data-index={collectionIndex}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  custom={collectionIndex}
-                  variants={gridVariants}
-                >
-                  <Link href={`/collection/${collection.slug}`} passHref>
-                    <motion.div
-                      layoutId={`collection-${collection.slug}`}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{
-                        scale: { duration: 0.2 },
-                      }}
-                      style={{ originX: "50%", originY: 0 }}
-                      className="flex flex-col relative"
-                    >
-                      <span
-                        className={`absolute left-0 -top-6 text-xs text-black bg-white bg-opacity-80 py-1 rounded pointer-events-none transition-opacity duration-200
-                          ${
-                            hoverIndex === collectionIndex
-                              ? "opacity-100"
-                              : "opacity-0"
-                          }`}
-                        style={{ zIndex: 2 }}
-                      >
-                        {collection.title}
-                      </span>
-                      <div
-                        className="relative w-full"
-                        style={{
-                          paddingTop: `${
-                            (collection.height / collection.width) * 100
-                          }%`,
+      <div className="flex flex-row items-center justify-center w-full p-4 md:p-16 ">
+        <div className="max-w-9xl w-full">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
+            <AnimatePresence>
+              {collections.map((collection, collectionIndex) => {
+                const maxWidthClass = getMaxWidthClass(collections.length);
+                const imageCount = collection.imageCount || 0;
+                return (
+                  <motion.li
+                    key={collectionIndex}
+                    className={`flex flex-col items-center text-right relative group`}
+                    onMouseEnter={() => handleMouseEnter(collectionIndex)}
+                    onMouseLeave={handleMouseLeave}
+                    ref={(el) => (hoverRefs.current[collectionIndex] = el)}
+                    data-index={collectionIndex}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    custom={collectionIndex}
+                    variants={gridVariants}
+                  >
+                    <Link href={`/collection/${collection.slug}`} passHref>
+                      <motion.div
+                        layoutId={`collection-${collection.slug}`}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{
+                          scale: { duration: 0.2 },
                         }}
+                        style={{ originX: "50%", originY: 0 }}
+                        className="flex flex-col relative"
                       >
-                        <motion.div
-                          className="absolute top-0 left-0 w-full h-full"
-                          layoutId={`image-${collection.slug}`}
+                        <span
+                          className={`absolute left-0 -top-6 text-xs text-black bg-white bg-opacity-80 py-1 rounded pointer-events-none transition-opacity duration-200
+                            ${
+                              hoverIndex === collectionIndex
+                                ? "opacity-100"
+                                : "opacity-0"
+                            }`}
+                          style={{ zIndex: 2 }}
                         >
-                          <MemoizedExportedImage
-                            src={collection.firstImagePath}
-                            alt={collection.firstImageAlt || "Collection image"}
-                            width={collection.width}
-                            height={collection.height}
-                            sizes="(max-width: 640px) 50vw, 16vw"
-                          />
-                        </motion.div>
-                      </div>
-                      <div className="flex flex-row justify-end">
-                        <span className="mt-2 text-xs text-gray-700 font-mono">
-                          1/{imageCount}
+                          {collection.title}
                         </span>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </motion.li>
-              );
-            })}
-          </AnimatePresence>
-        </ul>
+                        <div className="relative w-full">
+                          <motion.div layoutId={`image-${collection.slug}`}>
+                            <MemoizedExportedImage
+                              src={collection.firstImagePath}
+                              alt={
+                                collection.firstImageAlt || "Collection image"
+                              }
+                            />
+                          </motion.div>
+                        </div>
+                        <div className="flex flex-row justify-end">
+                          <span className="mt-2 text-xs text-gray-700 font-mono">
+                            1/{imageCount}
+                          </span>
+                        </div>
+                      </motion.div>
+                    </Link>
+                  </motion.li>
+                );
+              })}
+            </AnimatePresence>
+          </ul>
+        </div>
       </div>
     </DefaultLayout>
   );

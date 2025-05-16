@@ -30,7 +30,7 @@ const Navigation = ({ page }) => {
   return (
     <>
       <header
-        style={{ zIndex: "9999" }}
+        style={{ zIndex: "100" }}
         className="w-full p-4 absolute bottom-0 left-0"
         id="mainnavigationBar"
       >
