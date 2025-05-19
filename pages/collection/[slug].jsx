@@ -169,7 +169,6 @@ function CollectionPage({
         }
         return;
       }
-      // ...existing code for index-list/index (cross-collection navigation)...
       if (area === "right") {
         if (currentImage === imageCount - 1) {
           // last image => go next collection => direction='down', ?image=0
@@ -264,7 +263,7 @@ function CollectionPage({
     }),
   };
 
-  // Main image section with title beside image (default view only)
+  // Main image section with title/caption and controls (default view only, home page)
   const MainImageSection =
     source !== "index-list" && source !== "index" ? (
       <AnimatePresence custom={direction} mode="wait">
@@ -281,18 +280,58 @@ function CollectionPage({
           style={{ position: "relative" }}
           {...swipeHandlers}
         >
-          <section className="flex flex-col md:flex-row justify-center md:justify-start items-stretch md:h-85vh h-screen w-full">
+          <section className="flex flex-col-reverse md:flex-row justify-center md:justify-start items-stretch h-[90vh] md:h-85vh w-full">
             {/* Spacer for left 1/2 (title is absolutely positioned) */}
             <div className="hidden md:block w-1/2" />
             {/* Image on right */}
             <div className="flex flex-col items-end w-full ml-auto">
+              {/* Mobile: caption above image, left-aligned, only for home page */}
+              {source === "home" && (
+                <div className="block md:hidden text-sm mb-2 text-left w-full">
+                  {page.data.content_blocks[currentImage]?.alt_text || ""}
+                </div>
+              )}
               <Blocks
                 content_blocks={page.data.content_blocks}
                 currentImage={currentImage}
                 setImageLoaded={setImageLoaded}
               />
-              {/* Count and thumbnail button below image, right-aligned */}
-              <div className="w-full flex flex-col items-end mt-2 z-20">
+              {/* Mobile: counter and thumbnail button below image, right-aligned, only for home page */}
+              {source === "home" && (
+                <div className="block md:hidden w-full flex flex-col items-end mt-2 z-20">
+                  <div className="flex flex-row items-center gap-2">
+                    <span className="text-sm leading-none">
+                      {currentImage + 1} / {imageCount}
+                    </span>
+                    <div>
+                      {showThumbs ? (
+                        <button
+                          onClick={() => setShowThumbs(false)}
+                          className="text-sm leading-none text-black hover:opacity-80"
+                          aria-label="Close thumbnails"
+                        >
+                          — Close
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => setShowThumbs(true)}
+                          className="text-sm leading-none text-black hover:opacity-80"
+                          aria-label="Show thumbnails"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 4,
+                          }}
+                        >
+                          {ThumbnailsIcon}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* Desktop: counter and thumbnail button below image, right-aligned */}
+              <div className="hidden md:flex w-full flex-col items-end mt-2 z-20">
                 <div className="flex flex-row items-center gap-2">
                   <span className="text-sm leading-none">
                     {currentImage + 1} / {imageCount}
@@ -325,7 +364,7 @@ function CollectionPage({
                     </div>
                   )}
                 </div>
-                {/* Mobile: title under count/buttons, right-aligned */}
+                {/* Desktop: title under count/buttons, right-aligned */}
                 <div className="block md:hidden text-sm mt-2 text-right w-full">
                   {page.data.title}
                 </div>
@@ -350,14 +389,14 @@ function CollectionPage({
           style={{ position: "relative" }}
           {...swipeHandlers}
         >
-          <section className="photo flex flex-col items-end relative md:h-85vh h-screen w-full md:w-auto">
+          <section className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end relative h-[90vh] md:h-85vh w-full md:w-auto">
             <Blocks
               content_blocks={page.data.content_blocks}
               currentImage={currentImage}
               setImageLoaded={setImageLoaded}
             />
             {imageLoaded && (
-              <div className="relative md:hidden pt-4 text-left">
+              <div className="relative w-full md:hidden pb-2 md:pb-0 pt-4 text-left">
                 <div className="text-sm leading-none">
                   {page.data.title} - {currentImage + 1} / {imageCount}
                 </div>
@@ -365,7 +404,7 @@ function CollectionPage({
             )}
             {source === "index" &&
               page.data.content_blocks[currentImage]?.alt_text && (
-                <p className="text-sm mt-2 self-end text-right">
+                <p className="w-full text-sm mt-2 self-end text-left md:text-right">
                   {page.data.content_blocks[currentImage].alt_text}
                 </p>
               )}
@@ -426,7 +465,7 @@ function CollectionPage({
             style={{ zIndex: 2 }}
             onClick={() => setShowThumbs(false)}
           >
-            <div className="max-w-9xl w-full relative pointer-events-none">
+            <div className="max-w-8xl w-full relative pointer-events-none">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
                 {page.data.content_blocks.map((block, idx) => (
                   <motion.div

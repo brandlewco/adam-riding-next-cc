@@ -253,8 +253,8 @@ function ArchivePage({ page, photos }) {
               {...swipeHandlers} // Add swipe handlers
             >
               <motion.section
-                className="photo flex flex-col items-end w-auto relative overflow-hidden"
-                style={{ height: "100vh", width: "100%", maxWidth: "100vw" }}
+                className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end w-auto relative overflow-hidden h-[90vh] md:h-screen"
+                style={{ width: "100%", maxWidth: "100vw" }}
                 variants={navigationVariants} // Use for left and right navigation animations
                 initial="enter"
                 animate="center"
@@ -275,7 +275,7 @@ function ArchivePage({ page, photos }) {
                   loading="eager" // Ensure the expanded view image loads immediately when viewed
                 />
                 {/* Mobile: alt text under image, right-aligned */}
-                <div className="block md:hidden text-sm mt-2 text-right w-full">
+                <div className="block md:hidden text-sm mb-2 md:mb-0 mt-2 text-left md:text-right w-full">
                   {photos[currentImage].alt_text || ""}
                 </div>
               </motion.section>
@@ -298,7 +298,7 @@ function ArchivePage({ page, photos }) {
         {/* Close Button - Fixed outside the expanded image */}
         {currentImage !== null && (
           <div
-            className="absolute text-sm cursor-pointer uppercase p-4 top-0 left-0 z-50"
+            className="absolute text-sm cursor-pointer p-4 top-0 left-0 z-50"
             onClick={handleClose}
           >
             Close
