@@ -483,7 +483,7 @@ function CollectionPage({
                     whileHover={{ scale: 1.1 }}
                     className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto"
                     style={{
-                      aspectRatio: "3/4", // Force all thumbs to 3:4 aspect ratio
+                      aspectRatio: "4/5", // Force all thumbs to 3:4 aspect ratio
                       width: "100%",
                       maxWidth: "192px",
                       height: "auto",
