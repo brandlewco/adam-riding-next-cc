@@ -113,7 +113,7 @@ function HomePage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="flex flex-row items-center justify-center w-full p-4 md:p-16 ">
+      <div className="flex flex-row md:h-screen items-center justify-center w-full p-4 md:p-16 ">
         <div className="max-w-8xl w-full">
           <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
             <AnimatePresence>

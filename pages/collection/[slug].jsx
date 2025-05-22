@@ -389,7 +389,7 @@ function CollectionPage({
           style={{ position: "relative" }}
           {...swipeHandlers}
         >
-          <section className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end relative h-[90vh] md:h-85vh w-full md:w-auto">
+          <section className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end relative h-[70vh] md:h-85vh w-full md:w-auto">
             <Blocks
               content_blocks={page.data.content_blocks}
               currentImage={currentImage}
@@ -440,7 +440,7 @@ function CollectionPage({
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
-          className="fixed inset-0 z-40 bg-white bg-opacity-90 flex flex-col items-center justify-center"
+          className="fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -482,14 +482,30 @@ function CollectionPage({
                     transition={{ duration: 0.33 }}
                     whileHover={{ scale: 1.1 }}
                     className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto"
+                    style={{
+                      aspectRatio: "3/4", // Force all thumbs to 3:4 aspect ratio
+                      width: "100%",
+                      maxWidth: "192px",
+                      height: "auto",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: "#fff",
+                    }}
                   >
                     <ExportedImage
                       src={block.image_path}
                       alt={block.alt_text || "Thumbnail"}
-                      width={block.width}
-                      height={block.height}
+                      width={192}
+                      height={256}
                       sizes="(max-width:640px)30vw,10vw"
-                      className="object-contain w-full h-auto"
+                      className="object-cover w-full h-full"
+                      style={{
+                        aspectRatio: "3/4",
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
                     />
                   </motion.div>
                 ))}
