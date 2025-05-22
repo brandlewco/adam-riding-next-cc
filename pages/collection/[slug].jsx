@@ -453,7 +453,7 @@ function CollectionPage({
             aria-hidden="true"
             onClick={() => setShowThumbs(false)}
           />
-          {/* Close button, absolutely positioned above overlay */}
+          {/* Close button */}
           <button
             className="absolute top-2 left-2 text-sm leading-none text-black z-50 p-2"
             onClick={() => setShowThumbs(false)}
@@ -481,30 +481,27 @@ function CollectionPage({
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.33 }}
                     whileHover={{ scale: 1.1 }}
-                    className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto"
+                    className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto flex items-center justify-center"
                     style={{
-                      aspectRatio: "4/5", // Force all thumbs to 3:4 aspect ratio
-                      width: "100%",
-                      maxWidth: "192px",
-                      height: "auto",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      height: 190, // fixed height for all thumbs
+                      width: "auto",
+                      maxWidth: "100%",
                       background: "#fff",
                     }}
                   >
                     <ExportedImage
                       src={block.image_path}
                       alt={block.alt_text || "Thumbnail"}
-                      width={192}
-                      height={256}
+                      width={block.width}
+                      height={block.height}
                       sizes="(max-width:640px)30vw,10vw"
-                      className="object-cover w-full h-full"
+                      className="object-contain h-full"
                       style={{
-                        aspectRatio: "3/4",
-                        width: "100%",
                         height: "100%",
-                        objectFit: "cover",
+                        width: "auto",
+                        maxWidth: "100%",
+                        objectFit: "contain",
+                        display: "block",
                       }}
                     />
                   </motion.div>
