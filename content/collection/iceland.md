@@ -12,6 +12,12 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ICELAND-6.jpg
+    alt_text: >-
+      Seljalandsfoss waterfall on a cloudy day in Iceland. Iceland project was
+      shot and completed over the course of ten days all over the island of
+      Iceland.
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-1.jpg
     alt_text: >-
       Boy raising his arms within the Blue Lagoon in Iceland, near Reykjavik.
@@ -39,12 +45,6 @@ content_blocks:
     alt_text: >-
       Glacier detail from JÖKULSÁRLÓN in Iceland. Iceland project was shot and
       completed over the course of ten days all over the island of Iceland. 
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-6.jpg
-    alt_text: >-
-      Seljalandsfoss waterfall on a cloudy day in Iceland. Iceland project was
-      shot and completed over the course of ten days all over the island of
-      Iceland.
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-7.jpg
     alt_text: >-
