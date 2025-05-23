@@ -466,7 +466,8 @@ function CollectionPage({
             onClick={() => setShowThumbs(false)}
           >
             <div className="max-w-8xl w-full relative pointer-events-none">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
+              {/* Use grid for 4 per row, but allow images to overflow their cell horizontally */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-24 justify-items-center items-center w-full">
                 {page.data.content_blocks.map((block, idx) => (
                   <motion.div
                     key={idx}
@@ -483,10 +484,12 @@ function CollectionPage({
                     whileHover={{ scale: 1.1 }}
                     className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto flex items-center justify-center"
                     style={{
-                      height: 190, // fixed height for all thumbs
-                      width: "auto",
-                      maxWidth: "100%",
-                      background: "#fff",
+                      height: 190,
+                      width: "100%",
+                      overflow: "visible", // allow horizontal overflow
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
                     <ExportedImage
@@ -495,11 +498,11 @@ function CollectionPage({
                       width={block.width}
                       height={block.height}
                       sizes="(max-width:640px)30vw,10vw"
-                      className="object-contain h-full"
+                      className="h-full"
                       style={{
                         height: "100%",
                         width: "auto",
-                        maxWidth: "100%",
+                        maxWidth: "none", // allow horizontal images to overflow cell
                         objectFit: "contain",
                         display: "block",
                       }}
