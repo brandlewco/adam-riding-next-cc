@@ -1,6 +1,6 @@
 ---
-_schema: index-grid
-title: Index Grid
+_schema: index
+title: Home
 seo:
   no_index: false
 collections:
