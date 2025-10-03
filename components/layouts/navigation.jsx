@@ -22,10 +22,7 @@ const Navigation = ({ page }) => {
   const isIndexGrid = pathname === "/index-grid";
   const isIndexList = pathname === "/index-list";
   const isIndex = isIndexGrid || isIndexList;
-  const isArchive = pathname === "/archive";
-  const isContact = pathname === "/contact";
   // Home is only "/" and not index-grid or index-list
-  const isHome = pathname === "/" && !isIndex;
 
   return (
     <>
@@ -37,7 +34,7 @@ const Navigation = ({ page }) => {
         <nav className="container-fluid flex flex-row justify-between text-sm">
           <Link
             href="/"
-            className={`leading-none${isHome ? " font-bold" : ""}`}
+            className={`leading-none`}
           >
             ADAM RIDING
           </Link>
@@ -45,7 +42,7 @@ const Navigation = ({ page }) => {
           <span className="relative flex flex-row items-end ">
             <Link
               href="/index-grid"
-              className={`leading-none${isIndex ? " font-bold" : ""}`}
+              className={`leading-none`}
               style={{ marginRight: 4 }}
             >
               INDEX
@@ -60,7 +57,6 @@ const Navigation = ({ page }) => {
                 transition: "opacity 0.2s",
               }}
             >
-              <span className="text-xs text-black/40">—</span>
               <Link
                 href="/index-grid"
                 className={`text-xs ml-1 leading-none ${
@@ -82,13 +78,13 @@ const Navigation = ({ page }) => {
           </span>
           <Link
             href="/archive"
-            className={`leading-none${isArchive ? " font-bold" : ""}`}
+            className={`leading-none`}
           >
             ARCHIVE
           </Link>
           <Link
             href="/contact"
-            className={`leading-none${isContact ? " font-bold" : ""}`}
+            className={`leading-none`}
           >
             CONTACT
           </Link>

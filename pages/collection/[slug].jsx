@@ -40,41 +40,6 @@ const MemoizedExportedImage = memo(function MemoizedExportedImage({
 });
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
-/**
- * RowThumbnail => used for 'index-list' row of 32×32
- */
-const RowThumbnail = memo(function RowThumbnail({
-  block,
-  index,
-  currentImage,
-  handleThumbnailClick,
-}) {
-  return (
-    <motion.div
-      key={index}
-      onClick={() => handleThumbnailClick(index)}
-      className={`cursor-pointer relative mb-2 hover:opacity-100 transition-opacity ${
-        currentImage === index ? "opacity-100" : "opacity-50"
-      }`}
-      style={{
-        width: 32,
-        height: 32,
-        overflow: "hidden",
-      }}
-    >
-      <MemoizedExportedImage
-        src={block.image_path}
-        alt={block.alt_text || "Thumbnail"}
-        width={32}
-        height={32}
-        sizes="(max-width:640px)10vw,1vw"
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
-    </motion.div>
-  );
-});
-RowThumbnail.displayName = "RowThumbnail";
-
 /** GridThumbnail => used for overlay if `source==='index'` */
 const GridThumbnail = memo(function GridThumbnail({ block, index, onClick }) {
   return (
@@ -101,6 +66,8 @@ const GridThumbnail = memo(function GridThumbnail({ block, index, onClick }) {
 });
 GridThumbnail.displayName = "GridThumbnail";
 
+const gallerySources = new Set(["home", "index", "index-list"]);
+
 function CollectionPage({
   page,
   source,
@@ -124,11 +91,63 @@ function CollectionPage({
   const [imageLoaded, setImageLoaded] = useState(false);
   // toggles overlay if source==='index'
   const [showThumbs, setShowThumbs] = useState(false);
-  // track user hover area for preloading
   const [hoveredArea, setHoveredArea] = useState(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [hoverHalf, setHoverHalf] = useState(null);
 
-  // Ref for the overlay content (thumbnails grid)
-  const overlayContentRef = useRef(null);
+  const isGalleryView = gallerySources.has(source);
+  const galleryStripSize = 16;
+  const galleryThumbnailIndices = isGalleryView
+    ? Array.from(
+        { length: Math.min(galleryStripSize, imageCount) },
+        (_, idx) => (currentImage + idx) % imageCount
+      )
+    : [];
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const media = window.matchMedia("(hover: none) and (pointer: coarse)");
+    const updateTouchState = () => setIsTouchDevice(media.matches);
+    updateTouchState();
+    if (media.addEventListener)
+      media.addEventListener("change", updateTouchState);
+    else media.addListener(updateTouchState);
+
+    const handlePointerDown = (event) => {
+      if (event.pointerType === "mouse") setIsTouchDevice(false);
+      if (event.pointerType === "touch" || event.pointerType === "pen") {
+        setIsTouchDevice(true);
+        setHoverHalf(null);
+        setHoveredArea(null);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      if (media.removeEventListener)
+        media.removeEventListener("change", updateTouchState);
+      else media.removeListener(updateTouchState);
+      window.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, []);
+
+  const handleHoverZoneEnter = useCallback(
+    (area) => {
+      if (!isTouchDevice) {
+        setHoverHalf(area);
+        setHoveredArea(area);
+      }
+    },
+    [isTouchDevice]
+  );
+
+  const handleHoverZoneLeave = useCallback(() => {
+    if (!isTouchDevice) {
+      setHoverHalf(null);
+      setHoveredArea(null);
+    }
+  }, [isTouchDevice]);
 
   useEffect(() => {
     const queryIndex = parseInt(router.query.image);
@@ -264,154 +283,80 @@ function CollectionPage({
   };
 
   // Main image section with title/caption and controls (default view only, home page)
-  const MainImageSection =
-    source !== "index-list" && source !== "index" ? (
-      <AnimatePresence custom={direction} mode="wait">
-        <motion.div
-          key={currentImage}
-          layoutId={`collection-${page.data.slug}`}
-          layout
-          variants={internalVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          custom={direction}
-          className="relative w-full p-4"
-          style={{ position: "relative" }}
-          {...swipeHandlers}
-        >
-          <section className="flex flex-col-reverse md:flex-row justify-center md:justify-start items-stretch h-[90vh] md:h-85vh w-full">
-            {/* Spacer for left 1/2 (title is absolutely positioned) */}
-            <div className="hidden md:block w-1/2" />
-            {/* Image on right */}
-            <div className="flex flex-col items-end w-full ml-auto">
-              {/* Mobile: caption above image, left-aligned, only for home page */}
-              {source === "home" && (
-                <div className="block md:hidden text-sm mb-2 text-left w-full">
-                  {page.data.content_blocks[currentImage]?.alt_text || ""}
-                </div>
-              )}
+  const MainImageSection = isGalleryView ? (
+    <AnimatePresence custom={direction} mode="wait">
+      <motion.div
+        key={currentImage}
+        layoutId={`collection-${page.data.slug}`}
+        layout
+        variants={internalVariants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        custom={direction}
+        className="relative w-full p-4 h-full flex flex-col justify-center"
+        style={{ position: "relative" }}
+        {...swipeHandlers}
+      >
+        <section className="flex flex-row justify-center items-stretch md:h-[75vh] md:-mt-12 w-full">
+            <motion.div
+              layoutId={`thumb-full-${page.data.slug}-${currentImage}`}
+     
+            >
               <Blocks
                 content_blocks={page.data.content_blocks}
                 currentImage={currentImage}
                 setImageLoaded={setImageLoaded}
               />
-              {/* Mobile: counter and thumbnail button below image, right-aligned, only for home page */}
-              {source === "home" && (
-                <div className="block md:hidden w-full flex flex-col items-end mt-2 z-20">
-                  <div className="flex flex-row items-center gap-2">
-                    <span className="text-sm leading-none">
-                      {currentImage + 1} / {imageCount}
-                    </span>
-                    <div>
-                      {showThumbs ? (
-                        <button
-                          onClick={() => setShowThumbs(false)}
-                          className="text-sm leading-none text-black hover:opacity-80"
-                          aria-label="Close thumbnails"
-                        >
-                          — Close
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => setShowThumbs(true)}
-                          className="text-sm leading-none text-black hover:opacity-80"
-                          aria-label="Show thumbnails"
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 4,
-                          }}
-                        >
-                          {ThumbnailsIcon}
-                        </button>
-                      )}
-                    </div>
-                  </div>
+            </motion.div>
+            {/* {source !== "home" &&
+              page.data.content_blocks[currentImage]?.alt_text && (
+                <div className="hidden md:block text-sm mt-4 text-right w-full">
+                  {page.data.content_blocks[currentImage].alt_text}
                 </div>
-              )}
-              {/* Desktop: counter and thumbnail button below image, right-aligned */}
-              <div className="hidden md:flex w-full flex-col items-end mt-2 z-20">
-                <div className="flex flex-row items-center gap-2">
-                  <span className="text-sm leading-none">
-                    {currentImage + 1} / {imageCount}
-                  </span>
-                  {/* Show thumbnail button for index.jsx (source === "home") */}
-                  {source === "home" && (
-                    <div>
-                      {showThumbs ? (
-                        <button
-                          onClick={() => setShowThumbs(false)}
-                          className="text-sm leading-none text-black hover:opacity-80"
-                          aria-label="Close thumbnails"
-                        >
-                          — Close
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => setShowThumbs(true)}
-                          className="text-sm leading-none text-black hover:opacity-80"
-                          aria-label="Show thumbnails"
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 4,
-                          }}
-                        >
-                          {ThumbnailsIcon}
-                        </button>
-                      )}
-                    </div>
-                  )}
-                </div>
-                {/* Desktop: title under count/buttons, right-aligned */}
-                <div className="block md:hidden text-sm mt-2 text-right w-full">
-                  {page.data.title}
-                </div>
+              )} */}
+        </section>
+      </motion.div>
+    </AnimatePresence>
+  ) : (
+    // Existing code for index-list and index
+    <AnimatePresence custom={direction} mode="wait">
+      <motion.div
+        key={currentImage}
+        layoutId={`collection-${page.data.slug}`}
+        layout
+        variants={internalVariants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        custom={direction}
+        className="relative w-auto p-4"
+        style={{ position: "relative" }}
+        {...swipeHandlers}
+      >
+        <section className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end relative h-[70vh] md:h-85vh w-full md:w-auto">
+          <Blocks
+            content_blocks={page.data.content_blocks}
+            currentImage={currentImage}
+            setImageLoaded={setImageLoaded}
+          />
+          {imageLoaded && (
+            <div className="relative w-full md:hidden pb-2 md:pb-0 pt-4 text-left">
+              <div className="text-sm leading-none">
+                {page.data.title} - {currentImage + 1} / {imageCount}
               </div>
             </div>
-          </section>
-        </motion.div>
-      </AnimatePresence>
-    ) : (
-      // Existing code for index-list and index
-      <AnimatePresence custom={direction} mode="wait">
-        <motion.div
-          key={currentImage}
-          layoutId={`collection-${page.data.slug}`}
-          layout
-          variants={internalVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          custom={direction}
-          className="relative w-auto p-4"
-          style={{ position: "relative" }}
-          {...swipeHandlers}
-        >
-          <section className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end relative h-[70vh] md:h-85vh w-full md:w-auto">
-            <Blocks
-              content_blocks={page.data.content_blocks}
-              currentImage={currentImage}
-              setImageLoaded={setImageLoaded}
-            />
-            {imageLoaded && (
-              <div className="relative w-full md:hidden pb-2 md:pb-0 pt-4 text-left">
-                <div className="text-sm leading-none">
-                  {page.data.title} - {currentImage + 1} / {imageCount}
-                </div>
-              </div>
+          )}
+          {source === "index" &&
+            page.data.content_blocks[currentImage]?.alt_text && (
+              <p className="w-full text-sm mt-2 self-end text-left md:text-right">
+                {page.data.content_blocks[currentImage].alt_text}
+              </p>
             )}
-            {source === "index" &&
-              page.data.content_blocks[currentImage]?.alt_text && (
-                <p className="w-full text-sm mt-2 self-end text-left md:text-right">
-                  {page.data.content_blocks[currentImage].alt_text}
-                </p>
-              )}
-          </section>
-        </motion.div>
-      </AnimatePresence>
-    );
+        </section>
+      </motion.div>
+    </AnimatePresence>
+  );
 
   // Thumbs overlay for all non-index-list/index pages (including index.jsx/"home")
   const containerVariants = {
@@ -435,7 +380,7 @@ function CollectionPage({
   };
 
   // Show thumbs overlay for "home" (index.jsx) and "index"
-  const ThumbsOverlay = (source === "home" || source === "index") && (
+  const ThumbsOverlay = isGalleryView && (
     <AnimatePresence>
       {showThumbs && (
         <motion.div
@@ -455,7 +400,7 @@ function CollectionPage({
           />
           {/* Close button */}
           <button
-            className="absolute top-2 left-2 text-sm leading-none text-black z-50 p-2"
+            className="absolute top-2 right-2 text-sm leading-none text-black z-50 p-2"
             onClick={() => setShowThumbs(false)}
           >
             Close
@@ -465,9 +410,8 @@ function CollectionPage({
             style={{ zIndex: 2 }}
             onClick={() => setShowThumbs(false)}
           >
-            <div className="max-w-8xl w-full relative pointer-events-none">
-              {/* Use grid for 4 per row, but allow images to overflow their cell horizontally */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-24 justify-items-center items-center w-full">
+            <div className="w-full md:px-10 relative pointer-events-none">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-12 md:gap-40 justify-items-center items-center w-full">
                 {page.data.content_blocks.map((block, idx) => (
                   <motion.div
                     key={idx}
@@ -482,31 +426,31 @@ function CollectionPage({
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.33 }}
                     whileHover={{ scale: 1.1 }}
-                    className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto flex items-center justify-center"
+                    className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto h-24 md:h-48"
                     style={{
-                      height: 190,
-                      width: "100%",
-                      overflow: "visible", // allow horizontal overflow
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      overflow: "visible",
                     }}
                   >
-                    <ExportedImage
-                      src={block.image_path}
-                      alt={block.alt_text || "Thumbnail"}
-                      width={block.width}
-                      height={block.height}
-                      sizes="(max-width:640px)30vw,10vw"
-                      className="h-full"
-                      style={{
-                        height: "100%",
-                        width: "auto",
-                        maxWidth: "none", // allow horizontal images to overflow cell
-                        objectFit: "contain",
-                        display: "block",
-                      }}
-                    />
+                    <motion.div
+                      layoutId={`thumb-full-${page.data.slug}-${idx}`}
+                      className=" flex items-center justify-center h-full"
+                    >
+                      <ExportedImage
+                        src={block.image_path}
+                        alt={block.alt_text || "Thumbnail"}
+                        width={block.width}
+                        height={block.height}
+                        sizes="(max-width:640px)30vw,10vw"
+                        className="h-full"
+                        style={{
+                          height: "100%",
+                          width: "auto",
+                          maxWidth: "none", // allow horizontal images to overflow cell
+                          objectFit: "contain",
+                          display: "block",
+                        }}
+                      />
+                    </motion.div>
                   </motion.div>
                 ))}
               </div>
@@ -515,39 +459,6 @@ function CollectionPage({
         </motion.div>
       )}
     </AnimatePresence>
-  );
-
-  // old row if source==='index-list'
-  const gridClasses = {
-    1: "grid-cols-1",
-    2: "grid-cols-2",
-    3: "grid-cols-3",
-    4: "grid-cols-4",
-    5: "grid-cols-5",
-    6: "grid-cols-6",
-    7: "grid-cols-7",
-    8: "grid-cols-8",
-    9: "grid-cols-9",
-    10: "grid-cols-10",
-  };
-  const gridClass = imageCount <= 9 ? gridClasses[imageCount] : "grid-cols-10";
-
-  const OldThumbRow = source === "index-list" && (
-    <div className="fixed bottom-12 left-0 right-0 flex justify-center overflow-none space-x-2 z-50 px-4 md:px-0">
-      <div
-        className={`grid gap-2 ${gridClass} md:grid-flow-col justify-center md:justify-start`}
-      >
-        {page.data.content_blocks.map((block, idx) => (
-          <RowThumbnail
-            key={idx}
-            block={block}
-            index={idx}
-            currentImage={currentImage}
-            handleThumbnailClick={handleThumbnailClick}
-          />
-        ))}
-      </div>
-    </div>
   );
 
   /**
@@ -563,38 +474,42 @@ function CollectionPage({
   const prevImageInSameCollection =
     currentImage > 0 ? page.data.content_blocks[currentImage - 1] : null;
 
+  const showPrevButton = isTouchDevice || hoverHalf === "left";
+  const showNextButton = isTouchDevice || hoverHalf === "right";
+
   return (
     <DefaultLayout page={page}>
-      {/* Top-left info for desktop */}
-      <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/6 text-left z-20 gap-2 mt-[-8px]">
-        <div className="text-sm leading-none">
-          {source === "home"
-            ? page.data.content_blocks[currentImage]?.alt_text || ""
-            : page.data.title}
-        </div>
-        {source === "index" && (
-          <div className="flex">
-            {showThumbs ? (
-              <button
-                onClick={() => setShowThumbs(false)}
-                className="text-sm leading-none text-black hover:opacity-80"
-                aria-label="Close thumbnails"
-              >
-                — Close
-              </button>
-            ) : (
-              <button
-                onClick={() => setShowThumbs(true)}
-                className="text-sm leading-none text-black hover:opacity-80"
-                aria-label="Show thumbnails"
-                style={{ display: "flex", alignItems: "center", gap: 4 }}
-              >
-                {ThumbnailsIcon}
-              </button>
-            )}
+      {isGalleryView ? (
+        <>
+          <div className="fixed top-4 left-4 text-sm leading-none z-40 pointer-events-none">
+            {page.data.title} -  {page.data.content_blocks[currentImage].alt_text}
+
           </div>
-        )}
-      </div>
+          <button
+            className="fixed top-4 right-4 text-sm leading-none z-40 bg-white bg-opacity-80 hover:bg-opacity-100 transition"
+            onClick={() => {
+              setShowThumbs((prev) => !prev);
+              setDirection("");
+            }}
+          >
+            {showThumbs ? "Close" : "Thumbnail"}
+          </button>
+        </>
+      ) : (
+        <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/6 text-left z-20 gap-2 mt-[-8px]">
+          <div className="text-sm leading-none">{page.data.title}</div>
+          {source === "index" && (
+            <div className="flex">
+              <button
+                onClick={() => setShowThumbs((prev) => !prev)}
+                className="text-sm leading-none text-black hover:opacity-80"
+              >
+                {showThumbs ? "Close" : "Thumbnail"}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Preload next/prev image in same collection if hovered */}
       {hoveredArea === "right" && nextImageInSameCollection && (
@@ -620,32 +535,102 @@ function CollectionPage({
         <HiddenPreloadImage src={prevFirstImage} />
       )}
 
-      {/* Left/Right clickable areas */}
-      <div
-        id="click-left"
-        className="absolute left-0 top-[10%] h-[80%] w-1/6 md:w-1/2 cursor-pointer clickable-area"
-        onClick={() => handleAreaClick("left")}
-        onMouseEnter={() => handleAreaHover("left")}
-        onMouseLeave={() => setHoveredArea(null)}
-        style={{ zIndex: 10 }}
-      />
-      <div
-        id="click-right"
-        className="absolute right-0 top-[10%] h-[80%] w-1/6 cursor-pointer clickable-area"
-        onClick={() => handleAreaClick("right")}
-        onMouseEnter={() => handleAreaHover("right")}
-        onMouseLeave={() => setHoveredArea(null)}
-        style={{ zIndex: 10 }}
-      />
+      {isGalleryView && imageCount > 1 && (
+        <div className="fixed bottom-[3rem] left-0 right-0 z-40 px-4">
+          <div
+            className="grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center"
+            style={{ gridTemplateColumns: "repeat(16, minmax(0, 1fr))" }}
+          >
+            {galleryThumbnailIndices.map((thumbIdx, stripIndex) => {
+              const thumbBlock = page.data.content_blocks[thumbIdx];
+              if (!thumbBlock) return null;
+              const isCurrent = stripIndex === 0;
+              return (
+                <button
+                  key={`gallery-strip-${thumbIdx}`}
+                  onClick={() => {
+                    setDirection("");
+                    setCurrentImage(thumbIdx);
+                  }}
+                  className={`w-full border border-transparent transition h-auto w-auto md:h-12 md:w-12 ${
+                    isCurrent ? "opacity-100" : "opacity-80 hover:opacity-100"
+                  }`}
+                  aria-label={`Show image ${thumbIdx + 1}`}
+                >
+                  <ExportedImage
+                    src={thumbBlock.image_path}
+                    alt={thumbBlock.alt_text || "Collection thumbnail"}
+                    width={thumbBlock.width || 64}
+                    height={thumbBlock.height || 64}
+                    className="w-full h-full object-cover"
+                    style={{ display: "block" }}
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
-      {/* Main single-image section */}
       {MainImageSection}
-
-      {/* Thumbs overlay if index */}
       {ThumbsOverlay}
 
-      {/* Old row if index-list */}
-      {OldThumbRow}
+      <div
+        className="hidden md:flex fixed inset-y-0 left-0 w-1/2 z-30 items-center justify-start pointer-events-auto"
+        onMouseEnter={() => handleHoverZoneEnter("left")}
+        onMouseMove={() => handleHoverZoneEnter("left")}
+        onMouseLeave={handleHoverZoneLeave}
+        onClick={() => handleAreaClick("left")}
+      >
+        <button
+          className={`ml-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+            showPrevButton
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAreaClick("left");
+          }}
+        >
+          Prev
+        </button>
+      </div>
+
+      <div
+        className="hidden md:flex fixed inset-y-0 right-0 w-1/2 z-30 items-center justify-end pointer-events-auto"
+        onMouseEnter={() => handleHoverZoneEnter("right")}
+        onMouseMove={() => handleHoverZoneEnter("right")}
+        onMouseLeave={handleHoverZoneLeave}
+        onClick={() => handleAreaClick("right")}
+      >
+        <button
+          className={`mr-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+            showNextButton
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAreaClick("right");
+          }}
+        >
+          Next
+        </button>
+      </div>
+
+      <button
+        className="md:hidden fixed top-1/2 left-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+        onClick={() => handleAreaClick("left")}
+      >
+        Prev
+      </button>
+      <button
+        className="md:hidden fixed top-1/2 right-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+        onClick={() => handleAreaClick("right")}
+      >
+        Next
+      </button>
     </DefaultLayout>
   );
 }

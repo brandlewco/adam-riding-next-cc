@@ -17,6 +17,8 @@ function ArchivePage({ page, photos }) {
     useState(false);
   const router = useRouter();
   const initialLoadRef = useRef(true);
+  const [hoverHalf, setHoverHalf] = useState(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   const handleImageClick = useCallback((index) => {
     setCurrentImage(index);
@@ -177,24 +179,57 @@ function ArchivePage({ page, photos }) {
     return <div ref={ref}>{isInView ? children : null}</div>;
   }
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const media = window.matchMedia("(hover: none) and (pointer: coarse)");
+    const updateTouchState = () => setIsTouchDevice(media.matches);
+    updateTouchState();
+    if (media.addEventListener)
+      media.addEventListener("change", updateTouchState);
+    else media.addListener(updateTouchState);
+
+    const handlePointerDown = (event) => {
+      if (event.pointerType === "mouse") setIsTouchDevice(false);
+      if (event.pointerType === "touch" || event.pointerType === "pen") {
+        setIsTouchDevice(true);
+        setHoverHalf(null);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      if (media.removeEventListener)
+        media.removeEventListener("change", updateTouchState);
+      else media.removeListener(updateTouchState);
+      window.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, []);
+
+  const showPrevButton = isTouchDevice || hoverHalf === "left";
+  const showNextButton = isTouchDevice || hoverHalf === "right";
+
+  const handleHoverZoneEnter = useCallback(
+    (area) => {
+      if (!isTouchDevice) setHoverHalf(area);
+    },
+    [isTouchDevice]
+  );
+
+  const handleHoverZoneLeave = useCallback(() => {
+    if (!isTouchDevice) setHoverHalf(null);
+  }, [isTouchDevice]);
+
   return (
     <DefaultLayout page={page}>
-      {/* Floating alt text left of expanded image, desktop only, FIXED and OUTSIDE AnimatePresence */}
-      {currentImage !== null && (
-        <div className="hidden md:flex flex-row items-center fixed top-1/2 left-1/6 text-left z-50 gap-2 mt-[-8px] pointer-events-none">
-          <div className="text-sm leading-none">
-            {photos[currentImage]?.alt_text || ""}
-          </div>
-        </div>
-      )}
       <div
         className={`h-screen  ${
           currentImage !== null
             ? "overflow-hidden p-0"
-            : "overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-24"
+            : "overflow-y-auto overflow-x-hidden pt-4 pl-4 pr-3 pb-32"
         }`}
       >
-        <ul className="grid grid-cols-3 sm:grid-cols-[repeat(10,minmax(0,1fr))] gap-4 gap-y-32">
+        <ul className="grid grid-cols-3 grid-cols-[repeat(6,minmax(0,1fr))] sm:grid-cols-[repeat(10,minmax(0,1fr))] md:grid-cols-[repeat(12,minmax(0,1fr))] gap-4 gap-y-32">
           <AnimatePresence>
             {photos.map((photo, index) => (
               <motion.li
@@ -232,7 +267,11 @@ function ArchivePage({ page, photos }) {
                       loading="lazy"
                     />
                   </LazyLoad>
+
                 </motion.div>
+                  <span className="absolute -bottom-16 right-0 text-xs">
+                    {index + 1}
+                  </span>
               </motion.li>
             ))}
           </AnimatePresence>
@@ -244,65 +283,103 @@ function ArchivePage({ page, photos }) {
             <motion.div
               key={currentImage}
               layoutId={`image-${photos[currentImage].slug}-${photos[currentImage].image_path}`}
-              variants={expandedViewVariants} // Use for overall expanded view animations
+              variants={expandedViewVariants}
               initial="enter"
               animate="center"
               exit="exit"
               custom={direction}
-              className="fixed flex flex-col sm:flex-row flex-end w-full transform-none z-50 overflow-x-hidden p-4 mt-8 sm:mt-0"
-              {...swipeHandlers} // Add swipe handlers
+              className="fixed inset-0 flex justify-center items-center z-40 bg-white bg-opacity-95"
+              {...swipeHandlers}
             >
-              <motion.section
-                className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end w-auto relative overflow-hidden h-[90vh] md:h-screen"
-                style={{ width: "100%", maxWidth: "100vw" }}
-                variants={navigationVariants} // Use for left and right navigation animations
-                initial="enter"
-                animate="center"
-                exit="exit"
-                custom={direction}
-              >
-                <ExportedImage
-                  src={photos[currentImage].image_path}
-                  alt={photos[currentImage].alt_text || "Expanded image"}
-                  width={photos[currentImage].width}
-                  height={photos[currentImage].height}
-                  sizes="(max-width: 640px) 100vw, 30vw"
-                  className="md:h-85vh w-full md:w-auto self-end"
-                  style={{
-                    objectFit: "contain",
-                    transform: "none",
-                  }}
-                  loading="eager" // Ensure the expanded view image loads immediately when viewed
-                />
-                {/* Mobile: alt text under image, right-aligned */}
-                <div className="block md:hidden text-sm mb-2 md:mb-0 mt-2 text-left md:text-right w-full">
-                  {photos[currentImage].alt_text || ""}
-                </div>
-              </motion.section>
+              <section className="flex flex-col justify-center items-center w-full px-4 md:px-0">
+                <motion.div
+                  layoutId={`archive-full-${currentImage}`}
+                  className="w-full flex justify-center"
+                >
+                  <ExportedImage
+                    src={photos[currentImage].image_path}
+                    alt={photos[currentImage].alt_text || "Expanded image"}
+                    width={photos[currentImage].width}
+                    height={photos[currentImage].height}
+                    sizes="(max-width:640px)100vw,50vw"
+                    className="max-h-[75vh] w-auto object-contain"
+                    loading="eager"
+                  />
+                </motion.div>
 
-              {/* Navigation Controls */}
+              </section>
+
               <div
-                className="fixed top-0 left-0 h-full w-1/6 md:w-1/2 cursor-pointer clickable-area"
+                className="hidden md:flex fixed inset-y-0 left-0 w-1/2 items-center justify-start z-50"
+                onMouseEnter={() => handleHoverZoneEnter("left")}
+                onMouseMove={() => handleHoverZoneEnter("left")}
+                onMouseLeave={handleHoverZoneLeave}
                 onClick={() => handleNavigation("left")}
-                id="click-left"
-              ></div>
+              >
+                <button
+                  className={`ml-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-90 ${
+                    showPrevButton
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNavigation("left");
+                  }}
+                >
+                  Prev
+                </button>
+              </div>
               <div
-                className="fixed top-0 right-0 h-full w-1/6 cursor-pointer clickable-area"
+                className="hidden md:flex fixed inset-y-0 right-0 w-1/2 items-center justify-end z-50"
+                onMouseEnter={() => handleHoverZoneEnter("right")}
+                onMouseMove={() => handleHoverZoneEnter("right")}
+                onMouseLeave={handleHoverZoneLeave}
                 onClick={() => handleNavigation("right")}
-                id="click-right"
-              ></div>
+              >
+                <button
+                  className={`mr-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-90 ${
+                    showNextButton
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNavigation("right");
+                  }}
+                >
+                  Next
+                </button>
+              </div>
+
+              <button
+                className="md:hidden fixed bottom-6 left-6 text-xs uppercase tracking-widest z-50 px-3 py-1 bg-white bg-opacity-90"
+                onClick={() => handleNavigation("left")}
+              >
+                Prev
+              </button>
+              <button
+                className="md:hidden fixed bottom-6 right-6 text-xs uppercase tracking-widest z-50 px-3 py-1 bg-white bg-opacity-90"
+                onClick={() => handleNavigation("right")}
+              >
+                Next
+              </button>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Close Button - Fixed outside the expanded image */}
         {currentImage !== null && (
-          <div
-            className="absolute text-sm cursor-pointer p-4 top-0 left-0 z-50"
-            onClick={handleClose}
-          >
-            Close
-          </div>
+          <>
+            <div className="hidden md:block fixed top-4 left-4 text-sm leading-none z-50 pointer-events-none">
+              {page.data.title} — {photos[currentImage].alt_text || ""}
+            </div>
+            <div
+              className="absolute text-sm cursor-pointer top-4 right-4 z-50"
+              onClick={handleClose}
+            >
+              Close
+            </div>
+          </>
         )}
       </div>
     </DefaultLayout>

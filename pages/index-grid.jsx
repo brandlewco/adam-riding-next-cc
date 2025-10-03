@@ -28,8 +28,7 @@ function HomePage({ page, collections }) {
   const router = useRouter();
   const [hoverIndex, setHoverIndex] = useState(-1);
   const hoverRefs = useRef([]);
-  const titleRefs = useRef([]);
-  const [visibleIndices, setVisibleIndices] = useState(new Set());
+  const visibleCollections = collections.slice(0, 8);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -49,7 +48,7 @@ function HomePage({ page, collections }) {
         ref.style.setProperty("transform-origin", "top left", "important");
       }
     });
-  }, [hoverIndex, collections.length]);
+  }, [hoverIndex, visibleCollections.length]);
 
   const handleMouseEnter = useCallback((index) => {
     setHoverIndex(index);
@@ -59,75 +58,37 @@ function HomePage({ page, collections }) {
     setHoverIndex(-1);
   }, []);
 
-  const getMaxWidthClass = (totalItems) => {
-    return `sm:max-w-[calc((100%-${totalItems - 1}*1rem)/${totalItems})]`;
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const newVisibleIndices = new Set(visibleIndices);
-        entries.forEach((entry) => {
-          const index = parseInt(entry.target.dataset.index, 10);
-          if (entry.isIntersecting) {
-            newVisibleIndices.add(index);
-          } else {
-            newVisibleIndices.delete(index);
-          }
-        });
-        if (newVisibleIndices.size !== visibleIndices.size) {
-          setVisibleIndices(newVisibleIndices);
-        }
-      },
-      {
-        rootMargin: "-10% 0px -10% 0px", // Adjust root margin to trigger 20% from top and bottom
-        threshold: [0, 1], // Detect when the title is fully in view and fully out of view
-      }
-    );
-
-    titleRefs.current.forEach((ref, index) => {
-      if (ref) {
-        observer.observe(ref);
-      }
-    });
-
-    return () => {
-      titleRefs.current.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, [collections.length, visibleIndices]);
-
   const gridVariants = {
     hidden: { opacity: 0 },
     visible: (index) => ({
       opacity: 1,
       transition: {
         duration: 0.5,
-        delay: index * 0.1,
+        delay: index * 0.08,
       },
     }),
   };
 
   return (
     <DefaultLayout page={page}>
-      <div className="flex flex-row md:h-screen items-center justify-center w-full p-4 md:p-16 ">
-        <div className="max-w-8xl w-full">
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-24 justify-items-center w-full">
+      <div className="flex h-screen items-center justify-center w-full px-4 md:px-16 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+          <ul className="flex items-center gap-8 md:gap-16 px-[12vw] py-8">
             <AnimatePresence>
-              {collections.map((collection, collectionIndex) => {
-                const maxWidthClass = getMaxWidthClass(collections.length);
+              {visibleCollections.map((collection, collectionIndex) => {
                 const imageCount = collection.imageCount || 0;
+                const edgeOffsetClass =
+                  collectionIndex === 0
+                    ? "-ml-[10vw]"
+                    : collectionIndex === visibleCollections.length - 1
+                    ? "mr-[10vw]"
+                    : "";
                 return (
                   <motion.li
                     key={collectionIndex}
-                    className={`flex flex-col items-center text-right relative group`}
+                    className={`snap-start flex flex-col items-center text-right relative group min-w-[18vw] md:min-w-[12vw] ${edgeOffsetClass}`}
                     onMouseEnter={() => handleMouseEnter(collectionIndex)}
                     onMouseLeave={handleMouseLeave}
                     ref={(el) => (hoverRefs.current[collectionIndex] = el)}
-                    data-index={collectionIndex}
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
@@ -137,39 +98,28 @@ function HomePage({ page, collections }) {
                     <Link href={`/collection/${collection.slug}`} passHref>
                       <motion.div
                         layoutId={`collection-${collection.slug}`}
-                        whileHover={{ scale: 1.1 }}
-                        transition={{
-                          scale: { duration: 0.2 },
-                        }}
-                        style={{ originX: "50%", originY: 0 }}
+                        whileHover={{ scale: 1.06 }}
+                        transition={{ scale: { duration: 0.2 } }}
                         className="flex flex-col relative"
                       >
                         <span
-                          className={`absolute left-0 -top-6 text-xs text-black bg-white bg-opacity-80 py-1 rounded pointer-events-none transition-opacity duration-200
-                            ${
-                              hoverIndex === collectionIndex
-                                ? "opacity-100"
-                                : "opacity-0"
-                            }`}
-                          style={{ zIndex: 2 }}
+                          className={`absolute left-0 -top-6 text-xs text-black bg-white bg-opacity-80 py-1 px-2 rounded pointer-events-none transition-opacity duration-200 ${
+                            hoverIndex === collectionIndex
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
                         >
                           {collection.title}
                         </span>
-                        <div className="relative w-full">
-                          <motion.div layoutId={`image-${collection.slug}`}>
-                            <MemoizedExportedImage
-                              src={collection.firstImagePath}
-                              alt={
-                                collection.firstImageAlt || "Collection image"
-                              }
-                            />
-                          </motion.div>
-                        </div>
-                        <div className="flex flex-row justify-end">
-                          <span className="mt-2 text-xs text-gray-700 font-mono">
-                            1/{imageCount}
-                          </span>
-                        </div>
+                        <motion.div layoutId={`image-${collection.slug}`}>
+                          <MemoizedExportedImage
+                            src={collection.firstImagePath}
+                            alt={collection.firstImageAlt || "Collection image"}
+                          />
+                        </motion.div>
+                        <span className="mt-2 text-xs text-gray-700 font-mono">
+                          1/{imageCount}
+                        </span>
                       </motion.div>
                     </Link>
                   </motion.li>
@@ -177,7 +127,6 @@ function HomePage({ page, collections }) {
               })}
             </AnimatePresence>
           </ul>
-        </div>
       </div>
     </DefaultLayout>
   );

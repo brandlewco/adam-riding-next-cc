@@ -60,7 +60,7 @@ function IndexPage({ page, collections }) {
     <DefaultLayout page={page}>
       <div className="flex flex-col md:flex-row justify-start md:h-screen">
         {/* Titles on the left */}
-        <div className="w-full md:w-1/3 p-4 overflow-y-auto">
+        <div className="absolute left-0 top-0 w-full p-4 overflow-y-auto">
           <ul className="flex flex-col gap-2">
             {collections.map((collection, collectionIndex) => (
               <motion.li
@@ -87,7 +87,7 @@ function IndexPage({ page, collections }) {
         </div>
 
         {/* Image on the right */}
-        <div className="photo md:w-2/3 w-full flex flex-col sm:flex-row sm:justify-end items-end sm:items-start relative overflow-hidden p-4">
+        <div className="photo flex flex-row justify-center items-stretch w-full h-full">
           <AnimatePresence mode="wait">
             {hoverIndex !== -1 && (
               <motion.div
@@ -96,7 +96,7 @@ function IndexPage({ page, collections }) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, delay: 0 }}
-                className="absolute right-4 top-4"
+                className="flex justify-center items-center"
               >
                 <ExportedImage
                   src={collections[hoverIndex].firstImagePath}
@@ -105,7 +105,7 @@ function IndexPage({ page, collections }) {
                   width={collections[hoverIndex].width}
                   height={collections[hoverIndex].height}
                   sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
-                  className="md:h-85vh w-full md:w-auto"
+                  className="md:h-[75vh] md:-mt-12 w-full md:w-auto"
                   style={{
                     objectFit: "contain",
                   }}
