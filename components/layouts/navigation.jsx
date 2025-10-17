@@ -31,7 +31,7 @@ const Navigation = ({ page }) => {
         className="w-full p-4 absolute bottom-0 left-0"
         id="mainnavigationBar"
       >
-        <nav className="container-fluid flex flex-row justify-between text-sm">
+        <nav className="container-fluid flex flex-row justify-between items-center text-xs uppercase tracking-widest">
           <Link
             href="/"
             className={`leading-none`}
@@ -42,7 +42,7 @@ const Navigation = ({ page }) => {
           <span className="relative flex flex-row items-end ">
             <Link
               href="/index-grid"
-              className={`leading-none`}
+              className={`text-xs uppercase tracking-widest`}
               style={{ marginRight: 4 }}
             >
               INDEX
@@ -59,7 +59,7 @@ const Navigation = ({ page }) => {
             >
               <Link
                 href="/index-grid"
-                className={`text-xs ml-1 leading-none ${
+                className={`ml-1 text-xs uppercase tracking-widest ${
                   isIndexGrid ? "text-black/80" : "text-black/40"
                 }`}
               >
@@ -68,7 +68,7 @@ const Navigation = ({ page }) => {
               <span className="text-xs text-black/40">,</span>
               <Link
                 href="/index-list"
-                className={`text-xs ml-1 leading-none ${
+                className={`ml-1 text-xs uppercase tracking-widest ${
                   isIndexList ? "text-black/80" : "text-black/40"
                 }`}
               >
@@ -78,13 +78,13 @@ const Navigation = ({ page }) => {
           </span>
           <Link
             href="/archive"
-            className={`leading-none`}
+            className={`text-xs uppercase tracking-widest`}
           >
             ARCHIVE
           </Link>
           <Link
             href="/contact"
-            className={`leading-none`}
+            className={`text-xs uppercase tracking-widest`}
           >
             CONTACT
           </Link>

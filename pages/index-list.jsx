@@ -56,6 +56,12 @@ function IndexPage({ page, collections }) {
     setHoverIndex(-1);
   }, []);
 
+  const getImageId = (imagePath) => {
+    if (!imagePath) return "image-unknown";
+    const base = imagePath.split("/").pop() || imagePath;
+    return base.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "-");
+  };
+
   return (
     <DefaultLayout page={page}>
       <div className="flex flex-col md:flex-row justify-start md:h-screen">
@@ -70,7 +76,10 @@ function IndexPage({ page, collections }) {
                 data-index={collectionIndex}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 + collectionIndex * 0.1, duration: 0.1 }}
+                transition={{
+                  delay: 0.3 + collectionIndex * 0.1,
+                  duration: 0.1,
+                }}
               >
                 <Link
                   href={`/collection/${collection.slug}`}
@@ -98,18 +107,32 @@ function IndexPage({ page, collections }) {
                 transition={{ duration: 0.3, delay: 0 }}
                 className="flex justify-center items-center"
               >
-                <ExportedImage
-                  src={collections[hoverIndex].firstImagePath}
-                  alt={collections[hoverIndex].firstImageAlt || "Collection image"}
-                  priority
-                  width={collections[hoverIndex].width}
-                  height={collections[hoverIndex].height}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
-                  className="md:h-[75vh] md:-mt-12 w-full md:w-auto"
-                  style={{
-                    objectFit: "contain",
-                  }}
-                />
+                {(() => {
+                  const current = collections[hoverIndex];
+                  const imageId = getImageId(current.firstImagePath);
+                  const aspectRatio =
+                    current.width && current.height
+                      ? `${current.width} / ${current.height}`
+                      : undefined;
+                  return (
+                    <motion.div
+                      layoutId={`image-card-${imageId}`}
+                      className="flex flex-col items-center justify-center"
+                    >
+                      <div className="flex items-center justify-center h-[70vh] md:h-85vh w-auto max-w-full">
+                        <ExportedImage
+                          src={current.firstImagePath}
+                          alt={current.firstImageAlt || "Collection image"}
+                          priority
+                          width={current.width}
+                          height={current.height}
+                          sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
+                          className="object-contain h-full w-auto max-w-full"
+                        />
+                      </div>
+                    </motion.div>
+                  );
+                })()}
               </motion.div>
             )}
           </AnimatePresence>
