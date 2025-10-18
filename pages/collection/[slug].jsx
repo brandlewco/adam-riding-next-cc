@@ -434,7 +434,7 @@ function CollectionPage({
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
-          className="fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col items-center justify-center"
+          className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
           style={{ pointerEvents: closingFromThumb ? "none" : "auto" }}
           variants={containerVariants}
           initial="hidden"
@@ -600,7 +600,7 @@ function CollectionPage({
         )}
 
         {isGalleryView && imageCount > 1 && (
-          <div className="fixed bottom-[3rem] left-0 right-0 z-40 px-4">
+          <div className="fixed bottom-[3rem] left-0 right-0 z-40 px-16 md:px-4">
             <div
               className="grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center"
               style={{

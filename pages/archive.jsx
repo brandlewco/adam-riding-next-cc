@@ -178,7 +178,7 @@ function ArchivePage({ page, photos }) {
       <LayoutGroup id="archive-layout" type="crossfade">
         <div className="h-full overflow-y-scroll">
         <motion.ul
-          className="grid grid-cols-[repeat(6,minmax(0,1fr))] sm:grid-cols-[repeat(10,minmax(0,1fr))] lg:grid-cols-[repeat(12,minmax(0,1fr))] gap-4 gap-y-32 pt-4 pl-4 pr-3 pb-24"
+          className="grid grid-cols-[repeat(5,minmax(0,1fr))] sm:grid-cols-[repeat(10,minmax(0,1fr))] lg:grid-cols-[repeat(12,minmax(0,1fr))] gap-4 gap-y-16 md:gap-y-32 pt-4 pl-4 pr-3 pb-24"
           variants={containerVariants}
           initial="hidden"
           animate={shouldAnimateThumbs ? "show" : "hidden"}

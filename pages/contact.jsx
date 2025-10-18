@@ -27,17 +27,17 @@ function ContactPage({ page }) {
 
   return (
     <DefaultLayout page={page}>
-      <div className="contact min-h-screen flex flex-col px-4 pb-24 sm:pb-0 cursor-default">
+      <div className="contact h-full min-h-screen flex flex-col p-4 pb-24 sm:pb-0 cursor-default overflow-y-scroll">
         <motion.div
           key="heading"
-          className="text-lg mb-12 w-full max-w-5xl"
+          className="text-lg mb-12 w-full max-w-5xl text-2xl"
           dangerouslySetInnerHTML={{ __html: md.render(heading) }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         />
         <div className="flex-1 flex items-center justify-end">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-32 text-right w-1/2 ">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-32 text-right w-full md:w-1/2 ">
             {columns.map((col, index) => (
               <motion.div
                 key={col.key}
