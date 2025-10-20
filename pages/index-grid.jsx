@@ -6,14 +6,22 @@ import Link from "next/link";
 import { useState, useCallback, useMemo, useEffect, useRef, memo } from "react";
 import { flushSync } from "react-dom";
 import React from "react";
-import sizeOf from "image-size";
-import path from "path";
+// Page: Collections carousel
+// - Renders a horizontally-scrolling, responsive carousel on desktop
+//   and a stacked/mobile-friendly layout on smaller viewports.
+// - Responsibilities:
+//   * measure container and compute card dimensions
+//   * drive framer-motion `controls` to animate the track
+//   * provide keyboard/wheel/touch navigation and hover previews
+//   * expose next/prev controls and mobile condensed buttons
 
 const filer = new Filer({ path: "content" });
 
 const INTRO_IDLE = "idle";
 const INTRO_PLAYING = "playing";
 const INTRO_DONE = "done";
+// NOTE: intro state controls a short staggered reveal so the track settles
+//       before cards become fully visible (prevents visual jump).
 
 const getImageId = (imagePath) => {
   if (!imagePath) return "image-unknown";
@@ -37,6 +45,11 @@ const MemoizedExportedImage = memo(
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
 function HomePage({ page, collections }) {
+	// Component responsibilities summary:
+	// - compute responsive card sizes (cardWidth, cardGap)
+	// - keep the sliding track position in `controls` (framer-motion)
+	// - handle user input (wheel, pointer, keyboard, touch)
+	// - expose next/prev controls and mobile condensed buttons
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeDirection, setActiveDirection] = useState(null);
@@ -54,6 +67,8 @@ function HomePage({ page, collections }) {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    // ResizeObserver: keeps containerWidth up to date so the card size
+    // calculations remain accurate across resizes / orientation changes.
     const observer = new ResizeObserver((entries) => {
       if (!entries.length) return;
       setContainerWidth(entries[0].contentRect.width);
@@ -216,6 +231,13 @@ function HomePage({ page, collections }) {
 
   const shiftCarousel = useCallback(
     (direction) => {
+      // Shift the visible window by one card in `direction`.
+      // Steps:
+      // 1) guard early (no-op if animating or insufficient data)
+      // 2) set active direction to influence which extra card is rendered
+      // 3) animate track (framer-motion controls)
+      // 4) when animation completes, update currentIndex and reset track
+      // This avoids a big re-layout and keeps the visual motion smooth.
       if (
         totalCollections <= 1 ||
         !cardWidth ||

@@ -76,6 +76,12 @@ const getImageId = (imagePath) => {
   return base.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "-");
 };
 
+// Page: Collection detail + gallery
+// - Shows a single collection of photos.
+// - If the page was reached from an index-like source, it behaves like a gallery:
+//   providing thumbnails, shared-element transitions and gallery controls.
+// - Uses a single shared layoutId per image (`image-media-<id>`) to enable stable
+//   crossfades between thumbnails and full view while avoiding duplicated layout measurement.
 function CollectionPage({
   page,
   source,
@@ -103,6 +109,21 @@ function CollectionPage({
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [hoverHalf, setHoverHalf] = useState(null);
   const [closingFromThumb, setClosingFromThumb] = useState(false);
+  // Holds the id of the thumbnail that initiated a transition so that
+  // the thumbnail keeps the shared layoutId while the overlay closes.
+  const [transitioningThumbId, setTransitioningThumbId] = useState(null);
+  // Controls whether the thumbs overlay should play its "show" variant.
+  // We set this the frame after the overlay mounts so Safari doesn't paint the thumbs
+  // before Framer applies the hidden->show animation (prevents the flash).
+  const [overlayAnimate, setOverlayAnimate] = useState(false);
+  // Ensure the overlay only animates in after it's mounted (one RAF tick).
+  // Do not immediately clear this when showThumbs flips false — we let the
+  // AnimatePresence exit run and then clear overlayAnimate via onExitComplete.
+  useEffect(() => {
+    if (!showThumbs) return;
+    const id = requestAnimationFrame(() => setOverlayAnimate(true));
+    return () => cancelAnimationFrame(id);
+  }, [showThumbs]);
 
   const isGalleryView = gallerySources.has(source);
   const galleryStripSize = 16;
@@ -189,7 +210,10 @@ function CollectionPage({
   // 1) handle area click
   const handleAreaClick = useCallback(
     (area) => {
-      // Special case: on home page (index.jsx, source === "home"), loop within overview collection only
+      // Click logic:
+      // - on "right": advance the photo or navigate to next collection when at the end
+      // - on "left": go to previous photo or previous collection when at the start
+      // - special-case for 'home' source: treat collection as a circular small gallery
       if (source === "home") {
         if (area === "right") {
           setDirection("right");
@@ -252,10 +276,18 @@ function CollectionPage({
 
   const handleThumbnailSelect = useCallback((index, event) => {
     if (event) event.stopPropagation();
+    // mark the clicked thumb so it receives the shared layoutId immediately
+    const block = page.data.content_blocks[index];
+    const thumbId = getImageId(block?.image_path);
+    setTransitioningThumbId(thumbId);
     setDirection("");
-    setCurrentImage(index);
-    setClosingFromThumb(true);
-  }, []);
+    // wait one frame so the layoutId is rendered on the thumb, then set the target image
+    // and start the overlay-close — this ensures Safari sees the shared element.
+    requestAnimationFrame(() => {
+      setCurrentImage(index);
+      setClosingFromThumb(true);
+    });
+  }, [page.data.content_blocks]);
 
   // 3) handle area hover => set hoveredArea
   const handleAreaHover = useCallback((area) => {
@@ -317,6 +349,10 @@ function CollectionPage({
       : { aspectRatio: "4 / 3" };
 
   const MainImageSection = isGalleryView ? (
+    // Gallery-mode main image section:
+    // - Contains the main `image-media-<id>` element used as the single shared layoutId
+    // - Constrain the media container with max-height (70vh / 85vh) to avoid Safari stretching
+    // - Keep min-w-0 on flex children so Safari doesn't collapse these to 0px
     <AnimatePresence custom={direction} mode="wait">
       <motion.div
         key={currentImage}
@@ -331,10 +367,8 @@ function CollectionPage({
       >
         <section className="flex justify-center items-stretch md:h-[75vh] md:-mt-12 w-full">
           <motion.div
-            layout
-            layoutId={`image-card-${currentImageId}`}
-            className="flex justify-center"
-            style={{ transformOrigin: "50% 0%" }}
+            className="flex justify-center w-full min-w-0"
+            style={{ transformOrigin: "50% 0%", minWidth: 0, willChange: "transform, opacity" }}
             onLayoutAnimationComplete={() => {
               if (closingFromThumb && showThumbs) {
                 setShowThumbs(false);
@@ -343,13 +377,14 @@ function CollectionPage({
             }}
           >
             <motion.div
-              layout
               layoutId={`image-media-${currentImageId}`}
-              className="flex items-center justify-center w-full"
+              className="flex items-center justify-center w-full min-w-0 max-h-[70vh] md:max-h-[85vh] overflow-hidden"
               transition={{ duration: 0.45, ease: "easeInOut" }}
               style={{
                 width: "100%",
                 transformOrigin: "50% 0%",
+                minWidth: 0,
+                willChange: "transform, opacity",
                 ...detailAspectStyle,
               }}
             >
@@ -366,6 +401,8 @@ function CollectionPage({
       </motion.div>
     </AnimatePresence>
   ) : (
+    // Default single-collection layout:
+    // - same media element but arranged slightly differently for non-gallery pages
     <AnimatePresence custom={direction} mode="wait">
       <motion.div
         key={currentImage}
@@ -380,25 +417,27 @@ function CollectionPage({
       >
         <section className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end relative h-[70vh] md:h-85vh w-full md:w-auto">
           <motion.div
-            layout
-            layoutId={`image-card-${currentImageId}`}
-            className="flex justify-center w-full"
-            style={{ transformOrigin: "50% 0%" }}
+            className="flex justify-center w-full min-w-0"
+            style={{ transformOrigin: "50% 0%", minWidth: 0, willChange: "transform, opacity" }}
             onLayoutAnimationComplete={() => {
               if (closingFromThumb && showThumbs) {
                 setShowThumbs(false);
                 setClosingFromThumb(false);
               }
+              // clear the transitional thumb id once the main view animation finishes
+              // so the thumbnail no longer carries the shared layoutId.
+              setTransitioningThumbId(null);
             }}
           >
             <motion.div
-              layout
               layoutId={`image-media-${currentImageId}`}
-              className="flex items-center justify-center w-full"
+              className="flex items-center justify-center w-full min-w-0 max-h-[70vh] md:max-h-[85vh] overflow-hidden"
               transition={{ duration: 0.45, ease: "easeInOut" }}
               style={{
                 width: "100%",
                 transformOrigin: "50% 0%",
+                minWidth: 0,
+                willChange: "transform, opacity",
                 ...detailAspectStyle,
               }}
             >
@@ -430,15 +469,29 @@ function CollectionPage({
   );
 
   const ThumbsOverlay = isGalleryView && (
-    <AnimatePresence>
+    // Thumbnails overlay:
+    // - full-screen overlay with a grid of thumbs
+    // - clicking a thumb sets `currentImage` and triggers a shared-element animation back
+    // - using a single `image-media-<thumbId>` layoutId on the thumbnail helps stability
+    <AnimatePresence
+      // after all exit animations complete, clear the overlayAnimate flag so next open starts hidden
+      onExitComplete={() => setOverlayAnimate(false)}
+    >
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
-          className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
-          style={{ pointerEvents: closingFromThumb ? "none" : "auto" }}
+          className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center opacity-0"
+          // start fully hidden to avoid a brief paint of loaded images in Safari,
+          // Framer will override this when animating to "show".
+          style={{
+            pointerEvents: closingFromThumb ? "none" : "auto",
+            willChange: "opacity, transform",
+            WebkitBackfaceVisibility: "hidden",
+            backfaceVisibility: "hidden",
+          }}
           variants={containerVariants}
           initial="hidden"
-          animate="show"
+          animate={overlayAnimate ? "show" : "hidden"}
           exit="exit"
         >
           <div
@@ -472,44 +525,43 @@ function CollectionPage({
                 {page.data.content_blocks.map((block, idx) => {
                   const thumbId = getImageId(block.image_path);
                   const isCurrentThumb = idx === currentImage;
+                  const layoutId =
+                    isCurrentThumb || transitioningThumbId === thumbId
+                      ? `image-media-${thumbId}`
+                      : undefined;
+
                   return (
                     <motion.div
                       key={idx}
                       variants={thumbVariants}
                       onClick={(e) => handleThumbnailSelect(idx, e)}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.33 }}
                       whileHover={{ scale: 1.1 }}
-                      className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto h-24 md:h-48"
+                      className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto h-24 md:h-48 inline-flex items-center justify-center min-w-0"
                       style={{
                         overflow: "visible",
+                        willChange: "opacity, transform",
+                        // keep the thumb's bounding box the same aspect ratio as the image
+                        ...(block.width && block.height
+                          ? { aspectRatio: `${block.width} / ${block.height}` }
+                          : {}),
                       }}
+                      layoutId={
+                        // give the thumb the layoutId if it is the current thumb
+                        // or it's the thumb that just initiated a transition.
+                        isCurrentThumb || transitioningThumbId === thumbId
+                          ? `image-media-${thumbId}`
+                          : undefined
+                      }
                     >
-                      <motion.div
-                        layoutId={
-                          isCurrentThumb ? `image-card-${thumbId}` : undefined
-                        }
-                        className="inline-flex"
-                      >
-                        <motion.div
-                          layoutId={
-                            isCurrentThumb
-                              ? `image-media-${thumbId}`
-                              : undefined
-                          }
-                          className="inline-flex"
-                        >
-                          <ExportedImage
-                            src={block.image_path}
-                            alt={block.alt_text || "Thumbnail"}
-                            width={block.width}
-                            height={block.height}
-                            sizes="(max-width:640px)30vw,10vw"
-                            className="w-full h-full object-contain"
-                          />
-                        </motion.div>
-                      </motion.div>
+                      <ExportedImage
+                        src={block.image_path}
+                        alt={block.alt_text || "Thumbnail"}
+                        width={block.width}
+                        height={block.height}
+                        sizes="(max-width:640px)30vw,10vw"
+                        className="w-full h-full object-contain"
+                        style={{ display: "block" }}
+                      />
                     </motion.div>
                   );
                 })}
@@ -523,9 +575,9 @@ function CollectionPage({
 
   /**
    * Preloading logic:
-   *  - next/prev image in same collection
-   *  - nextFirstImage if boundary + hovered on right
-   *  - prevFirstImage if boundary + hovered on left
+   *  - preload adjacent images in the same collection
+   *  - preload next/prev collection's first image when hovering at boundaries
+   *  - HiddenPreloadImage is used to insert tiny <img> into the DOM for prefetch
    */
   const nextImageInSameCollection =
     currentImage < imageCount - 1
@@ -539,7 +591,8 @@ function CollectionPage({
 
   return (
     <DefaultLayout page={page}>
-      <LayoutGroup id="collection-layout">
+      <LayoutGroup id="collection-layout" type="crossfade">
+        {/* Controls & overlay rendering */}
         {isGalleryView ? (
           <>
             <div className="fixed top-4 left-4 text-sm leading-none z-40 pointer-events-none">

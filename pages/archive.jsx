@@ -7,6 +7,12 @@ import path from "path";
 import { useState, useCallback, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 
+// Page: Archive gallery
+// - Renders a grid of archived photos.
+// - Clicking a thumbnail opens a crossfading/lightbox overlay.
+// - Supports keyboard navigation, swipe gestures, and shared-element transitions
+//   (the image's `layoutId` is used to animate between the thumb and the overlay).
+
 const filer = new Filer({ path: "content" });
 
 const getImageId = (imagePath) => {
@@ -42,6 +48,12 @@ const thumbVariants = {
 const CLOSE_ANIMATION_TIMEOUT = 520;
 
 function ArchivePage({ page, photos }) {
+  // Lightbox / overlay state summary:
+  // - currentIndex: index of photo shown in overlay, null when closed
+  // - sharedId: used to keep a consistent layoutId for shared-element transitions
+  // - closingToThumb / pendingClose: flags to drive the closing animation and cleanup
+  // - shouldAnimateThumbs: small hydration-driven flag to trigger staggered thumb animation
+
   const [currentIndex, setCurrentIndex] = useState(null);
   const [direction, setDirection] = useState("");
   const [hoverHalf, setHoverHalf] = useState(null);
@@ -53,6 +65,10 @@ function ArchivePage({ page, photos }) {
 
   const handleOpen = useCallback(
     (index) => {
+      // Open the overlay:
+      // - set sharedId to the thumbnail id so the motion `layoutId` can match
+      // - clear any pending close flags
+      // - set the current index and reset direction
       const imageId = getImageId(photos[index].image_path);
       setSharedId(imageId);
       setClosingToThumb(false);
@@ -64,6 +80,9 @@ function ArchivePage({ page, photos }) {
   );
 
   const handleClose = useCallback(() => {
+    // Start close animation back to thumbnail:
+    // - set sharedId so the overlay can animate back to the thumb's layoutId
+    // - set closing and pending flags to handle cleanup after animation
     if (currentIndex === null) return;
     const imageId = getImageId(photos[currentIndex].image_path);
     setSharedId(imageId);
@@ -176,6 +195,7 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <LayoutGroup id="archive-layout" type="crossfade">
+        {/* Thumbnails grid */}
         <div className="h-full overflow-y-scroll">
         <motion.ul
           className="grid grid-cols-[repeat(5,minmax(0,1fr))] sm:grid-cols-[repeat(10,minmax(0,1fr))] lg:grid-cols-[repeat(12,minmax(0,1fr))] gap-4 gap-y-16 md:gap-y-32 pt-4 pl-4 pr-3 pb-24"
@@ -184,44 +204,46 @@ function ArchivePage({ page, photos }) {
           animate={shouldAnimateThumbs ? "show" : "hidden"}
         >
           {photos.map((photo, index) => {
-            const imageId = getImageId(photo.image_path);
-            const cardLayoutId = `image-card-${imageId}`;
+             const imageId = getImageId(photo.image_path);
             const mediaLayoutId = `image-media-${imageId}`;
 
-            return (
-              <motion.li key={index} variants={thumbVariants} className="relative pb-10"> 
-                <motion.button
-                  type="button"
-                  onClick={() => handleOpen(index)}
-                  className="w-full focus:outline-none"
-                >
+             return (
+               <motion.li key={index} variants={thumbVariants} className="relative pb-10"> 
+                 <motion.button
+                   type="button"
+                   onClick={() => handleOpen(index)}
+                   className="w-full focus:outline-none"
+                 >
                   <motion.div
-                    layoutId={cardLayoutId}
                     className="w-full"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <motion.div layoutId={mediaLayoutId} className="w-full">
-                      <ExportedImage
-                        src={photo.image_path}
-                        alt={photo.alt_text || "Archive image"}
-                        width={photo.width}
-                        height={photo.height}
-                        className="w-full h-full object-contain"
-                      />
-                    </motion.div>
+                    <motion.div layoutId={mediaLayoutId} className="w-full min-w-0">
+                       <ExportedImage
+                         src={photo.image_path}
+                         alt={photo.alt_text || "Archive image"}
+                         width={photo.width}
+                         height={photo.height}
+                         className="w-full h-full object-contain"
+                       />
+                     </motion.div>
                   </motion.div>
-                  <span className="absolute bottom-0 right-0 mt-3 block text-right text-xs tracking-wide">
-                    {index + 1}
-                  </span>
-                </motion.button>
-              </motion.li>
-            );
-          })}
+                   <span className="absolute bottom-0 right-0 mt-3 block text-right text-xs tracking-wide">
+                     {index + 1}
+                   </span>
+                 </motion.button>
+               </motion.li>
+             );
+           })}
         </motion.ul>
         </div>
 
         <AnimatePresence>
           {activePhoto && (
+            // Overlay:
+            // - full-screen fixed overlay
+            // - shared-element transition: overlay image uses same `layoutId` as thumb
+            // - swipe / mouse left-right regions and mobile buttons available
             <motion.div
               key="archive-overlay"
               className="fixed inset-0 z-40 flex items-center justify-center bg-white"
@@ -308,12 +330,8 @@ function ArchivePage({ page, photos }) {
                     {...swipeHandlers}
                   >
                     <motion.div
-                      layoutId={
-                        isSharedActiveImage
-                          ? `image-card-${activeImageId}`
-                          : undefined
-                      }
-                      className="flex justify-center w-full"
+                      className="flex justify-center w-full min-w-0"
+                      style={{ minWidth: 0, willChange: "transform, opacity" }}
                       onLayoutAnimationComplete={() => {
                         if (closingToThumb && pendingClose) {
                           setPendingClose(false);
@@ -326,13 +344,10 @@ function ArchivePage({ page, photos }) {
                       }}
                     >
                       <motion.div
-                        layoutId={
-                          isSharedActiveImage
-                            ? `image-media-${activeImageId}`
-                            : undefined
-                        }
-                        className="flex items-center justify-center"
+                        layoutId={isSharedActiveImage ? `image-media-${activeImageId}` : undefined}
+                        className="flex items-center justify-center min-w-0"
                         transition={{ duration: 0.45, ease: "easeInOut" }}
+                        style={{ willChange: "transform, opacity" }}
                       >
                         <ExportedImage
                           src={activePhoto.image_path}
@@ -340,6 +355,7 @@ function ArchivePage({ page, photos }) {
                           width={activePhoto.width}
                           height={activePhoto.height}
                           className="max-h-[80vh] w-auto object-contain"
+                          style={{ display: "block" }}
                         />
                       </motion.div>
                     </motion.div>

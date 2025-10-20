@@ -11,7 +11,20 @@ import path from "path";
 
 const filer = new Filer({ path: "content" });
 
+/*
+Page: Index (list) overview
+- Shows a vertical list of collection titles on the left.
+- Hovering a title shows the collection's first image on the right using
+  an AnimatePresence fade and a shared layoutId for cross-page animations.
+- Key responsibilities: prefetch image dimensions, maintain hover refs,
+  and center/contain preview images at a constrained height (70vh / 85vh).
+*/
+
 function IndexPage({ page, collections }) {
+  // Hover logic:
+  // - hoverIndex: which title is hovered
+  // - hoverRefs: DOM refs to the title items used for transform origin tweaks
+  // - dimensions: used when preloading image sizes on hover
   const router = useRouter();
   const [hoverIndex, setHoverIndex] = useState(-1);
   const hoverRefs = useRef([]);
@@ -39,6 +52,7 @@ function IndexPage({ page, collections }) {
 
   const handleMouseEnter = useCallback(
     (index) => {
+      // Preload image and measure natural size (used for sizing / aspect hints)
       setHoverIndex(index);
       const img = new Image();
       img.src = collections[index].firstImagePath;
@@ -64,6 +78,7 @@ function IndexPage({ page, collections }) {
 
   return (
     <DefaultLayout page={page}>
+      {/* left: titles; right: preview image */}
       <div className="flex flex-col md:flex-row justify-start md:h-screen">
         {/* Titles on the left */}
         <div className="absolute left-0 top-0 w-full p-4 overflow-y-auto">
@@ -116,20 +131,19 @@ function IndexPage({ page, collections }) {
                       : undefined;
                   return (
                     <motion.div
-                      layoutId={`image-card-${imageId}`}
-                      className="flex flex-col items-center justify-center"
+                      layoutId={`image-media-${imageId}`}
+                      className="flex flex-col items-center h-[70vh] md:h-85vh min-w-0"
+                      style={{ minWidth: 0, willChange: "transform, opacity" }}
                     >
-                      <div className="flex items-center justify-center h-[70vh] md:h-85vh w-auto max-w-full">
-                        <ExportedImage
-                          src={current.firstImagePath}
-                          alt={current.firstImageAlt || "Collection image"}
-                          priority
-                          width={current.width}
-                          height={current.height}
-                          sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
-                          className="object-contain h-full w-auto max-w-full"
-                        />
-                      </div>
+                      <ExportedImage
+                        src={current.firstImagePath}
+                        alt={current.firstImageAlt || "Collection image"}
+                        priority
+                        width={current.width}
+                        height={current.height}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
+                        className="object-contain h-full w-auto max-w-full"
+                      />
                     </motion.div>
                   );
                 })()}
