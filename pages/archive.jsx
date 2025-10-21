@@ -168,13 +168,12 @@ useEffect(() => {
   if (currentIndex !== null && transitionType === "shared") {
     const id = requestAnimationFrame(() => {
       setTransitionType("slider");
-      // Once we're in slider mode, ensure no shared target is present
-      // so pagination never tries to animate back to a thumb.
       setSharedId(null);
     });
     return () => cancelAnimationFrame(id);
   }
 }, [currentIndex, transitionType]);
+
 
 
   const activePhoto = currentIndex === null ? null : photos[currentIndex];
@@ -229,6 +228,9 @@ useEffect(() => {
               const imageId = getImageId(photo.image_path);
               const mediaLayoutId = `image-media-${imageId}`;
 
+              const isActiveThumb =
+                currentIndex !== null && sharedId === imageId && transitionType === "shared";
+
               return (
                 <motion.li key={index} variants={thumbVariants} className="relative pb-10">
                   <motion.button
@@ -237,13 +239,22 @@ useEffect(() => {
                     className="w-full focus:outline-none"
                   >
                     <motion.div className="w-full" whileHover={{ scale: 1.1 }}>
-                      <motion.div layoutId={mediaLayoutId} className="w-full min-w-0">
+                      {/* IMPORTANT: same element that has layoutId also sets a fixed aspect ratio,
+                        and we hide it during the shared transition */}
+                      <motion.div
+                        layoutId={mediaLayoutId}
+                        className="relative w-full min-w-0"
+                        style={{
+                          aspectRatio: `${photo.width} / ${photo.height}`,
+                          visibility: isActiveThumb ? "hidden" : "visible",
+                        }}
+                      >
                         <ExportedImage
                           src={photo.image_path}
                           alt={photo.alt_text || "Archive image"}
                           width={photo.width}
                           height={photo.height}
-                          className="w-full h-full object-contain"
+                          className="absolute inset-0 w-full h-full object-contain"
                         />
                       </motion.div>
                     </motion.div>
@@ -254,6 +265,7 @@ useEffect(() => {
                 </motion.li>
               );
             })}
+
           </motion.ul>
         </div>
 

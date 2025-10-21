@@ -109,16 +109,15 @@ function CollectionPage({
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [hoverHalf, setHoverHalf] = useState(null);
   const [closingFromThumb, setClosingFromThumb] = useState(false);
-  // Holds the id of the thumbnail that initiated a transition so that
-  // the thumbnail keeps the shared layoutId while the overlay closes.
+
+  // NEW: when opening overlay (slide -> grid) we briefly hide the slide during the shared pass
+  const [openingToThumb, setOpeningToThumb] = useState(false);
+
+  // Holds the id involved in the shared transition (thumb or slide)
   const [transitioningThumbId, setTransitioningThumbId] = useState(null);
+
   // Controls whether the thumbs overlay should play its "show" variant.
-  // We set this the frame after the overlay mounts so Safari doesn't paint the thumbs
-  // before Framer applies the hidden->show animation (prevents the flash).
   const [overlayAnimate, setOverlayAnimate] = useState(false);
-  // Ensure the overlay only animates in after it's mounted (one RAF tick).
-  // Do not immediately clear this when showThumbs flips false — we let the
-  // AnimatePresence exit run and then clear overlayAnimate via onExitComplete.
   useEffect(() => {
     if (!showThumbs) return;
     const id = requestAnimationFrame(() => setOverlayAnimate(true));
@@ -189,31 +188,9 @@ function CollectionPage({
     }
   }, [router.query.image, imageCount]);
 
-  // SVG for the "thumbnails" button
-  const ThumbnailsIcon = (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 24.01 24.01"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ display: "inline", verticalAlign: "middle" }}
-      aria-hidden="true"
-      focusable="false"
-    >
-      <rect fill="#010101" width="10" height="10" />
-      <rect fill="#010101" y="14.01" width="10" height="10" />
-      <rect fill="#010101" x="14.01" y="14.01" width="10" height="10" />
-      <rect fill="#010101" x="14.01" width="10" height="10" />
-    </svg>
-  );
-
   // 1) handle area click
   const handleAreaClick = useCallback(
     (area) => {
-      // Click logic:
-      // - on "right": advance the photo or navigate to next collection when at the end
-      // - on "left": go to previous photo or previous collection when at the start
-      // - special-case for 'home' source: treat collection as a circular small gallery
       if (source === "home") {
         if (area === "right") {
           setDirection("right");
@@ -226,7 +203,6 @@ function CollectionPage({
       }
       if (area === "right") {
         if (currentImage === imageCount - 1) {
-          // last image => go next collection => direction='down', ?image=0
           if (nextSlug) {
             router.push(
               {
@@ -242,7 +218,6 @@ function CollectionPage({
         }
       } else if (area === "left") {
         if (currentImage === 0) {
-          // first image => go prev collection => direction='up', ?image=0
           if (prevSlug) {
             router.push(
               {
@@ -261,7 +236,7 @@ function CollectionPage({
     [currentImage, imageCount, nextSlug, prevSlug, router, source]
   );
 
-
+  // When closing by clicking a thumb in the overlay, delay unmount so Framer can morph
   useEffect(() => {
     if (!closingFromThumb || !showThumbs) return;
     let rafId = requestAnimationFrame(() => {
@@ -274,20 +249,21 @@ function CollectionPage({
     return () => cancelAnimationFrame(rafId);
   }, [closingFromThumb, showThumbs]);
 
-  const handleThumbnailSelect = useCallback((index, event) => {
-    if (event) event.stopPropagation();
-    // mark the clicked thumb so it receives the shared layoutId immediately
-    const block = page.data.content_blocks[index];
-    const thumbId = getImageId(block?.image_path);
-    setTransitioningThumbId(thumbId);
-    setDirection("");
-    // wait one frame so the layoutId is rendered on the thumb, then set the target image
-    // and start the overlay-close — this ensures Safari sees the shared element.
-    requestAnimationFrame(() => {
-      setCurrentImage(index);
-      setClosingFromThumb(true);
-    });
-  }, [page.data.content_blocks]);
+  // Select a thumbnail: morph back to slider and hide the clicked thumb during pass
+  const handleThumbnailSelect = useCallback(
+    (index, event) => {
+      if (event) event.stopPropagation();
+      const block = page.data.content_blocks[index];
+      const thumbId = getImageId(block?.image_path);
+      setTransitioningThumbId(thumbId);
+      setDirection("");
+      requestAnimationFrame(() => {
+        setCurrentImage(index);
+        setClosingFromThumb(true);
+      });
+    },
+    [page.data.content_blocks]
+  );
 
   // 3) handle area hover => set hoveredArea
   const handleAreaHover = useCallback((area) => {
@@ -299,8 +275,11 @@ function CollectionPage({
     (evt) => {
       if (evt.key === "ArrowRight") handleAreaClick("right");
       else if (evt.key === "ArrowLeft") handleAreaClick("left");
+      else if (evt.key === "Escape" && showThumbs) {
+        setShowThumbs(false);
+      }
     },
-    [handleAreaClick]
+    [handleAreaClick, showThumbs]
   );
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -339,7 +318,7 @@ function CollectionPage({
     }),
   };
 
-  // Main image section with title/caption and controls (default view only, home page)
+  // Main image data
   const currentBlock = page.data.content_blocks[currentImage] || {};
   const currentImageId =
     getImageId(currentBlock.image_path) || `${page.data.slug}-${currentImage}`;
@@ -347,6 +326,9 @@ function CollectionPage({
     currentBlock.width && currentBlock.height
       ? { aspectRatio: `${currentBlock.width} / ${currentBlock.height}` }
       : { aspectRatio: "4 / 3" };
+
+  // Hide the slide ONLY during the “open overlay” shared pass (prevents double)
+  const hideSlideForSharedOpen = openingToThumb && transitioningThumbId === currentImageId;
 
   const MainImageSection = isGalleryView ? (
     // Slider view (default view for [slug].jsx):
@@ -368,6 +350,7 @@ function CollectionPage({
           style={{
             aspectRatio: `${currentBlock.width} / ${currentBlock.height}`,
             maxHeight: "75vh",
+            visibility: hideSlideForSharedOpen ? "hidden" : "visible",
           }}
           transition={{ duration: 0.45, ease: "easeInOut" }}
         >
@@ -377,7 +360,12 @@ function CollectionPage({
             width={currentBlock.width}
             height={currentBlock.height}
             className="absolute inset-0 w-full h-full object-contain"
-            style={{ display: "block" }}
+            /* prevent the library’s blur/cover inline background from ever showing */
+            style={{ display: "block", backgroundImage: "none", background: "transparent" }}
+            /* keep lazy loading, but with deterministic width hints for correct srcset pick */
+            loading="lazy"
+            decoding="async"
+            placeholder="empty"
           />
         </motion.div>
       </motion.div>
@@ -386,9 +374,7 @@ function CollectionPage({
 
   const ThumbsOverlay = isGalleryView && (
     // Thumbnails overlay (popup view for [slug].jsx):
-    <AnimatePresence
-      onExitComplete={() => setOverlayAnimate(false)}
-    >
+    <AnimatePresence onExitComplete={() => setOverlayAnimate(false)}>
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
@@ -436,27 +422,24 @@ function CollectionPage({
               {page.data.content_blocks.map((block, idx) => {
                 const thumbId = getImageId(block.image_path);
 
+                // NEW: hide the active thumb during the shared close (prevents the double)
+                const isActiveThumb = closingFromThumb && transitioningThumbId === thumbId;
+
                 return (
-                  <motion.li
-                    key={idx}
-                    variants={thumbVariants}
-                    className="relative pb-10"
-                  >
+                  <motion.li key={idx} variants={thumbVariants} className="relative pb-10">
                     <motion.button
                       type="button"
                       onClick={(e) => handleThumbnailSelect(idx, e)}
                       className="w-full focus:outline-none"
                     >
-                      <motion.div
-                        className="w-full"
-                        whileHover={{ scale: 1.1 }}
-                      >
+                      <motion.div className="w-full" whileHover={{ scale: 1.1 }}>
                         <motion.div
                           layoutId={`image-media-${thumbId}`}
                           className="w-full min-w-0"
                           style={{
                             aspectRatio: `${block.width} / ${block.height}`,
                             maxHeight: "100%",
+                            visibility: isActiveThumb ? "hidden" : "visible",
                           }}
                         >
                           <ExportedImage
@@ -466,6 +449,11 @@ function CollectionPage({
                             height={block.height}
                             sizes="(max-width:640px)30vw,10vw"
                             className="w-full h-full object-contain"
+                            /* also remove blur/bg on thumbs */
+                            style={{ display: "block", backgroundImage: "none", background: "transparent" }}
+                            placeholder="empty"
+                            loading="lazy"
+                            decoding="async"
                           />
                         </motion.div>
                       </motion.div>
@@ -482,9 +470,6 @@ function CollectionPage({
 
   /**
    * Preloading logic:
-   *  - preload adjacent images in the same collection
-   *  - preload next/prev collection's first image when hovering at boundaries
-   *  - HiddenPreloadImage is used to insert tiny <img> into the DOM for prefetch
    */
   const nextImageInSameCollection =
     currentImage < imageCount - 1
@@ -508,9 +493,23 @@ function CollectionPage({
             <button
               className="fixed top-4 right-4 text-sm leading-none z-40 bg-white bg-opacity-80 hover:bg-opacity-100 transition"
               onClick={() => {
-                setClosingFromThumb(false);
-                setShowThumbs((prev) => !prev);
                 setDirection("");
+                if (!showThumbs) {
+                  // mark the current slide’s id, so we can hide the slide during the shared pass
+                  const activeId = getImageId(
+                    page.data.content_blocks[currentImage]?.image_path
+                  );
+                  setTransitioningThumbId(activeId);
+                  setOpeningToThumb(true);
+                  setShowThumbs(true);
+                  // release the flag after the snapshot window
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => setOpeningToThumb(false));
+                  });
+                } else {
+                  setClosingFromThumb(false);
+                  setShowThumbs(false);
+                }
               }}
             >
               {showThumbs ? "Close" : "Thumbnail"}

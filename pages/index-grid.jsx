@@ -6,22 +6,14 @@ import Link from "next/link";
 import { useState, useCallback, useMemo, useEffect, useRef, memo } from "react";
 import { flushSync } from "react-dom";
 import React from "react";
-// Page: Collections carousel
-// - Renders a horizontally-scrolling, responsive carousel on desktop
-//   and a stacked/mobile-friendly layout on smaller viewports.
-// - Responsibilities:
-//   * measure container and compute card dimensions
-//   * drive framer-motion `controls` to animate the track
-//   * provide keyboard/wheel/touch navigation and hover previews
-//   * expose next/prev controls and mobile condensed buttons
+import sizeOf from "image-size";
+import path from "path";
 
 const filer = new Filer({ path: "content" });
 
 const INTRO_IDLE = "idle";
 const INTRO_PLAYING = "playing";
 const INTRO_DONE = "done";
-// NOTE: intro state controls a short staggered reveal so the track settles
-//       before cards become fully visible (prevents visual jump).
 
 const getImageId = (imagePath) => {
   if (!imagePath) return "image-unknown";
@@ -45,11 +37,6 @@ const MemoizedExportedImage = memo(
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
 function HomePage({ page, collections }) {
-	// Component responsibilities summary:
-	// - compute responsive card sizes (cardWidth, cardGap)
-	// - keep the sliding track position in `controls` (framer-motion)
-	// - handle user input (wheel, pointer, keyboard, touch)
-	// - expose next/prev controls and mobile condensed buttons
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeDirection, setActiveDirection] = useState(null);
@@ -67,8 +54,6 @@ function HomePage({ page, collections }) {
 
   useEffect(() => {
     if (!containerRef.current) return;
-    // ResizeObserver: keeps containerWidth up to date so the card size
-    // calculations remain accurate across resizes / orientation changes.
     const observer = new ResizeObserver((entries) => {
       if (!entries.length) return;
       setContainerWidth(entries[0].contentRect.width);
@@ -231,13 +216,6 @@ function HomePage({ page, collections }) {
 
   const shiftCarousel = useCallback(
     (direction) => {
-      // Shift the visible window by one card in `direction`.
-      // Steps:
-      // 1) guard early (no-op if animating or insufficient data)
-      // 2) set active direction to influence which extra card is rendered
-      // 3) animate track (framer-motion controls)
-      // 4) when animation completes, update currentIndex and reset track
-      // This avoids a big re-layout and keeps the visual motion smooth.
       if (
         totalCollections <= 1 ||
         !cardWidth ||
@@ -410,8 +388,8 @@ function HomePage({ page, collections }) {
                             >
                               <Link href={`/collection/${collection.slug}`}>
                                 <motion.div
-                                  // keep the card wrapper as a normal element (no layout),
-                                  // to avoid extra shared-element matches that interfere with the carousel.
+                                  layout
+                                  layoutId={`image-card-${imageId}`}
                                   whileHover={{ scale: 1.03 }}
                                   transition={{ scale: { duration: 0.2 } }}
                                   className="flex flex-col items-center w-full"
@@ -428,19 +406,17 @@ function HomePage({ page, collections }) {
                                     {collection.title}
                                   </span>
                                   <motion.div
-                                    // single shared element for image transitions
+                                    layout
                                     layoutId={`image-media-${imageId}`}
-                                    transition={{ duration: 0.45, ease: "easeInOut" }}
-                                    className="flex items-center justify-center w-full min-w-0"
+                                    transition={{
+                                      duration: 0.45,
+                                      ease: "easeInOut",
+                                    }}
+                                    className="flex items-center justify-center w-full"
                                     style={{
-                                      // enforce identical aspect box on thumb and detail
                                       ...aspectStyle,
                                       width: "100%",
-                                      height: "100%",
                                       transformOrigin: "50% 0%",
-                                      willChange: "transform, opacity",
-                                      WebkitBackfaceVisibility: "hidden",
-                                      backfaceVisibility: "hidden",
                                     }}
                                   >
                                     <MemoizedExportedImage
@@ -448,15 +424,14 @@ function HomePage({ page, collections }) {
                                       alt={collection.firstImageAlt || "Collection image"}
                                       width={collection.width}
                                       height={collection.height}
-                                      // image fills the aspect box so ratio remains constant
-                                      style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                                      style={{ height: "100%" }}
                                     />
                                   </motion.div>
-                                   <div className="flex flex-row justify-end w-full">
-                                     <span className="mt-2 text-xs text-gray-700 font-mono">
-                                       1/{imageCount}
-                                     </span>
-                                   </div>
+                                  <div className="flex flex-row justify-end w-full">
+                                    <span className="mt-2 text-xs text-gray-700 font-mono">
+                                      1/{imageCount}
+                                    </span>
+                                  </div>
                                 </motion.div>
                               </Link>
                             </motion.div>
