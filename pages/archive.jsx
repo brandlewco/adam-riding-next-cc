@@ -62,15 +62,17 @@ function ArchivePage({ page, photos }) {
   const [closingToThumb, setClosingToThumb] = useState(false);
   const [pendingClose, setPendingClose] = useState(false);
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
+  const [isSharedTransition, setIsSharedTransition] = useState(false);
+  const [transitionType, setTransitionType] = useState("shared"); // "shared" or "slider"
 
   const handleOpen = useCallback(
     (index) => {
       // Open the overlay:
       // - set sharedId to the thumbnail id so the motion `layoutId` can match
-      // - clear any pending close flags
-      // - set the current index and reset direction
+      // - set transitionType to "shared" for shared-element animation
       const imageId = getImageId(photos[index].image_path);
       setSharedId(imageId);
+      setTransitionType("shared"); // Shared-element animation
       setClosingToThumb(false);
       setPendingClose(false);
       setCurrentIndex(index);
@@ -80,19 +82,22 @@ function ArchivePage({ page, photos }) {
   );
 
   const handleClose = useCallback(() => {
-    // Start close animation back to thumbnail:
+    // Close the overlay:
     // - set sharedId so the overlay can animate back to the thumb's layoutId
-    // - set closing and pending flags to handle cleanup after animation
+    // - set transitionType to "shared" for shared-element animation
     if (currentIndex === null) return;
     const imageId = getImageId(photos[currentIndex].image_path);
     setSharedId(imageId);
+    setTransitionType("shared"); // Shared-element animation
     setClosingToThumb(true);
     setPendingClose(true);
   }, [currentIndex, photos]);
 
   const handleNext = useCallback(() => {
+    // Slider-only transition: set transitionType to "slider"
     if (!photos.length) return;
     setSharedId(null);
+    setTransitionType("slider"); // Slider-only animation
     setClosingToThumb(false);
     setPendingClose(false);
     setDirection("right");
@@ -100,8 +105,10 @@ function ArchivePage({ page, photos }) {
   }, [photos.length]);
 
   const handlePrev = useCallback(() => {
+    // Slider-only transition: set transitionType to "slider"
     if (!photos.length) return;
     setSharedId(null);
+    setTransitionType("slider"); // Slider-only animation
     setClosingToThumb(false);
     setPendingClose(false);
     setDirection("left");
@@ -155,6 +162,21 @@ function ArchivePage({ page, photos }) {
     return () => cancelAnimationFrame(frame);
   }, []);
 
+  // After opening via a thumbnail (shared transition), flip to slider mode on the next frame.
+// This prevents the first Prev/Next from using a shared-element exit.
+useEffect(() => {
+  if (currentIndex !== null && transitionType === "shared") {
+    const id = requestAnimationFrame(() => {
+      setTransitionType("slider");
+      // Once we're in slider mode, ensure no shared target is present
+      // so pagination never tries to animate back to a thumb.
+      setSharedId(null);
+    });
+    return () => cancelAnimationFrame(id);
+  }
+}, [currentIndex, transitionType]);
+
+
   const activePhoto = currentIndex === null ? null : photos[currentIndex];
   const activeImageId = activePhoto ? getImageId(activePhoto.image_path) : null;
   const isSharedActiveImage =
@@ -197,45 +219,42 @@ function ArchivePage({ page, photos }) {
       <LayoutGroup id="archive-layout" type="crossfade">
         {/* Thumbnails grid */}
         <div className="h-full overflow-y-scroll">
-        <motion.ul
-          className="grid grid-cols-[repeat(5,minmax(0,1fr))] sm:grid-cols-[repeat(10,minmax(0,1fr))] lg:grid-cols-[repeat(12,minmax(0,1fr))] gap-4 gap-y-16 md:gap-y-32 pt-4 pl-4 pr-3 pb-24"
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldAnimateThumbs ? "show" : "hidden"}
-        >
-          {photos.map((photo, index) => {
-             const imageId = getImageId(photo.image_path);
-            const mediaLayoutId = `image-media-${imageId}`;
+          <motion.ul
+            className="grid grid-cols-[repeat(5,minmax(0,1fr))] sm:grid-cols-[repeat(10,minmax(0,1fr))] lg:grid-cols-[repeat(12,minmax(0,1fr))] gap-4 gap-y-16 md:gap-y-32 pt-4 pl-4 pr-3 pb-24"
+            variants={containerVariants}
+            initial="hidden"
+            animate={shouldAnimateThumbs ? "show" : "hidden"}
+          >
+            {photos.map((photo, index) => {
+              const imageId = getImageId(photo.image_path);
+              const mediaLayoutId = `image-media-${imageId}`;
 
-             return (
-               <motion.li key={index} variants={thumbVariants} className="relative pb-10"> 
-                 <motion.button
-                   type="button"
-                   onClick={() => handleOpen(index)}
-                   className="w-full focus:outline-none"
-                 >
-                  <motion.div
-                    className="w-full"
-                    whileHover={{ scale: 1.1 }}
+              return (
+                <motion.li key={index} variants={thumbVariants} className="relative pb-10">
+                  <motion.button
+                    type="button"
+                    onClick={() => handleOpen(index)}
+                    className="w-full focus:outline-none"
                   >
-                    <motion.div layoutId={mediaLayoutId} className="w-full min-w-0">
-                       <ExportedImage
-                         src={photo.image_path}
-                         alt={photo.alt_text || "Archive image"}
-                         width={photo.width}
-                         height={photo.height}
-                         className="w-full h-full object-contain"
-                       />
-                     </motion.div>
-                  </motion.div>
-                   <span className="absolute bottom-0 right-0 mt-3 block text-right text-xs tracking-wide">
-                     {index + 1}
-                   </span>
-                 </motion.button>
-               </motion.li>
-             );
-           })}
-        </motion.ul>
+                    <motion.div className="w-full" whileHover={{ scale: 1.1 }}>
+                      <motion.div layoutId={mediaLayoutId} className="w-full min-w-0">
+                        <ExportedImage
+                          src={photo.image_path}
+                          alt={photo.alt_text || "Archive image"}
+                          width={photo.width}
+                          height={photo.height}
+                          className="w-full h-full object-contain"
+                        />
+                      </motion.div>
+                    </motion.div>
+                    <span className="absolute bottom-0 right-0 mt-3 block text-right text-xs tracking-wide">
+                      {index + 1}
+                    </span>
+                  </motion.button>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
         </div>
 
         <AnimatePresence>
@@ -273,9 +292,6 @@ function ArchivePage({ page, photos }) {
                   <>
                     <div
                       className="flex absolute inset-y-0 left-0 w-1/2 items-center justify-start pointer-events-auto z-30"
-                      onMouseEnter={() => setHoverHalf("left")}
-                      onMouseMove={() => setHoverHalf("left")}
-                      onMouseLeave={() => setHoverHalf(null)}
                       onClick={handlePrev}
                     >
                       <button
@@ -284,20 +300,13 @@ function ArchivePage({ page, photos }) {
                           event.stopPropagation();
                           handlePrev();
                         }}
-                        className={`text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
-                          showPrevButton
-                            ? "opacity-100 pointer-events-auto"
-                            : "opacity-0 pointer-events-none"
-                        }`}
+                        className="text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80"
                       >
-                        <span className="hidden md:block">Prev</span><span className="md:hidden">P</span>
+                        Prev
                       </button>
                     </div>
                     <div
                       className="flex absolute inset-y-0 right-0 w-1/2 items-center justify-end pointer-events-auto z-30"
-                      onMouseEnter={() => setHoverHalf("right")}
-                      onMouseMove={() => setHoverHalf("right")}
-                      onMouseLeave={() => setHoverHalf(null)}
                       onClick={handleNext}
                     >
                       <button
@@ -306,13 +315,9 @@ function ArchivePage({ page, photos }) {
                           event.stopPropagation();
                           handleNext();
                         }}
-                        className={`text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
-                          showNextButton
-                            ? "opacity-100 pointer-events-auto"
-                            : "opacity-0 pointer-events-none"
-                        }`}
+                        className="text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80"
                       >
-                        <span className="hidden md:block">Next</span><span className="md:hidden">N</span>
+                        Next
                       </button>
                     </div>
                   </>
@@ -326,42 +331,36 @@ function ArchivePage({ page, photos }) {
                     animate="center"
                     exit="exit"
                     custom={direction}
-                    className="relative z-10 flex max-h-[85vh] w-full max-w-6xl justify-center px-6"
+                    className="relative z-10 flex justify-center items-center max-h-[85vh] w-full max-w-6xl px-6"
                     {...swipeHandlers}
                   >
+                    {/* Apply layoutId only during shared-element transitions */}
                     <motion.div
-                      className="flex justify-center w-full min-w-0"
-                      style={{ minWidth: 0, willChange: "transform, opacity" }}
-                      onLayoutAnimationComplete={() => {
-                        if (closingToThumb && pendingClose) {
-                          setPendingClose(false);
-                          setClosingToThumb(false);
-                          setSharedId(null);
-                          setCurrentIndex(null);
-                        } else if (!closingToThumb && sharedId) {
-                          setSharedId(null);
+                        // Only participate in shared-element animation when explicitly in "shared" mode
+                        // and only when we have a specific thumbnail to pair with.
+                        layoutId={
+                          transitionType === "shared" && sharedId
+                            ? `image-media-${sharedId}`
+                            : undefined
                         }
-                      }}
-                    >
-                      <motion.div
-                        layoutId={isSharedActiveImage ? `image-media-${activeImageId}` : undefined}
-                        className="flex items-center justify-center min-w-0"
+                        className="relative w-full"
+                        style={{
+                          aspectRatio: `${activePhoto.width} / ${activePhoto.height}`,
+                          maxHeight: "80vh",
+                        }}
                         transition={{ duration: 0.45, ease: "easeInOut" }}
-                        style={{ willChange: "transform, opacity" }}
                       >
-                        <ExportedImage
-                          src={activePhoto.image_path}
-                          alt={activePhoto.alt_text || "Archive image"}
-                          width={activePhoto.width}
-                          height={activePhoto.height}
-                          className="max-h-[80vh] w-auto object-contain"
-                          style={{ display: "block" }}
-                        />
-                      </motion.div>
+                      <ExportedImage
+                        src={activePhoto.image_path}
+                        alt={activePhoto.alt_text || "Archive image"}
+                        width={activePhoto.width}
+                        height={activePhoto.height}
+                        className="absolute inset-0 w-full h-full object-contain"
+                        style={{ display: "block" }}
+                      />
                     </motion.div>
                   </motion.div>
                 </AnimatePresence>
-
               </div>
             </motion.div>
           )}

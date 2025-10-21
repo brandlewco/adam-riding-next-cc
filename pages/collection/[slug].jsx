@@ -349,10 +349,7 @@ function CollectionPage({
       : { aspectRatio: "4 / 3" };
 
   const MainImageSection = isGalleryView ? (
-    // Gallery-mode main image section:
-    // - Contains the main `image-media-<id>` element used as the single shared layoutId
-    // - Constrain the media container with max-height (70vh / 85vh) to avoid Safari stretching
-    // - Keep min-w-0 on flex children so Safari doesn't collapse these to 0px
+    // Slider view (default view for [slug].jsx):
     <AnimatePresence custom={direction} mode="wait">
       <motion.div
         key={currentImage}
@@ -361,128 +358,41 @@ function CollectionPage({
         animate="center"
         exit="exit"
         custom={direction}
-        className="relative w-full p-4 h-full flex flex-col justify-center"
-        style={{ position: "relative" }}
+        className="relative z-10 flex justify-center justify-self-center items-center h-full w-full p-4"
         {...swipeHandlers}
       >
-        <section className="flex justify-center items-stretch md:h-[75vh] md:-mt-12 w-full">
-          <motion.div
-            className="flex justify-center w-full min-w-0"
-            style={{ transformOrigin: "50% 0%", minWidth: 0, willChange: "transform, opacity" }}
-            onLayoutAnimationComplete={() => {
-              if (closingFromThumb && showThumbs) {
-                setShowThumbs(false);
-                setClosingFromThumb(false);
-              }
-            }}
-          >
-            <motion.div
-              layoutId={`image-media-${currentImageId}`}
-              className="flex items-center justify-center w-full min-w-0 max-h-[70vh] md:max-h-[85vh] overflow-hidden"
-              transition={{ duration: 0.45, ease: "easeInOut" }}
-              style={{
-                width: "100%",
-                transformOrigin: "50% 0%",
-                minWidth: 0,
-                willChange: "transform, opacity",
-                ...detailAspectStyle,
-              }}
-            >
-              <div className="relative w-full h-full flex flex-col items-center" style={{ width: "100%" }}>
-                <Blocks
-                  content_blocks={page.data.content_blocks}
-                  currentImage={currentImage}
-                  setImageLoaded={setImageLoaded}
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        </section>
+        {/* Single motion.div with layoutId for shared-element animation */}
+        <motion.div
+          layoutId={`image-media-${currentImageId}`}
+          className="relative w-full"
+          style={{
+            aspectRatio: `${currentBlock.width} / ${currentBlock.height}`,
+            maxHeight: "75vh",
+          }}
+          transition={{ duration: 0.45, ease: "easeInOut" }}
+        >
+          <ExportedImage
+            src={currentBlock.image_path}
+            alt={currentBlock.alt_text || "Collection image"}
+            width={currentBlock.width}
+            height={currentBlock.height}
+            className="absolute inset-0 w-full h-full object-contain"
+            style={{ display: "block" }}
+          />
+        </motion.div>
       </motion.div>
     </AnimatePresence>
-  ) : (
-    // Default single-collection layout:
-    // - same media element but arranged slightly differently for non-gallery pages
-    <AnimatePresence custom={direction} mode="wait">
-      <motion.div
-        key={currentImage}
-        variants={internalVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        custom={direction}
-        className="relative w-auto p-4"
-        style={{ position: "relative" }}
-        {...swipeHandlers}
-      >
-        <section className="photo flex flex-col-reverse md:flex-col justify-center md:justify-start items-end relative h-[70vh] md:h-85vh w-full md:w-auto">
-          <motion.div
-            className="flex justify-center w-full min-w-0"
-            style={{ transformOrigin: "50% 0%", minWidth: 0, willChange: "transform, opacity" }}
-            onLayoutAnimationComplete={() => {
-              if (closingFromThumb && showThumbs) {
-                setShowThumbs(false);
-                setClosingFromThumb(false);
-              }
-              // clear the transitional thumb id once the main view animation finishes
-              // so the thumbnail no longer carries the shared layoutId.
-              setTransitioningThumbId(null);
-            }}
-          >
-            <motion.div
-              layoutId={`image-media-${currentImageId}`}
-              className="flex items-center justify-center w-full min-w-0 max-h-[70vh] md:max-h-[85vh] overflow-hidden"
-              transition={{ duration: 0.45, ease: "easeInOut" }}
-              style={{
-                width: "100%",
-                transformOrigin: "50% 0%",
-                minWidth: 0,
-                willChange: "transform, opacity",
-                ...detailAspectStyle,
-              }}
-            >
-              <div className="relative w-full h-full" style={{ width: "100%" }}>
-                <Blocks
-                  content_blocks={page.data.content_blocks}
-                  currentImage={currentImage}
-                  setImageLoaded={setImageLoaded}
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-          {imageLoaded && (
-            <div className="relative w-full md:hidden pb-2 md:pb-0 pt-4 text-left">
-              <div className="text-sm leading-none">
-                {page.data.title} - {currentImage + 1} / {imageCount}
-              </div>
-            </div>
-          )}
-          {source === "index" &&
-            page.data.content_blocks[currentImage]?.alt_text && (
-              <p className="w-full text-sm mt-2 self-end text-left md:text-right">
-                {page.data.content_blocks[currentImage].alt_text}
-              </p>
-            )}
-        </section>
-      </motion.div>
-    </AnimatePresence>
-  );
+  ) : null;
 
   const ThumbsOverlay = isGalleryView && (
-    // Thumbnails overlay:
-    // - full-screen overlay with a grid of thumbs
-    // - clicking a thumb sets `currentImage` and triggers a shared-element animation back
-    // - using a single `image-media-<thumbId>` layoutId on the thumbnail helps stability
+    // Thumbnails overlay (popup view for [slug].jsx):
     <AnimatePresence
-      // after all exit animations complete, clear the overlayAnimate flag so next open starts hidden
       onExitComplete={() => setOverlayAnimate(false)}
     >
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
           className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center opacity-0"
-          // start fully hidden to avoid a brief paint of loaded images in Safari,
-          // Framer will override this when animating to "show".
           style={{
             pointerEvents: closingFromThumb ? "none" : "auto",
             willChange: "opacity, transform",
@@ -516,57 +426,54 @@ function CollectionPage({
           <div
             className="flex flex-wrap p-4 md:p-16 mt-8 md:mt-0 justify-center items-center overflow-y-auto w-full relative"
             style={{ zIndex: 2 }}
-            onClick={() => {
-              if (!closingFromThumb) setShowThumbs(false);
-            }}
           >
-            <div className="w-full md:px-10 relative pointer-events-none">
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-12 md:gap-40 justify-items-center items-center w-full">
-                {page.data.content_blocks.map((block, idx) => {
-                  const thumbId = getImageId(block.image_path);
-                  const isCurrentThumb = idx === currentImage;
-                  const layoutId =
-                    isCurrentThumb || transitioningThumbId === thumbId
-                      ? `image-media-${thumbId}`
-                      : undefined;
+            <motion.ul
+              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-12 md:gap-40 justify-items-center items-center w-full"
+              variants={containerVariants}
+              initial="hidden"
+              animate="show"
+            >
+              {page.data.content_blocks.map((block, idx) => {
+                const thumbId = getImageId(block.image_path);
 
-                  return (
-                    <motion.div
-                      key={idx}
-                      variants={thumbVariants}
+                return (
+                  <motion.li
+                    key={idx}
+                    variants={thumbVariants}
+                    className="relative pb-10"
+                  >
+                    <motion.button
+                      type="button"
                       onClick={(e) => handleThumbnailSelect(idx, e)}
-                      whileHover={{ scale: 1.1 }}
-                      className="cursor-pointer transition-opacity origin-center origin-top ease-in-out pointer-events-auto h-24 md:h-48 inline-flex items-center justify-center min-w-0"
-                      style={{
-                        overflow: "visible",
-                        willChange: "opacity, transform",
-                        // keep the thumb's bounding box the same aspect ratio as the image
-                        ...(block.width && block.height
-                          ? { aspectRatio: `${block.width} / ${block.height}` }
-                          : {}),
-                      }}
-                      layoutId={
-                        // give the thumb the layoutId if it is the current thumb
-                        // or it's the thumb that just initiated a transition.
-                        isCurrentThumb || transitioningThumbId === thumbId
-                          ? `image-media-${thumbId}`
-                          : undefined
-                      }
+                      className="w-full focus:outline-none"
                     >
-                      <ExportedImage
-                        src={block.image_path}
-                        alt={block.alt_text || "Thumbnail"}
-                        width={block.width}
-                        height={block.height}
-                        sizes="(max-width:640px)30vw,10vw"
-                        className="w-full h-full object-contain"
-                        style={{ display: "block" }}
-                      />
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
+                      <motion.div
+                        className="w-full"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <motion.div
+                          layoutId={`image-media-${thumbId}`}
+                          className="w-full min-w-0"
+                          style={{
+                            aspectRatio: `${block.width} / ${block.height}`,
+                            maxHeight: "100%",
+                          }}
+                        >
+                          <ExportedImage
+                            src={block.image_path}
+                            alt={block.alt_text || "Thumbnail"}
+                            width={block.width}
+                            height={block.height}
+                            sizes="(max-width:640px)30vw,10vw"
+                            className="w-full h-full object-contain"
+                          />
+                        </motion.div>
+                      </motion.div>
+                    </motion.button>
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
           </div>
         </motion.div>
       )}

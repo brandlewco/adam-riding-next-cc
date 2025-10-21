@@ -410,8 +410,8 @@ function HomePage({ page, collections }) {
                             >
                               <Link href={`/collection/${collection.slug}`}>
                                 <motion.div
-                                  layout
-                                  layoutId={`image-card-${imageId}`}
+                                  // keep the card wrapper as a normal element (no layout),
+                                  // to avoid extra shared-element matches that interfere with the carousel.
                                   whileHover={{ scale: 1.03 }}
                                   transition={{ scale: { duration: 0.2 } }}
                                   className="flex flex-col items-center w-full"
@@ -428,17 +428,19 @@ function HomePage({ page, collections }) {
                                     {collection.title}
                                   </span>
                                   <motion.div
-                                    layout
+                                    // single shared element for image transitions
                                     layoutId={`image-media-${imageId}`}
-                                    transition={{
-                                      duration: 0.45,
-                                      ease: "easeInOut",
-                                    }}
-                                    className="flex items-center justify-center w-full"
+                                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                                    className="flex items-center justify-center w-full min-w-0"
                                     style={{
+                                      // enforce identical aspect box on thumb and detail
                                       ...aspectStyle,
                                       width: "100%",
+                                      height: "100%",
                                       transformOrigin: "50% 0%",
+                                      willChange: "transform, opacity",
+                                      WebkitBackfaceVisibility: "hidden",
+                                      backfaceVisibility: "hidden",
                                     }}
                                   >
                                     <MemoizedExportedImage
@@ -446,14 +448,15 @@ function HomePage({ page, collections }) {
                                       alt={collection.firstImageAlt || "Collection image"}
                                       width={collection.width}
                                       height={collection.height}
-                                      style={{ height: "100%" }}
+                                      // image fills the aspect box so ratio remains constant
+                                      style={{ width: "100%", height: "100%", objectFit: "contain" }}
                                     />
                                   </motion.div>
-                                  <div className="flex flex-row justify-end w-full">
-                                    <span className="mt-2 text-xs text-gray-700 font-mono">
-                                      1/{imageCount}
-                                    </span>
-                                  </div>
+                                   <div className="flex flex-row justify-end w-full">
+                                     <span className="mt-2 text-xs text-gray-700 font-mono">
+                                       1/{imageCount}
+                                     </span>
+                                   </div>
                                 </motion.div>
                               </Link>
                             </motion.div>
