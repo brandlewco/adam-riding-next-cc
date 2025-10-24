@@ -1,7 +1,7 @@
 ---
 _schema: collection
 title: Design
-slug: Design
+slug: design
 seo:
   page_description:
   canonical_url:

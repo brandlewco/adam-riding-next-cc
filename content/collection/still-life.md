@@ -1,7 +1,7 @@
 ---
 _schema: collection
 title: Still life
-slug: Still life
+slug: still-life
 seo:
   page_description:
   canonical_url:

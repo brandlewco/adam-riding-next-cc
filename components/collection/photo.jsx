@@ -4,7 +4,7 @@ import { memo, useCallback } from "react";
 const MemoizedExportedImage = memo(ExportedImage);
 MemoizedExportedImage.displayName = 'MemoizedExportedImage';
 
-function CollectionPhoto({ block, setImageLoaded }) {
+function CollectionPhoto({ block, setImageLoaded, dataBinding }) {
   const handleImageLoad = useCallback(() => {
     setImageLoaded(true);
   }, [setImageLoaded]);
@@ -20,6 +20,7 @@ function CollectionPhoto({ block, setImageLoaded }) {
       style={{
         objectFit: 'contain',
       }}
+      data-cms-bind={dataBinding}
       onLoad={handleImageLoad}
     />
   );
