@@ -4,9 +4,9 @@ title: Index Grid
 seo:
   no_index: false
 collections:
-  - content/collection/artists.md
-  - content/collection/lulu-lafortune.md
-  - content/collection/spaces.md
+  - content/collection/portraits.md
+  - content/collection/annotations.md
+  - content/collection/design.md
   - content/collection/iceland.md
   - content/collection/athletics.md
   - content/collection/dirt-zine.md
