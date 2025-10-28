@@ -12,9 +12,6 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/Portraits-4.jpg
-    alt_text: Carmen
-  - _bookshop_name: collection/photo
     image_path: /uploads/narges-19.jpg
     alt_text: Narges
   - _bookshop_name: collection/photo
@@ -29,4 +26,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/narges-05.jpg
     alt_text: Narges
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a5032.jpg
+    alt_text: Carmen
 ---
