@@ -38,4 +38,10 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/design-08.jpg
     alt_text: Schindler House
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-09.jpg
+    alt_text: Lulu LaFortune Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-10.jpg
+    alt_text: Lulu LaFortune Studio
 ---
