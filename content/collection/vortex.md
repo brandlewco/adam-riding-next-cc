@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Vortex
-slug: vortex
+title: 'Los Angeles Times: Vortex'
+slug: losangelestimesvortex
 seo:
   page_description:
   canonical_url:
