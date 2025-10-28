@@ -38,4 +38,22 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test5021.jpg
     alt_text: Lalo
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test4499.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test4663.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-02.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test4786.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test4599.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test4548.jpg
+    alt_text: Raiven
 ---
