@@ -32,4 +32,10 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/design-06.jpg
     alt_text: Taliesin West
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-07.jpg
+    alt_text: Schindler House
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-08.jpg
+    alt_text: Schindler House
 ---
