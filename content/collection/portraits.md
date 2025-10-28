@@ -29,4 +29,13 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a5032.jpg
     alt_text: Carmen
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test5236.jpg
+    alt_text: Lalo
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test5077.jpg
+    alt_text: Lalo
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test5021.jpg
+    alt_text: Lalo
 ---
