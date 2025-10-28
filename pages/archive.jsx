@@ -314,7 +314,8 @@ useEffect(() => {
                         }}
                         className="text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80"
                       >
-                        Prev
+                        <span className="hidden md:block">Prev</span>
+                        <span className="md:hidden">P</span>
                       </button>
                     </div>
                     <div
@@ -329,7 +330,8 @@ useEffect(() => {
                         }}
                         className="text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80"
                       >
-                        Next
+                        <span className="hidden md:block">Next</span>
+                        <span className="md:hidden">N</span>
                       </button>
                     </div>
                   </>

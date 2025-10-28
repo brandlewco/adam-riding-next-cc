@@ -414,7 +414,7 @@ function CollectionPage({
             style={{ zIndex: 2 }}
           >
             <motion.ul
-              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-12 md:gap-40 justify-items-center items-center w-full"
+              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 sm:gap-12 xl:gap-40 justify-items-center items-center w-full"
               variants={containerVariants}
               initial="hidden"
               animate="show"
@@ -647,18 +647,23 @@ function CollectionPage({
           </button>
         </div>
 
-        <button
-          className="md:hidden fixed top-1/2 left-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
-          onClick={() => handleAreaClick("left")}
-        >
-          P
-        </button>
-        <button
-          className="md:hidden fixed top-1/2 right-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
-          onClick={() => handleAreaClick("right")}
-        >
-          N
-        </button>
+        {/* Mobile prev/next buttons - only show when not in thumbnail overlay */}
+        {!showThumbs && (
+          <>
+            <button
+              className="md:hidden fixed top-1/2 left-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+              onClick={() => handleAreaClick("left")}
+            >
+              P
+            </button>
+            <button
+              className="md:hidden fixed top-1/2 right-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+              onClick={() => handleAreaClick("right")}
+            >
+              N
+            </button>
+          </>
+        )}
       </LayoutGroup>
     </DefaultLayout>
   );
@@ -829,7 +834,7 @@ const thumbVariants = {
     opacity: 1,
     transition: { duration: 0.33 },
   },
-  exit: { opacity: 0 },
+  exit: { opacity: 0, },
 };
 
 const containerVariants = {
