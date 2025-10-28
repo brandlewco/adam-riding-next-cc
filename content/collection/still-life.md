@@ -1,6 +1,6 @@
 ---
 _schema: collection
-title: Still life
+title: Still Life
 slug: still-life
 seo:
   page_description:
