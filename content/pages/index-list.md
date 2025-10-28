@@ -16,5 +16,5 @@ collections:
   - content/collection/tori-rose-walker.md
   - content/collection/cole-norton.md
   - content/collection/nikeskims.md
-  -
+  - content/collection/the-cellar-door.md
 ---
