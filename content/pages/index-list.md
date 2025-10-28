@@ -13,4 +13,6 @@ collections:
   - content/collection/dirt-zine.md
   - content/collection/still-life.md
   - content/collection/vortex.md
+  - content/collection/tori-rose-walker.md
+  - content/collection/cole-norton.md
 ---
