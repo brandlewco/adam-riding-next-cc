@@ -15,6 +15,9 @@ content_blocks:
     image_path: /uploads/Overview-1.jpg
     alt_text: Alessandra
   - _bookshop_name: collection/photo
+    image_path: /uploads/h73a1013-2.jpg
+    alt_text: Los Angeles, CA
+  - _bookshop_name: collection/photo
     image_path: /uploads/Overview-8.jpg
     alt_text: Magnolia leaf and bracelet
   - _bookshop_name: collection/photo
