@@ -13,4 +13,5 @@ collections:
   - content/collection/still-life.md
   - content/collection/vortex.md
   - content/collection/cole-norton.md
+  - content/collection/tori-rose-walker.md
 ---
