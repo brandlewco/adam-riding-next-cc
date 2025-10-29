@@ -12,15 +12,15 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/h73a4510-2-2.jpg
+    alt_text: The Court
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-1.jpg
     alt_text: The Court
     width: 30
     top: 0
     left: 0
     right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/h73a4510-2-2.jpg
-    alt_text: The Court
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4274-2-2.jpg
     alt_text: The Court
