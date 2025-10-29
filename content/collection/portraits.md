@@ -56,4 +56,16 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test4548.jpg
     alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/scan-19.jpg
+    alt_text: Caroline
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3792.jpg
+    alt_text: Caroline
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot4029.jpg
+    alt_text: Caroline
+  - _bookshop_name: collection/photo
+    image_path: /uploads/scan-23.jpg
+    alt_text: Caroline
 ---
