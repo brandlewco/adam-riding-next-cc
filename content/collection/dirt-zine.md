@@ -12,9 +12,6 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-1.jpg
+    image_path: /uploads/dirt.jpg
     alt_text: DIRT
-  - _bookshop_name: collection/photo
-    image_path: /uploads/riding-fitnesstest-1.jpg
-    alt_text: Image Alt Text
 ---
