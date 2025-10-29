@@ -68,4 +68,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/scan-23.jpg
     alt_text: Caroline
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ali-9.jpg
+    alt_text: Ali
 ---
