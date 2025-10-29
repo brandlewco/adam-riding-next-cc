@@ -104,4 +104,25 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3218.jpg
     alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz5907.jpg
+    alt_text: Jonah
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz5911.jpg
+    alt_text: Jonah
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz5803.jpg
+    alt_text: Jonah
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz-hl-1-2.jpg
+    alt_text: Jonah
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz5993.jpg
+    alt_text: Jonah
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz5808.jpg
+    alt_text: Jonah
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz5879.jpg
+    alt_text: Jonah
 ---
