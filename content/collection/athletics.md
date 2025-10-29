@@ -68,6 +68,9 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/riding-fitnesstest-1.jpg
-    alt_text: Image Alt Text
+    image_path: /uploads/AR_IVORY-9.jpg
+    alt_text: Ivory
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_IVORY-7.jpg
+    alt_text: Ivory
 ---
