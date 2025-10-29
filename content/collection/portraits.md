@@ -80,4 +80,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8139.jpg
     alt_text: Sunroom Band
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3362.jpg
+    alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3286.jpg
+    alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3290.jpg
+    alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3243.jpg
+    alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3387.jpg
+    alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3223.jpg
+    alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3293.jpg
+    alt_text: Namiye
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3218.jpg
+    alt_text: Namiye
 ---
