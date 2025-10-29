@@ -71,4 +71,13 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/ali-9.jpg
     alt_text: Ali
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a7784.jpg
+    alt_text: Sunroom Band
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a8150.jpg
+    alt_text: Sunroom Band
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a8139.jpg
+    alt_text: Sunroom Band
 ---
