@@ -8,8 +8,53 @@ content_blocks:
     image_path: /uploads/new-archive-0.jpg
     alt_text: 'The New York Times: Abwe Songolo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-0.jpg
+    image_path: /uploads/new-archive-1.jpg
     alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-2.jpg
+    alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-3.jpg
+    alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-4.jpg
+    alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-2.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-1.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-4.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-5.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-5.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-6.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-7.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-8.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-9.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-10.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-11.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-12.jpg
+    alt_text: Last Call
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
@@ -46,18 +91,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: Sebastian Vargas, 2021
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-2.jpg
-    alt_text: Last Call
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-1.jpg
-    alt_text: Last Call
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-4.jpg
-    alt_text: Last Call
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-5.jpg
-    alt_text: Last Call
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-72.jpg
     alt_text: San Diego, 2022
