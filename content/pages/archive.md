@@ -105,10 +105,10 @@ content_blocks:
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-29.jpg
-    alt_text: 'The New York Times: Drought Farming'
+    alt_text: 'DIPTYCH The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-30.jpg
-    alt_text: 'The New York Times: Drought Farming'
+    alt_text: 'DIPTYCH The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-31.jpg
     alt_text: 'The New York Times: Drought Farming'
