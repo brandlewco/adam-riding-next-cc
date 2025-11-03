@@ -113,6 +113,45 @@ content_blocks:
     image_path: /uploads/new-archive-31.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-32.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-33.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-34.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-35.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-36.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-37.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-38.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-39.jpg
+    alt_text: 'The New York Times: Yoshinobu Yamamoto'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-40.jpg
+    alt_text: 'The New York Times: Yoshinobu Yamamoto'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-41.jpg
+    alt_text: 'The New York Times: Shohei Ohtani'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-42.jpg
+    alt_text: 'The New York Times: Shohei Ohtani'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-43.jpg
+    alt_text: 'The New York Times: Yoshinobu Yamamoto'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-44.jpg
+    alt_text: 'The New York Times: Yoshinobu Yamamoto'
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
@@ -187,7 +226,4 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/TGA_Web-6.jpg
     alt_text: The Global Ambassador Hotel
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-169.jpg
-    alt_text: 'The New York Times: Yoshinobu Yamamto'
 ---
