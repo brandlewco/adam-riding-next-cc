@@ -5,6 +5,12 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-0.jpg
+    alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-0.jpg
+    alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
