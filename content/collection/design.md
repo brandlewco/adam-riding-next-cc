@@ -12,6 +12,9 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/nan-studio-12.jpg
+    alt_text: NAN Collective
+  - _bookshop_name: collection/photo
     image_path: /uploads/design-13.jpg
     alt_text: Neutra VDL Studio and Residence
   - _bookshop_name: collection/photo
@@ -41,9 +44,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/design-18.jpg
     alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/nan-studio-12.jpg
-    alt_text: NAN Collective
   - _bookshop_name: collection/photo
     image_path: /uploads/design-01.jpg
     alt_text: Taliesin West
