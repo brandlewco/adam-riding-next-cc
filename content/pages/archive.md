@@ -245,20 +245,11 @@ content_blocks:
     image_path: /uploads/new-archive-75.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-2.jpg
-    alt_text: Florida Portraits, 2024
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-76.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-5.jpg
-    alt_text: Florida Portraits, 2024
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-77.jpg
     alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-1.jpg
-    alt_text: Florida Portraits, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-78.jpg
     alt_text: Florida, 2024
@@ -332,6 +323,27 @@ content_blocks:
     image_path: /uploads/new-archive-102.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-6.jpg
+    alt_text: Sebastian Vargas, 2021
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-9.jpg
+    alt_text: Sebastian Vargas, 2021
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-7.jpg
+    alt_text: DIPTYCH Sebastian Vargas, 2021
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-8.jpg
+    alt_text: DIPTYCH Sebastian Vargas, 2021
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-108.jpg
+    alt_text: Idaho Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-72.jpg
+    alt_text: San Diego, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/FIXED_AR_ARCHIVE-73.jpg
+    alt_text: San Diego, 2022
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
@@ -343,27 +355,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-26.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-108.jpg
-    alt_text: Idaho Rodeo, 2022
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-6.jpg
-    alt_text: Sebastian Vargas, 2021
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-9.jpg
-    alt_text: Sebastian Vargas, 2021
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-7.jpg
-    alt_text: Sebastian Vargas, 2021
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-8.jpg
-    alt_text: Sebastian Vargas, 2021
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-72.jpg
-    alt_text: San Diego, 2022
-  - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-73.jpg
-    alt_text: San Diego, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-101.jpg
     alt_text: Payson Rodeo
