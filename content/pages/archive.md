@@ -344,10 +344,52 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-73.jpg
     alt_text: San Diego, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-25.jpg
+    image_path: /uploads/new-archive-103.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-104.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-105.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-106.jpg
+    alt_text: 'The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-107.jpg
+    alt_text: 'DIPTYCH The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-108.jpg
+    alt_text: 'DIPTYCH The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-109.jpg
+    alt_text: 'The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-110.jpg
+    alt_text: 'The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-111.jpg
+    alt_text: 'DIPTYCH Golf Digest: Karl Anthony Towns'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-112.jpg
+    alt_text: 'DIPTYCH Golf Digest: Karl Anthony Towns'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-113.jpg
+    alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-114.jpg
+    alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-115.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-28.jpg
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-117.jpg
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-29.jpg
@@ -356,11 +398,32 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-26.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-120.jpg
+    alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-121.jpg
+    alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-122.jpg
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-123.jpg
+    alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-124.jpg
+    alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-125.jpg
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-126.jpg
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-127.jpg
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-101.jpg
     alt_text: Payson Rodeo
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-61.jpg
-    alt_text: 'The Guardian: Rusty Bowers'
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-12.jpg
     alt_text: 'GQ: Overland Expo'
