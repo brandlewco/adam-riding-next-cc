@@ -70,8 +70,8 @@ content_blocks:
     alt_text: Schindler House
   - _bookshop_name: collection/photo
     image_path: /uploads/design-09.jpg
-    alt_text: Lulu LaFortune Studio
+    alt_text: DIPTYCH Lulu LaFortune Studio
   - _bookshop_name: collection/photo
     image_path: /uploads/design-10.jpg
-    alt_text: Lulu LaFortune Studio
+    alt_text: DIPTYCH Lulu LaFortune Studio
 ---

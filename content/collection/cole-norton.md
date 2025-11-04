@@ -13,10 +13,10 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6237.jpg
-    alt_text: Cole Norton
+    alt_text: DIPTYCH Cole Norton
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6256.jpg
-    alt_text: Cole Norton
+    alt_text: DIPTYCH Cole Norton
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6323.jpg
     alt_text: Cole Norton
@@ -28,8 +28,8 @@ content_blocks:
     alt_text: Cole Norton
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6664.jpg
-    alt_text: Cole Norton
+    alt_text: DIPTYCH Cole Norton
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6689.jpg
-    alt_text: Cole Norton
+    alt_text: DIPTYCH Cole Norton
 ---
