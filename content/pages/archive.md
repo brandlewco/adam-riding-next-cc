@@ -793,4 +793,94 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-249.jpg
     alt_text: 'Diptych Road and Track: Bippu'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-250-1.jpg
+    alt_text: Nashville, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-251.jpg
+    alt_text: Diptych Nashville, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-252.jpg
+    alt_text: Diptych Nashville, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-253.jpg
+    alt_text: Diptych Nashville, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-254.jpg
+    alt_text: Diptych Nashville, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-255.jpg
+    alt_text: 'The New York Times: Trey Thriffiley'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-256.jpg
+    alt_text: 'The New York Times: Trey Thriffiley'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-257.jpg
+    alt_text: 'The New York Times: Trey Thriffiley'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-258.jpg
+    alt_text: 'The Guardian: Adrian Fontes'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-259.jpg
+    alt_text: 'DIPTYCH The Guardian: Adrian Fontes'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-261.jpg
+    alt_text: 'DIPTYCH The Guardian: Adrian Fontes'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-260.jpg
+    alt_text: 'The Guardian: Adrian Fontes'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-262.jpg
+    alt_text: Grand Canyon, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-263.jpg
+    alt_text: DIPTYCH Grand Canyon, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-264.jpg
+    alt_text: DIPTYCH Grand Canyon, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-265.jpg
+    alt_text: 'WSJ: Crypto'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-266.jpg
+    alt_text: 'WSJ: Crypto'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-267.jpg
+    alt_text: 'WSJ: Crypto'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-268.jpg
+    alt_text: 'WSJ: Crypto'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-269.jpg
+    alt_text: DIPTYCH Jeff Gordon
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-270.jpg
+    alt_text: DIPTYCH Jeff Gordon
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-271.jpg
+    alt_text: 'Die Zeit: 711 Murder'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-272.jpg
+    alt_text: 'Die Zeit: 711 Murder'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-273.jpg
+    alt_text: 'The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-274.jpg
+    alt_text: 'The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-275.jpg
+    alt_text: 'DIPTYCH The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-276.jpg
+    alt_text: 'DIPTYCH The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-277.jpg
+    alt_text: 'The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-278.jpg
+    alt_text: 'The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-278.jpg
+    alt_text: 'The New York Times: Psychedelic Toxins'
 ---
