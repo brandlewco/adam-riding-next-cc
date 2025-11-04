@@ -76,19 +76,19 @@ content_blocks:
     alt_text: Sunroom Band
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8150.jpg
-    alt_text: Sunroom Band
+    alt_text: DIPTYCH Sunroom Band
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8139.jpg
-    alt_text: Sunroom Band
+    alt_text: DIPTYCH Sunroom Band
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3362.jpg
     alt_text: Namiye
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3286.jpg
-    alt_text: Namiye
+    alt_text: DIPTYCH Namiye
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3290.jpg
-    alt_text: Namiye
+    alt_text: DIPTYCH Namiye
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3243.jpg
     alt_text: Namiye
@@ -106,10 +106,10 @@ content_blocks:
     alt_text: Namiye
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5907.jpg
-    alt_text: Jonah
+    alt_text: DIPTYCH Jonah
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5911.jpg
-    alt_text: Jonah
+    alt_text: DIPTYCH Jonah
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5803.jpg
     alt_text: Jonah
