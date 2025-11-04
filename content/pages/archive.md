@@ -881,6 +881,63 @@ content_blocks:
     image_path: /uploads/new-archive-278.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-278.jpg
-    alt_text: 'The New York Times: Psychedelic Toxins'
+    image_path: /uploads/new-archive-279.jpg
+    alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-280.jpg
+    alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-281.jpg
+    alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-282.jpg
+    alt_text: 'DIPTYCH The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-283.jpg
+    alt_text: 'DIPTYCH The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-284.jpg
+    alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-285.jpg
+    alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-286.jpg
+    alt_text: 'DIPTYCH The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-287.jpg
+    alt_text: 'DIPTYCH The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-288.jpg
+    alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-289.jpg
+    alt_text: DIPTYCH Raw Material
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-290.jpg
+    alt_text: DIPTYCH Raw Material
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-291.jpg
+    alt_text: DIPTYCH Conor Damaschi
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-292.jpg
+    alt_text: DIPTYCH Conor Damaschi
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-293.jpg
+    alt_text: Conor Damaschi
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-294.jpg
+    alt_text: Conor Damaschi
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-295.jpg
+    alt_text: DIPTYCH Conor Damaschi
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-296.jpg
+    alt_text: DIPTYCH Conor Damaschi
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-297.jpg
+    alt_text: DIPTYCH Payson Skaters
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-298.jpg
+    alt_text: DIPTYCH Payson Skaters
 ---
