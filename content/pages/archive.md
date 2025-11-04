@@ -494,24 +494,75 @@ content_blocks:
     image_path: /uploads/new-archive-151.jpg
     alt_text: 'The New York Times: Golfing'
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-101.jpg
-    alt_text: Payson Rodeo
+    image_path: /uploads/new-archive-152.jpg
+    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-12.jpg
-    alt_text: 'GQ: Overland Expo'
+    image_path: /uploads/new-archive-153.jpg
+    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-154.jpg
+    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-155.jpg
+    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-156.jpg
+    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-157.jpg
+    alt_text: The Global Ambassador Hotel
+  - _bookshop_name: collection/photo
+    image_path: /uploads/TGA_Web-6.jpg
+    alt_text: The Global Ambassador Hotel
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-158.jpg
+    alt_text: The Global Ambassador Hotel
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-160.jpg
+    alt_text: The Global Ambassador Hotel
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-163.jpg
+    alt_text: The Global Ambassador Hotel
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-13.jpg
     alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
+    image_path: /uploads/FIXED_AR_ARCHIVE-12.jpg
+    alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-14.jpg
     alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-166.jpg
+    alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-167.jpg
+    alt_text: Flagstaff, AZ
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-168.jpg
+    alt_text: 'The New York Times: Western Alliance Bank'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-169.jpg
+    alt_text: 'The New York Times: Western Alliance Bank'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-170.jpg
+    alt_text: 'The New York Times: Western Alliance Bank'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-171.jpg
+    alt_text: 'The New York Times: Western Alliance Bank'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-172.jpg
+    alt_text: 'The New York Times: Western Alliance Bank'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-173.jpg
+    alt_text: Idaho Rodeo, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-101.jpg
+    alt_text: Payson Rodeo
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
     alt_text: Mr. Woolsey
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
     alt_text: Mr. Woolsey
-  - _bookshop_name: collection/photo
-    image_path: /uploads/TGA_Web-6.jpg
-    alt_text: The Global Ambassador Hotel
 ---
