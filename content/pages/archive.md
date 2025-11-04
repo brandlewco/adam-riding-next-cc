@@ -152,6 +152,66 @@ content_blocks:
     image_path: /uploads/new-archive-44.jpg
     alt_text: 'The New York Times: Yoshinobu Yamamoto'
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-45.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-46.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-47.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-48.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-49.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-50.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-51.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-52.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-53.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-54.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-55.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-56.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-57.jpg
+    alt_text: Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-58.jpg
+    alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-59.jpg
+    alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-60.jpg
+    alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-61.jpg
+    alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-62.jpg
+    alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-63.jpg
+    alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-64.jpg
+    alt_text: Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
