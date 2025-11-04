@@ -212,6 +212,87 @@ content_blocks:
     image_path: /uploads/new-archive-64.jpg
     alt_text: Lake Tahoe, 2023
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-65.jpg
+    alt_text: 'The Guardian: A Very American Death'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-66.jpg
+    alt_text: 'The Guardian: A Very American Death'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-67.jpg
+    alt_text: 'The Guardian: A Very American Death'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-68.jpg
+    alt_text: 'The Guardian: A Very American Death'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-69.jpg
+    alt_text: 'The Guardian: A Very American Death'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-70.jpg
+    alt_text: 'The Guardian: A Very American Death'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-71.jpg
+    alt_text: 'The Guardian: A Very American Death'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-72.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-73.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-74.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-75.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-2.jpg
+    alt_text: Florida Portraits, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-76.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-5.jpg
+    alt_text: Florida Portraits, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-77.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FLORIDA-1.jpg
+    alt_text: Florida Portraits, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-78.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-79.jpg
+    alt_text: Arizona Department of Corrections
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-80.jpg
+    alt_text: DIPTYCH Arizona Department of Corrections
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-78.jpg
+    alt_text: DIPTYCH Arizona Department of Corrections
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-83.jpg
+    alt_text: Arizona Department of Corrections
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-84.jpg
+    alt_text: Malibu, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-85.jpg
+    alt_text: Malibu, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-86.jpg
+    alt_text: Jotham Hung Ceramics
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_JOTHAM-1.jpg
+    alt_text: DIPTYCH Jotham Hung Ceramics
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-88.jpg
+    alt_text: DIPTYCH Jotham Hung Ceramics
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-89.jpg
+    alt_text: Public Hotel New York City
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
@@ -223,15 +304,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-26.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-1.jpg
-    alt_text: Florida Portraits, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-2.jpg
-    alt_text: Florida Portraits, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-5.jpg
-    alt_text: Florida Portraits, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-108.jpg
     alt_text: Idaho Rodeo, 2022
@@ -254,17 +326,8 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-73.jpg
     alt_text: San Diego, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-78.jpg
-    alt_text: Arizona Department of Corrections
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-74.jpg
-    alt_text: Arizona Department of Corrections
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-101.jpg
     alt_text: Payson Rodeo
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-1.jpg
-    alt_text: Jotham Hung Ceramics
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-61.jpg
     alt_text: 'The Guardian: Rusty Bowers'
