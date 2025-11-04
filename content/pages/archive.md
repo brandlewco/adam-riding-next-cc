@@ -293,6 +293,45 @@ content_blocks:
     image_path: /uploads/new-archive-89.jpg
     alt_text: Public Hotel New York City
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-90.jpg
+    alt_text: Public Hotel New York City
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-91.jpg
+    alt_text: Public Hotel New York City
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-92.jpg
+    alt_text: Public Hotel New York City
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-93.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-94.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-95.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-96.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-97.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-98.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-99.jpg
+    alt_text: DIPTYCH New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-100.jpg
+    alt_text: DIPTYCH New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-101.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-102.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
