@@ -642,8 +642,86 @@ content_blocks:
     alt_text: 'The New York Times: Art Scams'
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
-    alt_text: Mr. Woolsey
+    alt_text: DIPTYCH  Mr. Woolsey
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
-    alt_text: Mr. Woolsey
+    alt_text: DIPTYCH Mr. Woolsey
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-202.jpg
+    alt_text: DIPTYCH Cal-X
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-203.jpg
+    alt_text: DIPTYCH Cal-X
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-204.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-205.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-206.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-207.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-208.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-209.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-210.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-211.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-212.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-213.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-215.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-214.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-216.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-217.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-218.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-219.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-220.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-221.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-222.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-223.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-224.jpg
+    alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-225.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-226.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-227.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
 ---
