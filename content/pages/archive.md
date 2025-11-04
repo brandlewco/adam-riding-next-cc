@@ -557,8 +557,89 @@ content_blocks:
     image_path: /uploads/new-archive-173.jpg
     alt_text: Idaho Rodeo, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-101.jpg
-    alt_text: Payson Rodeo
+    image_path: /uploads/new-archive-174.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-175.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-176.jpg
+    alt_text: DIPTYCH Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-177.jpg
+    alt_text: DIPTYCH Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-178.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-179.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-180.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-181.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-182.jpg
+    alt_text: DIPTYCH Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-183.jpg
+    alt_text: DIPTYCH Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-184.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-185.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-186.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-187.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-188.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-189.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-190.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-191.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-192.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-193.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-194.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-195.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-196.jpg
+    alt_text: NAN Collective Studio
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-197.jpg
+    alt_text: DIPTYCH  Levi Christiansen
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-198.jpg
+    alt_text: DIPTYCH Levi Christiansen
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-199.jpg
+    alt_text: 'The New York Times: Art Scams'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-200.jpg
+    alt_text: 'The New York Times: Art Scams'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-201.jpg
+    alt_text: 'The New York Times: Art Scams'
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
     alt_text: Mr. Woolsey
