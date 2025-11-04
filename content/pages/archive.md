@@ -422,6 +422,78 @@ content_blocks:
     image_path: /uploads/new-archive-127.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-128.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-129.jpg
+    alt_text: DIPTYCH Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-130.jpg
+    alt_text: DIPTYCH Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-131.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-132.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-133.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-134.jpg
+    alt_text: Road and Track
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-135.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-136.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-137.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-138.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-139.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-140.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-141.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-142.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-143.jpg
+    alt_text: 'DIPTYCH Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-144.jpg
+    alt_text: 'DIPTYCH Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-145.jpg
+    alt_text: 'DIPTYCH Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-146.jpg
+    alt_text: 'DIPTYCH Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-147.jpg
+    alt_text: 'DIPTYCH Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-148.jpg
+    alt_text: 'The New York Times: Golfing'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-149.jpg
+    alt_text: 'DIPTYCH The New York Times: Golfing'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-150.jpg
+    alt_text: 'DIPTYCH The New York Times: Golfing'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-151.jpg
+    alt_text: 'The New York Times: Golfing'
+  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-101.jpg
     alt_text: Payson Rodeo
   - _bookshop_name: collection/photo
