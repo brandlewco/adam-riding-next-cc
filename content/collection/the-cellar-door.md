@@ -37,10 +37,10 @@ content_blocks:
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a8711-2-2.jpg
-    alt_text: The Cellar Door
+    alt_text: DIPTYCH The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a8713-2-2.jpg
-    alt_text: The Cellar Door
+    alt_text: DIPTYCH The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/book2-images-17-2.jpg
     alt_text: The Cellar Door
@@ -67,10 +67,10 @@ content_blocks:
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/book2-images-30-2.jpg
-    alt_text: The Cellar Door
+    alt_text: DIPTYCH The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/book2-images-31-2.jpg
-    alt_text: The Cellar Door
+    alt_text: DIPTYCH The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/book2-images-32-2.jpg
     alt_text: The Cellar Door
@@ -85,10 +85,10 @@ content_blocks:
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a0263-2.jpg
-    alt_text: The Cellar Door
+    alt_text: DIPTYCH The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a0311-2.jpg
-    alt_text: The Cellar Door
+    alt_text: DIPTYCH The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/t0a4046-2.jpg
     alt_text: The Cellar Door
