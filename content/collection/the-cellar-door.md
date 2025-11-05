@@ -75,9 +75,6 @@ content_blocks:
     image_path: /uploads/book2-images-32-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
-    image_path: /uploads/t0a3502-2-2.jpg
-    alt_text: The Cellar Door
-  - _bookshop_name: collection/photo
     image_path: /uploads/1t0a9178-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
@@ -96,10 +93,10 @@ content_blocks:
     image_path: /uploads/t0a1923-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
-    image_path: /uploads/t0a3432-2-2.jpg
+    image_path: /uploads/t0a3543-2-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
-    image_path: /uploads/t0a3543-2-2.jpg
+    image_path: /uploads/t0a3432-2-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/t0a3494-2-2.jpg
