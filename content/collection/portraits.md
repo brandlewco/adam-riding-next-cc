@@ -36,6 +36,27 @@ content_blocks:
     image_path: /uploads/raiven-lalo-test5021.jpg
     alt_text: Lalo
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-73.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-72.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-74.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-75.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-76.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-77.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-78.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
     image_path: /uploads/h73a5032.jpg
     alt_text: Carmen
   - _bookshop_name: collection/photo
@@ -47,9 +68,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/scan-23.jpg
     alt_text: Caroline
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-73.jpg
-    alt_text: Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test4499.jpg
     alt_text: Raiven
