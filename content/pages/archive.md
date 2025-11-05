@@ -233,27 +233,6 @@ content_blocks:
     image_path: /uploads/new-archive-71.jpg
     alt_text: 'The Guardian: A Very American Death'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-72.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-73.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-74.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-75.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-76.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-77.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-78.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-79.jpg
     alt_text: Arizona Department of Corrections
   - _bookshop_name: collection/photo
