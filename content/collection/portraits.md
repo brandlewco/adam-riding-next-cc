@@ -49,7 +49,7 @@ content_blocks:
     alt_text: Caroline
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-73.jpg
-    alt_text: Florida, 2023
+    alt_text: Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test4499.jpg
     alt_text: Raiven
