@@ -36,25 +36,28 @@ content_blocks:
     image_path: /uploads/raiven-lalo-test5021.jpg
     alt_text: Lalo
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-73.jpg
+    image_path: /uploads/fixed-5.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-72.jpg
+    image_path: /uploads/fixed-palm.jpg
+    alt_text: DIPTYCH Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-1-1.jpg
+    alt_text: DIPTYCH Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-2.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-74.jpg
+    image_path: /uploads/fixed-3.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-75.jpg
-    alt_text: Florida, 2024
+    image_path: /uploads/fixed-6.jpg
+    alt_text: DIPTYCH Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-76.jpg
-    alt_text: Florida, 2024
+    image_path: /uploads/fixed-7.jpg
+    alt_text: DIPTYCH Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-77.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-78.jpg
+    image_path: /uploads/fixed-4.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a5032.jpg
