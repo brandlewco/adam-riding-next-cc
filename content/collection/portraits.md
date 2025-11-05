@@ -81,13 +81,13 @@ content_blocks:
     image_path: /uploads/raiven-02.jpg
     alt_text: Raiven
   - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test4548.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test4786.jpg
     alt_text: Raiven
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test4599.jpg
-    alt_text: Raiven
-  - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test4548.jpg
     alt_text: Raiven
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot4029.jpg
