@@ -33,9 +33,6 @@ content_blocks:
     image_path: /uploads/vortex-6.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-7.jpg
-    alt_text: 'Los Angeles Times: Vortex'
-  - _bookshop_name: collection/photo
     image_path: /uploads/vortex-8.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
@@ -49,6 +46,9 @@ content_blocks:
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-12.jpg
+    alt_text: 'Los Angeles Times: Vortex'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/vortex-7.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-13.jpg
@@ -67,9 +67,6 @@ content_blocks:
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-18.jpg
-    alt_text: 'Los Angeles Times: Vortex'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-19.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-20.jpg
