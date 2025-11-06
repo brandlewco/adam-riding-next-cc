@@ -60,9 +60,6 @@ content_blocks:
     image_path: /uploads/fixed-4.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/h73a5032.jpg
-    alt_text: Carmen
-  - _bookshop_name: collection/photo
     image_path: /uploads/scan-19.jpg
     alt_text: Caroline
   - _bookshop_name: collection/photo
@@ -71,6 +68,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/scan-23.jpg
     alt_text: Caroline
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a5032.jpg
+    alt_text: Carmen
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test4499.jpg
     alt_text: Raiven
