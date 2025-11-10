@@ -7,39 +7,51 @@ const getComponentKey = (name) => {
 
 function Blocks({
   content_blocks = [],
+  blocks,
   currentIndex,
   setImageLoaded,
   componentProps,
   render,
 }) {
+  const blockList = Array.isArray(content_blocks) && content_blocks.length
+    ? content_blocks
+    : Array.isArray(blocks) ? blocks : [];
+
   return (
     <>
-      {content_blocks.map((block, i) => {
+      {blockList.map((block, i) => {
         if (typeof currentIndex === "number" && i !== currentIndex) {
           return null;
         }
 
-        const newDataBinding = `#content_blocks.${i}`;
+        const bindingSource = blockList === content_blocks ? "content_blocks" : "blocks";
+        const newDataBinding = `#${bindingSource}.${i}`;
         const componentPath = getComponentKey(block._bookshop_name);
         const TargetComponent = Object.entries(components).filter(([k]) =>
           k.endsWith(componentPath)
         )?.[0]?.[1]?.default;
-
-        if (!TargetComponent) {
-          throw new Error(`Component not found for ${block._bookshop_name}: ${componentPath}`);
-        }
 
         const extraProps =
           typeof componentProps === "function"
             ? componentProps({ block, index: i }) || {}
             : componentProps || {};
 
-        const element = (
+        if (!TargetComponent && process.env.NODE_ENV !== "production") {
+          console.warn(`Component not found for ${block._bookshop_name}: ${componentPath}`);
+        }
+
+        const element = TargetComponent ? (
           <TargetComponent
             block={block}
             dataBinding={newDataBinding}
             setImageLoaded={setImageLoaded}
             {...extraProps}
+          />
+        ) : (
+          <div
+            key={i}
+            data-missing-component={block._bookshop_name || "unknown"}
+            style={{ display: "none" }}
           />
         );
 
