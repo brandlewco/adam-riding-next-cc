@@ -298,7 +298,7 @@ useEffect(() => {
                   onPointerDown={(event) => event.stopPropagation()}
                   className="absolute top-6 right-6 text-xs uppercase tracking-widest pointer-events-auto z-[70]"
                 >
-                  Close
+                  CLOSE
                 </button>
                 {photos.length > 1 && (
                   <>
