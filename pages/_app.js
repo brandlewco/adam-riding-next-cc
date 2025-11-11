@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Navigation from "../components/layouts/navigation";
 import { useSwipeable } from "react-swipeable";
 

@@ -17,8 +17,19 @@ function CollectionPhoto({ block, setImageLoaded, dataBinding, variant = "main" 
       : "(max-width: 640px) 100vw, (max-width: 1920px) 60vw, 50vw";
   const className =
     variant === "thumb"
-      ? "h-full w-auto max-w-full object-contain"
+      ? "h-full w-auto object-contain"
       : "max-h-full w-auto h-auto object-contain";
+
+  const style =
+    variant === "thumb"
+      ? {
+          height: "100%",
+          width: "auto",
+          maxWidth: "none",
+          maxHeight: "100%",
+          display: "block",
+        }
+      : { maxWidth: "100%", maxHeight: "100%" };
 
   return (
     <MemoizedExportedImage
@@ -28,7 +39,7 @@ function CollectionPhoto({ block, setImageLoaded, dataBinding, variant = "main" 
       height={height}
       sizes={sizes}
       className={className}
-      style={{ maxWidth: "100%", maxHeight: "100%" }}
+      style={style}
       data-cms-bind={dataBinding}
       onLoad={handleImageLoad}
     />

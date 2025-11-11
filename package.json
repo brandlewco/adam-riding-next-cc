@@ -21,6 +21,7 @@
     "image-size": "^1.1.1",
     "luxon": "^3.1.0",
     "markdown-it": "^12.2.0",
+    "motion": "^12.23.24",
     "next": "^14.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-image-export-optimizer": "^1.13.0",

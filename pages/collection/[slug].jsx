@@ -1,8 +1,8 @@
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import DefaultLayout from "../../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
-import React, { useEffect, useState, useCallback, memo } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import { useRouter } from "next/router";
 import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
@@ -47,11 +47,9 @@ const SharedImageFrame = memo(function SharedImageFrame({
 }) {
   const width = block.width || 1600;
   const height = block.height || 1066;
-  const ratio = height ? width / height : 4 / 3;
-  const safeRatio = Number.isFinite(ratio) && ratio > 0 ? ratio : 4 / 3;
   const aspectStyle =
     variant === "thumb"
-      ? { aspectRatio: `${safeRatio}` }
+      ? {}
       : width && height
       ? { aspectRatio: `${width} / ${height}` }
       : { aspectRatio: "4 / 3" };
@@ -60,20 +58,26 @@ const SharedImageFrame = memo(function SharedImageFrame({
     variant === "thumb"
       ? {
           height: "100%",
-          width: "100%",
-          maxWidth: "100%",
+          width: "auto",
+          maxWidth: "none",
           maxHeight: "100%",
+          overflow: "visible",
         }
       : {
           width: "min(90vw, 1100px)",
           maxHeight: "80vh",
         };
 
+  const containerClass =
+    variant === "thumb"
+      ? "relative inline-flex items-center justify-center"
+      : "relative flex items-center justify-center";
+
   return (
     <motion.div
       layoutId={layoutId}
       layout
-      className="relative flex items-center justify-center"
+      className={containerClass}
       style={{
         ...aspectStyle,
         ...variantStyles,
@@ -124,18 +128,17 @@ function CollectionPage({
   const [hoveredArea, setHoveredArea] = useState(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [hoverHalf, setHoverHalf] = useState(null);
+  const [overlayClosing, setOverlayClosing] = useState(false);
 
-  // Controls whether the thumbs overlay should play its "show" variant.
-  const [overlayAnimate, setOverlayAnimate] = useState(false);
   useEffect(() => {
-    if (!showThumbs) return;
-    const id = requestAnimationFrame(() => setOverlayAnimate(true));
-    return () => cancelAnimationFrame(id);
+    if (showThumbs) setOverlayClosing(false);
   }, [showThumbs]);
 
   const closeThumbOverlay = useCallback(() => {
+    if (!showThumbs) return;
+    setOverlayClosing(true);
     setShowThumbs(false);
-  }, [setShowThumbs]);
+  }, [setOverlayClosing, setShowThumbs, showThumbs]);
 
   const isGalleryView = gallerySources.has(source);
   const galleryStripSize = 16;
@@ -253,11 +256,21 @@ function CollectionPage({
   const handleThumbnailSelect = useCallback(
     (index, event) => {
       if (event) event.stopPropagation();
-      setDirection("");
       setCurrentImage(index);
-      setShowThumbs(false);
+      setDirection("");
+      if (showThumbs) {
+        if (typeof window !== "undefined") {
+          window.requestAnimationFrame(() => {
+            setOverlayClosing(true);
+            setShowThumbs(false);
+          });
+        } else {
+          setOverlayClosing(true);
+          setShowThumbs(false);
+        }
+      }
     },
-    [setDirection, setCurrentImage, setShowThumbs]
+    [setDirection, setCurrentImage, setOverlayClosing, setShowThumbs, showThumbs]
   );
 
   // 3) handle area hover => set hoveredArea
@@ -316,43 +329,58 @@ function CollectionPage({
   const currentBlock = page.data.content_blocks[currentImage] || {};
   const currentImageId =
     getImageId(currentBlock.image_path) || `${page.data.slug}-${currentImage}`;
+  const isOverlayActive = showThumbs || overlayClosing;
   const sliderHidden = showThumbs;
 
+  const mainImageContent = (
+    <Blocks
+      content_blocks={page.data.content_blocks}
+      currentIndex={currentImage}
+      componentProps={() => ({ variant: "main" })}
+      render={({ element, block, index }) => (
+        <SharedImageFrame
+          key={`slider-${index}`}
+          layoutId={`image-media-${getImageId(block.image_path)}`}
+          block={block}
+          variant="main"
+          hidden={sliderHidden}
+        >
+          {element}
+        </SharedImageFrame>
+      )}
+    />
+  );
+
   const MainImageSection = isGalleryView ? (
-    <AnimatePresence custom={direction} initial={false} mode="wait">
-      <motion.div
-        key={currentImage}
-        className="relative z-10 flex justify-center items-center h-full w-full p-4"
-        {...swipeHandlers}
-        variants={internalVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        custom={direction}
-      >
-        <Blocks
-          content_blocks={page.data.content_blocks}
-          currentIndex={currentImage}
-          componentProps={() => ({ variant: "main" })}
-          render={({ element, block, index }) => (
-            <SharedImageFrame
-              key={`slider-${index}`}
-              layoutId={`image-media-${getImageId(block.image_path)}`}
-              block={block}
-              variant="main"
-              hidden={sliderHidden}
-            >
-              {element}
-            </SharedImageFrame>
-          )}
-        />
-      </motion.div>
-    </AnimatePresence>
+    isOverlayActive ? (
+      <div className="relative z-10 flex justify-center items-center h-full w-full p-4">
+        {mainImageContent}
+      </div>
+    ) : (
+      <AnimatePresence custom={direction} initial={false} mode="wait">
+        <motion.div
+          key={currentImage}
+          className="relative z-10 flex justify-center items-center h-full w-full p-4"
+          {...swipeHandlers}
+          variants={internalVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          custom={direction}
+        >
+          {mainImageContent}
+        </motion.div>
+      </AnimatePresence>
+    )
   ) : null;
 
   const ThumbsOverlay = isGalleryView && (
     // Thumbnails overlay (popup view for [slug].jsx):
-    <AnimatePresence onExitComplete={() => setOverlayAnimate(false)}>
+    <AnimatePresence
+      onExitComplete={() => {
+        setOverlayClosing(false);
+      }}
+    >
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
@@ -365,7 +393,7 @@ function CollectionPage({
           }}
           variants={containerVariants}
           initial="hidden"
-          animate={overlayAnimate ? "show" : "hidden"}
+          animate="show"
           exit="exit"
         >
           <div
@@ -385,7 +413,7 @@ function CollectionPage({
             style={{ zIndex: 2 }}
           >
             <motion.ul
-              className="grid grid-cols-4 md:grid-cols-8 gap-6 md:gap-12 xl:gap-40 justify-items-center items-center w-full"
+              className="grid grid-cols-4 md:grid-cols-6 gap-6 md:gap-12 xl:gap-32 justify-items-center items-center w-full"
               variants={containerVariants}
               initial="hidden"
               animate="show"
@@ -396,7 +424,8 @@ function CollectionPage({
                 render={({ element, block, index }) => {
                   const thumbId = getImageId(block.image_path);
                   const isActiveThumb = index === currentImage;
-                  const showSharedThumb = showThumbs && isActiveThumb;
+                  const showSharedThumb =
+                    isOverlayActive && isActiveThumb;
                   const sharedLayoutId = showSharedThumb
                     ? `image-media-${thumbId}`
                     : undefined;
@@ -405,14 +434,15 @@ function CollectionPage({
                     <motion.li
                       key={thumbId}
                       variants={thumbVariants}
-                      className="relative flex items-center justify-center w-full"
+                      className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto"
                       style={{ height: THUMBNAIL_HEIGHT }}
                       whileHover={{ scale: 1.05 }}
                     >
                       <button
                         type="button"
                         onClick={(e) => handleThumbnailSelect(index, e)}
-                        className="block w-full h-full focus:outline-none"
+                        className="flex h-full items-center justify-center focus:outline-none mx-auto"
+                        style={{ overflow: "visible" }}
                       >
                         <SharedImageFrame
                           layoutId={sharedLayoutId}
@@ -538,8 +568,8 @@ function CollectionPage({
                     <ExportedImage
                       src={thumbBlock.image_path}
                       alt={thumbBlock.alt_text || "Collection thumbnail"}
-                      width={thumbBlock.width || 64}
-                      height={thumbBlock.height || 64}
+                      width={64}
+                      height={64}
                       className="w-full h-full object-cover"
                       style={{ display: "block" }}
                     />
