@@ -2,13 +2,13 @@ import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import DefaultLayout from "../../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
-import { useEffect, useState, useCallback, memo } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
 import sizeOf from "image-size";
 import path from "path";
-import CollectionPhoto from "../../components/collection/photo";
+import { SharedImageFrame } from "../../components/shared/shared-image-frame";
 
 const filer = new Filer({ path: "content" });
 
@@ -31,79 +31,6 @@ const getImageId = (imagePath) => {
   return base.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "-");
 };
 
-const THUMBNAIL_HEIGHT = 220;
-
-const sharedImageTransition = {
-  layout: { duration: 0.25, ease: "easeInOut" },
-};
-
-const SharedImageFrame = memo(function SharedImageFrame({
-  layoutId,
-  block = {},
-  variant = "main",
-  hidden = false,
-  children,
-  dataBinding,
-}) {
-  const width = block.width || 1600;
-  const height = block.height || 1066;
-  const aspectStyle =
-    variant === "thumb"
-      ? {}
-      : width && height
-      ? { aspectRatio: `${width} / ${height}` }
-      : { aspectRatio: "4 / 3" };
-
-  const variantStyles =
-    variant === "thumb"
-      ? {
-          height: "100%",
-          width: "auto",
-          maxWidth: "none",
-          maxHeight: "100%",
-          overflow: "visible",
-        }
-      : {
-          width: "min(90vw, 1100px)",
-          maxHeight: "80vh",
-        };
-
-  const containerClass =
-    variant === "thumb"
-      ? "relative inline-flex items-center justify-center"
-      : "relative flex items-center justify-center";
-
-  return (
-    <motion.div
-      layoutId={layoutId}
-      layout
-      className={containerClass}
-      style={{
-        ...aspectStyle,
-        ...variantStyles,
-        visibility: hidden ? "hidden" : "visible",
-        pointerEvents: hidden ? "none" : "auto",
-      }}
-      transition={sharedImageTransition}
-    >
-      {children || (
-        <CollectionPhoto
-          block={block}
-          variant={variant}
-          dataBinding={dataBinding}
-        />
-      )}
-    </motion.div>
-  );
-});
-SharedImageFrame.displayName = "SharedImageFrame";
-
-// Page: Collection detail + gallery
-// - Shows a single collection of photos.
-// - If the page was reached from an index-like source, it behaves like a gallery:
-//   providing thumbnails, shared-element transitions and gallery controls.
-// - Uses a single shared layoutId per image (`image-media-<id>`) to enable stable
-//   crossfades between thumbnails and full view while avoiding duplicated layout measurement.
 function CollectionPage({
   page,
   source,
@@ -129,9 +56,45 @@ function CollectionPage({
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [hoverHalf, setHoverHalf] = useState(null);
   const [overlayClosing, setOverlayClosing] = useState(false);
+  const gridRef = useRef(null);
+  const [thumbGap, setThumbGap] = useState({ column: 0, row: 0 });
 
   useEffect(() => {
     if (showThumbs) setOverlayClosing(false);
+  }, [showThumbs]);
+
+  useEffect(() => {
+    if (!showThumbs) return;
+    if (typeof window === "undefined") return;
+    if (!gridRef.current) return;
+
+    const updateGap = () => {
+      if (!gridRef.current) return;
+      const node = gridRef.current;
+      const previousColumn = node.style.columnGap;
+      const previousRow = node.style.rowGap;
+
+      node.style.columnGap = "";
+      node.style.rowGap = "";
+
+      const computed = window.getComputedStyle(node);
+      const rawColumn = parseFloat(computed.columnGap || computed.gap || "0") || 0;
+      const rawRow = parseFloat(computed.rowGap || computed.gap || "0") || 0;
+
+      node.style.columnGap = previousColumn;
+      node.style.rowGap = previousRow;
+
+      setThumbGap((prev) => {
+        const nextColumn = rawColumn === 0 && prev.column > 0 ? prev.column : rawColumn;
+        const nextRow = rawRow === 0 && prev.row > 0 ? prev.row : rawRow;
+        if (nextColumn === prev.column && nextRow === prev.row) return prev;
+        return { column: nextColumn, row: nextRow };
+      });
+    };
+
+    updateGap();
+    window.addEventListener("resize", updateGap);
+    return () => window.removeEventListener("resize", updateGap);
   }, [showThumbs]);
 
   const closeThumbOverlay = useCallback(() => {
@@ -305,7 +268,7 @@ function CollectionPage({
   // left/right transitions for main images
   const internalVariants = {
     enter: (dir) => ({
-      opacity: 0,
+      opacity: 1,
       x: dir === "left" ? "100%" : dir === "right" ? "-100%" : 0,
       transition: { duration: 0.55, ease: [0.5, 1, 0.89, 1] },
     }),
@@ -315,11 +278,11 @@ function CollectionPage({
       transition: {
         type: "tween",
         duration: 0.8,
-        ease: [0, 0.55, 0.45, 1],
+        ease: [0.5, 1, 0.89, 1],
       },
     },
     exit: (dir) => ({
-      opacity: 0,
+      opacity: 1,
       x: dir === "left" ? "-100%" : dir === "right" ? "100%" : 0,
       transition: { duration: 0.55, ease: [0.5, 1, 0.89, 1] },
     }),
@@ -331,6 +294,9 @@ function CollectionPage({
     getImageId(currentBlock.image_path) || `${page.data.slug}-${currentImage}`;
   const isOverlayActive = showThumbs || overlayClosing;
   const sliderHidden = showThumbs;
+  const columnGapValue = thumbGap.column;
+  const rowGapValue = thumbGap.row;
+  const thumbnailMargin = columnGapValue > 0 ? columnGapValue / 2 : 0;
 
   const mainImageContent = (
     <Blocks
@@ -351,27 +317,32 @@ function CollectionPage({
     />
   );
 
+  const sliderWrapperProps = isOverlayActive ? {} : swipeHandlers;
+
   const MainImageSection = isGalleryView ? (
-    isOverlayActive ? (
-      <div className="relative z-10 flex justify-center items-center h-full w-full p-4">
-        {mainImageContent}
-      </div>
-    ) : (
-      <AnimatePresence custom={direction} initial={false} mode="wait">
-        <motion.div
-          key={currentImage}
-          className="relative z-10 flex justify-center items-center h-full w-full p-4"
-          {...swipeHandlers}
-          variants={internalVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          custom={direction}
-        >
-          {mainImageContent}
-        </motion.div>
-      </AnimatePresence>
-    )
+    <div
+      className="relative z-10 flex justify-center items-center h-full w-full p-4 overflow-hidden"
+      {...sliderWrapperProps}
+    >
+      {isOverlayActive ? (
+        mainImageContent
+      ) : (
+        <AnimatePresence custom={direction} initial={false} mode="sync">
+          <motion.div
+            key={currentImage}
+            className="absolute inset-0 flex justify-center items-center"
+            variants={internalVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            custom={direction}
+            style={{ width: "100%", height: "100%" }}
+          >
+            {mainImageContent}
+          </motion.div>
+        </AnimatePresence>
+      )}
+    </div>
   ) : null;
 
   const ThumbsOverlay = isGalleryView && (
@@ -413,10 +384,15 @@ function CollectionPage({
             style={{ zIndex: 2 }}
           >
             <motion.ul
-              className="grid grid-cols-4 md:grid-cols-6 gap-6 md:gap-12 xl:gap-32 justify-items-center items-center w-full"
+              className="grid grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
+              ref={gridRef}
               variants={containerVariants}
               initial="hidden"
               animate="show"
+              style={{
+                columnGap: columnGapValue ? 0 : undefined,
+                rowGap: rowGapValue || undefined,
+              }}
             >
               <Blocks
                 content_blocks={page.data.content_blocks}
@@ -434,8 +410,7 @@ function CollectionPage({
                     <motion.li
                       key={thumbId}
                       variants={thumbVariants}
-                      className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto"
-                      style={{ height: THUMBNAIL_HEIGHT }}
+                      className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[60px] lg:h-[160px]"
                       whileHover={{ scale: 1.05 }}
                     >
                       <button
@@ -448,6 +423,7 @@ function CollectionPage({
                           layoutId={sharedLayoutId}
                           block={block}
                           variant="thumb"
+                          thumbMargin={thumbnailMargin}
                         >
                           {element}
                         </SharedImageFrame>
@@ -539,7 +515,7 @@ function CollectionPage({
         )}
 
         {isGalleryView && imageCount > 1 && (
-          <div className="fixed bottom-[3.5rem] left-0 right-0 z-40 px-16 md:px-4">
+          <div className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-16 md:px-4">
             <div
               className="grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center"
               style={{
@@ -591,7 +567,7 @@ function CollectionPage({
           onClick={() => handleAreaClick("left")}
         >
           <button
-            className={`ml-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+            className={`ml-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 ${
               showPrevButton
                 ? "opacity-100 pointer-events-auto"
                 : "opacity-0 pointer-events-none"
@@ -613,7 +589,7 @@ function CollectionPage({
           onClick={() => handleAreaClick("right")}
         >
           <button
-            className={`mr-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+            className={`mr-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1${
               showNextButton
                 ? "opacity-100 pointer-events-auto"
                 : "opacity-0 pointer-events-none"

@@ -1,6 +1,6 @@
 import DefaultLayout from "../components/layouts/default";
 import Filer from "@cloudcannon/filer";
-import { motion, LayoutGroup, useAnimation } from "framer-motion";
+import { motion, LayoutGroup, useAnimationControls } from "motion/react";
 import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useState, useCallback, useMemo, useEffect, useRef, memo } from "react";
@@ -40,7 +40,7 @@ function HomePage({ page, collections }) {
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeDirection, setActiveDirection] = useState(null);
-  const controls = useAnimation();
+  const controls = useAnimationControls();
   const totalCollections = collections.length;
   const containerRef = useRef(null);
   const animatingRef = useRef(false);
@@ -99,13 +99,13 @@ function HomePage({ page, collections }) {
     };
   }, []);
 
-  const CARD_GAP_DESKTOP = 160;
+  const CARD_GAP_DESKTOP = 120;
   const CARD_GAP_MOBILE = 32;
   const MIN_CARD_WIDTH = 200;
   const MAX_CARD_WIDTH = 720;
 
-  const showPeeking = totalCollections >= 6;
-  const visibleCount = totalCollections === 0 ? 0 : showPeeking ? 6 : Math.min(totalCollections, 6);
+  const showPeeking = totalCollections >= 8;
+  const visibleCount = totalCollections === 0 ? 0 : showPeeking ? 8 : Math.min(totalCollections, 8);
   const isMobile = containerWidth && containerWidth < 768;
   const cardGap = isMobile ? CARD_GAP_MOBILE : CARD_GAP_DESKTOP;
 
@@ -113,7 +113,7 @@ function HomePage({ page, collections }) {
   let computedWidth = 0;
   if (containerWidth && visibleCount > 0) {
     if (showPeeking) {
-      computedWidth = (containerWidth - 5 * cardGap) / 5;
+      computedWidth = (containerWidth - 7 * cardGap) / 7;
     } else {
       computedWidth = (containerWidth - (visibleCount - 1) * cardGap) / visibleCount;
     }
@@ -168,13 +168,14 @@ function HomePage({ page, collections }) {
 
   const displayedCollections = useMemo(() => {
     if (!totalCollections || extraOffsets.length === 0) return [];
-    return extraOffsets.map((offset) => {
+    return extraOffsets.map((offset, slotIndex) => {
       const normalizedIndex =
         (currentIndex + offset + totalCollections) % totalCollections;
       return {
         collection: collections[normalizedIndex],
         absoluteIndex: normalizedIndex,
         offset,
+        slotId: `slot-${slotIndex}`,
       };
     });
   }, [collections, currentIndex, extraOffsets, totalCollections]);
@@ -315,7 +316,7 @@ function HomePage({ page, collections }) {
                     animate={controls}
                   >
                     {displayedCollections.map(
-                      ({ collection, absoluteIndex, offset }) => {
+                      ({ collection, absoluteIndex, offset, slotId }) => {
                         const imageCount = collection.imageCount || 0;
                         const imageId = getImageId(collection.firstImagePath);
                         const aspectStyle =
@@ -326,38 +327,38 @@ function HomePage({ page, collections }) {
                         const isCore = offset >= coreMin && offset <= coreMax;
                         const isLeadingExtra = offset === coreMin - 1;
                         const isTrailingExtra = offset === coreMax + 1;
+                        const isExtra = isLeadingExtra || isTrailingExtra;
                         const shouldShow =
-                          isCore ||
-                          (activeDirection === "prev" && isLeadingExtra) ||
-                          (activeDirection === "next" && isTrailingExtra);
+                          !isExtra ||
+                          (isLeadingExtra && activeDirection === "prev") ||
+                          (isTrailingExtra && activeDirection === "next");
+
                         const introOrder = coreOffsets.indexOf(offset);
                         const introDelay = introOrder >= 0 ? introOrder * 0.08 : 0;
-
-                        if (!shouldShow) {
-                          return null;
-                        }
 
                         const baseStyles = {
                           flex: "0 0 auto",
                           width: `${cardWidth}px`,
                           minWidth: `${cardWidth}px`,
                           overflow: "visible",
+                          pointerEvents: isExtra ? "none" : "auto",
                         };
 
-                        if (isLeadingExtra && activeDirection === "prev") {
+                        if (isExtra && !shouldShow) {
+                          baseStyles.display = "none";
+                        } else if (isLeadingExtra) {
                           const offsetDistance =
                             travelDistance || cardWidth + cardGap;
                           Object.assign(baseStyles, {
                             position: "absolute",
                             left: `-${offsetDistance}px`,
                             top: 0,
-                            pointerEvents: "none",
                           });
                         }
 
                         return (
                           <motion.li
-                            key={`${offset}-${collection.slug}-${absoluteIndex}`}
+                            key={slotId}
                             data-collection={collection.slug}
                             className="flex flex-col items-center text-right relative group"
                             style={baseStyles}

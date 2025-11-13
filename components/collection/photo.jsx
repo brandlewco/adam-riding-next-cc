@@ -1,5 +1,5 @@
 import ExportedImage from "next-image-export-optimizer";
-import { memo, useCallback } from "react";
+import { memo, useCallback, useEffect } from "react";
 
 const MemoizedExportedImage = memo(ExportedImage);
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
@@ -8,6 +8,15 @@ function CollectionPhoto({ block, setImageLoaded, dataBinding, variant = "main" 
   const handleImageLoad = useCallback(() => {
     if (setImageLoaded) setImageLoaded(true);
   }, [setImageLoaded]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !block?.image_path) return;
+    const preload = new Image();
+    preload.src = block.image_path;
+    preload.decoding = "async";
+    preload.fetchPriority = variant === "main" ? "high" : "auto";
+    preload.decode?.().catch(() => {});
+  }, [block?.image_path, variant]);
 
   const width = block.width || 1600;
   const height = block.height || 1066;
@@ -28,8 +37,15 @@ function CollectionPhoto({ block, setImageLoaded, dataBinding, variant = "main" 
           maxWidth: "none",
           maxHeight: "100%",
           display: "block",
+          backgroundColor: "#f5f5f5",
+          willChange: "transform, opacity",
         }
-      : { maxWidth: "100%", maxHeight: "100%" };
+      : {
+          maxWidth: "100%",
+          maxHeight: "100%",
+          backgroundColor: "#f5f5f5",
+          willChange: "transform, opacity",
+        };
 
   return (
     <MemoizedExportedImage
@@ -41,6 +57,10 @@ function CollectionPhoto({ block, setImageLoaded, dataBinding, variant = "main" 
       className={className}
       style={style}
       data-cms-bind={dataBinding}
+      placeholder="empty"
+      loading={variant === "main" ? "eager" : "lazy"}
+      fetchPriority={variant === "main" ? "high" : "auto"}
+      decoding="async"
       onLoad={handleImageLoad}
     />
   );
