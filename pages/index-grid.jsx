@@ -14,11 +14,26 @@ const filer = new Filer({ path: "content" });
 const INTRO_IDLE = "idle";
 const INTRO_PLAYING = "playing";
 const INTRO_DONE = "done";
+const INTRO_DURATION = 0.33;
+const INTRO_STAGGER = 0.05;
 
 const getImageId = (imagePath) => {
   if (!imagePath) return "image-unknown";
   const base = imagePath.split("/").pop() || imagePath;
   return base.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "-");
+};
+
+const introVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (order) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: INTRO_DURATION,
+      delay: order * INTRO_STAGGER,
+      ease: "easeOut",
+    },
+  }),
 };
 
 const MemoizedExportedImage = memo(
@@ -47,10 +62,9 @@ function HomePage({ page, collections }) {
   const baseOffsetRef = useRef(0);
   const wheelDeltaRef = useRef(0);
   const [containerWidth, setContainerWidth] = useState(0);
+
   // Drive the intro fade so the track settles before the cards become visible.
   const [introState, setIntroState] = useState(INTRO_IDLE);
-  const introRafRef = useRef(null);
-  const introTimeoutRef = useRef(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -62,50 +76,18 @@ function HomePage({ page, collections }) {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (introState !== INTRO_IDLE) return;
-    introRafRef.current = requestAnimationFrame(() => {
-      setIntroState(INTRO_PLAYING);
-    });
-    return () => {
-      if (introRafRef.current !== null) {
-        cancelAnimationFrame(introRafRef.current);
-        introRafRef.current = null;
-      }
-    };
-  }, [introState]);
-
-  useEffect(() => {
-    if (introState !== INTRO_PLAYING) return;
-    introTimeoutRef.current = setTimeout(() => {
-      setIntroState(INTRO_DONE);
-    }, 900);
-    return () => {
-      if (introTimeoutRef.current) {
-        clearTimeout(introTimeoutRef.current);
-        introTimeoutRef.current = null;
-      }
-    };
-  }, [introState]);
-
-  useEffect(() => {
-    return () => {
-      if (introRafRef.current !== null) {
-        cancelAnimationFrame(introRafRef.current);
-      }
-      if (introTimeoutRef.current) {
-        clearTimeout(introTimeoutRef.current);
-      }
-    };
-  }, []);
-
   const CARD_GAP_DESKTOP = 120;
   const CARD_GAP_MOBILE = 32;
   const MIN_CARD_WIDTH = 200;
   const MAX_CARD_WIDTH = 720;
 
   const showPeeking = totalCollections >= 8;
-  const visibleCount = totalCollections === 0 ? 0 : showPeeking ? 8 : Math.min(totalCollections, 8);
+  const visibleCount =
+    totalCollections === 0
+      ? 0
+      : showPeeking
+      ? 8
+      : Math.min(totalCollections, 8);
   const isMobile = containerWidth && containerWidth < 768;
   const cardGap = isMobile ? CARD_GAP_MOBILE : CARD_GAP_DESKTOP;
 
@@ -115,23 +97,31 @@ function HomePage({ page, collections }) {
     if (showPeeking) {
       computedWidth = (containerWidth - 7 * cardGap) / 7;
     } else {
-      computedWidth = (containerWidth - (visibleCount - 1) * cardGap) / visibleCount;
+      computedWidth =
+        (containerWidth - (visibleCount - 1) * cardGap) / visibleCount;
     }
   }
   if (!Number.isFinite(computedWidth) || computedWidth <= 0) {
-    computedWidth = containerWidth && visibleCount
-      ? containerWidth / Math.max(visibleCount, 1)
-      : 0;
+    computedWidth =
+      containerWidth && visibleCount
+        ? containerWidth / Math.max(visibleCount, 1)
+        : 0;
   }
 
   let cardWidth = containerWidth ? computedWidth : 0;
   if (containerWidth) {
     const maxAllowed = Math.min(MAX_CARD_WIDTH, containerWidth);
     if (showPeeking) {
-      const peekMin = Math.min(120, containerWidth / Math.max(visibleCount || 1, 1));
+      const peekMin = Math.min(
+        120,
+        containerWidth / Math.max(visibleCount || 1, 1)
+      );
       cardWidth = Math.max(cardWidth, peekMin);
     } else {
-      const standardMin = Math.min(MIN_CARD_WIDTH, containerWidth / Math.max(visibleCount || 1, 1));
+      const standardMin = Math.min(
+        MIN_CARD_WIDTH,
+        containerWidth / Math.max(visibleCount || 1, 1)
+      );
       cardWidth = Math.max(cardWidth, standardMin);
     }
     cardWidth = Math.min(cardWidth, maxAllowed);
@@ -182,7 +172,8 @@ function HomePage({ page, collections }) {
 
   // Keep the carousel shifted so the edge cards remain half visible while idling.
   const baseOffset = useMemo(() => {
-    if (!showPeeking || !cardWidth || !visibleCount || !containerWidth) return 0;
+    if (!showPeeking || !cardWidth || !visibleCount || !containerWidth)
+      return 0;
     const span = (visibleCount - 1) * (cardWidth + cardGap);
     const upperRight = containerWidth - span;
     const lowerRight = containerWidth - (span + cardWidth);
@@ -196,7 +187,10 @@ function HomePage({ page, collections }) {
 
     const midpoint = (lowerBound + upperBound) / 2;
     const epsilon = Math.min(cardWidth * 0.05, 16);
-    return Math.max(lowerBound + epsilon, Math.min(upperBound - epsilon, midpoint));
+    return Math.max(
+      lowerBound + epsilon,
+      Math.min(upperBound - epsilon, midpoint)
+    );
   }, [cardGap, cardWidth, containerWidth, showPeeking, visibleCount]);
 
   useEffect(() => {
@@ -206,6 +200,21 @@ function HomePage({ page, collections }) {
   useEffect(() => {
     baseOffsetRef.current = baseOffset || 0;
   }, [baseOffset]);
+
+  // Start intro animation once cardWidth is ready (layout settled)
+  useEffect(() => {
+    if (!cardWidth || introState !== INTRO_IDLE) return;
+
+    setIntroState(INTRO_PLAYING);
+
+    const timeout = setTimeout(() => {
+      setIntroState(INTRO_DONE);
+    }, 900);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [cardWidth, introState]);
 
   const handleMouseEnter = useCallback((absoluteIndex) => {
     setHoverIndex(absoluteIndex);
@@ -273,10 +282,12 @@ function HomePage({ page, collections }) {
 
   const handleWheel = useCallback(
     (event) => {
-      if (totalCollections <= 1 || !travelDistance || animatingRef.current) return;
-      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY)
-        ? event.deltaX
-        : event.deltaY;
+      if (totalCollections <= 1 || !travelDistance || animatingRef.current)
+        return;
+      const delta =
+        Math.abs(event.deltaX) > Math.abs(event.deltaY)
+          ? event.deltaX
+          : event.deltaY;
       if (!delta) return;
 
       wheelDeltaRef.current += delta;
@@ -321,7 +332,9 @@ function HomePage({ page, collections }) {
                         const imageId = getImageId(collection.firstImagePath);
                         const aspectStyle =
                           collection.width && collection.height
-                            ? { aspectRatio: `${collection.width} / ${collection.height}` }
+                            ? {
+                                aspectRatio: `${collection.width} / ${collection.height}`,
+                              }
                             : { aspectRatio: "4 / 3" };
 
                         const isCore = offset >= coreMin && offset <= coreMax;
@@ -334,7 +347,18 @@ function HomePage({ page, collections }) {
                           (isTrailingExtra && activeDirection === "next");
 
                         const introOrder = coreOffsets.indexOf(offset);
-                        const introDelay = introOrder >= 0 ? introOrder * 0.08 : 0;
+                        const shouldAnimateIntro = introOrder >= 0;
+                        const introMotionProps = shouldAnimateIntro
+                          ? {
+                              variants: introVariants,
+                              initial: "hidden",
+                              animate:
+                                introState === INTRO_IDLE
+                                  ? "hidden"
+                                  : "visible",
+                              custom: introOrder,
+                            }
+                          : { initial: false };
 
                         const baseStyles = {
                           flex: "0 0 auto",
@@ -365,28 +389,7 @@ function HomePage({ page, collections }) {
                             onMouseEnter={() => handleMouseEnter(absoluteIndex)}
                             onMouseLeave={handleMouseLeave}
                           >
-                            <motion.div
-                              className="w-full"
-                              initial={
-                                introState === INTRO_DONE
-                                  ? false
-                                  : { opacity: 0, y: 16 }
-                              }
-                              animate={
-                                introState === INTRO_IDLE
-                                  ? { opacity: 0, y: 16 }
-                                  : { opacity: 1, y: 0 }
-                              }
-                              transition={
-                                introState === INTRO_PLAYING && introOrder !== -1
-                                  ? {
-                                      duration: 0.45,
-                                      ease: "easeOut",
-                                      delay: introDelay,
-                                    }
-                                  : { duration: 0.25, ease: "easeOut" }
-                              }
-                            >
+                            <motion.div className="w-full" {...introMotionProps}>
                               <Link href={`/collection/${collection.slug}`}>
                                 <motion.div
                                   layout
@@ -422,7 +425,10 @@ function HomePage({ page, collections }) {
                                   >
                                     <MemoizedExportedImage
                                       src={collection.firstImagePath}
-                                      alt={collection.firstImageAlt || "Collection image"}
+                                      alt={
+                                        collection.firstImageAlt ||
+                                        "Collection image"
+                                      }
                                       width={collection.width}
                                       height={collection.height}
                                       style={{ height: "100%" }}

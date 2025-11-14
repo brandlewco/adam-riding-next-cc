@@ -2,7 +2,7 @@ import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import DefaultLayout from "../../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, memo } from "react";
 import { useRouter } from "next/router";
 import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
@@ -18,7 +18,15 @@ const filer = new Filer({ path: "content" });
 function HiddenPreloadImage({ src, width = 64, height = 64 }) {
   return (
     <div style={{ width: 0, height: 0, overflow: "hidden" }}>
-      <ExportedImage src={src} alt="" width={width} height={height} priority />
+      <ExportedImage
+        src={src}
+        alt=""
+        width={width}
+        height={height}
+        sizes="64px"
+        loading="eager"
+        priority={false}
+      />
     </div>
   );
 }
@@ -30,6 +38,51 @@ const getImageId = (imagePath) => {
   const base = imagePath.split("/").pop() || imagePath;
   return base.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "-");
 };
+
+const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
+  thumbIdx,
+  block,
+  isCurrent,
+  relativeIndex,
+  onSelect,
+}) {
+  if (!block) return null;
+  const alt = block.alt_text || "Collection thumbnail";
+  const width = block.width || 400;
+  const height = block.height || 300;
+
+  return (
+    <motion.button
+      type="button"
+      onClick={() => onSelect(thumbIdx)}
+      className={`w-full border border-transparent transition h-auto w-auto md:h-8 md:w-8 ${
+        isCurrent ? "opacity-100" : "opacity-50 hover:opacity-100"
+      }`}
+      aria-label={`Show image ${thumbIdx + 1}`}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.15 + Math.max(relativeIndex, 0) * 0.03,
+        duration: 0.35,
+        ease: [0.4, 0, 0.2, 1],
+      }}
+    >
+      <div className="mx-auto h-8 w-8">
+        <ExportedImage
+          src={block.image_path}
+          alt={alt}
+          width={width}
+          height={height}
+          sizes="32px"
+          className="h-full w-full object-cover"
+          style={{ display: "block" }}
+          loading="lazy"
+        />
+      </div>
+    </motion.button>
+  );
+});
+GalleryStripThumbnail.displayName = "GalleryStripThumbnail";
 
 function CollectionPage({
   page,
@@ -56,12 +109,31 @@ function CollectionPage({
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [hoverHalf, setHoverHalf] = useState(null);
   const [overlayClosing, setOverlayClosing] = useState(false);
+  const [overlayEntering, setOverlayEntering] = useState(false);
+  const [thumbsLoaded, setThumbsLoaded] = useState(() => new Set());
+  const [mainImageLoaded, setMainImageLoaded] = useState(false);
+  const [stripReady, setStripReady] = useState(false);
   const gridRef = useRef(null);
   const [thumbGap, setThumbGap] = useState({ column: 0, row: 0 });
 
   useEffect(() => {
-    if (showThumbs) setOverlayClosing(false);
+    if (typeof window === "undefined") return undefined;
+    const frame = window.requestAnimationFrame(() => setStripReady(true));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (showThumbs) {
+      setOverlayClosing(false);
+      setOverlayEntering(true);
+    }
   }, [showThumbs]);
+
+  useEffect(() => {
+    if (!showThumbs && !overlayClosing) {
+      setOverlayEntering(false);
+    }
+  }, [overlayClosing, showThumbs]);
 
   useEffect(() => {
     if (!showThumbs) return;
@@ -160,6 +232,20 @@ function CollectionPage({
     }
   }, [isTouchDevice]);
 
+  const registerThumbLoaded = useCallback((index) => {
+    if (typeof index !== "number") return;
+    setThumbsLoaded((prev) => {
+      if (prev.has(index)) return prev;
+      const next = new Set(prev);
+      next.add(index);
+      return next;
+    });
+  }, []);
+
+  const handleMainImageLoaded = useCallback(() => {
+    setMainImageLoaded(true);
+  }, []);
+
   useEffect(() => {
     const queryIndex = parseInt(router.query.image);
     if (!isNaN(queryIndex) && queryIndex >= 0 && queryIndex < imageCount) {
@@ -236,6 +322,11 @@ function CollectionPage({
     [setDirection, setCurrentImage, setOverlayClosing, setShowThumbs, showThumbs]
   );
 
+  const handleGalleryStripSelect = useCallback((thumbIdx) => {
+    setDirection("");
+    setCurrentImage(thumbIdx);
+  }, []);
+
   // 3) handle area hover => set hoveredArea
   const handleAreaHover = useCallback((area) => {
     setHoveredArea(area);
@@ -292,8 +383,8 @@ function CollectionPage({
   const currentBlock = page.data.content_blocks[currentImage] || {};
   const currentImageId =
     getImageId(currentBlock.image_path) || `${page.data.slug}-${currentImage}`;
-  const isOverlayActive = showThumbs || overlayClosing;
-  const sliderHidden = showThumbs;
+  const isOverlayActive = showThumbs || overlayClosing || overlayEntering;
+  const sliderHidden = (showThumbs || overlayClosing) && !overlayEntering;
   const columnGapValue = thumbGap.column;
   const rowGapValue = thumbGap.row;
   const thumbnailMargin = columnGapValue > 0 ? columnGapValue / 2 : 0;
@@ -302,7 +393,7 @@ function CollectionPage({
     <Blocks
       content_blocks={page.data.content_blocks}
       currentIndex={currentImage}
-      componentProps={() => ({ variant: "main" })}
+      componentProps={() => ({ variant: "main", setImageLoaded: handleMainImageLoaded })}
       render={({ element, block, index }) => (
         <SharedImageFrame
           key={`slider-${index}`}
@@ -320,8 +411,11 @@ function CollectionPage({
   const sliderWrapperProps = isOverlayActive ? {} : swipeHandlers;
 
   const MainImageSection = isGalleryView ? (
-    <div
+    <motion.div
       className="relative z-10 flex justify-center items-center h-full w-full p-4 overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: mainImageLoaded ? 1 : 0 }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       {...sliderWrapperProps}
     >
       {isOverlayActive ? (
@@ -342,20 +436,20 @@ function CollectionPage({
           </motion.div>
         </AnimatePresence>
       )}
-    </div>
+    </motion.div>
   ) : null;
 
-  const ThumbsOverlay = isGalleryView && (
-    // Thumbnails overlay (popup view for [slug].jsx):
+  const ThumbsOverlay = isGalleryView ? (
     <AnimatePresence
       onExitComplete={() => {
         setOverlayClosing(false);
+        setOverlayEntering(false);
       }}
     >
       {showThumbs && (
         <motion.div
           key="thumbs-overlay"
-          className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center opacity-0"
+          className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
           style={{
             pointerEvents: "auto",
             willChange: "opacity, transform",
@@ -366,6 +460,11 @@ function CollectionPage({
           initial="hidden"
           animate="show"
           exit="exit"
+          onAnimationComplete={(definition) => {
+            if (definition === "show") {
+              setOverlayEntering(false);
+            }
+          }}
         >
           <div
             className="absolute inset-0"
@@ -389,6 +488,7 @@ function CollectionPage({
               variants={containerVariants}
               initial="hidden"
               animate="show"
+              exit="exit"
               style={{
                 columnGap: columnGapValue ? 0 : undefined,
                 rowGap: rowGapValue || undefined,
@@ -396,27 +496,36 @@ function CollectionPage({
             >
               <Blocks
                 content_blocks={page.data.content_blocks}
-                componentProps={() => ({ variant: "thumb" })}
+                componentProps={({ index }) => ({
+                  variant: "thumb",
+                  waitUntilInView: true,
+                  inViewMargin: "300px",
+                  imageIdentifier: index,
+                  setImageLoaded: registerThumbLoaded,
+                  sizesAttr: "(max-width: 768px) 45vw, 220px",
+                })}
                 render={({ element, block, index }) => {
                   const thumbId = getImageId(block.image_path);
                   const isActiveThumb = index === currentImage;
-                  const showSharedThumb =
-                    isOverlayActive && isActiveThumb;
+                  const showSharedThumb = isOverlayActive && isActiveThumb;
                   const sharedLayoutId = showSharedThumb
                     ? `image-media-${thumbId}`
                     : undefined;
+                  const thumbIsLoaded = thumbsLoaded.has(index);
 
                   return (
                     <motion.li
-                      key={thumbId}
+                      key={`${thumbId}-${index}`}
                       variants={thumbVariants}
                       className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[60px] lg:h-[160px]"
                       whileHover={{ scale: 1.05 }}
+                      initial="hidden"
+                      animate={thumbIsLoaded ? "show" : "hidden"}
                     >
                       <button
                         type="button"
                         onClick={(e) => handleThumbnailSelect(index, e)}
-                        className="flex h-full items-center justify-center focus:outline-none mx-auto"
+                        className="flex h-full w-full items-center justify-center focus:outline-none mx-auto"
                         style={{ overflow: "visible" }}
                       >
                         <SharedImageFrame
@@ -437,7 +546,7 @@ function CollectionPage({
         </motion.div>
       )}
     </AnimatePresence>
-  );
+  ) : null;
 
   /**
    * Preloading logic:
@@ -515,7 +624,12 @@ function CollectionPage({
         )}
 
         {isGalleryView && imageCount > 1 && (
-          <div className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-16 md:px-4">
+          <motion.div
+            className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-16 md:px-4"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: stripReady ? 1 : 0, y: stripReady ? 0 : 12 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
+          >
             <div
               className="grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center"
               style={{
@@ -525,35 +639,18 @@ function CollectionPage({
                 )}, minmax(0, 1fr))`,
               }}
             >
-              {galleryThumbnailIndices.map((thumbIdx) => {
-                const thumbBlock = page.data.content_blocks[thumbIdx];
-                if (!thumbBlock) return null;
-                const isCurrent = thumbIdx === currentImage;
-                return (
-                  <button
-                    key={`gallery-strip-${thumbIdx}`}
-                    onClick={() => {
-                      setDirection("");
-                      setCurrentImage(thumbIdx);
-                    }}
-                    className={`w-full border border-transparent transition h-auto w-auto md:h-8 md:w-8 ${
-                      isCurrent ? "opacity-100" : "opacity-50 hover:opacity-100"
-                    }`}
-                    aria-label={`Show image ${thumbIdx + 1}`}
-                  >
-                    <ExportedImage
-                      src={thumbBlock.image_path}
-                      alt={thumbBlock.alt_text || "Collection thumbnail"}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-cover"
-                      style={{ display: "block" }}
-                    />
-                  </button>
-                );
-              })}
+              {galleryThumbnailIndices.map((thumbIdx) => (
+                <GalleryStripThumbnail
+                  key={`gallery-strip-${thumbIdx}`}
+                  thumbIdx={thumbIdx}
+                  block={page.data.content_blocks[thumbIdx]}
+                  isCurrent={thumbIdx === currentImage}
+                  relativeIndex={thumbIdx - chunkStart}
+                  onSelect={handleGalleryStripSelect}
+                />
+              ))}
             </div>
-          </div>
+          </motion.div>
         )}
 
         {MainImageSection}

@@ -1,43 +1,70 @@
 import ExportedImage from "next-image-export-optimizer";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 const MemoizedExportedImage = memo(ExportedImage);
 MemoizedExportedImage.displayName = "MemoizedExportedImage";
 
-function CollectionPhoto({ block, setImageLoaded, dataBinding, variant = "main" }) {
-  const handleImageLoad = useCallback(() => {
-    if (setImageLoaded) setImageLoaded(true);
-  }, [setImageLoaded]);
+function CollectionPhoto({
+  block = {},
+  setImageLoaded,
+  dataBinding,
+  variant = "main",
+  waitUntilInView = false,
+  inViewMargin = "200px",
+  imageIdentifier,
+}) {
+  const [hasEnteredView, setHasEnteredView] = useState(!waitUntilInView);
+
+  const [observe, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: inViewMargin,
+    skip: !waitUntilInView,
+  });
 
   useEffect(() => {
-    if (typeof window === "undefined" || !block?.image_path) return;
-    const preload = new Image();
-    preload.src = block.image_path;
-    preload.decoding = "async";
-    preload.fetchPriority = variant === "main" ? "high" : "auto";
-    preload.decode?.().catch(() => {});
-  }, [block?.image_path, variant]);
+    if (waitUntilInView && inView) {
+      setHasEnteredView(true);
+    }
+  }, [inView, waitUntilInView]);
+
+  const handleImageLoad = useCallback(() => {
+    if (typeof setImageLoaded === "function") {
+      setImageLoaded(
+        typeof imageIdentifier !== "undefined" ? imageIdentifier : true
+      );
+    }
+  }, [imageIdentifier, setImageLoaded]);
 
   const width = block.width || 1600;
   const height = block.height || 1066;
+  const rawSrc = block.image_path || block.src || "";
+  const normalizedSrc = useMemo(() => {
+    if (!rawSrc) return rawSrc;
+    if (rawSrc.startsWith("http")) return rawSrc;
+    const [cleanPath] = rawSrc.split("?");
+    const hasExtension = /\.[a-zA-Z0-9]+$/.test(cleanPath || "");
+    return hasExtension ? cleanPath : `${cleanPath}.jpg`;
+  }, [rawSrc]);
+
   const sizes =
     variant === "thumb"
       ? "(max-width:640px)30vw,10vw"
       : "(max-width: 640px) 100vw, (max-width: 1920px) 60vw, 50vw";
   const className =
     variant === "thumb"
-      ? "h-full w-auto object-contain"
+      ? "h-full w-full object-contain"
       : "max-h-full w-auto h-auto object-contain";
 
   const style =
     variant === "thumb"
       ? {
           height: "100%",
-          width: "auto",
-          maxWidth: "none",
+          width: "100%",
+          maxWidth: "100%",
           maxHeight: "100%",
           display: "block",
-          backgroundColor: "#f5f5f5",
+          backgroundColor: "#ffffff",
           willChange: "transform, opacity",
         }
       : {
@@ -47,9 +74,28 @@ function CollectionPhoto({ block, setImageLoaded, dataBinding, variant = "main" 
           willChange: "transform, opacity",
         };
 
+  const placeholderStyle = {
+    display: "block",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#f5f5f5",
+    borderRadius: 2,
+  };
+
+  if (!hasEnteredView) {
+    return (
+      <span
+        ref={waitUntilInView ? observe : undefined}
+        data-cms-bind={dataBinding}
+        style={placeholderStyle}
+      />
+    );
+  }
+
   return (
     <MemoizedExportedImage
-      src={block.image_path}
+      ref={waitUntilInView ? observe : undefined}
+      src={normalizedSrc}
       alt={block.alt_text || "Slide Image"}
       width={width}
       height={height}

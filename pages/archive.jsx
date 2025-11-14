@@ -40,11 +40,21 @@ const containerVariants = {
 };
 
 const thumbVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { duration: 0.33 },
+  hidden: {
+    opacity: 0,
+    y: 16,
+    filter: "blur(8px)",
   },
+  show: (order = 0) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.8, 0.25, 1],
+      delay: order * 0.03,
+    },
+  }),
   exit: { opacity: 0 },
 };
 
@@ -54,7 +64,18 @@ function ArchivePage({ page, photos }) {
   const [overlayClosing, setOverlayClosing] = useState(false);
   const [direction, setDirection] = useState("");
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
+  const [loadedThumbs, setLoadedThumbs] = useState(() => new Set());
   const [shareLayoutMain, setShareLayoutMain] = useState(false);
+
+  const registerThumbLoaded = useCallback((index) => {
+    if (typeof index !== "number") return;
+    setLoadedThumbs((prev) => {
+      if (prev.has(index)) return prev;
+      const next = new Set(prev);
+      next.add(index);
+      return next;
+    });
+  }, []);
 
   const handleOpen = useCallback(
     (index) => {
@@ -129,7 +150,7 @@ function ArchivePage({ page, photos }) {
         setActiveIndex(null);
         setDirection("");
         setShareLayoutMain(false);
-      }, 220);
+      }, 450);
       return () => clearTimeout(timeout);
     }
   }, [overlayOpen, overlayClosing]);
@@ -190,7 +211,7 @@ function ArchivePage({ page, photos }) {
                 variant="main"
                 shareLayout={shareLayoutMain}
                 hidden={!sliderVisible}
-                elevation={sliderVisible ? 80 : undefined}
+                elevation={sliderVisible ? 200 : undefined}
               >
                 {element}
               </SharedImageFrame>
@@ -222,6 +243,17 @@ function ArchivePage({ page, photos }) {
       </div>
     ) : null;
 
+  const thumbComponentProps = useCallback(
+    ({ index }) => ({
+      variant: "thumb",
+      waitUntilInView: true,
+      inViewMargin: "500px",
+      imageIdentifier: index,
+      setImageLoaded: registerThumbLoaded,
+    }),
+    [registerThumbLoaded]
+  );
+
   return (
     <DefaultLayout page={page}>
       <LayoutGroup id="archive-layout" crossfade={false}>
@@ -234,18 +266,25 @@ function ArchivePage({ page, photos }) {
           >
             <Blocks
               content_blocks={photos}
-              componentProps={() => ({ variant: "thumb" })}
+              componentProps={thumbComponentProps}
               render={({ element, block, index }) => {
                 const imageId = getImageId(block.image_path);
                 const layoutId = `image-media-${imageId}`;
                 const isActiveThumb = index === activeIndex;
-                const hideThumb = (overlayOpen || overlayClosing) && isActiveThumb;
+                const hideThumb = overlayOpen && isActiveThumb;
+                const thumbReady = shouldAnimateThumbs && loadedThumbs.has(index);
+                const thumbZIndex =
+                  isActiveThumb && (overlayOpen || overlayClosing) ? 40 : undefined;
 
                 return (
                   <motion.li
-                    key={layoutId}
+                    key={`${layoutId}-${index}`}
                     variants={thumbVariants}
+                    initial="hidden"
+                    animate={thumbReady ? "show" : "hidden"}
+                    custom={index}
                     className="relative flex flex-col items-end pb-10"
+                    style={{ zIndex: thumbZIndex }}
                   >
                     <motion.button
                       type="button"
@@ -293,6 +332,9 @@ function ArchivePage({ page, photos }) {
                 }}
                 aria-hidden="true"
               />
+              <div className="absolute top-6 left-6 text-xs lowercase tracking-widest pointer-events-none z-[70]">
+                {activePhoto.alt_text || "Untitled"}
+              </div>
               <button
                 type="button"
                 onClick={(event) => {
@@ -355,7 +397,7 @@ export async function getStaticProps() {
     .map((block) => {
       try {
         const imagePath = path.join(process.cwd(), "public", block.image_path);
-        const { width = 400, height = 300 } = sizeOf(imagePath);
+        const { width = 200, height = 300 } = sizeOf(imagePath);
         return {
           _bookshop_name: "collection/photo",
           image_path: block.image_path,

@@ -30,7 +30,7 @@ function ContactPage({ page }) {
       <div className="contact h-full min-h-screen flex flex-col p-4 pb-24 sm:pb-0 cursor-default overflow-y-scroll">
         <motion.div
           key="heading"
-          className="text-lg mb-12 w-full max-w-5xl text-2xl"
+          className="mb-12 w-full max-w-5xl text-2xl"
           dangerouslySetInnerHTML={{ __html: md.render(heading) }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

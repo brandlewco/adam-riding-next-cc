@@ -16,19 +16,17 @@ Page: Index (list) overview
 - Shows a vertical list of collection titles on the left.
 - Hovering a title shows the collection's first image on the right using
   an AnimatePresence fade and a shared layoutId for cross-page animations.
-- Key responsibilities: prefetch image dimensions, maintain hover refs,
-  and center/contain preview images at a constrained height (70vh / 85vh).
+- Key responsibilities: maintain hover refs and
+  center/contain preview images at a constrained height (70vh / 85vh).
 */
 
 function IndexPage({ page, collections }) {
   // Hover logic:
   // - hoverIndex: which title is hovered
   // - hoverRefs: DOM refs to the title items used for transform origin tweaks
-  // - dimensions: used when preloading image sizes on hover
   const router = useRouter();
   const [hoverIndex, setHoverIndex] = useState(-1);
   const hoverRefs = useRef([]);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -52,18 +50,9 @@ function IndexPage({ page, collections }) {
 
   const handleMouseEnter = useCallback(
     (index) => {
-      // Preload image and measure natural size (used for sizing / aspect hints)
       setHoverIndex(index);
-      const img = new Image();
-      img.src = collections[index].firstImagePath;
-      img.onload = () => {
-        setDimensions({
-          width: img.naturalWidth,
-          height: img.naturalHeight,
-        });
-      };
     },
-    [collections]
+    []
   );
 
   const handleMouseLeave = useCallback(() => {
