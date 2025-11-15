@@ -42,7 +42,7 @@ const containerVariants = {
 const thumbVariants = {
   hidden: {
     opacity: 0,
-    y: 16,
+    y: 0,
     filter: "blur(8px)",
   },
   show: (order = 0) => ({
@@ -66,6 +66,8 @@ function ArchivePage({ page, photos }) {
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
   const [loadedThumbs, setLoadedThumbs] = useState(() => new Set());
   const [shareLayoutMain, setShareLayoutMain] = useState(false);
+  const [navHoverSide, setNavHoverSide] = useState(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   const registerThumbLoaded = useCallback((index) => {
     if (typeof index !== "number") return;
@@ -117,6 +119,40 @@ function ArchivePage({ page, photos }) {
       return (idx - 1 + photos.length) % photos.length;
     });
   }, [overlayOpen, activeIndex, photos.length]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const media = window.matchMedia("(hover: none) and (pointer: coarse)");
+    const updateTouchState = () => setIsTouchDevice(media.matches);
+    updateTouchState();
+
+    if (media.addEventListener)
+      media.addEventListener("change", updateTouchState);
+    else media.addListener(updateTouchState);
+
+    const handlePointerDown = (event) => {
+      if (event.pointerType === "mouse") setIsTouchDevice(false);
+      if (event.pointerType === "touch" || event.pointerType === "pen") {
+        setIsTouchDevice(true);
+        setNavHoverSide(null);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      if (media.removeEventListener)
+        media.removeEventListener("change", updateTouchState);
+      else media.removeListener(updateTouchState);
+      window.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!overlayOpen) {
+      setNavHoverSide(null);
+    }
+  }, [overlayOpen]);
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -187,6 +223,8 @@ function ArchivePage({ page, photos }) {
   });
 
   const sliderVisible = overlayOpen || overlayClosing;
+  const showPrevButton = isTouchDevice || navHoverSide === "left";
+  const showNextButton = isTouchDevice || navHoverSide === "right";
   const sliderWrapperProps = overlayClosing ? {} : swipeHandlers;
   const currentBlockIndex =
     typeof activeIndex === "number" && activeIndex >= 0 ? activeIndex : null;
@@ -332,7 +370,7 @@ function ArchivePage({ page, photos }) {
                 }}
                 aria-hidden="true"
               />
-              <div className="absolute top-6 left-6 text-xs lowercase tracking-widest pointer-events-none z-[70]">
+              <div className="absolute top-4 left-4 text-xs lowercase tracking-widest pointer-events-none z-[70]">
                 {activePhoto.alt_text || "Untitled"}
               </div>
               <button
@@ -347,27 +385,53 @@ function ArchivePage({ page, photos }) {
               </button>
               {photos.length > 1 && overlayOpen && (
                 <>
-                  <div className="flex absolute inset-y-0 left-0 w-1/2 items-center justify-start pointer-events-auto z-30">
+                  <div
+                    className="flex absolute inset-y-0 left-0 w-1/2 items-center justify-start pointer-events-auto z-30"
+                    onMouseEnter={() => {
+                      if (!isTouchDevice) setNavHoverSide("left");
+                    }}
+                    onMouseMove={() => {
+                      if (!isTouchDevice) setNavHoverSide("left");
+                    }}
+                    onMouseLeave={() => {
+                      if (!isTouchDevice) setNavHoverSide(null);
+                    }}
+                  >
                     <button
                       type="button"
                       onClick={(event) => {
                         event.stopPropagation();
                         handlePrev();
                       }}
-                      className="text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80"
+                      className={`text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+                        showPrevButton ? "opacity-100" : "opacity-0"
+                      }`}
                     >
                       <span className="hidden md:block">Prev</span>
                       <span className="md:hidden">P</span>
                     </button>
                   </div>
-                  <div className="flex absolute inset-y-0 right-0 w-1/2 items-center justify-end pointer-events-auto z-30">
+                  <div
+                    className="flex absolute inset-y-0 right-0 w-1/2 items-center justify-end pointer-events-auto z-30"
+                    onMouseEnter={() => {
+                      if (!isTouchDevice) setNavHoverSide("right");
+                    }}
+                    onMouseMove={() => {
+                      if (!isTouchDevice) setNavHoverSide("right");
+                    }}
+                    onMouseLeave={() => {
+                      if (!isTouchDevice) setNavHoverSide(null);
+                    }}
+                  >
                     <button
                       type="button"
                       onClick={(event) => {
                         event.stopPropagation();
                         handleNext();
                       }}
-                      className="text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80"
+                      className={`text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+                        showNextButton ? "opacity-100" : "opacity-0"
+                      }`}
                     >
                       <span className="hidden md:block">Next</span>
                       <span className="md:hidden">N</span>

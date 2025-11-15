@@ -24,7 +24,7 @@ const getImageId = (imagePath) => {
 };
 
 const introVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 0 },
   visible: (order) => ({
     opacity: 1,
     y: 0,

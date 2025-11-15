@@ -55,12 +55,10 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
     <motion.button
       type="button"
       onClick={() => onSelect(thumbIdx)}
-      className={`w-full border border-transparent transition h-auto w-auto md:h-8 md:w-8 ${
-        isCurrent ? "opacity-100" : "opacity-50 hover:opacity-100"
-      }`}
+      className={`w-full border border-transparent transition h-auto w-auto md:h-8 md:w-8`}
       aria-label={`Show image ${thumbIdx + 1}`}
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: isCurrent ? 1 : 0.5, y: 0 }}
       transition={{
         delay: 0.15 + Math.max(relativeIndex, 0) * 0.03,
         duration: 0.35,
@@ -117,7 +115,6 @@ function CollectionPage({
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
   const [closingFromThumb, setClosingFromThumb] = useState(false);
   const [closingThumbIndex, setClosingThumbIndex] = useState(null);
-  const isDev = process.env.NODE_ENV !== "production";
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -162,19 +159,11 @@ function CollectionPage({
 
   const closeThumbOverlay = useCallback(() => {
     if (!showThumbs) return;
-    if (isDev) {
-      console.log("[Collection] closeThumbOverlay", {
-        showThumbs,
-        overlayClosing,
-        closingFromThumb,
-      });
-    }
     setClosingFromThumb(false);
     setClosingThumbIndex(null);
     setOverlayClosing(true);
     setShowThumbs(false);
   }, [
-    isDev,
     closingFromThumb,
     overlayClosing,
     setClosingThumbIndex,
@@ -325,13 +314,6 @@ function CollectionPage({
   const handleThumbnailSelect = useCallback(
     (index, event) => {
       if (event) event.stopPropagation();
-      if (isDev) {
-        console.log("[Collection] handleThumbnailSelect", {
-          index,
-          showThumbs,
-          overlayClosing,
-        });
-      }
       setCurrentImage(index);
       setDirection("");
       if (showThumbs) {
@@ -358,7 +340,6 @@ function CollectionPage({
       setClosingFromThumb,
       setClosingThumbIndex,
       overlayClosing,
-      isDev,
       showThumbs,
     ]
   );
@@ -429,27 +410,6 @@ function CollectionPage({
   const shouldRenderSliderFrame = !showThumbs || sliderActiveDuringThumbClose;
   const isOverlayActive = shouldRenderThumbOverlay || overlayEntering;
 
-  useEffect(() => {
-    if (!isDev) return;
-    console.log("[Collection] overlayState", {
-      showThumbs,
-      overlayClosing,
-      overlayEntering,
-      closingFromThumb,
-      closingThumbIndex,
-      sliderActiveDuringThumbClose,
-      shouldRenderSliderFrame,
-    });
-  }, [
-    isDev,
-    showThumbs,
-    overlayClosing,
-    overlayEntering,
-    closingFromThumb,
-    closingThumbIndex,
-    sliderActiveDuringThumbClose,
-    shouldRenderSliderFrame,
-  ]);
   const thumbGridAnimationState = overlayClosing
     ? "exit"
     : showThumbs && shouldAnimateThumbs
@@ -695,7 +655,7 @@ function CollectionPage({
         {isGalleryView && imageCount > 1 && (
           <motion.div
             className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-16 md:px-4"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: stripReady ? 1 : 0, y: stripReady ? 0 : 12 }}
             transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
           >
@@ -733,7 +693,7 @@ function CollectionPage({
           onClick={() => handleAreaClick("left")}
         >
           <button
-            className={`ml-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 ${
+            className={`-translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 ${
               showPrevButton
                 ? "opacity-100 pointer-events-auto"
                 : "opacity-0 pointer-events-none"
@@ -755,7 +715,7 @@ function CollectionPage({
           onClick={() => handleAreaClick("right")}
         >
           <button
-            className={`mr-6 -translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1${
+            className={`-translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 ${
               showNextButton
                 ? "opacity-100 pointer-events-auto"
                 : "opacity-0 pointer-events-none"
