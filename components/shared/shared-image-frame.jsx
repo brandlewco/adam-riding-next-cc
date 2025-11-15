@@ -14,23 +14,25 @@ const SharedImageFrame = memo(function SharedImageFrame({
   thumbMargin = 0,
   shareLayout = true,
   elevation,
+  thumbAspect = true,
 }) {
   const width = block.width || 1600;
   const height = block.height || 1066;
 
-  const aspectStyle =
-    variant === "thumb"
-      ? {}
-      : width && height
+  const shouldApplyAspect = variant === "thumb" ? thumbAspect : true;
+
+  const aspectStyle = shouldApplyAspect
+    ? width && height
       ? { aspectRatio: `${width} / ${height}` }
-      : { aspectRatio: "4 / 3" };
+      : { aspectRatio: "4 / 3" }
+    : {};
 
   const variantStyles =
     variant === "thumb"
       ? {
+          width: "100%",
           height: "100%",
-          width: "auto",
-          maxWidth: "none",
+          maxWidth: "100%",
           maxHeight: "100%",
           overflow: "visible",
           flexShrink: 0,
@@ -47,7 +49,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
       ? "relative inline-flex items-center justify-center"
       : "relative flex items-center justify-center";
 
-  const shouldAnimateLayout = variant === "thumb" && shareLayout;
+  const shouldAnimateLayout = shareLayout;
   const resolvedLayoutId = shareLayout ? layoutId : undefined;
 
   return (

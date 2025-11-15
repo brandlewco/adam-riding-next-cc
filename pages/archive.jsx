@@ -298,6 +298,7 @@ function ArchivePage({ page, photos }) {
                           block={block}
                           variant="thumb"
                           hidden={hideThumb}
+                          thumbAspect={false}
                         >
                           {element}
                         </SharedImageFrame>

@@ -64,13 +64,11 @@ function CollectionPhoto({
           maxWidth: "100%",
           maxHeight: "100%",
           display: "block",
-          backgroundColor: "#ffffff",
           willChange: "transform, opacity",
         }
       : {
           maxWidth: "100%",
           maxHeight: "100%",
-          backgroundColor: "#f5f5f5",
           willChange: "transform, opacity",
         };
 
