@@ -60,9 +60,10 @@ function CollectionPhoto({
     variant === "thumb"
       ? {
           height: "100%",
-          width: "100%",
+          width: "auto",
           maxWidth: "100%",
           maxHeight: "100%",
+          objectFit: "contain",
           display: "block",
           willChange: "transform, opacity",
         }

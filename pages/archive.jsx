@@ -143,17 +143,16 @@ function ArchivePage({ page, photos }) {
     }
   }, [overlayOpen, overlayClosing]);
 
-  useEffect(() => {
-    if (!overlayOpen && overlayClosing) {
-      const timeout = setTimeout(() => {
-        setOverlayClosing(false);
-        setActiveIndex(null);
-        setDirection("");
-        setShareLayoutMain(false);
-      }, 450);
-      return () => clearTimeout(timeout);
-    }
-  }, [overlayOpen, overlayClosing]);
+  const handleOverlayAnimationComplete = useCallback(
+    (definition) => {
+      if (definition !== "exit" || !overlayClosing) return;
+      setOverlayClosing(false);
+      setActiveIndex(null);
+      setDirection("");
+      setShareLayoutMain(false);
+    },
+    [overlayClosing]
+  );
 
   const activePhoto =
     activeIndex !== null && photos[activeIndex] ? photos[activeIndex] : null;
@@ -298,7 +297,6 @@ function ArchivePage({ page, photos }) {
                           block={block}
                           variant="thumb"
                           hidden={hideThumb}
-                          thumbAspect={false}
                         >
                           {element}
                         </SharedImageFrame>
@@ -321,6 +319,7 @@ function ArchivePage({ page, photos }) {
               variants={overlayVariants}
               initial="hidden"
               animate={overlayOpen ? "show" : "exit"}
+              onAnimationComplete={handleOverlayAnimationComplete}
               style={{ pointerEvents: overlayOpen ? "auto" : "none" }}
             />
 

@@ -18,6 +18,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
 }) {
   const width = block.width || 1600;
   const height = block.height || 1066;
+  const isDev = process.env.NODE_ENV !== "production";
 
   const shouldApplyAspect = variant === "thumb" ? thumbAspect : true;
 
@@ -26,6 +27,9 @@ const SharedImageFrame = memo(function SharedImageFrame({
       ? { aspectRatio: `${width} / ${height}` }
       : { aspectRatio: "4 / 3" }
     : {};
+
+  const shouldUseSharedLayout = Boolean(shareLayout && layoutId);
+  const resolvedLayoutId = shouldUseSharedLayout ? layoutId : undefined;
 
   const variantStyles =
     variant === "thumb"
@@ -49,8 +53,18 @@ const SharedImageFrame = memo(function SharedImageFrame({
       ? "relative inline-flex items-center justify-center"
       : "relative flex items-center justify-center";
 
-  const shouldAnimateLayout = shareLayout;
-  const resolvedLayoutId = shareLayout ? layoutId : undefined;
+  const shouldAnimateLayout = shouldUseSharedLayout;
+
+  if (isDev && shouldUseSharedLayout && layoutId) {
+    console.log("[SharedImageFrame] layout", {
+      variant,
+      layoutId,
+      hidden,
+      shareLayout: shouldUseSharedLayout,
+      blockWidth: block.width,
+      blockHeight: block.height,
+    });
+  }
 
   return (
     <motion.div
@@ -65,6 +79,16 @@ const SharedImageFrame = memo(function SharedImageFrame({
       }}
       {...(shouldAnimateLayout
         ? { layout: true, transition: sharedImageTransition }
+        : {})}
+      {...(isDev
+        ? {
+            "data-debug-shared-frame": JSON.stringify({
+              variant,
+              layoutId: resolvedLayoutId,
+              shareLayout: shouldUseSharedLayout,
+              hidden,
+            }),
+          }
         : {})}
     >
       {children}

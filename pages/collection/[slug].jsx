@@ -113,8 +113,11 @@ function CollectionPage({
   const [thumbsLoaded, setThumbsLoaded] = useState(() => new Set());
   const [mainImageLoaded, setMainImageLoaded] = useState(false);
   const [stripReady, setStripReady] = useState(false);
-  const gridRef = useRef(null);
-  const [thumbGap, setThumbGap] = useState({ column: 0, row: 0 });
+  const thumbAnimationFrameRef = useRef(null);
+  const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
+  const [closingFromThumb, setClosingFromThumb] = useState(false);
+  const [closingThumbIndex, setClosingThumbIndex] = useState(null);
+  const isDev = process.env.NODE_ENV !== "production";
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -136,44 +139,50 @@ function CollectionPage({
   }, [overlayClosing, showThumbs]);
 
   useEffect(() => {
-    if (!showThumbs) return;
-    if (typeof window === "undefined") return;
-    if (!gridRef.current) return;
+    if (!showThumbs) return undefined;
+    setShouldAnimateThumbs(false);
 
-    const updateGap = () => {
-      if (!gridRef.current) return;
-      const node = gridRef.current;
-      const previousColumn = node.style.columnGap;
-      const previousRow = node.style.rowGap;
+    if (typeof window === "undefined") {
+      setShouldAnimateThumbs(true);
+      return undefined;
+    }
 
-      node.style.columnGap = "";
-      node.style.rowGap = "";
+    thumbAnimationFrameRef.current = window.requestAnimationFrame(() => {
+      setShouldAnimateThumbs(true);
+      thumbAnimationFrameRef.current = null;
+    });
 
-      const computed = window.getComputedStyle(node);
-      const rawColumn = parseFloat(computed.columnGap || computed.gap || "0") || 0;
-      const rawRow = parseFloat(computed.rowGap || computed.gap || "0") || 0;
-
-      node.style.columnGap = previousColumn;
-      node.style.rowGap = previousRow;
-
-      setThumbGap((prev) => {
-        const nextColumn = rawColumn === 0 && prev.column > 0 ? prev.column : rawColumn;
-        const nextRow = rawRow === 0 && prev.row > 0 ? prev.row : rawRow;
-        if (nextColumn === prev.column && nextRow === prev.row) return prev;
-        return { column: nextColumn, row: nextRow };
-      });
+    return () => {
+      if (thumbAnimationFrameRef.current) {
+        window.cancelAnimationFrame(thumbAnimationFrameRef.current);
+        thumbAnimationFrameRef.current = null;
+      }
     };
-
-    updateGap();
-    window.addEventListener("resize", updateGap);
-    return () => window.removeEventListener("resize", updateGap);
   }, [showThumbs]);
 
   const closeThumbOverlay = useCallback(() => {
     if (!showThumbs) return;
+    if (isDev) {
+      console.log("[Collection] closeThumbOverlay", {
+        showThumbs,
+        overlayClosing,
+        closingFromThumb,
+      });
+    }
+    setClosingFromThumb(false);
+    setClosingThumbIndex(null);
     setOverlayClosing(true);
     setShowThumbs(false);
-  }, [setOverlayClosing, setShowThumbs, showThumbs]);
+  }, [
+    isDev,
+    closingFromThumb,
+    overlayClosing,
+    setClosingThumbIndex,
+    setClosingFromThumb,
+    setOverlayClosing,
+    setShowThumbs,
+    showThumbs,
+  ]);
 
   const isGalleryView = gallerySources.has(source);
   const galleryStripSize = 16;
@@ -242,6 +251,17 @@ function CollectionPage({
     });
   }, []);
 
+  const thumbComponentProps = useCallback(
+    ({ index }) => ({
+      variant: "thumb",
+      waitUntilInView: true,
+      inViewMargin: "500px",
+      imageIdentifier: index,
+      setImageLoaded: registerThumbLoaded,
+    }),
+    [registerThumbLoaded]
+  );
+
   const handleMainImageLoaded = useCallback(() => {
     setMainImageLoaded(true);
   }, []);
@@ -305,21 +325,42 @@ function CollectionPage({
   const handleThumbnailSelect = useCallback(
     (index, event) => {
       if (event) event.stopPropagation();
+      if (isDev) {
+        console.log("[Collection] handleThumbnailSelect", {
+          index,
+          showThumbs,
+          overlayClosing,
+        });
+      }
       setCurrentImage(index);
       setDirection("");
       if (showThumbs) {
         if (typeof window !== "undefined") {
           window.requestAnimationFrame(() => {
+            setClosingFromThumb(true);
+            setClosingThumbIndex(index);
             setOverlayClosing(true);
             setShowThumbs(false);
           });
         } else {
+          setClosingFromThumb(true);
+          setClosingThumbIndex(index);
           setOverlayClosing(true);
           setShowThumbs(false);
         }
       }
     },
-    [setDirection, setCurrentImage, setOverlayClosing, setShowThumbs, showThumbs]
+    [
+      setDirection,
+      setCurrentImage,
+      setOverlayClosing,
+      setShowThumbs,
+      setClosingFromThumb,
+      setClosingThumbIndex,
+      overlayClosing,
+      isDev,
+      showThumbs,
+    ]
   );
 
   const handleGalleryStripSelect = useCallback((thumbIdx) => {
@@ -383,13 +424,39 @@ function CollectionPage({
   const currentBlock = page.data.content_blocks[currentImage] || {};
   const currentImageId =
     getImageId(currentBlock.image_path) || `${page.data.slug}-${currentImage}`;
-  const isOverlayActive = showThumbs || overlayClosing || overlayEntering;
-  const sliderHidden = (showThumbs || overlayClosing) && !overlayEntering;
-  const columnGapValue = thumbGap.column;
-  const rowGapValue = thumbGap.row;
-  const thumbnailMargin = columnGapValue > 0 ? columnGapValue / 2 : 0;
+  const shouldRenderThumbOverlay = showThumbs || overlayClosing;
+  const sliderActiveDuringThumbClose = overlayClosing && closingFromThumb;
+  const shouldRenderSliderFrame = !showThumbs || sliderActiveDuringThumbClose;
+  const isOverlayActive = shouldRenderThumbOverlay || overlayEntering;
 
-  const mainImageContent = (
+  useEffect(() => {
+    if (!isDev) return;
+    console.log("[Collection] overlayState", {
+      showThumbs,
+      overlayClosing,
+      overlayEntering,
+      closingFromThumb,
+      closingThumbIndex,
+      sliderActiveDuringThumbClose,
+      shouldRenderSliderFrame,
+    });
+  }, [
+    isDev,
+    showThumbs,
+    overlayClosing,
+    overlayEntering,
+    closingFromThumb,
+    closingThumbIndex,
+    sliderActiveDuringThumbClose,
+    shouldRenderSliderFrame,
+  ]);
+  const thumbGridAnimationState = overlayClosing
+    ? "exit"
+    : showThumbs && shouldAnimateThumbs
+      ? "show"
+      : "hidden";
+
+  const mainImageContent = shouldRenderSliderFrame ? (
     <Blocks
       content_blocks={page.data.content_blocks}
       currentIndex={currentImage}
@@ -400,13 +467,12 @@ function CollectionPage({
           layoutId={`image-media-${getImageId(block.image_path)}`}
           block={block}
           variant="main"
-          hidden={sliderHidden}
         >
           {element}
         </SharedImageFrame>
       )}
     />
-  );
+  ) : null;
 
   const sliderWrapperProps = isOverlayActive ? {} : swipeHandlers;
 
@@ -439,113 +505,119 @@ function CollectionPage({
     </motion.div>
   ) : null;
 
-  const ThumbsOverlay = isGalleryView ? (
-    <AnimatePresence
-      onExitComplete={() => {
-        setOverlayClosing(false);
+  const handleThumbsOverlayAnimationComplete = useCallback(
+    (definition) => {
+      if (definition === "show") {
         setOverlayEntering(false);
+      }
+      if (definition === "exit") {
+        setOverlayClosing(false);
+        setClosingFromThumb(false);
+        setClosingThumbIndex(null);
+        setShouldAnimateThumbs(false);
+      }
+    },
+    [
+      setOverlayEntering,
+      setOverlayClosing,
+      setClosingFromThumb,
+      setClosingThumbIndex,
+      setShouldAnimateThumbs,
+    ]
+  );
+
+  const ThumbsOverlay = isGalleryView && shouldRenderThumbOverlay ? (
+    <motion.div
+      key="thumbs-overlay"
+      className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
+      style={{
+        pointerEvents: "auto",
+        willChange: "opacity, transform",
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
       }}
+      variants={containerVariants}
+      initial="hidden"
+      animate={showThumbs ? "show" : "exit"}
+      onAnimationComplete={handleThumbsOverlayAnimationComplete}
     >
-      {showThumbs && (
-        <motion.div
-          key="thumbs-overlay"
-          className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
-          style={{
-            pointerEvents: "auto",
-            willChange: "opacity, transform",
-            WebkitBackfaceVisibility: "hidden",
-            backfaceVisibility: "hidden",
-          }}
+      <div
+        className="absolute inset-0"
+        style={{ zIndex: 0 }}
+        aria-hidden="true"
+        onClick={closeThumbOverlay}
+      />
+      <button
+        className="absolute top-2 right-2 text-sm leading-none text-black z-50 p-2"
+        onClick={closeThumbOverlay}
+      >
+        Close
+      </button>
+      <div
+        className="h-full w-full overflow-y-scroll p-4 md:p-16 mt-8 md:mt-0 relative"
+        style={{ zIndex: 2 }}
+      >
+        <motion.ul
+          className="grid grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
-          animate="show"
-          exit="exit"
-          onAnimationComplete={(definition) => {
-            if (definition === "show") {
-              setOverlayEntering(false);
-            }
-          }}
+          animate={thumbGridAnimationState}
         >
-          <div
-            className="absolute inset-0"
-            style={{ zIndex: 0 }}
-            aria-hidden="true"
-            onClick={closeThumbOverlay}
-          />
-          <button
-            className="absolute top-2 right-2 text-sm leading-none text-black z-50 p-2"
-            onClick={closeThumbOverlay}
-          >
-            Close
-          </button>
-          <div
-            className="flex flex-wrap p-4 md:p-16 mt-8 md:mt-0 justify-center items-center overflow-y-auto w-full relative"
-            style={{ zIndex: 2 }}
-          >
-            <motion.ul
-              className="grid grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
-              ref={gridRef}
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-              style={{
-                columnGap: columnGapValue ? 0 : undefined,
-                rowGap: rowGapValue || undefined,
-              }}
-            >
-              <Blocks
-                content_blocks={page.data.content_blocks}
-                componentProps={({ index }) => ({
-                  variant: "thumb",
-                  waitUntilInView: true,
-                  inViewMargin: "300px",
-                  imageIdentifier: index,
-                  setImageLoaded: registerThumbLoaded,
-                  sizesAttr: "(max-width: 768px) 45vw, 220px",
-                })}
-                render={({ element, block, index }) => {
-                  const thumbId = getImageId(block.image_path);
-                  const isActiveThumb = index === currentImage;
-                  const showSharedThumb = isOverlayActive && isActiveThumb;
-                  const sharedLayoutId = showSharedThumb
-                    ? `image-media-${thumbId}`
-                    : undefined;
-                  const thumbIsLoaded = thumbsLoaded.has(index);
+          <Blocks
+            content_blocks={page.data.content_blocks}
+            componentProps={thumbComponentProps}
+            render={({ element, block, index }) => {
+              const thumbId = getImageId(block.image_path);
+              const isActiveThumb = index === currentImage;
+              const isClosingThumb = closingThumbIndex === index;
+              const sharedLayoutId = `image-media-${thumbId}`;
+              const thumbIsLoaded = thumbsLoaded.has(index);
+              const hideDuringClose =
+                overlayClosing && closingFromThumb && !isClosingThumb;
+              const thumbReady = shouldAnimateThumbs && thumbIsLoaded;
+              const thumbAnimationVariant = overlayClosing
+                ? "exit"
+                : thumbReady
+                  ? "show"
+                  : "hidden";
 
-                  return (
-                    <motion.li
-                      key={`${thumbId}-${index}`}
-                      variants={thumbVariants}
-                      className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[60px] lg:h-[160px]"
-                      whileHover={{ scale: 1.05 }}
-                      initial="hidden"
-                      animate={thumbIsLoaded ? "show" : "hidden"}
-                    >
-                      <button
-                        type="button"
-                        onClick={(e) => handleThumbnailSelect(index, e)}
-                        className="flex h-full w-full items-center justify-center focus:outline-none mx-auto"
-                        style={{ overflow: "visible" }}
+              return (
+                <motion.li
+                  key={`${thumbId}-${index}`}
+                  variants={thumbVariants}
+                  className="relative flex flex-col items-end pb-10"
+                  initial="hidden"
+                  animate={thumbAnimationVariant}
+                  custom={index}
+                  style={hideDuringClose ? { opacity: 0 } : undefined}
+                >
+                  <motion.button
+                    type="button"
+                    onClick={(e) => handleThumbnailSelect(index, e)}
+                    className="flex h-full flex-col items-center focus:outline-none"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[100px] lg:h-[160px]">
+                      <SharedImageFrame
+                        layoutId={sharedLayoutId}
+                        block={block}
+                        variant="thumb"
+                        hidden={hideDuringClose}
                       >
-                        <SharedImageFrame
-                          layoutId={sharedLayoutId}
-                          block={block}
-                          variant="thumb"
-                          thumbMargin={thumbnailMargin}
-                        >
-                          {element}
-                        </SharedImageFrame>
-                      </button>
-                    </motion.li>
-                  );
-                }}
-              />
-            </motion.ul>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+                        {element}
+                      </SharedImageFrame>
+                    </div>
+                  </motion.button>
+                  <span className="mt-3 block text-right text-xs tracking-wide">
+                    {index + 1}
+                  </span>
+                </motion.li>
+              );
+            }}
+          />
+        </motion.ul>
+      </div>
+    </motion.div>
   ) : null;
 
   /**
@@ -887,12 +959,22 @@ export async function getStaticProps({ params }) {
 }
 
 const thumbVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { duration: 0.33 },
+  hidden: {
+    opacity: 0,
+    y: 16,
+    filter: "blur(8px)",
   },
-  exit: { opacity: 0, },
+  show: (order = 0) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.8, 0.25, 1],
+      delay: order * 0.03,
+    },
+  }),
+  exit: { opacity: 0 },
 };
 
 const containerVariants = {
