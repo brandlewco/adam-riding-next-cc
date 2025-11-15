@@ -77,3 +77,22 @@ body {
   width: auto !important;
   }
 }
+
+.archive-grid {
+  counter-reset: archive-thumb;
+}
+
+.archive-thumb {
+  counter-increment: archive-thumb;
+}
+
+.thumb-image::after {
+  content: counter(archive-thumb);
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  pointer-events: none;
+}

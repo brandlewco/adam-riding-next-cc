@@ -4,12 +4,20 @@ import data from "../../lib/data";
 import Navigation from "./navigation";
 
 export default function DefaultLayout({ children, page }) {
-  const title = page?.data.title
+  const hasPageData = Boolean(page && page.data);
+  const slug = page?.slug || "";
+  const seo = hasPageData ? page.data.seo || {} : {};
+
+  const title = hasPageData && page.data.title
     ? `${page.data.title} | ${data.site.site_title}`
     : data.site.site_title;
-  const description = page?.data.seo?.page_description || data.site.description;
-  const image = page?.data.seo?.feature_image || data.site.image;
-  const image_alt = page?.data.seo?.feature_image_alt || data.site.image_alt;
+  const description = seo.page_description || data.site.description;
+  const image = seo.feature_image || data.site.image;
+  const image_alt = seo.feature_image_alt || data.site.image_alt;
+  const canonicalPath = seo.canonical_url || slug;
+  const openGraphType = seo.open_graph_type || "website";
+  const noIndex = seo.no_index || false;
+  const twitterHandle = seo.author_twitter_handle || data.site.twitter_site;
 
   return (
     <>
@@ -30,17 +38,15 @@ export default function DefaultLayout({ children, page }) {
       </Head>
 
       <NextSeo
-        noindex={page.data.seo?.no_index || false}
+        noindex={noIndex}
         title={title}
         description={description}
-        canonical={`${data.site.baseurl}${
-          page.data.seo?.canonical_url || page.slug
-        }`}
+        canonical={`${data.site.baseurl}${canonicalPath}`}
         openGraph={{
           url: data.site.baseurl,
           title: title,
           description: description,
-          type: `${page.data.seo?.open_graph_type || "website"}`,
+          type: `${openGraphType}`,
           images: [
             {
               url: image,
@@ -49,9 +55,7 @@ export default function DefaultLayout({ children, page }) {
           ],
         }}
         twitter={{
-          handle: `${
-            page.data.seo?.author_twitter_handle || data.site.twitter_site
-          }`,
+          handle: `${twitterHandle}`,
           site: `${data.site.twitter_site}`,
           cardType: "summary_large_image",
         }}

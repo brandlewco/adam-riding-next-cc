@@ -585,7 +585,7 @@ function CollectionPage({
                 <motion.li
                   key={`${thumbId}-${index}`}
                   variants={thumbVariants}
-                  className="relative flex flex-col items-end pb-10"
+                  className="relative flex flex-col items-end pb-10 w-fit"
                   initial="hidden"
                   animate={thumbAnimationVariant}
                   custom={index}
@@ -608,9 +608,6 @@ function CollectionPage({
                       </SharedImageFrame>
                     </div>
                   </motion.button>
-                  <span className="mt-3 block text-right text-xs tracking-wide">
-                    {index + 1}
-                  </span>
                 </motion.li>
               );
             }}
@@ -961,7 +958,7 @@ export async function getStaticProps({ params }) {
 const thumbVariants = {
   hidden: {
     opacity: 0,
-    y: 16,
+    y: 0,
     filter: "blur(8px)",
   },
   show: (order = 0) => ({

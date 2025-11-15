@@ -282,16 +282,16 @@ function ArchivePage({ page, photos }) {
                     initial="hidden"
                     animate={thumbReady ? "show" : "hidden"}
                     custom={index}
-                    className="relative flex flex-col items-end pb-10"
+                    className="relative w-full  flex flex-col items-end pb-10"
                     style={{ zIndex: thumbZIndex }}
                   >
                     <motion.button
                       type="button"
                       onClick={() => handleOpen(index)}
-                      className="flex h-full flex-col items-center focus:outline-none"
+                      className="flex w-full flex-col items-center focus:outline-none"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[100px] lg:h-[160px]">
+                      <div className="relative flex w-full items-center justify-center overflow-visible pointer-events-auto h-[100px] lg:h-[160px]">
                         <SharedImageFrame
                           layoutId={layoutId}
                           block={block}
@@ -302,7 +302,7 @@ function ArchivePage({ page, photos }) {
                         </SharedImageFrame>
                       </div>
                     </motion.button>
-                    <span className="mt-3 block text-right text-xs tracking-wide">
+                    <span className="mt-3 flex w-full justify-end text-right text-xs tracking-wide">
                       {index + 1}
                     </span>
                   </motion.li>

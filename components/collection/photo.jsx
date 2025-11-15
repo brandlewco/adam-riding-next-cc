@@ -53,8 +53,8 @@ function CollectionPhoto({
       : "(max-width: 640px) 100vw, (max-width: 1920px) 60vw, 50vw";
   const className =
     variant === "thumb"
-      ? "h-full w-full object-contain"
-      : "max-h-full w-auto h-auto object-contain";
+      ? "h-full w-full object-contain thumb-image "
+      : "max-h-full w-auto h-auto object-contain thumb-image";
 
   const style =
     variant === "thumb"

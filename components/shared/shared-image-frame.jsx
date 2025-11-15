@@ -50,7 +50,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
 
   const containerClass =
     variant === "thumb"
-      ? "relative inline-flex items-center justify-center"
+      ? "relative inline-flex items-center justify-center min-w-fit"
       : "relative flex items-center justify-center";
 
   const shouldAnimateLayout = shouldUseSharedLayout;
