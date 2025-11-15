@@ -1,0 +1,7 @@
+Unused upload originals (ignoring public/uploads/opt) not referenced anywhere under /content.
+Generated: Sat Nov 15 13:12:52 MST 2025
+
+Total originals checked: 581
+Unused originals: 0
+
+List: (none)
