@@ -453,14 +453,14 @@ function HomePage({ page, collections }) {
                     <button
                       type="button"
                       onClick={handlePrev}
-                      className="hidden md:flex bg-white p-2 absolute left-8 top-1/2 -translate-y-1/2 text-xs uppercase tracking-widest"
+                      className="hidden md:flex text-white absolute left-4 top-1/2 -translate-y-1/2 text-xs uppercase tracking-widest"
                     >
                       Prev
                     </button>
                     <button
                       type="button"
                       onClick={handleNext}
-                      className="hidden md:flex bg-white p-2 absolute right-8 top-1/2 -translate-y-1/2 text-xs uppercase tracking-widest"
+                      className="hidden md:flex text-white absolute right-4 top-1/2 -translate-y-1/2 text-xs uppercase tracking-widest"
                     >
                       Next
                     </button>

@@ -1,22 +1,27 @@
+import Link from "next/link";
 
-import Link from 'next/link';
-import MarkdownIt from 'markdown-it';
-const md = new MarkdownIt({ html: true });
+export default function GlobalError({ block = {}, dataBinding }) {
+  const title = block.title || "Oops, nothing found here.";
+  const description =
+    block.description || "The page you were looking for has vanished.";
+  const buttonText = block.button_text || "Go home";
+  const buttonHref = block.button_href || "/";
 
-export default function GlobalError({block, dataBinding}) {
-	return (
-        <section className="error py-xxl-12 py-lg-9 py-10 py-sm-6" data-cms-bind={dataBinding}>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="error-content text-center">
-                  <img src={block.image} className="" alt={block.image_alt} />
-                  <h3 className="my-5" dangerouslySetInnerHTML={{ __html: md.render(block.description) }}></h3>
-                  <Link href="/" className="btn btn-lg btn-primary">Try again</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-	);
+  return (
+    <section
+      className="py-24 text-center flex flex-col items-center justify-center"
+      data-cms-bind={dataBinding}
+    >
+      <div className="max-w-xl px-6">
+        <h1 className="text-3xl font-semibold tracking-tight mb-6">{title}</h1>
+        <p className="text-base text-gray-600 mb-8">{description}</p>
+        <Link
+          href={buttonHref}
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-wide bg-black text-white hover:bg-gray-900 transition"
+        >
+          {buttonText}
+        </Link>
+      </div>
+    </section>
+  );
 }

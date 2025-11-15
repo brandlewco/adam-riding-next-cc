@@ -693,7 +693,7 @@ function CollectionPage({
           onClick={() => handleAreaClick("left")}
         >
           <button
-            className={`-translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 ${
+            className={`-translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 p-4 ${
               showPrevButton
                 ? "opacity-100 pointer-events-auto"
                 : "opacity-0 pointer-events-none"
@@ -715,7 +715,7 @@ function CollectionPage({
           onClick={() => handleAreaClick("right")}
         >
           <button
-            className={`-translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 ${
+            className={`-translate-y-1/2 text-xs uppercase tracking-widest transition-opacity duration-200 p-4 ${
               showNextButton
                 ? "opacity-100 pointer-events-auto"
                 : "opacity-0 pointer-events-none"

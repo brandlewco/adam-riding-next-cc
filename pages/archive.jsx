@@ -403,7 +403,7 @@ function ArchivePage({ page, photos }) {
                         event.stopPropagation();
                         handlePrev();
                       }}
-                      className={`text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+                      className={`text-xs uppercase tracking-widest transition-opacity duration-200 p-4 ${
                         showPrevButton ? "opacity-100" : "opacity-0"
                       }`}
                     >
@@ -429,7 +429,7 @@ function ArchivePage({ page, photos }) {
                         event.stopPropagation();
                         handleNext();
                       }}
-                      className={`text-xs uppercase tracking-widest transition-opacity duration-200 px-3 py-1 bg-white bg-opacity-80 ${
+                      className={`text-xs uppercase tracking-widest transition-opacity duration-200 p-4 ${
                         showNextButton ? "opacity-100" : "opacity-0"
                       }`}
                     >
