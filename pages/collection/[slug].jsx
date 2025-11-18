@@ -518,7 +518,7 @@ function CollectionPage({
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="grid grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
+          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}

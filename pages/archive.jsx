@@ -296,7 +296,7 @@ function ArchivePage({ page, photos }) {
       <LayoutGroup id="archive-layout" crossfade={false}>
         <div className="h-full overflow-y-scroll p-4 md:p-16 mt-8 md:mt-0">
           <motion.ul
-            className="grid grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
+            className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
             variants={containerVariants}
             initial="hidden"
             animate={shouldAnimateThumbs ? "show" : "hidden"}
@@ -320,7 +320,7 @@ function ArchivePage({ page, photos }) {
                     initial="hidden"
                     animate={thumbReady ? "show" : "hidden"}
                     custom={index}
-                    className="relative w-full  flex flex-col items-end pb-10"
+                    className="relative w-full flex flex-col items-end pb-10"
                     style={{ zIndex: thumbZIndex }}
                   >
                     <motion.button
@@ -329,7 +329,7 @@ function ArchivePage({ page, photos }) {
                       className="flex w-full flex-col items-center focus:outline-none"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="relative flex w-full items-center justify-center overflow-visible pointer-events-auto h-[100px] lg:h-[160px]">
+                      <div className="relative inline-flex items-center justify-center overflow-visible pointer-events-auto h-[100px] lg:h-[160px]">
                         <SharedImageFrame
                           layoutId={layoutId}
                           block={block}
@@ -338,11 +338,11 @@ function ArchivePage({ page, photos }) {
                         >
                           {element}
                         </SharedImageFrame>
+                        <span className="pointer-events-none absolute right-0 -bottom-12 mt-1 text-xs tracking-wide text-black">
+                          {index + 1}
+                        </span>
                       </div>
                     </motion.button>
-                    <span className="mt-3 flex w-full justify-end text-right text-xs tracking-wide">
-                      {index + 1}
-                    </span>
                   </motion.li>
                 );
               }}
