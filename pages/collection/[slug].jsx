@@ -115,6 +115,7 @@ function CollectionPage({
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
   const [closingFromThumb, setClosingFromThumb] = useState(false);
   const [closingThumbIndex, setClosingThumbIndex] = useState(null);
+  const [galleryChunkStart, setGalleryChunkStart] = useState(0);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -175,15 +176,60 @@ function CollectionPage({
 
   const isGalleryView = gallerySources.has(source);
   const galleryStripSize = 16;
-  const currentChunk = Math.floor(currentImage / galleryStripSize);
-  const chunkStart = currentChunk * galleryStripSize;
-  const chunkEnd = Math.min(chunkStart + galleryStripSize, imageCount);
-  const galleryThumbnailIndices = isGalleryView
-    ? Array.from(
-        { length: chunkEnd - chunkStart },
-        (_, idx) => chunkStart + idx
-      )
-    : [];
+  const visibleStripCount = Math.min(imageCount, galleryStripSize);
+  const normalizedChunkStart = imageCount
+    ? ((galleryChunkStart % imageCount) + imageCount) % imageCount
+    : 0;
+  const galleryThumbnailIndices =
+    isGalleryView && imageCount > 0
+      ? Array.from({ length: visibleStripCount }, (_, idx) =>
+          (normalizedChunkStart + idx) % imageCount
+        )
+      : [];
+
+  const isIndexWithinStrip = useCallback(
+    (index, start) => {
+      if (imageCount === 0) return false;
+      if (imageCount <= galleryStripSize) return true;
+      const end = (start + galleryStripSize) % imageCount;
+      if (start + galleryStripSize <= imageCount) {
+        return index >= start && index < start + galleryStripSize;
+      }
+      return index >= start || index < end;
+    },
+    [imageCount, galleryStripSize]
+  );
+
+  useEffect(() => {
+    if (!isGalleryView || imageCount === 0) return;
+
+    if (imageCount <= galleryStripSize) {
+      if (galleryChunkStart !== 0) {
+        setGalleryChunkStart(0);
+      }
+      return;
+    }
+
+    const start = normalizedChunkStart;
+    if (isIndexWithinStrip(currentImage, start)) return;
+
+    const forwardDist = (currentImage - start + imageCount) % imageCount;
+    const backwardDist = (start - currentImage + imageCount) % imageCount;
+
+    if (forwardDist === 0 || forwardDist <= backwardDist) {
+      setGalleryChunkStart((start + galleryStripSize) % imageCount);
+    } else {
+      setGalleryChunkStart((start - galleryStripSize + imageCount) % imageCount);
+    }
+  }, [
+    currentImage,
+    galleryChunkStart,
+    galleryStripSize,
+    imageCount,
+    isGalleryView,
+    isIndexWithinStrip,
+    normalizedChunkStart,
+  ]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -406,7 +452,7 @@ function CollectionPage({
   const currentImageId =
     getImageId(currentBlock.image_path) || `${page.data.slug}-${currentImage}`;
   const shouldRenderThumbOverlay = showThumbs || overlayClosing;
-  const sliderActiveDuringThumbClose = overlayClosing && closingFromThumb;
+  const sliderActiveDuringThumbClose = overlayClosing;
   const shouldRenderSliderFrame = !showThumbs || sliderActiveDuringThumbClose;
   const isOverlayActive = shouldRenderThumbOverlay || overlayEntering;
 
@@ -508,17 +554,17 @@ function CollectionPage({
         onClick={closeThumbOverlay}
       />
       <button
-        className="absolute top-2 right-2 text-sm leading-none text-black z-50 p-2"
+        className="absolute top-2 right-2 text-xs tracking-widest leading-none text-black z-50 p-2"
         onClick={closeThumbOverlay}
       >
-        Close
+        CLOSE
       </button>
       <div
-        className="h-full w-full overflow-y-scroll p-4 md:p-16 mt-8 md:mt-0 relative"
+        className="h-full w-full overflow-y-scroll p-4 md:py-16 mt-8 md:mt-0 relative "
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
+          className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-64 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -545,7 +591,7 @@ function CollectionPage({
                 <motion.li
                   key={`${thumbId}-${index}`}
                   variants={thumbVariants}
-                  className="relative flex flex-col items-end pb-10 w-fit"
+                  className="relative w-full flex flex-col items-center pb-10 w-1/2 md:w-1/4 xl:w-1/6"
                   initial="hidden"
                   animate={thumbAnimationVariant}
                   custom={index}
@@ -557,7 +603,7 @@ function CollectionPage({
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[100px] lg:h-[160px]">
+                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[160px] lg:h-[160px]">
                       <SharedImageFrame
                         layoutId={sharedLayoutId}
                         block={block}
@@ -596,7 +642,7 @@ function CollectionPage({
         {/* Controls & overlay rendering */}
         {isGalleryView ? (
           <>
-            <div className="fixed top-4 left-4 text-xs lowercase tracking-widest z-40 pointer-events-none">
+            <div className="fixed top-4 left-4 text-xs tracking-widest z-40 pointer-events-none">
               {page.data.content_blocks[currentImage].alt_text}
             </div>
             <button
@@ -612,7 +658,7 @@ function CollectionPage({
           </>
         ) : (
           <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/6 text-left z-20 gap-2 mt-[-8px]">
-            <div className="text-xs lowercase tracking-widest">{page.data.title}</div>
+            <div className="text-xs tracking-widest">{page.data.title}</div>
             {source === "index" && (
               <div className="flex">
                 <button
@@ -668,13 +714,13 @@ function CollectionPage({
                 )}, minmax(0, 1fr))`,
               }}
             >
-              {galleryThumbnailIndices.map((thumbIdx) => (
+              {galleryThumbnailIndices.map((thumbIdx, idx) => (
                 <GalleryStripThumbnail
                   key={`gallery-strip-${thumbIdx}`}
                   thumbIdx={thumbIdx}
                   block={page.data.content_blocks[thumbIdx]}
                   isCurrent={thumbIdx === currentImage}
-                  relativeIndex={thumbIdx - chunkStart}
+                  relativeIndex={idx}
                   onSelect={handleGalleryStripSelect}
                 />
               ))}

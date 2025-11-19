@@ -88,7 +88,7 @@ function IndexPage({ page, collections }) {
                 <Link
                   href={`/collection/${collection.slug}`}
                   passHref
-                  className="leading-tight text-black"
+                  className="leading-tight tracking-widest text-black"
                   onMouseEnter={() => handleMouseEnter(collectionIndex)}
                   onMouseLeave={handleMouseLeave}
                 >

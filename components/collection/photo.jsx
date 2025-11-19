@@ -38,6 +38,7 @@ function CollectionPhoto({
 
   const width = block.width || 1600;
   const height = block.height || 1066;
+  const aspectRatio = width && height ? `${width} / ${height}` : undefined;
   const rawSrc = block.image_path || block.src || "";
   const normalizedSrc = useMemo(() => {
     if (!rawSrc) return rawSrc;
@@ -66,11 +67,13 @@ function CollectionPhoto({
           objectFit: "contain",
           display: "block",
           willChange: "transform, opacity",
+          ...(aspectRatio ? { aspectRatio } : {}),
         }
       : {
           maxWidth: "100%",
           maxHeight: "100%",
           willChange: "transform, opacity",
+          ...(aspectRatio ? { aspectRatio } : {}),
         };
 
   const placeholderStyle = {
@@ -79,6 +82,7 @@ function CollectionPhoto({
     height: "100%",
     backgroundColor: "#f5f5f5",
     borderRadius: 2,
+    ...(aspectRatio ? { aspectRatio } : {}),
   };
 
   if (!hasEnteredView) {

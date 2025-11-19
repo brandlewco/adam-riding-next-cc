@@ -14,34 +14,34 @@ const SharedImageFrame = memo(function SharedImageFrame({
   thumbMargin = 0,
   shareLayout = true,
   elevation,
-  thumbAspect = true,
+  thumbFillWidth = true,
 }) {
-  const width = block.width || 1600;
-  const height = block.height || 1066;
   const isDev = process.env.NODE_ENV !== "production";
-
-  const shouldApplyAspect = variant === "thumb" ? thumbAspect : true;
-
-  const aspectStyle = shouldApplyAspect
-    ? width && height
-      ? { aspectRatio: `${width} / ${height}` }
-      : { aspectRatio: "4 / 3" }
-    : {};
 
   const shouldUseSharedLayout = Boolean(shareLayout && layoutId);
   const resolvedLayoutId = shouldUseSharedLayout ? layoutId : undefined;
 
   const variantStyles =
     variant === "thumb"
-      ? {
-          width: "100%",
-          height: "100%",
-          maxWidth: "100%",
-          maxHeight: "100%",
-          overflow: "visible",
-          flexShrink: 0,
-          marginInline: thumbMargin,
-        }
+      ? thumbFillWidth
+        ? {
+            width: "100%",
+            height: "100%",
+            maxWidth: "100%",
+            maxHeight: "100%",
+            overflow: "visible",
+            flexShrink: 0,
+            marginInline: thumbMargin,
+          }
+        : {
+            height: "100%",
+            width: "auto",
+            maxWidth: "100%",
+            maxHeight: "100%",
+            overflow: "visible",
+            flexShrink: 0,
+            marginInline: thumbMargin,
+          }
       : {
           width: "min(90vw, 1100px)",
           maxHeight: "80vh",
@@ -71,7 +71,6 @@ const SharedImageFrame = memo(function SharedImageFrame({
       layoutId={resolvedLayoutId}
       className={containerClass}
       style={{
-        ...aspectStyle,
         ...variantStyles,
         visibility: hidden ? "hidden" : "visible",
         pointerEvents: hidden ? "none" : "auto",

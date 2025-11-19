@@ -400,7 +400,7 @@ function HomePage({ page, collections }) {
                                   style={{ transformOrigin: "50% 0%" }}
                                 >
                                   <span
-                                    className={`absolute left-0 -top-6 text-xs text-black bg-white bg-opacity-80 py-1 rounded pointer-events-none transition-opacity duration-200 ${
+                                    className={`absolute left-0 -top-6 text-xs tracking-widest text-black bg-white bg-opacity-80 py-1 rounded pointer-events-none transition-opacity duration-200 ${
                                       hoverIndex === absoluteIndex
                                         ? "opacity-100"
                                         : "opacity-0"

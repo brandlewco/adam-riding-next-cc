@@ -65,7 +65,6 @@ function ArchivePage({ page, photos }) {
   const [direction, setDirection] = useState("");
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
   const [loadedThumbs, setLoadedThumbs] = useState(() => new Set());
-  const [shareLayoutMain, setShareLayoutMain] = useState(false);
   const [navHoverSide, setNavHoverSide] = useState(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
@@ -87,7 +86,6 @@ function ArchivePage({ page, photos }) {
       setActiveIndex(index);
       setOverlayClosing(false);
       setOverlayOpen(true);
-      setShareLayoutMain(true);
     },
     [photos]
   );
@@ -95,14 +93,12 @@ function ArchivePage({ page, photos }) {
   const handleClose = useCallback(() => {
     if (activeIndex === null) return;
     setDirection("");
-    setShareLayoutMain(true);
     setOverlayOpen(false);
     setOverlayClosing(true);
   }, [activeIndex]);
 
   const handleNext = useCallback(() => {
     if (!overlayOpen || activeIndex === null || photos.length <= 1) return;
-    setShareLayoutMain(false);
     setDirection("right");
     setActiveIndex((idx) => {
       if (idx === null) return idx;
@@ -112,7 +108,6 @@ function ArchivePage({ page, photos }) {
 
   const handlePrev = useCallback(() => {
     if (!overlayOpen || activeIndex === null || photos.length <= 1) return;
-    setShareLayoutMain(false);
     setDirection("left");
     setActiveIndex((idx) => {
       if (idx === null) return idx;
@@ -170,22 +165,12 @@ function ArchivePage({ page, photos }) {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-  useEffect(() => {
-    if (overlayOpen && !overlayClosing) {
-      const frame = requestAnimationFrame(() => {
-        setShareLayoutMain(false);
-      });
-      return () => cancelAnimationFrame(frame);
-    }
-  }, [overlayOpen, overlayClosing]);
-
   const handleOverlayAnimationComplete = useCallback(
     (definition) => {
       if (definition !== "exit" || !overlayClosing) return;
       setOverlayClosing(false);
       setActiveIndex(null);
       setDirection("");
-      setShareLayoutMain(false);
     },
     [overlayClosing]
   );
@@ -246,7 +231,6 @@ function ArchivePage({ page, photos }) {
                 layoutId={`image-media-${getImageId(block.image_path)}`}
                 block={block}
                 variant="main"
-                shareLayout={shareLayoutMain}
                 hidden={!sliderVisible}
                 elevation={sliderVisible ? 200 : undefined}
               >
@@ -287,6 +271,7 @@ function ArchivePage({ page, photos }) {
       inViewMargin: "500px",
       imageIdentifier: index,
       setImageLoaded: registerThumbLoaded,
+      thumbFillWidth: false,
     }),
     [registerThumbLoaded]
   );
@@ -294,9 +279,9 @@ function ArchivePage({ page, photos }) {
   return (
     <DefaultLayout page={page}>
       <LayoutGroup id="archive-layout" crossfade={false}>
-        <div className="h-full overflow-y-scroll p-4 md:p-16 mt-8 md:mt-0">
+        <div className="h-full overflow-y-scroll p-4 md:py-16 mt-8 md:mt-0">
           <motion.ul
-            className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-16 lg:gap-36 justify-items-center items-center w-full"
+            className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-64 justify-items-center items-center w-full"
             variants={containerVariants}
             initial="hidden"
             animate={shouldAnimateThumbs ? "show" : "hidden"}
@@ -320,7 +305,7 @@ function ArchivePage({ page, photos }) {
                     initial="hidden"
                     animate={thumbReady ? "show" : "hidden"}
                     custom={index}
-                    className="relative w-full flex flex-col items-end pb-10"
+                    className="relative flex flex-col items-end pb-10 w-1/2 md:w-1/4 xl:w-1/6"
                     style={{ zIndex: thumbZIndex }}
                   >
                     <motion.button
@@ -329,7 +314,7 @@ function ArchivePage({ page, photos }) {
                       className="flex w-full flex-col items-center focus:outline-none"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="relative inline-flex items-center justify-center overflow-visible pointer-events-auto h-[100px] lg:h-[160px]">
+                      <div className="relative flex items-center justify-center overflow-visible pointer-events-auto w-full max-w-fit h-[160px] lg:h-[160px]">
                         <SharedImageFrame
                           layoutId={layoutId}
                           block={block}
@@ -370,7 +355,7 @@ function ArchivePage({ page, photos }) {
                 }}
                 aria-hidden="true"
               />
-              <div className="absolute top-4 left-4 text-xs lowercase tracking-widest pointer-events-none z-[70]">
+              <div className="absolute top-4 left-4 text-xs tracking-widest pointer-events-none z-[70]">
                 {activePhoto.alt_text || "Untitled"}
               </div>
               <button

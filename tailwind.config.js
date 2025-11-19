@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        '5k': '2560px',
+      },
       height : {
         '85vh': 'calc(85vh - 2rem)',
       },
