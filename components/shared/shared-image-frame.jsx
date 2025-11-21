@@ -15,38 +15,92 @@ const SharedImageFrame = memo(function SharedImageFrame({
   shareLayout = true,
   elevation,
   thumbFillWidth = true,
+  maintainAspect = false,
+  thumbHeight = 160,
 }) {
+  const width = block.width || 1600;
+  const height = block.height || 1066;
   const isDev = process.env.NODE_ENV !== "production";
+  const hasDimensions = Number.isFinite(width) && Number.isFinite(height);
 
   const shouldUseSharedLayout = Boolean(shareLayout && layoutId);
   const resolvedLayoutId = shouldUseSharedLayout ? layoutId : undefined;
 
+  const computedThumbWidth =
+    hasDimensions && thumbHeight ? (width / height) * thumbHeight : null;
+
+  const thumbVariantStyles = thumbFillWidth
+    ? {
+        width: "100%",
+        height: "100%",
+        maxWidth: "100%",
+        maxHeight: "100%",
+        overflow: "visible",
+        flexShrink: 0,
+        marginInline: thumbMargin,
+      }
+    : {
+        height: "100%",
+        width: "auto",
+        maxWidth: "100%",
+        maxHeight: "100%",
+        overflow: "visible",
+        flexShrink: 0,
+        marginInline: thumbMargin,
+      };
+
+  const mainWidth = "min(90vw, 1100px)";
+  const mainHeight = "80vh";
+
   const variantStyles =
     variant === "thumb"
-      ? thumbFillWidth
+      ? maintainAspect
         ? {
-            width: "100%",
-            height: "100%",
+            height: thumbHeight,
+            width: computedThumbWidth || "auto",
             maxWidth: "100%",
             maxHeight: "100%",
-            overflow: "visible",
+            overflow: "hidden",
             flexShrink: 0,
             marginInline: thumbMargin,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }
+        : thumbVariantStyles
+      : maintainAspect
+        ? {
+            width: "auto",
+            maxWidth: mainWidth,
+            height: "auto",
+            maxHeight: mainHeight,
+            flexShrink: 0,
           }
         : {
-            height: "100%",
-            width: "auto",
-            maxWidth: "100%",
-            maxHeight: "100%",
-            overflow: "visible",
-            flexShrink: 0,
-            marginInline: thumbMargin,
+            width: mainWidth,
+            maxWidth: mainWidth,
+            height: mainHeight,
+            maxHeight: mainHeight,
+          };
+
+  const aspectStyle =
+    variant !== "thumb" && maintainAspect && width && height
+      ? {
+          aspectRatio: `${width} / ${height}`,
+          overflow: "hidden",
+          maxWidth: `${width}px`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }
+      : variant !== "thumb" && maintainAspect
+        ? {
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }
-      : {
-          width: "min(90vw, 1100px)",
-          maxHeight: "80vh",
-          height: "80vh",
-        };
+        : {};
 
   const containerClass =
     variant === "thumb"
@@ -72,6 +126,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
       className={containerClass}
       style={{
         ...variantStyles,
+        ...aspectStyle,
         visibility: hidden ? "hidden" : "visible",
         pointerEvents: hidden ? "none" : "auto",
         zIndex: elevation !== undefined ? elevation : undefined,

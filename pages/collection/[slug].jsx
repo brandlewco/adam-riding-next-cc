@@ -65,7 +65,7 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
         ease: [0.4, 0, 0.2, 1],
       }}
     >
-      <div className="mx-auto h-8 w-8">
+      <div className="mx-auto h-6 w-6 sm:h-8 sm:w-8">
         <ExportedImage
           src={block.image_path}
           alt={alt}
@@ -116,6 +116,7 @@ function CollectionPage({
   const [closingFromThumb, setClosingFromThumb] = useState(false);
   const [closingThumbIndex, setClosingThumbIndex] = useState(null);
   const [galleryChunkStart, setGalleryChunkStart] = useState(0);
+  const [galleryStripSize, setGalleryStripSize] = useState(16);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -175,7 +176,6 @@ function CollectionPage({
   ]);
 
   const isGalleryView = gallerySources.has(source);
-  const galleryStripSize = 16;
   const visibleStripCount = Math.min(imageCount, galleryStripSize);
   const normalizedChunkStart = imageCount
     ? ((galleryChunkStart % imageCount) + imageCount) % imageCount
@@ -199,6 +199,25 @@ function CollectionPage({
     },
     [imageCount, galleryStripSize]
   );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateStripSize = () => {
+      setGalleryStripSize(mediaQuery.matches ? 12 : 16);
+    };
+    updateStripSize();
+
+    if (mediaQuery.addEventListener)
+      mediaQuery.addEventListener("change", updateStripSize);
+    else mediaQuery.addListener(updateStripSize);
+
+    return () => {
+      if (mediaQuery.removeEventListener)
+        mediaQuery.removeEventListener("change", updateStripSize);
+      else mediaQuery.removeListener(updateStripSize);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isGalleryView || imageCount === 0) return;
@@ -473,6 +492,7 @@ function CollectionPage({
           layoutId={`image-media-${getImageId(block.image_path)}`}
           block={block}
           variant="main"
+          maintainAspect
         >
           {element}
         </SharedImageFrame>
@@ -591,7 +611,7 @@ function CollectionPage({
                 <motion.li
                   key={`${thumbId}-${index}`}
                   variants={thumbVariants}
-                  className="relative w-full flex flex-col items-center pb-10 w-1/2 md:w-1/4 xl:w-1/6"
+                  className="relative flex flex-col items-center pb-10 w-1/2 md:w-1/4 xl:w-1/6"
                   initial="hidden"
                   animate={thumbAnimationVariant}
                   custom={index}
@@ -609,6 +629,7 @@ function CollectionPage({
                         block={block}
                         variant="thumb"
                         hidden={hideDuringClose}
+                        maintainAspect
                       >
                         {element}
                       </SharedImageFrame>
@@ -700,7 +721,7 @@ function CollectionPage({
 
         {isGalleryView && imageCount > 1 && (
           <motion.div
-            className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-16 md:px-4"
+            className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-4"
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: stripReady ? 1 : 0, y: stripReady ? 0 : 12 }}
             transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}

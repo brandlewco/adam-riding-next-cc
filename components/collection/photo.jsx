@@ -74,15 +74,16 @@ function CollectionPhoto({
           maxHeight: "100%",
           willChange: "transform, opacity",
           ...(aspectRatio ? { aspectRatio } : {}),
+              overflow: "hidden",
         };
 
   const placeholderStyle = {
     display: "block",
     width: "100%",
     height: "100%",
-    backgroundColor: "#f5f5f5",
     borderRadius: 2,
     ...(aspectRatio ? { aspectRatio } : {}),
+    overflow: "hidden",
   };
 
   if (!hasEnteredView) {

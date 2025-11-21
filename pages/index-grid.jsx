@@ -77,7 +77,7 @@ function HomePage({ page, collections }) {
   }, []);
 
   const CARD_GAP_DESKTOP = 120;
-  const CARD_GAP_MOBILE = 32;
+  const CARD_GAP_MOBILE = 40;
   const MIN_CARD_WIDTH = 200;
   const MAX_CARD_WIDTH = 720;
 
@@ -284,6 +284,9 @@ function HomePage({ page, collections }) {
     (event) => {
       if (totalCollections <= 1 || !travelDistance || animatingRef.current)
         return;
+      if (event.deltaMode === 0) {
+        return;
+      }
       const delta =
         Math.abs(event.deltaX) > Math.abs(event.deltaY)
           ? event.deltaX
@@ -308,6 +311,20 @@ function HomePage({ page, collections }) {
     },
     [handleNext, handlePrev, totalCollections, travelDistance]
   );
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        handleNext();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        handlePrev();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handlePrev]);
 
   return (
     <DefaultLayout page={page}>
@@ -470,7 +487,7 @@ function HomePage({ page, collections }) {
             )}
 
             {totalCollections > 1 && (
-              <div className="md:hidden w-full mt-6 flex justify-between px-2 gap-4 text-xs uppercase tracking-widest">
+              <div className="absolute top-1/3 md:hidden w-full flex justify-between px-2 gap-4 text-xs uppercase tracking-widest">
                 <button type="button" onClick={handlePrev}>
                   P
                 </button>
