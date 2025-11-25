@@ -124,10 +124,12 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a3715-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a3764-2-2.jpg
     alt_text: 'DIPTYCH The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a3772-2-2.jpg
     alt_text: 'DIPTYCH The New York Times: Dream Run Camp'
+  - _bookshop_name: collection/separator
 ---
