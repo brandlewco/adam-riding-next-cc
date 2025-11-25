@@ -2,7 +2,7 @@ import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import DefaultLayout from "../../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
-import { useEffect, useState, useCallback, useRef, memo } from "react";
+import { useEffect, useState, useCallback, useRef, memo, useMemo } from "react";
 import { useRouter } from "next/router";
 import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
@@ -32,6 +32,7 @@ function HiddenPreloadImage({ src, width = 64, height = 64 }) {
 }
 
 const gallerySources = new Set(["home", "index", "index-list"]);
+const separatorBlockNames = new Set(["collection/seperator", "collection/separator"]);
 
 const getImageId = (imagePath) => {
   if (!imagePath) return "image-unknown";
@@ -39,24 +40,88 @@ const getImageId = (imagePath) => {
   return base.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "-");
 };
 
+const isSeparatorBlock = (block) => {
+  if (!block || typeof block !== "object") return false;
+  return separatorBlockNames.has(block._bookshop_name);
+};
+
+function buildSliderData(blocks = []) {
+  const sliderEntries = [];
+  const blockIndexToSlide = {};
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i];
+
+    if (isSeparatorBlock(block)) {
+      let end = i + 1;
+      while (end < blocks.length && !isSeparatorBlock(blocks[end])) {
+        end += 1;
+      }
+
+      if (end < blocks.length && isSeparatorBlock(blocks[end])) {
+        const betweenIndices = [];
+        for (let idx = i + 1; idx < end; idx += 1) {
+          if (!isSeparatorBlock(blocks[idx])) betweenIndices.push(idx);
+        }
+
+        const candidateBlocks = betweenIndices
+          .map((idx) => blocks[idx])
+          .filter(Boolean);
+        const hasTwoImages =
+          candidateBlocks.length === 2 &&
+          candidateBlocks.every((candidate) => Boolean(candidate.image_path));
+
+        if (hasTwoImages) {
+          const slideIndex = sliderEntries.length;
+          sliderEntries.push({
+            type: "diptych",
+            contentIndices: betweenIndices,
+            blocks: candidateBlocks,
+            id: `diptych-${betweenIndices.join("-")}`,
+          });
+          betweenIndices.forEach((idx) => {
+            blockIndexToSlide[idx] = slideIndex;
+          });
+          i = end;
+          continue;
+        }
+      }
+
+      continue;
+    }
+
+    const slideIndex = sliderEntries.length;
+    sliderEntries.push({
+      type: "single",
+      contentIndices: [i],
+      blocks: [block],
+      id: `single-${i}`,
+    });
+    blockIndexToSlide[i] = slideIndex;
+  }
+
+  return { sliderEntries, blockIndexToSlide };
+}
+
 const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
-  thumbIdx,
   block,
   isCurrent,
   relativeIndex,
   onSelect,
+  ariaLabel,
 }) {
   if (!block) return null;
   const alt = block.alt_text || "Collection thumbnail";
   const width = block.width || 400;
   const height = block.height || 300;
+  const resolvedLabel = ariaLabel || `Show image ${alt}`;
 
   return (
     <motion.button
       type="button"
-      onClick={() => onSelect(thumbIdx)}
-      className={`w-full border border-transparent transition h-auto w-auto md:h-8 md:w-8`}
-      aria-label={`Show image ${thumbIdx + 1}`}
+      onClick={onSelect}
+      className="w-full border border-transparent transition h-auto md:h-8 md:w-8"
+      aria-label={resolvedLabel}
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: isCurrent ? 1 : 0.5, y: 0 }}
       transition={{
@@ -95,7 +160,42 @@ function CollectionPage({
   prevFirstImage,
 }) {
   const router = useRouter();
-  const imageCount = page.data.content_blocks.length;
+  const contentBlocks = Array.isArray(page?.data?.content_blocks)
+    ? page.data.content_blocks
+    : [];
+  const { sliderEntries, blockIndexToSlide } = useMemo(
+    () => buildSliderData(contentBlocks),
+    [contentBlocks]
+  );
+  const imageCount = sliderEntries.length;
+  const { stripItems, slideToStripIndices } = useMemo(() => {
+    const items = [];
+    const slideStripIndexMap = new Map();
+
+    contentBlocks.forEach((block, blockIndex) => {
+      if (!block || !block.image_path) return;
+      const slideIndex = blockIndexToSlide?.[blockIndex];
+      if (typeof slideIndex !== "number") return;
+      const stripIndex = items.length;
+      const entry = {
+        id: `strip-${blockIndex}`,
+        block,
+        blockIndex,
+        slideIndex,
+      };
+      items.push(entry);
+      if (!slideStripIndexMap.has(slideIndex)) {
+        slideStripIndexMap.set(slideIndex, []);
+      }
+      slideStripIndexMap.get(slideIndex).push(stripIndex);
+    });
+
+    return {
+      stripItems: items,
+      slideToStripIndices: slideStripIndexMap,
+    };
+  }, [contentBlocks, blockIndexToSlide]);
+  const stripLength = stripItems.length;
 
   // state for current image index
   const [currentImage, setCurrentImage] = useState(0);
@@ -176,28 +276,31 @@ function CollectionPage({
   ]);
 
   const isGalleryView = gallerySources.has(source);
-  const visibleStripCount = Math.min(imageCount, galleryStripSize);
-  const normalizedChunkStart = imageCount
-    ? ((galleryChunkStart % imageCount) + imageCount) % imageCount
+  const visibleStripCount = Math.min(stripLength, galleryStripSize);
+  const normalizedChunkStart = stripLength
+    ? ((galleryChunkStart % stripLength) + stripLength) % stripLength
     : 0;
   const galleryThumbnailIndices =
-    isGalleryView && imageCount > 0
+    isGalleryView && stripLength > 0
       ? Array.from({ length: visibleStripCount }, (_, idx) =>
-          (normalizedChunkStart + idx) % imageCount
+          (normalizedChunkStart + idx) % stripLength
         )
       : [];
+  const galleryStripEntries = galleryThumbnailIndices.map(
+    (stripIndex) => stripItems[stripIndex]
+  );
 
   const isIndexWithinStrip = useCallback(
     (index, start) => {
-      if (imageCount === 0) return false;
-      if (imageCount <= galleryStripSize) return true;
-      const end = (start + galleryStripSize) % imageCount;
-      if (start + galleryStripSize <= imageCount) {
+      if (stripLength === 0) return false;
+      if (stripLength <= galleryStripSize) return true;
+      const end = (start + galleryStripSize) % stripLength;
+      if (start + galleryStripSize <= stripLength) {
         return index >= start && index < start + galleryStripSize;
       }
       return index >= start || index < end;
     },
-    [imageCount, galleryStripSize]
+    [stripLength, galleryStripSize]
   );
 
   useEffect(() => {
@@ -220,9 +323,9 @@ function CollectionPage({
   }, []);
 
   useEffect(() => {
-    if (!isGalleryView || imageCount === 0) return;
+    if (!isGalleryView || stripLength === 0) return;
 
-    if (imageCount <= galleryStripSize) {
+    if (stripLength <= galleryStripSize) {
       if (galleryChunkStart !== 0) {
         setGalleryChunkStart(0);
       }
@@ -230,24 +333,25 @@ function CollectionPage({
     }
 
     const start = normalizedChunkStart;
-    if (isIndexWithinStrip(currentImage, start)) return;
+    const targetIndices = slideToStripIndices.get(currentImage) || [];
+    if (targetIndices.length === 0) return;
 
-    const forwardDist = (currentImage - start + imageCount) % imageCount;
-    const backwardDist = (start - currentImage + imageCount) % imageCount;
+    const allVisible = targetIndices.every((idx) =>
+      isIndexWithinStrip(idx, start)
+    );
+    if (allVisible) return;
 
-    if (forwardDist === 0 || forwardDist <= backwardDist) {
-      setGalleryChunkStart((start + galleryStripSize) % imageCount);
-    } else {
-      setGalleryChunkStart((start - galleryStripSize + imageCount) % imageCount);
-    }
+    const minIdx = Math.min(...targetIndices);
+    setGalleryChunkStart(minIdx);
   }, [
     currentImage,
     galleryChunkStart,
     galleryStripSize,
-    imageCount,
     isGalleryView,
     isIndexWithinStrip,
     normalizedChunkStart,
+    slideToStripIndices,
+    stripLength,
   ]);
 
   useEffect(() => {
@@ -320,12 +424,56 @@ function CollectionPage({
     setMainImageLoaded(true);
   }, []);
 
+  const renderSlideFrames = useCallback(
+    (slide) => {
+      if (!slide) return null;
+      const isDiptychSlide = slide.type === "diptych";
+      return slide.contentIndices.map((blockIndex) => (
+        <Blocks
+          key={`slide-block-${blockIndex}`}
+          content_blocks={contentBlocks}
+          currentIndex={blockIndex}
+          componentProps={() => ({
+            variant: "main",
+            setImageLoaded: handleMainImageLoaded,
+          })}
+          render={({ element, block, index }) => {
+            if (!block?.image_path) return null;
+            return (
+              <SharedImageFrame
+                key={`slider-${index}`}
+                layoutId={`image-media-${getImageId(block.image_path)}`}
+                block={block}
+                variant="main"
+                maintainAspect
+                maxMainWidth={
+                  isDiptychSlide ? "min(45vw, 520px)" : undefined
+                }
+              >
+                {element}
+              </SharedImageFrame>
+            );
+          }}
+        />
+      ));
+    },
+    [contentBlocks, handleMainImageLoaded]
+  );
+
   useEffect(() => {
     const queryIndex = parseInt(router.query.image);
-    if (!isNaN(queryIndex) && queryIndex >= 0 && queryIndex < imageCount) {
+    if (isNaN(queryIndex) || queryIndex < 0) return;
+
+    if (queryIndex < imageCount) {
       setCurrentImage(queryIndex);
+      return;
     }
-  }, [router.query.image, imageCount]);
+
+    const mappedIndex = blockIndexToSlide?.[queryIndex];
+    if (typeof mappedIndex === "number") {
+      setCurrentImage(mappedIndex);
+    }
+  }, [router.query.image, imageCount, blockIndexToSlide]);
 
   // 1) handle area click
   const handleAreaClick = useCallback(
@@ -377,27 +525,30 @@ function CollectionPage({
 
   // Select a thumbnail: morph back to slider and hide the clicked thumb during pass
   const handleThumbnailSelect = useCallback(
-    (index, event) => {
+    (blockIndex, event) => {
       if (event) event.stopPropagation();
-      setCurrentImage(index);
+      const targetSlide = blockIndexToSlide?.[blockIndex];
+      if (typeof targetSlide !== "number") return;
+      setCurrentImage(targetSlide);
       setDirection("");
       if (showThumbs) {
         if (typeof window !== "undefined") {
           window.requestAnimationFrame(() => {
             setClosingFromThumb(true);
-            setClosingThumbIndex(index);
+            setClosingThumbIndex(blockIndex);
             setOverlayClosing(true);
             setShowThumbs(false);
           });
         } else {
           setClosingFromThumb(true);
-          setClosingThumbIndex(index);
+          setClosingThumbIndex(blockIndex);
           setOverlayClosing(true);
           setShowThumbs(false);
         }
       }
     },
     [
+      blockIndexToSlide,
       setDirection,
       setCurrentImage,
       setOverlayClosing,
@@ -409,10 +560,15 @@ function CollectionPage({
     ]
   );
 
-  const handleGalleryStripSelect = useCallback((thumbIdx) => {
-    setDirection("");
-    setCurrentImage(thumbIdx);
-  }, []);
+  const handleGalleryStripSelect = useCallback(
+    (slideIndex) => {
+      if (typeof slideIndex !== "number") return;
+      if (slideIndex < 0 || slideIndex >= imageCount) return;
+      setDirection("");
+      setCurrentImage(slideIndex);
+    },
+    [imageCount]
+  );
 
   // 3) handle area hover => set hoveredArea
   const handleAreaHover = useCallback((area) => {
@@ -467,9 +623,20 @@ function CollectionPage({
   };
 
   // Main image data
-  const currentBlock = page.data.content_blocks[currentImage] || {};
-  const currentImageId =
-    getImageId(currentBlock.image_path) || `${page.data.slug}-${currentImage}`;
+  const currentSlide = sliderEntries[currentImage] || null;
+  const currentAltLabel =
+    (currentSlide?.blocks
+      ?.map((block) => block?.alt_text)
+      .filter(Boolean)
+      .join(" / ")) || page.data.title;
+  const closingSlideIndex =
+    typeof closingThumbIndex === "number"
+      ? blockIndexToSlide?.[closingThumbIndex]
+      : null;
+  const closingSlideBlockIndices =
+    typeof closingSlideIndex === "number"
+      ? new Set(sliderEntries[closingSlideIndex]?.contentIndices || [])
+      : null;
   const shouldRenderThumbOverlay = showThumbs || overlayClosing;
   const sliderActiveDuringThumbClose = overlayClosing;
   const shouldRenderSliderFrame = !showThumbs || sliderActiveDuringThumbClose;
@@ -481,28 +648,17 @@ function CollectionPage({
       ? "show"
       : "hidden";
 
-  const mainImageContent = shouldRenderSliderFrame ? (
-    <Blocks
-      content_blocks={page.data.content_blocks}
-      currentIndex={currentImage}
-      componentProps={() => ({ variant: "main", setImageLoaded: handleMainImageLoaded })}
-      render={({ element, block, index }) => (
-        <SharedImageFrame
-          key={`slider-${index}`}
-          layoutId={`image-media-${getImageId(block.image_path)}`}
-          block={block}
-          variant="main"
-          maintainAspect
-        >
-          {element}
-        </SharedImageFrame>
-      )}
-    />
-  ) : null;
+  const slideLayoutClass = currentSlide?.type === "diptych"
+    ? "flex flex-col gap-6 md:flex-row md:gap-10 items-center justify-center w-full h-full"
+    : "flex items-center justify-center w-full h-full";
+  const mainImageContent =
+    shouldRenderSliderFrame && currentSlide ? (
+      <div className={slideLayoutClass}>{renderSlideFrames(currentSlide)}</div>
+    ) : null;
 
-  const sliderWrapperProps = isOverlayActive ? {} : swipeHandlers;
+  const sliderWrapperProps = isOverlayActive || !currentSlide ? {} : swipeHandlers;
 
-  const MainImageSection = isGalleryView ? (
+  const MainImageSection = isGalleryView && currentSlide ? (
     <motion.div
       className="relative z-10 flex justify-center items-center h-full w-full p-4 overflow-hidden"
       initial={{ opacity: 0 }}
@@ -515,7 +671,7 @@ function CollectionPage({
       ) : (
         <AnimatePresence custom={direction} initial={false} mode="sync">
           <motion.div
-            key={currentImage}
+            key={currentSlide?.id || currentImage}
             className="absolute inset-0 flex justify-center items-center"
             variants={internalVariants}
             initial="enter"
@@ -584,22 +740,24 @@ function CollectionPage({
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-64 justify-items-center items-center w-full"
+          className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
         >
           <Blocks
-            content_blocks={page.data.content_blocks}
+            content_blocks={contentBlocks}
             componentProps={thumbComponentProps}
             render={({ element, block, index }) => {
+              if (!block?.image_path) return null;
               const thumbId = getImageId(block.image_path);
-              const isActiveThumb = index === currentImage;
               const isClosingThumb = closingThumbIndex === index;
               const sharedLayoutId = `image-media-${thumbId}`;
               const thumbIsLoaded = thumbsLoaded.has(index);
+              const belongsToClosingSlide =
+                closingSlideBlockIndices?.has(index) || isClosingThumb;
               const hideDuringClose =
-                overlayClosing && closingFromThumb && !isClosingThumb;
+                overlayClosing && closingFromThumb && !belongsToClosingSlide;
               const thumbReady = shouldAnimateThumbs && thumbIsLoaded;
               const thumbAnimationVariant = overlayClosing
                 ? "exit"
@@ -623,7 +781,7 @@ function CollectionPage({
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[160px] lg:h-[160px]">
+                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[160px] lg:h-[184px]">
                       <SharedImageFrame
                         layoutId={sharedLayoutId}
                         block={block}
@@ -647,12 +805,18 @@ function CollectionPage({
   /**
    * Preloading logic:
    */
-  const nextImageInSameCollection =
+  const sanitizeBlocks = (blocks) =>
+    Array.isArray(blocks)
+      ? blocks.filter((block) => block && block.image_path)
+      : [];
+  const nextSlideBlocks =
     currentImage < imageCount - 1
-      ? page.data.content_blocks[currentImage + 1]
-      : null;
-  const prevImageInSameCollection =
-    currentImage > 0 ? page.data.content_blocks[currentImage - 1] : null;
+      ? sanitizeBlocks(sliderEntries[currentImage + 1]?.blocks)
+      : [];
+  const prevSlideBlocks =
+    currentImage > 0
+      ? sanitizeBlocks(sliderEntries[currentImage - 1]?.blocks)
+      : [];
 
   const showPrevButton = isTouchDevice || hoverHalf === "left";
   const showNextButton = isTouchDevice || hoverHalf === "right";
@@ -664,7 +828,7 @@ function CollectionPage({
         {isGalleryView ? (
           <>
             <div className="fixed top-4 left-4 text-xs tracking-widest z-40 pointer-events-none">
-              {page.data.content_blocks[currentImage].alt_text}
+              {currentAltLabel}
             </div>
             <button
               className="fixed top-4 right-4 text-xs uppercase tracking-widest z-40 bg-white bg-opacity-80 hover:bg-opacity-100 transition"
@@ -696,20 +860,24 @@ function CollectionPage({
         )}
 
         {/* Preload next/prev image in same collection if hovered */}
-        {hoveredArea === "right" && nextImageInSameCollection && (
-          <HiddenPreloadImage
-            src={nextImageInSameCollection.image_path}
-            width={nextImageInSameCollection.width || 64}
-            height={nextImageInSameCollection.height || 64}
-          />
-        )}
-        {hoveredArea === "left" && prevImageInSameCollection && (
-          <HiddenPreloadImage
-            src={prevImageInSameCollection.image_path}
-            width={prevImageInSameCollection.width || 64}
-            height={prevImageInSameCollection.height || 64}
-          />
-        )}
+        {hoveredArea === "right" &&
+          nextSlideBlocks.map((block) => (
+            <HiddenPreloadImage
+              key={`preload-next-${block.image_path}`}
+              src={block.image_path}
+              width={block.width || 64}
+              height={block.height || 64}
+            />
+          ))}
+        {hoveredArea === "left" &&
+          prevSlideBlocks.map((block) => (
+            <HiddenPreloadImage
+              key={`preload-prev-${block.image_path}`}
+              src={block.image_path}
+              width={block.width || 64}
+              height={block.height || 64}
+            />
+          ))}
 
         {/* Preload next/prev collection's first image if boundary */}
         {hoveredArea === "right" &&
@@ -735,14 +903,18 @@ function CollectionPage({
                 )}, minmax(0, 1fr))`,
               }}
             >
-              {galleryThumbnailIndices.map((thumbIdx, idx) => (
+              {galleryStripEntries.map((entry, idx) => (
                 <GalleryStripThumbnail
-                  key={`gallery-strip-${thumbIdx}`}
-                  thumbIdx={thumbIdx}
-                  block={page.data.content_blocks[thumbIdx]}
-                  isCurrent={thumbIdx === currentImage}
+                  key={entry?.id || `gallery-strip-${idx}`}
+                  block={entry?.block}
+                  isCurrent={entry?.slideIndex === currentImage}
                   relativeIndex={idx}
-                  onSelect={handleGalleryStripSelect}
+                  ariaLabel={`Show slide ${
+                    (entry?.slideIndex ?? 0) + 1
+                  }`}
+                  onSelect={() =>
+                    handleGalleryStripSelect(entry?.slideIndex)
+                  }
                 />
               ))}
             </div>

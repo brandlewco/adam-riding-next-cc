@@ -24,12 +24,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/kaedon-fixed.jpg
     alt_text: The Court
+  - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4207-2-2.jpg
     alt_text: DIPTYCH The Court
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4151-2-2.jpg
     alt_text: DIPTYCH The Court
+  - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4439-2-2.jpg
     alt_text: The Court

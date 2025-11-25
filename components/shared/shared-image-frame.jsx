@@ -16,7 +16,8 @@ const SharedImageFrame = memo(function SharedImageFrame({
   elevation,
   thumbFillWidth = true,
   maintainAspect = false,
-  thumbHeight = 160,
+  thumbHeight = 184,
+  maxMainWidth,
 }) {
   const width = block.width || 1600;
   const height = block.height || 1066;
@@ -49,7 +50,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
         marginInline: thumbMargin,
       };
 
-  const mainWidth = "min(90vw, 1100px)";
+  const mainWidth = maxMainWidth || "min(90vw, 1100px)";
   const mainHeight = "80vh";
 
   const variantStyles =

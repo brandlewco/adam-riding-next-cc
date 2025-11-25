@@ -448,7 +448,7 @@ function ArchiveGalleryPage({ page }) {
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-64 justify-items-center items-center w-full"
+          className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -487,7 +487,7 @@ function ArchiveGalleryPage({ page }) {
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[160px] lg:h-[160px]">
+                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[160px] lg:h-[184px]">
                       <SharedImageFrame
                         layoutId={sharedLayoutId}
                         block={block}
