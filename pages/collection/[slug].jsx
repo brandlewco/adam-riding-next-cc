@@ -831,7 +831,7 @@ function CollectionPage({
               {currentAltLabel}
             </div>
             <button
-              className="fixed top-4 right-0 right-4 text-xs uppercase tracking-widest z-40 bg-white bg-opacity-80 hover:bg-opacity-100 transition"
+              className="fixed top-4 right-0 right-4 text-xs uppercase tracking-widest z-40 transition"
               onClick={() => {
                 setDirection("");
                 if (showThumbs) closeThumbOverlay();
@@ -850,7 +850,7 @@ function CollectionPage({
                   onClick={() => {
                     setShowThumbs((prev) => !prev);
                   }}
-                  className="text-xs uppercase tracking-widest text-black hover:opacity-80"
+                  className="text-xs uppercase tracking-widest text-black"
                 >
                   {showThumbs ? "CLOSE" : "THUMBNAIL"}
                 </button>

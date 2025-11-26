@@ -89,7 +89,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
         : thumbVariantStyles
       : maintainAspect
         ? {
-            width: "auto",
+            width: "fit-content",
             maxWidth: mainWidth,
             height: "auto",
             maxHeight: mainHeight,
@@ -124,7 +124,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
   const containerClass =
     variant === "thumb"
       ? "relative inline-flex items-center justify-center min-w-fit"
-      : "relative flex items-center justify-center py-5 sm:py-0 mb-8 sm:mb-0";
+      : "relative flex items-center justify-center px-4 sm:px-0";
 
   const shouldAnimateLayout = shouldUseSharedLayout;
 
