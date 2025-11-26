@@ -6,6 +6,9 @@ spec:
   description: Add a seperator to a collection.
   icon: "image"
   tags: ["seperator"]
+  preview:
+    text:
+      - Seperator
 
 
 # Defines the structure of this component, as well as the default values

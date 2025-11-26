@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 const sharedImageTransition = {
@@ -19,16 +19,34 @@ const SharedImageFrame = memo(function SharedImageFrame({
   thumbHeight = 184,
   maxMainWidth,
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateMobileState = () => setIsMobile(mediaQuery.matches);
+    updateMobileState();
+
+    if (mediaQuery.addEventListener) mediaQuery.addEventListener("change", updateMobileState);
+    else mediaQuery.addListener(updateMobileState);
+
+    return () => {
+      if (mediaQuery.removeEventListener) mediaQuery.removeEventListener("change", updateMobileState);
+      else mediaQuery.removeListener(updateMobileState);
+    };
+  }, []);
+
   const width = block.width || 1600;
   const height = block.height || 1066;
   const isDev = process.env.NODE_ENV !== "production";
   const hasDimensions = Number.isFinite(width) && Number.isFinite(height);
+  const resolvedThumbHeight = isMobile ? 120 : thumbHeight;
 
   const shouldUseSharedLayout = Boolean(shareLayout && layoutId);
   const resolvedLayoutId = shouldUseSharedLayout ? layoutId : undefined;
 
   const computedThumbWidth =
-    hasDimensions && thumbHeight ? (width / height) * thumbHeight : null;
+    hasDimensions && resolvedThumbHeight ? (width / height) * resolvedThumbHeight : null;
 
   const thumbVariantStyles = thumbFillWidth
     ? {
@@ -57,7 +75,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
     variant === "thumb"
       ? maintainAspect
         ? {
-            height: thumbHeight,
+            height: resolvedThumbHeight,
             width: computedThumbWidth || "auto",
             maxWidth: "100%",
             maxHeight: "100%",
@@ -106,7 +124,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
   const containerClass =
     variant === "thumb"
       ? "relative inline-flex items-center justify-center min-w-fit"
-      : "relative flex items-center justify-center";
+      : "relative flex items-center justify-center py-5 sm:py-0 mb-8 sm:mb-0";
 
   const shouldAnimateLayout = shouldUseSharedLayout;
 

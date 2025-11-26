@@ -395,7 +395,7 @@ function ArchiveGalleryPage({ page }) {
 
   const MainImageSection = (
     <motion.div
-      className="relative z-10 flex justify-center items-center h-full w-full p-4 overflow-hidden"
+      className="relative z-10 flex justify-center items-center h-full w-full p-5 overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: mainImageLoaded ? 1 : 0 }}
       transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
@@ -448,7 +448,7 @@ function ArchiveGalleryPage({ page }) {
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
+          className="flex flex-wrap gap-y-12 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -487,7 +487,7 @@ function ArchiveGalleryPage({ page }) {
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[160px] lg:h-[184px]">
+                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
                       <SharedImageFrame
                         layoutId={sharedLayoutId}
                         block={block}
@@ -539,7 +539,7 @@ function ArchiveGalleryPage({ page }) {
         {!showThumbs && (
           <button
             type="button"
-            className="fixed top-2 right-2 text-xs uppercase tracking-widest leading-none text-black z-40 p-2"
+            className="fixed top-4 right-4 text-xs uppercase tracking-widest text-black z-40"
             onClick={reopenThumbGrid}
           >
             CLOSE
@@ -593,13 +593,13 @@ function ArchiveGalleryPage({ page }) {
         {!showThumbs && (
           <>
             <button
-              className="md:hidden fixed top-1/2 left-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+              className="md:hidden fixed top-1/2 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("left")}
             >
               P
             </button>
             <button
-              className="md:hidden fixed top-1/2 right-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+              className="md:hidden fixed top-1/2 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("right")}
             >
               N

@@ -740,7 +740,7 @@ function CollectionPage({
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap gap-y-24 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
+          className="flex flex-wrap gap-y-12 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -781,7 +781,7 @@ function CollectionPage({
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[160px] lg:h-[184px]">
+                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
                       <SharedImageFrame
                         layoutId={sharedLayoutId}
                         block={block}
@@ -831,7 +831,7 @@ function CollectionPage({
               {currentAltLabel}
             </div>
             <button
-              className="fixed top-4 right-4 text-xs uppercase tracking-widest z-40 bg-white bg-opacity-80 hover:bg-opacity-100 transition"
+              className="fixed top-4 right-0 right-4 text-xs uppercase tracking-widest z-40 bg-white bg-opacity-80 hover:bg-opacity-100 transition"
               onClick={() => {
                 setDirection("");
                 if (showThumbs) closeThumbOverlay();
@@ -842,7 +842,7 @@ function CollectionPage({
             </button>
           </>
         ) : (
-          <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/6 text-left z-20 gap-2 mt-[-8px]">
+          <div className="hidden md:flex flex-row items-center md:absolute top-1/2 left-1/6 text-left z-20 mt-[-8px]">
             <div className="text-xs tracking-widest">{page.data.title}</div>
             {source === "index" && (
               <div className="flex">
@@ -972,13 +972,13 @@ function CollectionPage({
         {!showThumbs && (
           <>
             <button
-              className="md:hidden fixed top-1/2 left-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+              className="md:hidden fixed top-1/2 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("left")}
             >
               P
             </button>
             <button
-              className="md:hidden fixed top-1/2 right-4 text-xs uppercase tracking-widest z-40 px-1 py-1 bg-white bg-opacity-80"
+              className="md:hidden fixed top-1/2 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("right")}
             >
               N
