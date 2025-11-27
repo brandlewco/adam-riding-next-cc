@@ -89,7 +89,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
         : thumbVariantStyles
       : maintainAspect
         ? {
-            width: "fit-content",
+            width: "auto",
             maxWidth: mainWidth,
             height: "auto",
             maxHeight: mainHeight,
