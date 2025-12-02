@@ -27,11 +27,13 @@ function InnerApp({ Component, pageProps }) {
   );
 
   useEffect(() => {
-    router.events.on("routeChangeStart", handleRouteChangeStart);
+    const events = router?.events;
+    if (!events) return undefined;
+    events.on("routeChangeStart", handleRouteChangeStart);
     return () => {
-      router.events.off("routeChangeStart", handleRouteChangeStart);
+      events.off("routeChangeStart", handleRouteChangeStart);
     };
-  }, [handleRouteChangeStart]);
+  }, [router.events, handleRouteChangeStart]);
 
   // Also on route complete, read direction from query
   useEffect(() => {

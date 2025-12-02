@@ -33,6 +33,25 @@ function HiddenPreloadImage({ src, width = 64, height = 64 }) {
 
 const gallerySources = new Set(["home", "index", "index-list"]);
 const separatorBlockNames = new Set(["collection/seperator", "collection/separator"]);
+const OPTIMIZED_SIZES = [64, 184, 256, 512, 640, 768, 1024, 1280, 2048];
+
+const resolveOptimizedSrc = (imagePath, requestedSize = 64) => {
+  if (!imagePath || typeof imagePath !== "string") return null;
+  if (imagePath.startsWith("http")) return null;
+
+  const normalizedSrc = imagePath.replace(/^\/+/, "");
+  if (normalizedSrc.startsWith("uploads/opt/")) {
+    return `/${normalizedSrc}`;
+  }
+  if (!normalizedSrc.startsWith("uploads/")) return null;
+  const segments = normalizedSrc.split("/");
+  const filename = segments.pop();
+  if (!filename) return null;
+  const baseName = filename.replace(/\.[^/.]+$/, "");
+
+  const targetSize = OPTIMIZED_SIZES.find((size) => size >= requestedSize) || OPTIMIZED_SIZES[OPTIMIZED_SIZES.length - 1];
+  return `/uploads/opt/${baseName}-opt-${targetSize}.WEBP`;
+};
 
 const getImageId = (imagePath) => {
   if (!imagePath) return "image-unknown";
@@ -105,16 +124,31 @@ function buildSliderData(blocks = []) {
 
 const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
   block,
+  blockIndex,
   isCurrent,
   relativeIndex,
   onSelect,
   ariaLabel,
+  onLoad,
 }) {
+  const dimOpacity = 0.45;
+  const targetThumbSize = 32;
+  const optimizedThumbSrc = useMemo(() => {
+    if (!block?.image_path) return null;
+    return resolveOptimizedSrc(block.image_path, targetThumbSize);
+  }, [block?.image_path]);
+  const handleThumbReady = useCallback(() => {
+    if (typeof onLoad === "function") {
+      onLoad(blockIndex);
+    }
+  }, [blockIndex, onLoad]);
+
   if (!block) return null;
+
   const alt = block.alt_text || "Collection thumbnail";
-  const width = block.width || 400;
-  const height = block.height || 300;
   const resolvedLabel = ariaLabel || `Show image ${alt}`;
+  const baseThumbSrc = optimizedThumbSrc || block.image_path;
+  const thumbIsOptimized = Boolean(optimizedThumbSrc);
 
   return (
     <motion.button
@@ -122,30 +156,40 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
       onClick={onSelect}
       className="w-full border border-transparent transition h-auto md:h-8 md:w-8"
       aria-label={resolvedLabel}
-      initial={{ opacity: 0, y: 0 }}
-      animate={{ opacity: isCurrent ? 1 : 0.5, y: 0 }}
-      transition={{
-        delay: 0.15 + Math.max(relativeIndex, 0) * 0.03,
-        duration: 0.35,
-        ease: [0.4, 0, 0.2, 1],
-      }}
     >
-      <div className="mx-auto h-6 w-6 sm:h-8 sm:w-8">
+      <div className="relative mx-auto h-6 w-6 sm:h-8 sm:w-8">
         <ExportedImage
-          src={block.image_path}
+          src={baseThumbSrc}
           alt={alt}
-          width={width}
-          height={height}
+          width={targetThumbSize}
+          height={targetThumbSize}
           sizes="32px"
           className="h-full w-full object-cover"
-          style={{ display: "block" }}
-          loading="lazy"
+          style={{ display: "block", transform: "translateZ(0)" }}
+          loading="eager"
+          unoptimized={thumbIsOptimized}
+          onLoad={handleThumbReady}
+          onLoadingComplete={handleThumbReady}
+        />
+        <motion.span
+          aria-hidden="true"
+          className="absolute inset-0 bg-white pointer-events-none"
+          initial={false}
+          animate={{ opacity: isCurrent ? 0 : dimOpacity }}
+          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          style={{ willChange: "opacity", }}
         />
       </div>
     </motion.button>
   );
 });
 GalleryStripThumbnail.displayName = "GalleryStripThumbnail";
+
+const stripChunkVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 function CollectionPage({
   page,
@@ -160,9 +204,10 @@ function CollectionPage({
   prevFirstImage,
 }) {
   const router = useRouter();
-  const contentBlocks = Array.isArray(page?.data?.content_blocks)
-    ? page.data.content_blocks
-    : [];
+  const contentBlocks = useMemo(() => {
+    const blocks = page?.data?.content_blocks;
+    return Array.isArray(blocks) ? blocks : [];
+  }, [page?.data?.content_blocks]);
   const { sliderEntries, blockIndexToSlide } = useMemo(
     () => buildSliderData(contentBlocks),
     [contentBlocks]
@@ -265,29 +310,71 @@ function CollectionPage({
     setClosingThumbIndex(null);
     setOverlayClosing(true);
     setShowThumbs(false);
-  }, [
-    closingFromThumb,
-    overlayClosing,
-    setClosingThumbIndex,
-    setClosingFromThumb,
-    setOverlayClosing,
-    setShowThumbs,
-    showThumbs,
-  ]);
+  }, [showThumbs]);
 
   const isGalleryView = gallerySources.has(source);
   const visibleStripCount = Math.min(stripLength, galleryStripSize);
   const normalizedChunkStart = stripLength
     ? ((galleryChunkStart % stripLength) + stripLength) % stripLength
     : 0;
-  const galleryThumbnailIndices =
-    isGalleryView && stripLength > 0
-      ? Array.from({ length: visibleStripCount }, (_, idx) =>
-          (normalizedChunkStart + idx) % stripLength
-        )
-      : [];
-  const galleryStripEntries = galleryThumbnailIndices.map(
-    (stripIndex) => stripItems[stripIndex]
+  const galleryThumbnailIndices = useMemo(() => {
+    if (!isGalleryView || stripLength <= 0) return [];
+    return Array.from({ length: visibleStripCount }, (_, idx) =>
+      (normalizedChunkStart + idx) % stripLength
+    );
+  }, [isGalleryView, stripLength, visibleStripCount, normalizedChunkStart]);
+  const galleryStripEntries = useMemo(
+    () => galleryThumbnailIndices.map((stripIndex) => stripItems[stripIndex]),
+    [galleryThumbnailIndices, stripItems]
+  );
+  const chunkKey = `${normalizedChunkStart}-${visibleStripCount}`;
+  const [stripChunkState, setStripChunkState] = useState(() => ({
+    key: chunkKey,
+    total: galleryStripEntries.length,
+    loaded: new Set(),
+    ready: true,
+  }));
+  const [activeChunkKey, setActiveChunkKey] = useState(chunkKey);
+  const [activeStripEntries, setActiveStripEntries] = useState(
+    galleryStripEntries
+  );
+
+  useEffect(() => {
+    setStripChunkState({
+      key: chunkKey,
+      total: galleryStripEntries.length,
+      loaded: new Set(),
+      ready: galleryStripEntries.length === 0,
+    });
+  }, [chunkKey, galleryStripEntries.length]);
+
+  useEffect(() => {
+    if (stripChunkState.ready && stripChunkState.key === chunkKey) {
+      setActiveChunkKey(chunkKey);
+      setActiveStripEntries(galleryStripEntries);
+    }
+  }, [stripChunkState, chunkKey, galleryStripEntries]);
+
+  const pendingStripEntries = chunkKey !== activeChunkKey
+    ? galleryStripEntries
+    : null;
+  const isTransitioningChunks = Boolean(pendingStripEntries);
+  const stripLayoutClass =
+    "grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center";
+
+  const registerStripThumbLoaded = useCallback(
+    (blockIndex) => {
+      if (typeof blockIndex !== "number") return;
+      setStripChunkState((prev) => {
+        if (prev.key !== chunkKey) return prev;
+        if (prev.loaded.has(blockIndex)) return prev;
+        const nextLoaded = new Set(prev.loaded);
+        nextLoaded.add(blockIndex);
+        const ready = prev.total > 0 ? nextLoaded.size >= prev.total : true;
+        return { ...prev, loaded: nextLoaded, ready };
+      });
+    },
+    [chunkKey]
   );
 
   const isIndexWithinStrip = useCallback(
@@ -439,6 +526,26 @@ function CollectionPage({
           })}
           render={({ element, block, index }) => {
             if (!block?.image_path) return null;
+            if (isDiptychSlide) {
+              return (
+                <div
+                  key={`slider-${index}`}
+                  className="block min-w-0"
+                >
+                  <SharedImageFrame
+                    layoutId={`image-media-${getImageId(block.image_path)}`}
+                    block={block}
+                    variant="main"
+                    maintainAspect
+                    maxMainWidth="100%"
+                    maxMainHeight="none"
+                  >
+                    {element}
+                  </SharedImageFrame>
+                </div>
+              );
+            }
+
             return (
               <SharedImageFrame
                 key={`slider-${index}`}
@@ -446,9 +553,6 @@ function CollectionPage({
                 block={block}
                 variant="main"
                 maintainAspect
-                maxMainWidth={
-                  isDiptychSlide ? "min(45vw, 520px)" : undefined
-                }
               >
                 {element}
               </SharedImageFrame>
@@ -547,17 +651,7 @@ function CollectionPage({
         }
       }
     },
-    [
-      blockIndexToSlide,
-      setDirection,
-      setCurrentImage,
-      setOverlayClosing,
-      setShowThumbs,
-      setClosingFromThumb,
-      setClosingThumbIndex,
-      overlayClosing,
-      showThumbs,
-    ]
+    [blockIndexToSlide, showThumbs]
   );
 
   const handleGalleryStripSelect = useCallback(
@@ -568,6 +662,23 @@ function CollectionPage({
       setCurrentImage(slideIndex);
     },
     [imageCount]
+  );
+
+  const renderStripThumbnails = useCallback(
+    (entries) =>
+      entries.map((entry, idx) => (
+        <GalleryStripThumbnail
+          key={entry?.id || `gallery-strip-${idx}`}
+          block={entry?.block}
+          blockIndex={entry?.blockIndex}
+          isCurrent={entry?.slideIndex === currentImage}
+          relativeIndex={idx}
+          ariaLabel={`Show slide ${(entry?.slideIndex ?? 0) + 1}`}
+          onSelect={() => handleGalleryStripSelect(entry?.slideIndex)}
+          onLoad={registerStripThumbLoaded}
+        />
+      )),
+    [currentImage, handleGalleryStripSelect, registerStripThumbLoaded]
   );
 
   // 3) handle area hover => set hoveredArea
@@ -648,12 +759,18 @@ function CollectionPage({
       ? "show"
       : "hidden";
 
-  const slideLayoutClass = currentSlide?.type === "diptych"
-    ? "flex flex-col gap-6 md:flex-row md:gap-10 items-center justify-center w-full h-full"
+  const isCurrentSlideDiptych = currentSlide?.type === "diptych";
+  const slideLayoutClass = isCurrentSlideDiptych
+    ? "flex flex-col gap-6 md:flex-row md:gap-10 items-center md:items-start justify-center w-full"
     : "flex items-center justify-center w-full h-full";
+  const slideLayoutStyle = isCurrentSlideDiptych
+    ? { maxWidth: "80vw", width: "100%", marginInline: "auto" }
+    : undefined;
   const mainImageContent =
     shouldRenderSliderFrame && currentSlide ? (
-      <div className={slideLayoutClass}>{renderSlideFrames(currentSlide)}</div>
+      <div className={slideLayoutClass} style={slideLayoutStyle}>
+        {renderSlideFrames(currentSlide)}
+      </div>
     ) : null;
 
   const sliderWrapperProps = isOverlayActive || !currentSlide ? {} : swipeHandlers;
@@ -891,32 +1008,51 @@ function CollectionPage({
           <motion.div
             className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-4"
             initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: stripReady ? 1 : 0, y: stripReady ? 0 : 12 }}
+            animate={{ opacity: stripReady ? 1 : 0, y: 0 }}
             transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
           >
             <div
-              className="grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center"
-              style={{
-                gridTemplateColumns: `repeat(${Math.max(
-                  galleryThumbnailIndices.length,
-                  1
-                )}, minmax(0, 1fr))`,
-              }}
+              className="relative"
+              aria-busy={isTransitioningChunks || undefined}
             >
-              {galleryStripEntries.map((entry, idx) => (
-                <GalleryStripThumbnail
-                  key={entry?.id || `gallery-strip-${idx}`}
-                  block={entry?.block}
-                  isCurrent={entry?.slideIndex === currentImage}
-                  relativeIndex={idx}
-                  ariaLabel={`Show slide ${
-                    (entry?.slideIndex ?? 0) + 1
-                  }`}
-                  onSelect={() =>
-                    handleGalleryStripSelect(entry?.slideIndex)
-                  }
-                />
-              ))}
+              <AnimatePresence initial={false} mode="wait">
+                <motion.div
+                  key={activeChunkKey}
+                  className={stripLayoutClass}
+                  variants={stripChunkVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                  style={{
+                    gridTemplateColumns: `repeat(${Math.max(
+                      activeStripEntries.length,
+                      1
+                    )}, minmax(0, 1fr))`,
+                  }}
+                >
+                  {renderStripThumbnails(activeStripEntries)}
+                </motion.div>
+              </AnimatePresence>
+
+              {pendingStripEntries && (
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0"
+                  aria-hidden="true"
+                >
+                  <div
+                    className={stripLayoutClass}
+                    style={{
+                      gridTemplateColumns: `repeat(${Math.max(
+                        pendingStripEntries.length,
+                        1
+                      )}, minmax(0, 1fr))`,
+                    }}
+                  >
+                    {renderStripThumbnails(pendingStripEntries)}
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         )}

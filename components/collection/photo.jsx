@@ -72,6 +72,7 @@ function CollectionPhoto({
       : {
           maxWidth: "100%",
           maxHeight: "100%",
+          margin: "0px -1rem",
           willChange: "transform, opacity",
           ...(aspectRatio ? { aspectRatio } : {}),
               overflow: "hidden",

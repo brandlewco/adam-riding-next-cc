@@ -18,6 +18,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
   maintainAspect = false,
   thumbHeight = 184,
   maxMainWidth,
+  maxMainHeight,
 }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -69,7 +70,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
       };
 
   const mainWidth = maxMainWidth || "min(90vw, 1100px)";
-  const mainHeight = "80vh";
+  const mainHeight = typeof maxMainHeight !== "undefined" ? maxMainHeight : "80vh";
 
   const variantStyles =
     variant === "thumb"

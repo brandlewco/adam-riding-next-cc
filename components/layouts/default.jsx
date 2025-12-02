@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { NextSeo } from "next-seo";
 import data from "../../lib/data";
 import Navigation from "./navigation";
@@ -24,18 +25,20 @@ export default function DefaultLayout({ children, page }) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYY75VRMHK"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-EYY75VRMHK');
-            `,
-          }}
-        />
       </Head>
+
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-EYY75VRMHK"
+        strategy="afterInteractive"
+      />
+      <Script id="ga-tracking" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-EYY75VRMHK');
+        `}
+      </Script>
 
       <NextSeo
         noindex={noIndex}
@@ -79,7 +82,7 @@ export default function DefaultLayout({ children, page }) {
         ]}
       />
       {children}
-      <script src="/js/script.js" defer></script>
+      <Script src="/js/script.js" strategy="afterInteractive" />
     </>
   );
 }

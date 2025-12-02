@@ -1,5 +1,33 @@
 import React from "react";
-import components from "../../components/**/*.jsx";
+import * as blogList from "../../components/blog/list.jsx";
+import * as collectionPhoto from "../../components/collection/photo.jsx";
+import * as collectionSeparator from "../../components/collection/separator.jsx";
+import * as collectionText from "../../components/collection/text.jsx";
+import * as collectionVideo from "../../components/collection/video.jsx";
+import * as globalError from "../../components/global/error.jsx";
+import * as homeIndex from "../../components/home/index.jsx";
+import * as icon from "../../components/icon.jsx";
+import * as layoutDefault from "../../components/layouts/default.jsx";
+import * as layoutNavigation from "../../components/layouts/navigation.jsx";
+import * as postsSummary from "../../components/posts/summary.jsx";
+import * as sharedError from "../../components/shared/error.jsx";
+import * as sharedImageFrame from "../../components/shared/shared-image-frame.jsx";
+
+const components = {
+  "../../components/blog/list.jsx": blogList,
+  "../../components/collection/photo.jsx": collectionPhoto,
+  "../../components/collection/separator.jsx": collectionSeparator,
+  "../../components/collection/text.jsx": collectionText,
+  "../../components/collection/video.jsx": collectionVideo,
+  "../../components/global/error.jsx": globalError,
+  "../../components/home/index.jsx": homeIndex,
+  "../../components/icon.jsx": icon,
+  "../../components/layouts/default.jsx": layoutDefault,
+  "../../components/layouts/navigation.jsx": layoutNavigation,
+  "../../components/posts/summary.jsx": postsSummary,
+  "../../components/shared/error.jsx": sharedError,
+  "../../components/shared/shared-image-frame.jsx": sharedImageFrame,
+};
 
 const getComponentKey = (name) => {
     return `../../components/${name}.jsx`;
