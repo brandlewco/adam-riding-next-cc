@@ -28,7 +28,7 @@ const Navigation = ({ page }) => {
     <>
       <header
         style={{ zIndex: "100" }}
-        className="w-full p-4 absolute bottom-0 left-0"
+        className="w-full p-4 fixed bottom-0 left-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_5%,rgba(255,255,255,0.8)_80%)] sm:bg-none"
         id="mainnavigationBar"
       >
         <nav className="container-fluid flex flex-row justify-between items-center text-xs uppercase tracking-widest">

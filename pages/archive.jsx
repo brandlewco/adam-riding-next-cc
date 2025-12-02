@@ -539,7 +539,7 @@ function ArchiveGalleryPage({ page }) {
         {!showThumbs && (
           <button
             type="button"
-            className="fixed top-4 right-4 text-xs uppercase tracking-widest text-black z-40"
+            className="fixed top-4 right-4 text-xs uppercase tracking-widest text-black z-50"
             onClick={reopenThumbGrid}
           >
             CLOSE

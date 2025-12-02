@@ -394,7 +394,7 @@ function CollectionPage({
     if (typeof window === "undefined") return undefined;
     const mediaQuery = window.matchMedia("(max-width: 767px)");
     const updateStripSize = () => {
-      setGalleryStripSize(mediaQuery.matches ? 12 : 16);
+      setGalleryStripSize(mediaQuery.matches ? 10 : 16);
     };
     updateStripSize();
 
@@ -948,7 +948,7 @@ function CollectionPage({
               {currentAltLabel}
             </div>
             <button
-              className="fixed top-4 right-0 right-4 text-xs uppercase tracking-widest z-40 transition"
+              className="fixed top-4 right-0 right-4 text-xs uppercase tracking-widest z-50 transition"
               onClick={() => {
                 setDirection("");
                 if (showThumbs) closeThumbOverlay();
