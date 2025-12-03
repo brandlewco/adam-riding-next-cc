@@ -38,24 +38,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-5.jpg
     alt_text: Florida, 2024
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-palm.jpg
     alt_text: DIPTYCH Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-1-1.jpg
     alt_text: DIPTYCH Florida, 2024
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-2.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-3.jpg
     alt_text: Florida, 2024
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-6.jpg
     alt_text: DIPTYCH Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-7.jpg
     alt_text: DIPTYCH Florida, 2024
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-4.jpg
     alt_text: Florida, 2024
@@ -98,21 +102,25 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a7784.jpg
     alt_text: Sunroom Band
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8150.jpg
     alt_text: DIPTYCH Sunroom Band
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8139.jpg
     alt_text: DIPTYCH Sunroom Band
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3362.jpg
     alt_text: Namiye
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3286.jpg
     alt_text: DIPTYCH Namiye
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3290.jpg
     alt_text: DIPTYCH Namiye
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3243.jpg
     alt_text: Namiye
@@ -128,12 +136,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3218.jpg
     alt_text: Namiye
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5907.jpg
     alt_text: DIPTYCH Jonah
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5911.jpg
     alt_text: DIPTYCH Jonah
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5803.jpg
     alt_text: Jonah

@@ -593,13 +593,13 @@ function ArchiveGalleryPage({ page }) {
         {!showThumbs && (
           <>
             <button
-              className="md:hidden fixed top-1/2 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("left")}
             >
               P
             </button>
             <button
-              className="md:hidden fixed top-1/2 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0  right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("right")}
             >
               N

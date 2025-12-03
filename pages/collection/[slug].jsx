@@ -538,7 +538,7 @@ function CollectionPage({
                     variant="main"
                     maintainAspect
                     maxMainWidth="100%"
-                    maxMainHeight="none"
+
                   >
                     {element}
                   </SharedImageFrame>
@@ -1108,13 +1108,13 @@ function CollectionPage({
         {!showThumbs && (
           <>
             <button
-              className="md:hidden fixed top-1/2 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("left")}
             >
               P
             </button>
             <button
-              className="md:hidden fixed top-1/2 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden h-full fixed flex flex-col justify-center top-0 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
               onClick={() => handleAreaClick("right")}
             >
               N
@@ -1239,38 +1239,31 @@ export async function getStaticProps({ params }) {
     prevSlug = slugArray[prevIndex];
   }
 
-  // if we have nextSlug, load that collection => get content_blocks[0]
+  const findFirstImageBlock = (blocks) => {
+    if (!Array.isArray(blocks)) return null;
+    for (const block of blocks) {
+      if (block && block.image_path) {
+        return block;
+      }
+    }
+    return null;
+  };
+
+  // if we have nextSlug, load that collection => get first image block
   if (nextSlug) {
     const nextColl = collections.find((c) => c.data.slug === nextSlug);
-    if (
-      nextColl &&
-      nextColl.data.content_blocks &&
-      nextColl.data.content_blocks.length > 0
-    ) {
-      // ensure fallback dimension
-      const firstBlock = {
-        ...nextColl.data.content_blocks[0],
-        width: nextColl.data.content_blocks[0].width || 32,
-        height: nextColl.data.content_blocks[0].height || 32,
-      };
-      nextFirstImage = firstBlock.image_path;
+    const firstImageBlock = findFirstImageBlock(nextColl?.data?.content_blocks);
+    if (firstImageBlock?.image_path) {
+      nextFirstImage = firstImageBlock.image_path;
     }
   }
 
-  // if we have prevSlug, load that collection => get content_blocks[0]
+  // if we have prevSlug, load that collection => get first image block
   if (prevSlug) {
     const prevColl = collections.find((c) => c.data.slug === prevSlug);
-    if (
-      prevColl &&
-      prevColl.data.content_blocks &&
-      prevColl.data.content_blocks.length > 0
-    ) {
-      const firstBlock = {
-        ...prevColl.data.content_blocks[0],
-        width: prevColl.data.content_blocks[0].width || 32,
-        height: prevColl.data.content_blocks[0].height || 32,
-      };
-      prevFirstImage = firstBlock.image_path;
+    const firstImageBlock = findFirstImageBlock(prevColl?.data?.content_blocks);
+    if (firstImageBlock?.image_path) {
+      prevFirstImage = firstImageBlock.image_path;
     }
   }
 

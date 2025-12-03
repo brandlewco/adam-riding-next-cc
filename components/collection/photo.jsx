@@ -54,8 +54,8 @@ function CollectionPhoto({
       : "(max-width: 640px) 100vw, (max-width: 1920px) 60vw, 50vw";
   const className =
     variant === "thumb"
-      ? "h-full w-full object-contain thumb-image "
-      : "max-h-full w-auto h-auto object-contain thumb-image";
+      ? "h-full w-full object-contain thumb-image"
+      : "max-h-full w-auto h-auto -mx-6 sm:mx-0 object-contain thumb-image";
 
   const style =
     variant === "thumb"
@@ -72,7 +72,6 @@ function CollectionPhoto({
       : {
           maxWidth: "100%",
           maxHeight: "100%",
-          margin: "0px -1rem",
           willChange: "transform, opacity",
           ...(aspectRatio ? { aspectRatio } : {}),
               overflow: "hidden",

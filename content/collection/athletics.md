@@ -35,6 +35,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4439-2-2.jpg
     alt_text: The Court
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-1.jpg
     alt_text: DIPTYCH Forma Pilates
@@ -49,6 +50,7 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-2.jpg
     alt_text: 'Ivory '
@@ -102,6 +104,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a6609-2-2.jpg
     alt_text: Ilisia
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
     alt_text: 'DIPTYCH The New York Times: Dream Run Camp'
@@ -112,6 +115,7 @@ content_blocks:
     top: 0
     left: 0
     right: 0
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4308-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
