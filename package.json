@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build && next-image-export-optimizer",
     "start": "next start",
-    "prebuild:fetch-theme-color": "node fetch-theme-color.js",
     "lint": "next lint"
   },
   "dependencies": {

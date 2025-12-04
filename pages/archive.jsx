@@ -2,7 +2,7 @@ import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import DefaultLayout from "../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../components/shared/blocks";
-import { useEffect, useState, useCallback, useRef, memo } from "react";
+import { useEffect, useState, useCallback, useRef, memo, useMemo } from "react";
 import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
 import sizeOf from "image-size";
@@ -33,6 +33,71 @@ const getImageId = (imagePath) => {
   const base = imagePath.split("/").pop() || imagePath;
   return base.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "-");
 };
+
+const separatorBlockNames = new Set(["collection/seperator", "collection/separator"]);
+
+const isSeparatorBlock = (block) => {
+  if (!block || typeof block !== "object") return false;
+  return separatorBlockNames.has(block._bookshop_name);
+};
+
+function buildSliderData(blocks = []) {
+  const sliderEntries = [];
+  const blockIndexToSlide = {};
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i];
+
+    if (isSeparatorBlock(block)) {
+      let end = i + 1;
+      while (end < blocks.length && !isSeparatorBlock(blocks[end])) {
+        end += 1;
+      }
+
+      if (end < blocks.length && isSeparatorBlock(blocks[end])) {
+        const betweenIndices = [];
+        for (let idx = i + 1; idx < end; idx += 1) {
+          if (!isSeparatorBlock(blocks[idx])) betweenIndices.push(idx);
+        }
+
+        const candidateBlocks = betweenIndices
+          .map((idx) => blocks[idx])
+          .filter(Boolean);
+        const hasTwoImages =
+          candidateBlocks.length === 2 &&
+          candidateBlocks.every((candidate) => Boolean(candidate.image_path));
+
+        if (hasTwoImages) {
+          const slideIndex = sliderEntries.length;
+          sliderEntries.push({
+            type: "diptych",
+            contentIndices: betweenIndices,
+            blocks: candidateBlocks,
+            id: `diptych-${betweenIndices.join("-")}`,
+          });
+          betweenIndices.forEach((idx) => {
+            blockIndexToSlide[idx] = slideIndex;
+          });
+          i = end;
+          continue;
+        }
+      }
+
+      continue;
+    }
+
+    const slideIndex = sliderEntries.length;
+    sliderEntries.push({
+      type: "single",
+      contentIndices: [i],
+      blocks: [block],
+      id: `single-${i}`,
+    });
+    blockIndexToSlide[i] = slideIndex;
+  }
+
+  return { sliderEntries, blockIndexToSlide };
+}
 
 const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
   thumbIdx,
@@ -134,8 +199,15 @@ const internalVariants = {
 };
 
 function ArchiveGalleryPage({ page }) {
-  const photos = page.data.content_blocks || [];
-  const imageCount = photos.length;
+  const contentBlocks = useMemo(() => {
+    const blocks = page?.data?.content_blocks;
+    return Array.isArray(blocks) ? blocks : [];
+  }, [page?.data?.content_blocks]);
+  const { sliderEntries, blockIndexToSlide } = useMemo(
+    () => buildSliderData(contentBlocks),
+    [contentBlocks]
+  );
+  const imageCount = sliderEntries.length;
 
   const [currentImage, setCurrentImage] = useState(0);
   const [direction, setDirection] = useState("");
@@ -255,6 +327,55 @@ function ArchiveGalleryPage({ page }) {
     setMainImageLoaded(true);
   }, []);
 
+  const renderSlideFrames = useCallback(
+    (slide) => {
+      if (!slide) return null;
+      const isDiptychSlide = slide.type === "diptych";
+      return slide.contentIndices.map((blockIndex) => (
+        <Blocks
+          key={`slide-block-${blockIndex}`}
+          content_blocks={contentBlocks}
+          currentIndex={blockIndex}
+          componentProps={() => ({
+            variant: "main",
+            setImageLoaded: handleMainImageLoaded,
+          })}
+          render={({ element, block, index }) => {
+            if (!block?.image_path) return null;
+            if (isDiptychSlide) {
+              return (
+                <div key={`slider-${index}`} className="block min-w-0">
+                  <SharedImageFrame
+                    layoutId={`image-media-${getImageId(block.image_path)}`}
+                    block={block}
+                    variant="main"
+                    maintainAspect
+                    maxMainWidth="100%"
+                  >
+                    {element}
+                  </SharedImageFrame>
+                </div>
+              );
+            }
+
+            return (
+              <SharedImageFrame
+                key={`slider-${index}`}
+                layoutId={`image-media-${getImageId(block.image_path)}`}
+                block={block}
+                variant="main"
+                maintainAspect
+              >
+                {element}
+              </SharedImageFrame>
+            );
+          }}
+        />
+      ));
+    },
+    [contentBlocks, handleMainImageLoaded]
+  );
+
   const handleAreaClick = useCallback(
     (area) => {
       if (area === "right") {
@@ -271,7 +392,9 @@ function ArchiveGalleryPage({ page }) {
   const handleThumbnailSelect = useCallback(
     (index, event) => {
       if (event) event.stopPropagation();
-      setCurrentImage(index);
+      const targetSlide = blockIndexToSlide?.[index];
+      if (typeof targetSlide !== "number") return;
+      setCurrentImage(targetSlide);
       setDirection("");
       if (showThumbs) {
         if (typeof window !== "undefined") {
@@ -289,17 +412,19 @@ function ArchiveGalleryPage({ page }) {
         }
       }
     },
-    [showThumbs]
+    [blockIndexToSlide, showThumbs]
   );
 
-  const handleGalleryStripSelect = useCallback((thumbIdx) => {
+  const handleGalleryStripSelect = useCallback((slideIndex) => {
+    if (typeof slideIndex !== "number") return;
+    if (slideIndex < 0 || slideIndex >= imageCount) return;
     setDirection("");
-    setCurrentImage(thumbIdx);
+    setCurrentImage(slideIndex);
     if (!showThumbs) {
       setShowThumbs(true);
       setOverlayClosing(false);
     }
-  }, [showThumbs]);
+  }, [imageCount, showThumbs]);
 
   const handleThumbsOverlayAnimationComplete = useCallback(
     (definition) => {
@@ -372,24 +497,26 @@ function ArchiveGalleryPage({ page }) {
       ? "show"
       : "hidden";
 
-  const mainImageContent = shouldRenderSliderFrame ? (
-    <Blocks
-      content_blocks={photos}
-      currentIndex={currentImage}
-      componentProps={() => ({ variant: "main", setImageLoaded: handleMainImageLoaded })}
-      render={({ element, block, index }) => (
-        <SharedImageFrame
-          key={`slider-${index}`}
-          layoutId={`image-media-${getImageId(block.image_path)}`}
-          block={block}
-          variant="main"
-          maintainAspect
-        >
-          {element}
-        </SharedImageFrame>
-      )}
-    />
-  ) : null;
+  const currentSlide = sliderEntries[currentImage] || null;
+  const currentAltLabel =
+    (currentSlide?.blocks
+      ?.map((block) => block?.alt_text)
+      .filter(Boolean)
+      .join(" / ")) || page.data.title || "Untitled";
+  const isCurrentSlideDiptych = currentSlide?.type === "diptych";
+  const slideLayoutClass = isCurrentSlideDiptych
+    ? "flex flex-col gap-6 md:flex-row md:gap-10 items-center md:items-start justify-center w-full" 
+    : "flex items-center justify-center w-full h-full";
+  const slideLayoutStyle = isCurrentSlideDiptych
+    ? { maxWidth: "80vw", width: "100%", marginInline: "auto" }
+    : undefined;
+
+  const mainImageContent =
+    shouldRenderSliderFrame && currentSlide ? (
+      <div className={slideLayoutClass} style={slideLayoutStyle}>
+        {renderSlideFrames(currentSlide)}
+      </div>
+    ) : null;
 
   const sliderWrapperProps = isOverlayActive ? {} : swipeHandlers;
 
@@ -454,9 +581,10 @@ function ArchiveGalleryPage({ page }) {
           animate={thumbGridAnimationState}
         >
           <Blocks
-            content_blocks={photos}
+            content_blocks={contentBlocks}
             componentProps={thumbComponentProps}
             render={({ element, block, index }) => {
+              if (!block?.image_path) return null;
               const thumbId = getImageId(block.image_path);
               const isActiveThumb = index === currentImage;
               const isClosingThumb = closingThumbIndex === index;
@@ -511,10 +639,20 @@ function ArchiveGalleryPage({ page }) {
     </motion.div>
   ) : null;
 
-  const nextImage =
-    currentImage < imageCount - 1 ? photos[currentImage + 1] : photos[0];
-  const prevImage =
-    currentImage > 0 ? photos[currentImage - 1] : photos[imageCount - 1];
+  const sanitizeBlocks = (blocks) =>
+    Array.isArray(blocks)
+      ? blocks.filter((block) => block && block.image_path)
+      : [];
+  const nextSlideBlocks =
+    currentImage < imageCount - 1
+      ? sanitizeBlocks(sliderEntries[currentImage + 1]?.blocks)
+      : sanitizeBlocks(sliderEntries[0]?.blocks);
+  const prevSlideBlocks =
+    currentImage > 0
+      ? sanitizeBlocks(sliderEntries[currentImage - 1]?.blocks)
+      : sanitizeBlocks(sliderEntries[imageCount - 1]?.blocks);
+  const nextSlidePrimary = nextSlideBlocks[0] || null;
+  const prevSlidePrimary = prevSlideBlocks[0] || null;
 
   const showPrevButton = isTouchDevice || hoverHalf === "left";
   const showNextButton = isTouchDevice || hoverHalf === "right";
@@ -530,7 +668,7 @@ function ArchiveGalleryPage({ page }) {
     <DefaultLayout page={page}>
       <LayoutGroup id="archive-gallery" crossfade={false}>
         <div className="fixed top-4 left-4 text-xs tracking-widest z-40 pointer-events-none">
-          {photos[currentImage]?.alt_text || "Untitled"}
+          {currentAltLabel}
         </div>
 
         {MainImageSection}
@@ -609,18 +747,18 @@ function ArchiveGalleryPage({ page }) {
 
         
 
-        {hoveredArea === "right" && nextImage && (
+        {hoveredArea === "right" && nextSlidePrimary && (
           <HiddenPreloadImage
-            src={nextImage?.image_path}
-            width={nextImage?.width || 64}
-            height={nextImage?.height || 64}
+            src={nextSlidePrimary?.image_path}
+            width={nextSlidePrimary?.width || 64}
+            height={nextSlidePrimary?.height || 64}
           />
         )}
-        {hoveredArea === "left" && prevImage && (
+        {hoveredArea === "left" && prevSlidePrimary && (
           <HiddenPreloadImage
-            src={prevImage?.image_path}
-            width={prevImage?.width || 64}
-            height={prevImage?.height || 64}
+            src={prevSlidePrimary?.image_path}
+            width={prevSlidePrimary?.width || 64}
+            height={prevSlidePrimary?.height || 64}
           />
         )}
       </LayoutGroup>

@@ -169,7 +169,7 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
           loading="eager"
           unoptimized={thumbIsOptimized}
           onLoad={handleThumbReady}
-          onLoadingComplete={handleThumbReady}
+          onLoading={handleThumbReady}
         />
         <motion.span
           aria-hidden="true"
@@ -255,18 +255,25 @@ function CollectionPage({
   const [overlayEntering, setOverlayEntering] = useState(false);
   const [thumbsLoaded, setThumbsLoaded] = useState(() => new Set());
   const [mainImageLoaded, setMainImageLoaded] = useState(false);
-  const [stripReady, setStripReady] = useState(false);
+  const [resolvedStripSize, setResolvedStripSize] = useState(null);
   const thumbAnimationFrameRef = useRef(null);
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
   const [closingFromThumb, setClosingFromThumb] = useState(false);
   const [closingThumbIndex, setClosingThumbIndex] = useState(null);
   const [galleryChunkStart, setGalleryChunkStart] = useState(0);
-  const [galleryStripSize, setGalleryStripSize] = useState(16);
+  const galleryStripSize = resolvedStripSize ?? 16;
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
-    const frame = window.requestAnimationFrame(() => setStripReady(true));
-    return () => window.cancelAnimationFrame(frame);
+    const media = window.matchMedia("(max-width: 767px)");
+    const resolveSize = () => setResolvedStripSize(media.matches ? 10 : 16);
+    resolveSize();
+    if (media.addEventListener) media.addEventListener("change", resolveSize);
+    else media.addListener(resolveSize);
+    return () => {
+      if (media.removeEventListener) media.removeEventListener("change", resolveSize);
+      else media.removeListener(resolveSize);
+    };
   }, []);
 
   useEffect(() => {
@@ -361,6 +368,12 @@ function CollectionPage({
   const isTransitioningChunks = Boolean(pendingStripEntries);
   const stripLayoutClass =
     "grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center";
+  const hasResolvedStripSize = resolvedStripSize !== null;
+  const shouldRenderStrip =
+    isGalleryView &&
+    imageCount > 1 &&
+    hasResolvedStripSize &&
+    activeStripEntries.length > 0;
 
   const registerStripThumbLoaded = useCallback(
     (blockIndex) => {
@@ -389,25 +402,6 @@ function CollectionPage({
     },
     [stripLength, galleryStripSize]
   );
-
-  useEffect(() => {
-    if (typeof window === "undefined") return undefined;
-    const mediaQuery = window.matchMedia("(max-width: 767px)");
-    const updateStripSize = () => {
-      setGalleryStripSize(mediaQuery.matches ? 10 : 16);
-    };
-    updateStripSize();
-
-    if (mediaQuery.addEventListener)
-      mediaQuery.addEventListener("change", updateStripSize);
-    else mediaQuery.addListener(updateStripSize);
-
-    return () => {
-      if (mediaQuery.removeEventListener)
-        mediaQuery.removeEventListener("change", updateStripSize);
-      else mediaQuery.removeListener(updateStripSize);
-    };
-  }, []);
 
   useEffect(() => {
     if (!isGalleryView || stripLength === 0) return;
@@ -840,18 +834,18 @@ function CollectionPage({
       animate={showThumbs ? "show" : "exit"}
       onAnimationComplete={handleThumbsOverlayAnimationComplete}
     >
-      <div
+      {/* <div
         className="absolute inset-0"
         style={{ zIndex: 0 }}
         aria-hidden="true"
         onClick={closeThumbOverlay}
-      />
-      <button
+      /> */}
+      {/* <button
         className="absolute top-2 right-2 text-xs tracking-widest leading-none text-black z-50 p-2"
         onClick={closeThumbOverlay}
       >
         CLOSE
-      </button>
+      </button> */}
       <div
         className="h-full w-full overflow-y-scroll p-4 md:py-16 mt-8 md:mt-0 relative "
         style={{ zIndex: 2 }}
@@ -1004,16 +998,17 @@ function CollectionPage({
           <HiddenPreloadImage src={prevFirstImage} />
         )}
 
-        {isGalleryView && imageCount > 1 && (
+        {shouldRenderStrip && (
           <motion.div
             className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-4"
             initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: stripReady ? 1 : 0, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
+            animate={{ opacity: stripChunkState.ready ? 1 : 0, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.35, ease: [0.25, 0.8, 0.25, 1] }}
           >
             <div
               className="relative"
               aria-busy={isTransitioningChunks || undefined}
+              style={{ visibility: stripChunkState.ready ? "visible" : "hidden" }}
             >
               <AnimatePresence initial={false} mode="wait">
                 <motion.div

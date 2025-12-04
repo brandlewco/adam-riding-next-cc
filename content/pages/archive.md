@@ -7,12 +7,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-0.jpg
     alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/separator 
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed.jpg
     alt_text: 'DIPTYCH The New York Times: Abwe Songolo'
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-1.jpg
     alt_text: 'DIPTYCH The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-3.jpg
     alt_text: 'The New York Times: Abwe Songolo'
@@ -28,12 +30,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-4.jpg
     alt_text: Last Call
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-5.jpg
     alt_text: DIPTYCH Last Call
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-5.jpg
     alt_text: DIPTYCH Last Call
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-6.jpg
     alt_text: Last Call
@@ -43,12 +47,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-8.jpg
     alt_text: Last Call
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-9.jpg
     alt_text: DIPTYCH Last Call
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-10.jpg
     alt_text: DIPTYCH Last Call
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-11.jpg
     alt_text: Last Call
@@ -61,12 +67,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-14.jpg
     alt_text: 'The New York Times: Drought Farming'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-15.jpg
     alt_text: 'DIPTYCH The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-16.jpg
     alt_text: 'DIPTYCH The New York Times: Drought Farming'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-17.jpg
     alt_text: 'The New York Times: Drought Farming'
@@ -91,24 +99,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-24.jpg
     alt_text: 'The New York Times: Drought Farming'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-25.jpg
     alt_text: 'DIPTYCH The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-26.jpg
     alt_text: 'DIPTYCH The New York Times: Drought Farming'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-27.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-28.jpg
     alt_text: 'The New York Times: Drought Farming'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-29.jpg
     alt_text: 'DIPTYCH The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-30.jpg
     alt_text: 'DIPTYCH The New York Times: Drought Farming'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-31.jpg
     alt_text: 'The New York Times: Drought Farming'
@@ -190,24 +202,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-57.jpg
     alt_text: Lake Tahoe, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-58.jpg
     alt_text: DIPTYCH Lake Tahoe, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-59.jpg
     alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-60.jpg
     alt_text: DIPTYCH Lake Tahoe, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-61.jpg
     alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-62.jpg
     alt_text: DIPTYCH Lake Tahoe, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-63.jpg
     alt_text: DIPTYCH Lake Tahoe, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-64.jpg
     alt_text: Lake Tahoe, 2023
@@ -235,12 +251,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-79.jpg
     alt_text: Arizona Department of Corrections
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-80.jpg
     alt_text: DIPTYCH Arizona Department of Corrections
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-78.jpg
     alt_text: DIPTYCH Arizona Department of Corrections
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-83.jpg
     alt_text: Arizona Department of Corrections
@@ -253,12 +271,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-86.jpg
     alt_text: Jotham Hung Ceramics
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_JOTHAM-1.jpg
     alt_text: DIPTYCH Jotham Hung Ceramics
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-88.jpg
     alt_text: DIPTYCH Jotham Hung Ceramics
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-89.jpg
     alt_text: Public Hotel New York City
@@ -289,12 +309,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-98.jpg
     alt_text: New York City, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-99.jpg
     alt_text: DIPTYCH New York City, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-100.jpg
     alt_text: DIPTYCH New York City, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-101.jpg
     alt_text: New York City, 2023
@@ -307,12 +329,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-9.jpg
     alt_text: Sebastian Vargas, 2021
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-7.jpg
     alt_text: DIPTYCH Sebastian Vargas, 2021
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: DIPTYCH Sebastian Vargas, 2021
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-108.jpg
     alt_text: Idaho Rodeo, 2022
@@ -334,30 +358,35 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-106.jpg
     alt_text: 'The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-107.jpg
     alt_text: 'DIPTYCH The Guardian: Rusty Bowers'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-108.jpg
     alt_text: 'DIPTYCH The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-109.jpg
     alt_text: 'The Guardian: Rusty Bowers'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-110.jpg
     alt_text: 'The Guardian: Rusty Bowers'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-111.jpg
     alt_text: 'DIPTYCH Golf Digest: Karl Anthony Towns'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-112.jpg
     alt_text: 'DIPTYCH Golf Digest: Karl Anthony Towns'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-113.jpg
     alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-114.jpg
     alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-115.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
@@ -376,21 +405,25 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-26.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-120.jpg
     alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-121.jpg
     alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-122.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-123.jpg
     alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-124.jpg
     alt_text: 'DIPTYCH WSJ: Phoenix Sky Harbor Airport '
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-125.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
@@ -403,12 +436,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-128.jpg
     alt_text: Road and Track
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-129.jpg
     alt_text: DIPTYCH Road and Track
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-130.jpg
     alt_text: DIPTYCH Road and Track
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-131.jpg
     alt_text: Road and Track
@@ -445,30 +480,35 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-142.jpg
     alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-143.jpg
     alt_text: 'DIPTYCH Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-144.jpg
     alt_text: 'DIPTYCH Die Zeit: Heat Wave'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-145.jpg
     alt_text: 'DIPTYCH Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-146.jpg
     alt_text: 'DIPTYCH Die Zeit: Heat Wave'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-147.jpg
     alt_text: 'DIPTYCH Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-148.jpg
     alt_text: 'The New York Times: Golfing'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-149.jpg
     alt_text: 'DIPTYCH The New York Times: Golfing'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-150.jpg
     alt_text: 'DIPTYCH The New York Times: Golfing'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-151.jpg
     alt_text: 'The New York Times: Golfing'
@@ -541,12 +581,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-175.jpg
     alt_text: Rodeo, 2022
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-176.jpg
     alt_text: DIPTYCH Rodeo, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-177.jpg
     alt_text: DIPTYCH Rodeo, 2022
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-178.jpg
     alt_text: Rodeo, 2022
@@ -559,12 +601,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-181.jpg
     alt_text: Rodeo, 2022
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-182.jpg
     alt_text: DIPTYCH Rodeo, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-183.jpg
     alt_text: DIPTYCH Rodeo, 2022
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-184.jpg
     alt_text: Rodeo, 2022
@@ -604,12 +648,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-196.jpg
     alt_text: NAN Collective Studio
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-197.jpg
     alt_text: DIPTYCH  Levi Christiansen
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-198.jpg
     alt_text: DIPTYCH Levi Christiansen
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-199.jpg
     alt_text: 'The New York Times: Art Scams'
@@ -619,39 +665,46 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-201.jpg
     alt_text: 'The New York Times: Art Scams'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
     alt_text: DIPTYCH  Mr. Woolsey
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
     alt_text: DIPTYCH Mr. Woolsey
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-202.jpg
     alt_text: DIPTYCH Cal-X
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-203.jpg
     alt_text: DIPTYCH Cal-X
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-204.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-205.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-206.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-207.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-208.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-209.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-210.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-211.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
@@ -661,24 +714,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-213.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-215.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-214.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-216.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-217.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-218.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-219.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-220.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
@@ -688,12 +745,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-222.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-223.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-224.jpg
     alt_text: 'DIPTYCH The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-225.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
@@ -703,24 +762,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-227.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-228.jpg
     alt_text: DIPTYCH Golf Digest
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-229.jpg
     alt_text: DIPTYCH Golf Digest
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-230.jpg
     alt_text: DIPTYCH Santa Barbara, 2025
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-231.jpg
     alt_text: DIPTYCH Santa Barbara, 2025
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-232.jpg
     alt_text: DIPTYCH Santa Barbara, 2025
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-233.jpg
     alt_text: DIPTYCH Santa Barbara, 2025
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-234.jpg
     alt_text: Santa Barbara, 2025
@@ -730,63 +793,74 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-236.jpg
     alt_text: 'Eater: Mall Food'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-237.jpg
     alt_text: 'Diptych Eater: Mall Food'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-238.jpg
     alt_text: 'Diptych Eater: Mall Food'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-240.jpg
     alt_text: 'Diptych Eater: Mall Food'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-239.jpg
     alt_text: 'Diptych Eater: Mall Food'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-241.jpg
     alt_text: 'Diptych Eater: Mall Food'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-242.jpg
     alt_text: 'Diptych Road and Track: Bippu'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-243.jpg
     alt_text: 'Diptych Road and Track: Bippu'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-244.jpg
     alt_text: 'Road and Track: Bippu'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-245.jpg
     alt_text: 'Diptych Road and Track: Bippu'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-246.jpg
     alt_text: 'Diptych Road and Track: Bippu'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-247.jpg
     alt_text: 'Road and Track: Bippu'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-248.jpg
     alt_text: 'Diptych Road and Track: Bippu'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-249.jpg
     alt_text: 'Diptych Road and Track: Bippu'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-249.jpg
     alt_text: 'Diptych Road and Track: Bippu'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-250-1.jpg
     alt_text: Nashville, 2022
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-251.jpg
     alt_text: Diptych Nashville, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-252.jpg
     alt_text: Diptych Nashville, 2022
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-253.jpg
     alt_text: Diptych Nashville, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-254.jpg
     alt_text: Diptych Nashville, 2022
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-255.jpg
     alt_text: 'The New York Times: Trey Thriffiley'
@@ -799,24 +873,28 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-258.jpg
     alt_text: 'The Guardian: Adrian Fontes'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-259.jpg
     alt_text: 'DIPTYCH The Guardian: Adrian Fontes'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-261.jpg
     alt_text: 'DIPTYCH The Guardian: Adrian Fontes'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-260.jpg
     alt_text: 'The Guardian: Adrian Fontes'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-262.jpg
     alt_text: Grand Canyon, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-263.jpg
     alt_text: DIPTYCH Grand Canyon, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-264.jpg
     alt_text: DIPTYCH Grand Canyon, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-265.jpg
     alt_text: 'WSJ: Crypto'
@@ -829,12 +907,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-268.jpg
     alt_text: 'WSJ: Crypto'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-269.jpg
     alt_text: DIPTYCH Jeff Gordon
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-270.jpg
     alt_text: DIPTYCH Jeff Gordon
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-271.jpg
     alt_text: 'Die Zeit: 711 Murder'
@@ -847,12 +927,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-274.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-275.jpg
     alt_text: 'DIPTYCH The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-276.jpg
     alt_text: 'DIPTYCH The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-277.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
@@ -868,55 +950,65 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-281.jpg
     alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-282.jpg
     alt_text: 'DIPTYCH The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-283.jpg
     alt_text: 'DIPTYCH The New York Times: Big Tech'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-284.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-285.jpg
     alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-286.jpg
     alt_text: 'DIPTYCH The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-287.jpg
     alt_text: 'DIPTYCH The New York Times: Big Tech'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-288.jpg
     alt_text: 'The New York Times: Big Tech'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-289.jpg
     alt_text: DIPTYCH Raw Material
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-290.jpg
     alt_text: DIPTYCH Raw Material
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-291.jpg
     alt_text: DIPTYCH Conor Damaschi
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-292.jpg
     alt_text: DIPTYCH Conor Damaschi
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-293.jpg
     alt_text: Conor Damaschi
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-294.jpg
     alt_text: Conor Damaschi
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-295.jpg
     alt_text: DIPTYCH Conor Damaschi
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-296.jpg
     alt_text: DIPTYCH Conor Damaschi
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-297.jpg
     alt_text: DIPTYCH Payson Skaters
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-298.jpg
     alt_text: DIPTYCH Payson Skaters
+  - _bookshop_name: collection/separator
 ---
