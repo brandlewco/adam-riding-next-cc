@@ -27,19 +27,18 @@ const Navigation = ({ page }) => {
   return (
     <>
       <header
-        style={{ zIndex: "100" }}
-        className="w-full p-4 fixed bottom-0 left-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_5%,rgba(255,255,255,0.8)_80%)] sm:bg-none"
+        className="z-[999] w-full fixed bottom-0 left-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_5%,rgba(255,255,255,0.8)_80%)] sm:bg-none"
         id="mainnavigationBar"
       >
         <nav className="container-fluid flex flex-row justify-between items-center text-xs uppercase tracking-widest">
           <Link
             href="/"
-            className={`leading-none`}
+            className={`leading-none py-4 pl-4`}
           >
             ADAM RIDING
           </Link>
           {/* INDEX nav item with Grid/List options */}
-          <span className="relative flex flex-row items-end ">
+          <span className="py-4 relative flex flex-row items-end ">
             <Link
               href="/index-grid"
               className={`text-xs uppercase tracking-widest`}
@@ -49,7 +48,7 @@ const Navigation = ({ page }) => {
             </Link>
             {/* Reserve space for grid/list always, but only show links when on index */}
             <span
-              className="ml-1 flex flex-row items-center hidden sm:inline-flex"
+              className="py-4  ml-1 flex flex-row items-center hidden sm:inline-flex"
               style={{
                 minWidth: "90px", // enough for "- Grid, List"
                 visibility: isIndex ? "visible" : "hidden",
@@ -78,13 +77,13 @@ const Navigation = ({ page }) => {
           </span>
           <Link
             href="/archive"
-            className={`text-xs uppercase tracking-widest`}
+            className={`py-4 text-xs uppercase tracking-widest`}
           >
             ARCHIVE
           </Link>
           <Link
             href="/contact"
-            className={`text-xs uppercase tracking-widest`}
+            className={`py-4 pr-4 text-xs uppercase tracking-widest`}
           >
             CONTACT
           </Link>
