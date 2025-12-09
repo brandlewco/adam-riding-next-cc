@@ -2,7 +2,7 @@ import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import DefaultLayout from "../../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
-import { useEffect, useState, useCallback, useRef, memo, useMemo } from "react";
+import { useEffect, useState, useCallback, useRef, memo, useMemo, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
 import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
@@ -34,6 +34,7 @@ function HiddenPreloadImage({ src, width = 64, height = 64 }) {
 const gallerySources = new Set(["home", "index", "index-list"]);
 const separatorBlockNames = new Set(["collection/seperator", "collection/separator"]);
 const OPTIMIZED_SIZES = [64, 184, 256, 512, 640, 768, 1024, 1280, 2048];
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const resolveOptimizedSrc = (imagePath, requestedSize = 64) => {
   if (!imagePath || typeof imagePath !== "string") return null;
@@ -256,6 +257,7 @@ function CollectionPage({
   const [thumbsLoaded, setThumbsLoaded] = useState(() => new Set());
   const [mainImageLoaded, setMainImageLoaded] = useState(false);
   const [resolvedStripSize, setResolvedStripSize] = useState(null);
+  const [stripVisible, setStripVisible] = useState(false);
   const thumbAnimationFrameRef = useRef(null);
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
   const [closingFromThumb, setClosingFromThumb] = useState(false);
@@ -263,7 +265,7 @@ function CollectionPage({
   const [galleryChunkStart, setGalleryChunkStart] = useState(0);
   const galleryStripSize = resolvedStripSize ?? 16;
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (typeof window === "undefined") return undefined;
     const media = window.matchMedia("(max-width: 767px)");
     const resolveSize = () => setResolvedStripSize(media.matches ? 10 : 16);
@@ -339,7 +341,7 @@ function CollectionPage({
     key: chunkKey,
     total: galleryStripEntries.length,
     loaded: new Set(),
-    ready: true,
+    ready: galleryStripEntries.length === 0,
   }));
   const [activeChunkKey, setActiveChunkKey] = useState(chunkKey);
   const [activeStripEntries, setActiveStripEntries] = useState(
@@ -368,12 +370,22 @@ function CollectionPage({
   const isTransitioningChunks = Boolean(pendingStripEntries);
   const stripLayoutClass =
     "grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center";
-  const hasResolvedStripSize = resolvedStripSize !== null;
   const shouldRenderStrip =
-    isGalleryView &&
-    imageCount > 1 &&
-    hasResolvedStripSize &&
-    activeStripEntries.length > 0;
+    resolvedStripSize !== null && isGalleryView && imageCount > 1;
+
+  useEffect(() => {
+    setStripVisible(false);
+  }, [resolvedStripSize]);
+
+  useEffect(() => {
+    if (resolvedStripSize === null) return undefined;
+    if (!stripChunkState.ready || stripChunkState.key !== chunkKey) {
+      setStripVisible(false);
+      return undefined;
+    }
+    const delay = setTimeout(() => setStripVisible(true), 500);
+    return () => clearTimeout(delay);
+  }, [resolvedStripSize, stripChunkState.ready, stripChunkState.key, chunkKey]);
 
   const registerStripThumbLoaded = useCallback(
     (blockIndex) => {
@@ -532,6 +544,7 @@ function CollectionPage({
                     variant="main"
                     maintainAspect
                     maxMainWidth="100%"
+                    disableMobileSharedLayout
 
                   >
                     {element}
@@ -547,6 +560,7 @@ function CollectionPage({
                 block={block}
                 variant="main"
                 maintainAspect
+                disableMobileSharedLayout
               >
                 {element}
               </SharedImageFrame>
@@ -834,24 +848,12 @@ function CollectionPage({
       animate={showThumbs ? "show" : "exit"}
       onAnimationComplete={handleThumbsOverlayAnimationComplete}
     >
-      {/* <div
-        className="absolute inset-0"
-        style={{ zIndex: 0 }}
-        aria-hidden="true"
-        onClick={closeThumbOverlay}
-      /> */}
-      {/* <button
-        className="absolute top-2 right-2 text-xs tracking-widest leading-none text-black z-50 p-2"
-        onClick={closeThumbOverlay}
-      >
-        CLOSE
-      </button> */}
       <div
         className="h-full w-full overflow-y-scroll p-4 md:py-16 mt-8 md:mt-0 relative "
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap gap-y-12 lg:gap-y-32 5k:gap-y-64 justify-items-center items-center w-full"
+          className="flex flex-wrap gap-y-12 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -899,6 +901,7 @@ function CollectionPage({
                         variant="thumb"
                         hidden={hideDuringClose}
                         maintainAspect
+                        disableMobileSharedLayout
                       >
                         {element}
                       </SharedImageFrame>
@@ -1001,14 +1004,14 @@ function CollectionPage({
         {shouldRenderStrip && (
           <motion.div
             className="fixed bottom-[2.8rem] left-0 right-0 z-40 px-4"
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: stripChunkState.ready ? 1 : 0, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.35, ease: [0.25, 0.8, 0.25, 1] }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: stripVisible ? 1 : 0, y: stripVisible ? 0 : 8 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.8, 0.25, 1] }}
+            style={{ pointerEvents: stripVisible ? "auto" : "none" }}
           >
             <div
               className="relative"
               aria-busy={isTransitioningChunks || undefined}
-              style={{ visibility: stripChunkState.ready ? "visible" : "hidden" }}
             >
               <AnimatePresence initial={false} mode="wait">
                 <motion.div

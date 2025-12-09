@@ -19,6 +19,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
   thumbHeight = 184,
   maxMainWidth,
   maxMainHeight,
+  disableMobileSharedLayout = false,
 }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -41,13 +42,17 @@ const SharedImageFrame = memo(function SharedImageFrame({
   const height = block.height || 1066;
   const isDev = process.env.NODE_ENV !== "production";
   const hasDimensions = Number.isFinite(width) && Number.isFinite(height);
-  const resolvedThumbHeight = isMobile ? 120 : thumbHeight;
+  // const resolvedThumbHeight = isMobile ? thumbHeight : thumbHeight;
 
-  const shouldUseSharedLayout = Boolean(shareLayout && layoutId);
+  const shouldUseSharedLayout = Boolean(
+    shareLayout &&
+      layoutId &&
+      (!disableMobileSharedLayout || !isMobile)
+  );
   const resolvedLayoutId = shouldUseSharedLayout ? layoutId : undefined;
 
   const computedThumbWidth =
-    hasDimensions && resolvedThumbHeight ? (width / height) * resolvedThumbHeight : null;
+    hasDimensions && thumbHeight ? (width / height) * thumbHeight : null;
 
   const thumbVariantStyles = thumbFillWidth
     ? {
@@ -76,7 +81,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
     variant === "thumb"
       ? maintainAspect
         ? {
-            height: resolvedThumbHeight,
+            height: thumbHeight,
             width: computedThumbWidth || "auto",
             maxWidth: "100%",
             maxHeight: "100%",

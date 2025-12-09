@@ -48,7 +48,7 @@ const Navigation = ({ page }) => {
             </Link>
             {/* Reserve space for grid/list always, but only show links when on index */}
             <span
-              className="py-4  ml-1 flex flex-row items-center hidden sm:inline-flex"
+              className="ml-1 flex flex-row items-center hidden sm:inline-flex"
               style={{
                 minWidth: "90px", // enough for "- Grid, List"
                 visibility: isIndex ? "visible" : "hidden",
