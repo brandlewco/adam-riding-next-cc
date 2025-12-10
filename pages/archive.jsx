@@ -351,6 +351,7 @@ function ArchiveGalleryPage({ page }) {
                     variant="main"
                     maintainAspect
                     maxMainWidth="100%"
+                    isDiptych
                   >
                     {element}
                   </SharedImageFrame>
@@ -505,10 +506,10 @@ function ArchiveGalleryPage({ page }) {
       .join(" / ")) || page.data.title || "Untitled";
   const isCurrentSlideDiptych = currentSlide?.type === "diptych";
   const slideLayoutClass = isCurrentSlideDiptych
-    ? "flex flex-col gap-6 md:flex-row md:gap-10 items-center md:items-start justify-center w-full" 
+    ? "flex gap-4 flex-row md:gap-10 items-center md:items-start justify-center w-full max-w-[100vw] sm:max-w-[80vw] px-4" 
     : "flex items-center justify-center w-full h-full";
   const slideLayoutStyle = isCurrentSlideDiptych
-    ? { maxWidth: "80vw", width: "100%", marginInline: "auto" }
+    ? { width: "100%", marginInline: "auto" }
     : undefined;
 
   const mainImageContent =
@@ -625,7 +626,7 @@ function ArchiveGalleryPage({ page }) {
                       >
                         {element}
                       </SharedImageFrame>
-                      <span className="pointer-events-none absolute right-0 -bottom-12 mt-1 text-xs tracking-wide text-black">
+                      <span className="pointer-events-none absolute right-0 -bottom-12 mt-1 text-xs tracking-wide text-black text-center sm:text-right w-full">
                         {index + 1}
                       </span>
                     </div>
@@ -731,13 +732,13 @@ function ArchiveGalleryPage({ page }) {
         {!showThumbs && (
           <>
             <button
-              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-16"
               onClick={() => handleAreaClick("left")}
             >
               P
             </button>
             <button
-              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0  right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0  right-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-16"
               onClick={() => handleAreaClick("right")}
             >
               N

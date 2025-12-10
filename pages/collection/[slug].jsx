@@ -545,6 +545,7 @@ function CollectionPage({
                     maintainAspect
                     maxMainWidth="100%"
                     disableMobileSharedLayout
+                    isDiptych
 
                   >
                     {element}
@@ -769,10 +770,10 @@ function CollectionPage({
 
   const isCurrentSlideDiptych = currentSlide?.type === "diptych";
   const slideLayoutClass = isCurrentSlideDiptych
-    ? "flex flex-col gap-6 md:flex-row md:gap-10 items-center md:items-start justify-center w-full"
+    ? "flex gap-4 flex-row md:gap-10 items-center md:items-start justify-center w-full max-w-[100vw] sm:max-w-[80vw] px-4" 
     : "flex items-center justify-center w-full h-full";
   const slideLayoutStyle = isCurrentSlideDiptych
-    ? { maxWidth: "80vw", width: "100%", marginInline: "auto" }
+    ? { width: "100%", marginInline: "auto" }
     : undefined;
   const mainImageContent =
     shouldRenderSliderFrame && currentSlide ? (
@@ -853,7 +854,7 @@ function CollectionPage({
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap gap-y-12 lg:gap-y-32 5k:gap-y-72 justify-items-center items-center w-full"
+          className="flex flex-wrap gap-y-12 lg:gap-y-32 5k:gap-y-64 justify-items-center items-center w-full"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -1106,13 +1107,13 @@ function CollectionPage({
         {!showThumbs && (
           <>
             <button
-              className="md:hidden h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-16"
               onClick={() => handleAreaClick("left")}
             >
               P
             </button>
             <button
-              className="md:hidden h-full fixed flex flex-col justify-center top-0 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1"
+              className="md:hidden h-full fixed flex flex-col justify-center top-0 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1  pb-16"
               onClick={() => handleAreaClick("right")}
             >
               N

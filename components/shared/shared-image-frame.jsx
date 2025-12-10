@@ -20,6 +20,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
   maxMainWidth,
   maxMainHeight,
   disableMobileSharedLayout = false,
+  isDiptych = false,
 }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -130,7 +131,12 @@ const SharedImageFrame = memo(function SharedImageFrame({
   const containerClass =
     variant === "thumb"
       ? "relative inline-flex items-center justify-center min-w-fit"
-      : "relative flex items-center justify-center px-4 sm:px-0";
+      : [
+          "relative flex items-center justify-center mb-16 sm:mb-0",
+          isDiptych ? "" : "px-4 sm:px-0",
+        ]
+          .filter(Boolean)
+          .join(" ");
 
   const shouldAnimateLayout = shouldUseSharedLayout;
 
