@@ -364,6 +364,17 @@ function CollectionPage({
     }
   }, [stripChunkState, chunkKey, galleryStripEntries]);
 
+  useEffect(() => {
+    if (stripChunkState.ready || stripChunkState.key !== chunkKey) return undefined;
+    const safFallback = setTimeout(() => {
+      setStripChunkState((prev) => {
+        if (prev.ready || prev.key !== chunkKey) return prev;
+        return { ...prev, ready: true };
+      });
+    }, 500);
+    return () => clearTimeout(safFallback);
+  }, [chunkKey, stripChunkState.key, stripChunkState.ready]);
+
   const pendingStripEntries = chunkKey !== activeChunkKey
     ? galleryStripEntries
     : null;

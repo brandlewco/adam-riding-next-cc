@@ -76,26 +76,30 @@ function HomePage({ page, collections }) {
     return () => observer.disconnect();
   }, []);
 
+  const isMobile = containerWidth && containerWidth < 768;
   const CARD_GAP_DESKTOP = 120;
-  const CARD_GAP_MOBILE = 40;
+  const CARD_GAP_MOBILE = 50;
   const MIN_CARD_WIDTH = 200;
   const MAX_CARD_WIDTH = 720;
+  const VISIBLE_COUNT_DESKTOP = 8;
+  const VISIBLE_COUNT_MOBILE = 3;
 
-  const showPeeking = totalCollections >= 8;
-  const visibleCount =
-    totalCollections === 0
-      ? 0
-      : showPeeking
-      ? 8
-      : Math.min(totalCollections, 8);
-  const isMobile = containerWidth && containerWidth < 768;
+  const targetVisible = isMobile ? VISIBLE_COUNT_MOBILE : VISIBLE_COUNT_DESKTOP;
+  const canPeekDesktop = !isMobile && totalCollections >= VISIBLE_COUNT_DESKTOP;
+  const canPeekMobile =
+    isMobile && targetVisible >= 3 && totalCollections >= targetVisible;
+  const showPeeking = canPeekDesktop || canPeekMobile;
+  const peekMode = canPeekMobile ? "mobile" : canPeekDesktop ? "desktop" : null;
+  const visibleCount = Math.min(totalCollections, targetVisible);
   const cardGap = isMobile ? CARD_GAP_MOBILE : CARD_GAP_DESKTOP;
 
   // Derive a fixed card width so six cards stay visible with the outer two peeking in.
   let computedWidth = 0;
   if (containerWidth && visibleCount > 0) {
     if (showPeeking) {
-      computedWidth = (containerWidth - 7 * cardGap) / 7;
+      const denom = Math.max(visibleCount - 1, 1);
+      computedWidth =
+        (containerWidth - Math.max(visibleCount - 1, 0) * cardGap) / denom;
     } else {
       computedWidth =
         (containerWidth - (visibleCount - 1) * cardGap) / visibleCount;
@@ -141,10 +145,14 @@ function HomePage({ page, collections }) {
   const coreOffsets = useMemo(() => {
     if (!visibleCount) return [];
     if (showPeeking) {
+      if (peekMode === "mobile") {
+        const half = Math.floor(visibleCount / 2);
+        return Array.from({ length: visibleCount }, (_, idx) => idx - half);
+      }
       return Array.from({ length: visibleCount }, (_, idx) => idx - 2);
     }
     return Array.from({ length: visibleCount }, (_, idx) => idx);
-  }, [showPeeking, visibleCount]);
+  }, [showPeeking, visibleCount, peekMode]);
 
   const extraOffsets = useMemo(() => {
     if (!coreOffsets.length) return [];
@@ -417,8 +425,8 @@ function HomePage({ page, collections }) {
                                   style={{ transformOrigin: "50% 0%" }}
                                 >
                                   <span
-                                    className={`absolute left-0 -top-6 text-xs tracking-widest text-black bg-white bg-opacity-80 py-1 rounded pointer-events-none transition-opacity duration-200 ${
-                                      hoverIndex === absoluteIndex
+                                    className={`absolute left-0 -top-6 text-xs tracking-widest text-black py-1 rounded pointer-events-none transition-opacity duration-200 ${
+                                      isMobile || hoverIndex === absoluteIndex
                                         ? "opacity-100"
                                         : "opacity-0"
                                     }`}
@@ -487,7 +495,7 @@ function HomePage({ page, collections }) {
             )}
 
             {totalCollections > 1 && (
-              <div className="absolute top-1/3 md:hidden w-full flex justify-between px-2 gap-4 text-xs uppercase tracking-widest">
+              <div className="absolute top-1/3 md:hidden w-full flex justify-between px-2 gap-4 text-xs uppercase tracking-widest text-white pt-6 sm:pt-0">
                 <button type="button" onClick={handlePrev}>
                   P
                 </button>
