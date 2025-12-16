@@ -912,6 +912,7 @@ function CollectionPage({
                         block={block}
                         variant="thumb"
                         hidden={hideDuringClose}
+                        thumbHeightMobile={120}
                         maintainAspect
                         disableMobileSharedLayout
                       >

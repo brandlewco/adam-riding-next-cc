@@ -17,12 +17,14 @@ const SharedImageFrame = memo(function SharedImageFrame({
   thumbFillWidth = true,
   maintainAspect = false,
   thumbHeight = 184,
+  thumbHeightMobile,
   maxMainWidth,
   maxMainHeight,
   disableMobileSharedLayout = false,
   isDiptych = false,
 }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [isBelowLg, setIsBelowLg] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -39,6 +41,21 @@ const SharedImageFrame = memo(function SharedImageFrame({
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+    const updateBelowLgState = () => setIsBelowLg(mediaQuery.matches);
+    updateBelowLgState();
+
+    if (mediaQuery.addEventListener) mediaQuery.addEventListener("change", updateBelowLgState);
+    else mediaQuery.addListener(updateBelowLgState);
+
+    return () => {
+      if (mediaQuery.removeEventListener) mediaQuery.removeEventListener("change", updateBelowLgState);
+      else mediaQuery.removeListener(updateBelowLgState);
+    };
+  }, []);
+
   const width = block.width || 1600;
   const height = block.height || 1066;
   const isDev = process.env.NODE_ENV !== "production";
@@ -52,8 +69,15 @@ const SharedImageFrame = memo(function SharedImageFrame({
   );
   const resolvedLayoutId = shouldUseSharedLayout ? layoutId : undefined;
 
+  const resolvedThumbHeight =
+    variant === "thumb" && maintainAspect && typeof thumbHeightMobile === "number"
+      ? isBelowLg
+        ? thumbHeightMobile
+        : thumbHeight
+      : thumbHeight;
+
   const computedThumbWidth =
-    hasDimensions && thumbHeight ? (width / height) * thumbHeight : null;
+    hasDimensions && resolvedThumbHeight ? (width / height) * resolvedThumbHeight : null;
 
   const thumbVariantStyles = thumbFillWidth
     ? {
@@ -82,7 +106,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
     variant === "thumb"
       ? maintainAspect
         ? {
-            height: thumbHeight,
+            height: resolvedThumbHeight,
             width: computedThumbWidth || "auto",
             maxWidth: "100%",
             maxHeight: "100%",

@@ -572,7 +572,7 @@ function ArchiveGalleryPage({ page }) {
         onClick={closeThumbOverlay}
       />
       <div
-        className="h-full w-full overflow-y-scroll p-4 md:py-16 mt-8 md:mt-0 relative"
+        className="h-full w-full overflow-y-scroll overflow-x-hidden p-4 md:py-16 mt-8 md:mt-0 relative"
         style={{ zIndex: 2 }}
       >
         <motion.ul
@@ -604,7 +604,7 @@ function ArchiveGalleryPage({ page }) {
                 <motion.li
                   key={`${thumbId}-${index}`}
                   variants={thumbVariants}
-                  className="relative flex flex-col items-center pb-10 w-1/2 md:w-1/4 xl:w-1/6"
+                  className="relative flex flex-col items-center w-1/2 md:w-1/4 xl:w-1/6"
                   initial="hidden"
                   animate={thumbAnimationVariant}
                   custom={index}
@@ -616,20 +616,21 @@ function ArchiveGalleryPage({ page }) {
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
-                      <SharedImageFrame
-                        layoutId={sharedLayoutId}
-                        block={block}
-                        variant="thumb"
-                        hidden={hideDuringClose}
-                        maintainAspect
-                      >
-                        {element}
-                      </SharedImageFrame>
-                      <span className="pointer-events-none absolute right-0 -bottom-12 mt-1 text-xs tracking-wide text-black text-center sm:text-right w-full">
-                        {index + 1}
-                      </span>
-                    </div>
+                        <div className="relative flex items-center justify-center overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
+                          <SharedImageFrame
+                            layoutId={sharedLayoutId}
+                            block={block}
+                            variant="thumb"
+                            hidden={hideDuringClose}
+                            thumbHeightMobile={120}
+                            maintainAspect
+                          >
+                            {element}
+                          </SharedImageFrame>
+                        </div>
+                        <span className="pointer-events-none mt-8 text-xs tracking-wide text-black w-full text-right">
+                          {index + 1}
+                        </span>
                   </motion.button>
                 </motion.li>
               );
