@@ -1119,13 +1119,13 @@ function CollectionPage({
         {!showThumbs && (
           <>
             <button
-              className="md:hidden h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-16"
+              className="md:hidden h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-12"
               onClick={() => handleAreaClick("left")}
             >
               P
             </button>
             <button
-              className="md:hidden h-full fixed flex flex-col justify-center top-0 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1  pb-16"
+              className="md:hidden h-full fixed flex flex-col justify-center top-0 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1  pb-12"
               onClick={() => handleAreaClick("right")}
             >
               N
