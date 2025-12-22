@@ -17,4 +17,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-4.jpg
     alt_text: Magnolia Leaf and Bracelet
+  - _bookshop_name: collection/photo
+    image_path: /uploads/eggs-rocks.jpg
+    alt_text: Eggs & Rocks
 ---
