@@ -209,6 +209,20 @@ function ArchiveGalleryPage({ page }) {
   );
   const imageCount = sliderEntries.length;
 
+  const blockDisplayOrder = useMemo(() => {
+    const orderMap = new Map();
+    let visibleIndex = 0;
+
+    contentBlocks.forEach((block, idx) => {
+      if (block?.image_path) {
+        orderMap.set(idx, visibleIndex);
+        visibleIndex += 1;
+      }
+    });
+
+    return orderMap;
+  }, [contentBlocks]);
+
   const [currentImage, setCurrentImage] = useState(0);
   const [direction, setDirection] = useState("");
   const [showThumbs, setShowThumbs] = useState(true); // start on grid
@@ -628,8 +642,8 @@ function ArchiveGalleryPage({ page }) {
                             {element}
                           </SharedImageFrame>
                         </div>
-                        <span className="pointer-events-none mt-8 text-xs tracking-wide text-black w-full text-right">
-                          {index + 1}
+                          <span className="pointer-events-none mt-8 text-xs tracking-wide text-black w-full text-right">
+                            {(blockDisplayOrder.get(index) ?? index) + 1}
                         </span>
                   </motion.button>
                 </motion.li>
