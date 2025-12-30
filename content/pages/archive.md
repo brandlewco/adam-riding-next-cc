@@ -930,22 +930,16 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-273.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-274.jpg
-    alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-275.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-276.jpg
+    image_path: /uploads/new-archive-274.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-277.jpg
-    alt_text: 'The New York Times: Psychedelic Toxins'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-278.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-279.jpg
