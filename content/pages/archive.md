@@ -577,9 +577,6 @@ content_blocks:
     image_path: /uploads/new-archive-172.jpg
     alt_text: 'The New York Times: Western Alliance Bank'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-173.jpg
-    alt_text: Idaho Rodeo, 2023
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-174.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
