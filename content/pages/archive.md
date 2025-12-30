@@ -7,13 +7,13 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-0.jpg
     alt_text: 'The New York Times: Abwe Songolo'
-  - _bookshop_name: collection/separator 
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed.jpg
-    alt_text: 'DIPTYCH The New York Times: Abwe Songolo'
+    alt_text: 'The New York Times: Abwe Songolo'
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-1.jpg
-    alt_text: 'DIPTYCH The New York Times: Abwe Songolo'
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-3.jpg
