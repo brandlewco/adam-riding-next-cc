@@ -17,10 +17,10 @@ content_blocks:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-02.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text: NikeSKIMS
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-03.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-04.jpg
@@ -31,17 +31,18 @@ content_blocks:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-06.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text: NikeSKIMS
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-07.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text:
+  - _bookshop_name: collection/seperator
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-08.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text: NikeSKIMS
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-09.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-10.jpg
@@ -52,17 +53,18 @@ content_blocks:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-12.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text: NikeSKIMS
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-13.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text:
+  - _bookshop_name: collection/seperator
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-14.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text: NikeSKIMS
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-15.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-16.jpg
@@ -70,10 +72,10 @@ content_blocks:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-17.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text: NikeSKIMS
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-18.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-19.jpg
@@ -81,9 +83,9 @@ content_blocks:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-20.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text: NikeSKIMS
   - _bookshop_name: collection/photo
     image_path: /uploads/nikeskims-21.jpg
-    alt_text: DIPTYCH NikeSKIMS
+    alt_text:
   - _bookshop_name: collection/seperator
 ---
