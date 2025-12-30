@@ -17,10 +17,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-1.jpg
-    alt_text: 'DIPTYCH Los Angeles Times: Vortex'
+    alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-2.jpg
-    alt_text: 'DIPTYCH Los Angeles Times: Vortex'
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-3.jpg
@@ -61,10 +61,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-15.jpg
-    alt_text: 'DIPTYCH Los Angeles Times: Vortex'
+    alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-16.jpg
-    alt_text: 'DIPTYCH Los Angeles Times: Vortex'
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-17.jpg
