@@ -210,12 +210,14 @@ content_blocks:
     image_path: /uploads/new-archive-59.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-60.jpg
     alt_text: Lake Tahoe, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-61.jpg
     alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-62.jpg
@@ -380,6 +382,7 @@ content_blocks:
     image_path: /uploads/new-archive-112.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-113.jpg
     alt_text: 'WSJ: Phoenix Sky Harbor Airport '
@@ -490,6 +493,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-144.jpg
     alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-147.jpg
@@ -673,6 +677,7 @@ content_blocks:
     image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-202.jpg
     alt_text: Cal-X
@@ -722,12 +727,14 @@ content_blocks:
     image_path: /uploads/new-archive-214.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-216.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-217.jpg
     alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-218.jpg
@@ -770,12 +777,14 @@ content_blocks:
     image_path: /uploads/new-archive-229.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-230.jpg
     alt_text: Santa Barbara, 2025
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-231.jpg
     alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-232.jpg
@@ -801,6 +810,7 @@ content_blocks:
     image_path: /uploads/new-archive-238.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-240.jpg
     alt_text: 'Eater: Mall Food'
@@ -818,6 +828,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-243.jpg
     alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-244.jpg
     alt_text: 'Road and Track: Bippu'
@@ -850,6 +861,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-252.jpg
     alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-253.jpg
@@ -980,6 +992,7 @@ content_blocks:
     image_path: /uploads/new-archive-290.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-291.jpg
     alt_text: Conor Damaschi
@@ -1000,6 +1013,7 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-296.jpg
     alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-297.jpg
