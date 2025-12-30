@@ -14,10 +14,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6237.jpg
-    alt_text: DIPTYCH Cole Norton
+    alt_text: Cole Norton
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6256.jpg
-    alt_text: DIPTYCH Cole Norton
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6323.jpg
@@ -31,9 +31,9 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6664.jpg
-    alt_text: DIPTYCH Cole Norton
+    alt_text: Cole Norton
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6689.jpg
-    alt_text: DIPTYCH Cole Norton
+    alt_text:
   - _bookshop_name: collection/separator
 ---
