@@ -809,14 +809,14 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-240.jpg
+    image_path: /uploads/new-archive-241.jpg
     alt_text: 'Eater: Mall Food'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-239.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-241.jpg
+    image_path: /uploads/new-archive-240.jpg
     alt_text: 'Eater: Mall Food'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
