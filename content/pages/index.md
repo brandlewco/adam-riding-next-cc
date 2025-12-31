@@ -4,5 +4,5 @@ title: Home
 seo:
   no_index: false
 collections:
-  - content/collection/overview.md
+  - content/collection/overview-wip.md
 ---
