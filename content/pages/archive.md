@@ -992,9 +992,6 @@ content_blocks:
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-293.jpg
-    alt_text: Conor Damaschi
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-294.jpg
     alt_text: Conor Damaschi
   - _bookshop_name: collection/separator
