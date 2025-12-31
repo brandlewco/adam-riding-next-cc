@@ -1007,7 +1007,7 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-297.jpg
+    image_path: /uploads/1t0a6539.jpg
     alt_text: Payson Skaters
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-298.jpg
