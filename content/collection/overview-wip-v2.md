@@ -51,7 +51,7 @@ content_blocks:
     image_path: /uploads/dirt-18.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-231.jpg
+    image_path: /uploads/updated-coach.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
@@ -139,6 +139,9 @@ content_blocks:
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-262.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-tw-1.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-11.jpg
