@@ -17,7 +17,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5803.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/ar-rodeo.jpg
     alt_text: Image Alt Text
@@ -27,11 +26,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-178.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-79.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-7.jpg
     alt_text: Image Alt Text
@@ -41,8 +38,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/ar-iceland.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-171.jpg
     alt_text: Image Alt Text
@@ -52,11 +47,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/design-02.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/dirt-18.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-231.jpg
     alt_text: Image Alt Text
@@ -66,7 +59,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a6539.jpg
     alt_text: Image Alt Text
@@ -94,7 +86,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-1.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-106.jpg
     alt_text: Image Alt Text
@@ -104,7 +95,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-7.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4308-2-2.jpg
     alt_text: Image Alt Text
@@ -135,14 +125,12 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6664.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/scan-07-1.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a3082.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-273.jpg
     alt_text: Image Alt Text
@@ -161,7 +149,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-0.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a9055-2.jpg
     alt_text: Image Alt Text
@@ -171,11 +158,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-1.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-4.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-72.jpg
     alt_text: Image Alt Text
@@ -185,7 +170,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-02.jpg
     alt_text: Image Alt Text
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-53.jpg
     alt_text: Image Alt Text
