@@ -45,7 +45,7 @@ content_blocks:
     image_path: /uploads/AR_ICELAND-11.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-12.jpg
+    image_path: /uploads/ar-iceland.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-13.jpg
