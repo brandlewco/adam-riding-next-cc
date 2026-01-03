@@ -120,7 +120,7 @@ content_blocks:
     image_path: /uploads/ar-ilisia.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-243.jpg
+    image_path: /uploads/ar-tw-1.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/cole-norton-test6664.jpg
@@ -190,8 +190,5 @@ content_blocks:
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-38.jpg
-    alt_text: Image Alt Text
-  - _bookshop_name: collection/photo
-    image_path: /uploads/ar-tw-1.jpg
     alt_text: Image Alt Text
 ---
