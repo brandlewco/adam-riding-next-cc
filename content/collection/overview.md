@@ -93,69 +93,102 @@ content_blocks:
     image_path: /uploads/vortex-8.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-1.jpg
-    alt_text: Jotham Hung Ceramics
+    image_path: /uploads/new-archive-7.jpg
+    alt_text: Last Call
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-4.jpg
-    alt_text: Dream Run Camp
+    image_path: /uploads/h73a4308-2-2.jpg
+    alt_text: 'The New York Times: Dream Run Camp'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-93.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-carmen-02.jpg
+    alt_text: Carmen
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-84.jpg
+    alt_text: Malibu, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-61.jpg
+    alt_text: Lake Tahoe, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-5.jpg
+    alt_text: Florida, 2024
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-97.jpg
+    alt_text: New York City, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-ilisia.jpg
+    alt_text: Ilisia
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-tw-1.jpg
+    alt_text: Taliesin West
+  - _bookshop_name: collection/photo
+    image_path: /uploads/cole-norton-test6664.jpg
+    alt_text: Cole Norton
+  - _bookshop_name: collection/photo
+    image_path: /uploads/scan-07-1.jpg
+    alt_text: Coach Brooklyn 28
+  - _bookshop_name: collection/photo
+    image_path: /uploads/1t0a3082.jpg
+    alt_text: Underpass, 2020
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-273.jpg
+    alt_text: 'The New York Times: Psychedelic Toxins'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a6601.jpg
+    alt_text: Tori Rose Walker
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-262.jpg
+    alt_text: Grand Canyon, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ANNOTATIONS-11.jpg
+    alt_text: Annotations
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-208.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-0.jpg
+    alt_text: 'The New York Times: Abwe Songolo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/1t0a9055-2.jpg
+    alt_text: The Cellar Door
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-14.jpg
+    alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-1.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-45.jpg
-    alt_text: The Produce Garden Blooms
+    image_path: /uploads/Still_Life-4.jpg
+    alt_text: Magnolia Leaf & Bracelet
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-5.jpg
-    alt_text: Ivory
-  - _bookshop_name: collection/photo
-    image_path: /uploads/NEW_Neutra_Home_WEB-5.JPG
-    alt_text: Neutra VDL Studio
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-23.jpg
-    alt_text: Caroline
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-15.jpg
-    alt_text: Psychedelic Toxins
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-3.jpg
-    alt_text: Vortex
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-142.jpg
-    alt_text: Refugee Abwe Songolo
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_DIRT-11.jpg
-    alt_text: DIRT
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_RUNNING-6.jpg
-    alt_text: Dream Run Camp
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_KAEDON-1.jpg
-    alt_text: The Court
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Ali-1.jpg
-    alt_text: Alessandra
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-2.jpg
-    alt_text: Last Call
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Raiven-1.jpg
-    alt_text: Raiven
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FLORIDA-5.jpg
-    alt_text: Florida Portraits
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_TALIESIN-2.jpg
-    alt_text: Taliesin West
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-25.jpg
-    alt_text: Carmen
-  - _bookshop_name: collection/photo
-    image_path: /uploads/Overview-11.jpg
-    alt_text: Coach Brooklyn 28
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_VORTEX-10.jpg
-    alt_text: Vortex
+    image_path: /uploads/AR_ARCHIVE-72.jpg
+    alt_text: San Diego, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-7.jpg
     alt_text: Iceland
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-02.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-53.jpg
+    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-219.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/dirt.jpg
+    alt_text: DIRT
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-212.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/Overview-22.jpg
+    alt_text: Eggs & Rocks
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-108.jpg
+    alt_text: Idaho Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-38.jpg
+    alt_text: 'The Guardian: Buckeye, AZ'
 ---
