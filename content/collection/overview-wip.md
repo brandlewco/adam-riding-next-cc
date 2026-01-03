@@ -18,7 +18,7 @@ content_blocks:
     image_path: /uploads/jonah-paz5803.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-180.jpg
+    image_path: /uploads/ar-rodeo-updated.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a5032.jpg
