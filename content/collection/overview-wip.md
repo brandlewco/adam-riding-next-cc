@@ -18,7 +18,7 @@ content_blocks:
     image_path: /uploads/jonah-paz5803.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-rodeo.jpg
+    image_path: /uploads/new-archive-180.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a5032.jpg
@@ -135,13 +135,16 @@ content_blocks:
     image_path: /uploads/new-archive-273.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-lalo.jpg
+    image_path: /uploads/h73a6601.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-262.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-taliesin.jpg
+    image_path: /uploads/AR_ANNOTATIONS-11.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-tw-1.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-208.jpg
