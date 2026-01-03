@@ -327,14 +327,14 @@ content_blocks:
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-6.jpg
-    alt_text: Sebastian Vargas, 2021
+    alt_text: Sebastian, 2021
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-9.jpg
-    alt_text: Sebastian Vargas, 2021
+    alt_text: Sebastian, 2021
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-7.jpg
-    alt_text: Sebastian Vargas, 2021
+    alt_text: Sebastian, 2021
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text:
@@ -385,57 +385,57 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-113.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-114.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-115.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-28.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-117.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-25.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-29.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-26.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-120.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-121.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-122.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-123.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-124.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-125.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-126.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-127.jpg
-    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-128.jpg
     alt_text: Road and Track
@@ -587,7 +587,7 @@ content_blocks:
     image_path: /uploads/new-archive-176.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-177.jpg
+    image_path: /uploads/ar-rodeo-updated.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
@@ -903,16 +903,16 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-265.jpg
-    alt_text: 'WSJ: Crypto'
+    alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-266.jpg
-    alt_text: 'WSJ: Crypto'
+    alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-267.jpg
-    alt_text: 'WSJ: Crypto'
+    alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-268.jpg
-    alt_text: 'WSJ: Crypto'
+    alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-269.jpg
@@ -1005,7 +1005,7 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a6539.jpg
-    alt_text: Payson Skaters
+    alt_text: Payson Skaters, 2020
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-298.jpg
     alt_text:
