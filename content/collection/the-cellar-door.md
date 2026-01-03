@@ -18,7 +18,7 @@ content_blocks:
     image_path: /uploads/1t0a6032-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
-    image_path: /uploads/riding3.jpg
+    image_path: /uploads/riding3-updated.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a9205-2.jpg
