@@ -144,9 +144,6 @@ content_blocks:
     image_path: /uploads/AR_ANNOTATIONS-11.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-tw-1.jpg
-    alt_text: Image Alt Text
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-208.jpg
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
@@ -193,5 +190,8 @@ content_blocks:
     alt_text: Image Alt Text
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-38.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-tw-1.jpg
     alt_text: Image Alt Text
 ---
