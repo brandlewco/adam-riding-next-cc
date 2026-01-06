@@ -12,6 +12,12 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-02.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test4663.jpg
+    alt_text: Raiven
+  - _bookshop_name: collection/photo
     image_path: /uploads/narges-19.jpg
     alt_text: Narges
   - _bookshop_name: collection/photo
@@ -47,12 +53,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a5032.jpg
     alt_text: Carmen
-  - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test4663.jpg
-    alt_text: Raiven
-  - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-02.jpg
-    alt_text: Raiven
   - _bookshop_name: collection/photo
     image_path: /uploads/ali-9.jpg
     alt_text: Ali
