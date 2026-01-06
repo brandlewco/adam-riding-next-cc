@@ -21,9 +21,6 @@ content_blocks:
     top: 0
     left: 0
     right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/kaedon-fixed.jpg
-    alt_text: The Court
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4207-2-2.jpg
@@ -59,13 +56,6 @@ content_blocks:
     left: 0
     right: 0
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_IVORY-1.jpg
-    alt_text: Ivory
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-5.jpg
     alt_text: Ivory
     width: 30
@@ -79,20 +69,7 @@ content_blocks:
     image_path: /uploads/h73a8012-2-2.jpg
     alt_text: Ivory
   - _bookshop_name: collection/photo
-    image_path: /uploads/h73a0664-2-2.jpg
-    alt_text: Ivory
-  - _bookshop_name: collection/photo
     image_path: /uploads/basketball-15-2-2.jpg
-    alt_text: Ilisia
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/h73a6738-2-2.jpg
-    alt_text: Ilisia
-  - _bookshop_name: collection/photo
-    image_path: /uploads/basketball-19-2-2.jpg
     alt_text: Ilisia
     width: 30
     top: 0
@@ -123,10 +100,10 @@ content_blocks:
     image_path: /uploads/h73a4474-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
-    image_path: /uploads/h73a4293-2-2.jpg
+    image_path: /uploads/h73a3715-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
-    image_path: /uploads/h73a3715-2-2.jpg
+    image_path: /uploads/h73a4293-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
