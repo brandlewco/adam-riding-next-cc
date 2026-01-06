@@ -40,7 +40,7 @@ content_blocks:
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a8713-2-2.jpg
-    alt_text: DIPTYCH The Cellar Door
+    alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/book2-images-6-2.jpg
     alt_text: The Cellar Door
@@ -74,10 +74,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a0263-2.jpg
-    alt_text: DIPTYCH The Cellar Door
+    alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a0311-2.jpg
-    alt_text: DIPTYCH The Cellar Door
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a9178-2.jpg

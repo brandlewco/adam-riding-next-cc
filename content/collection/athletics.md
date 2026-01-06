@@ -24,10 +24,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4207-2-2.jpg
-    alt_text: DIPTYCH The Court
+    alt_text: The Court
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4151-2-2.jpg
-    alt_text: DIPTYCH The Court
+    alt_text:
   - _bookshop_name: collection/seperator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4439-2-2.jpg
@@ -35,14 +35,14 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-1.jpg
-    alt_text: DIPTYCH Forma Pilates
+    alt_text: Forma Pilates
     width: 30
     top: 0
     left: 0
     right: 0
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_FORMA-2.jpg
-    alt_text: DIPTYCH Forma Pilates
+    alt_text:
     width: 30
     top: 0
     left: 0
@@ -84,10 +84,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
-    alt_text: 'DIPTYCH The New York Times: Dream Run Camp'
+    alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-3.jpg
-    alt_text: 'DIPTYCH The New York Times: Dream Run Camp'
+    alt_text:
     width: 30
     top: 0
     left: 0
@@ -108,9 +108,9 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a3764-2-2.jpg
-    alt_text: 'DIPTYCH The New York Times: Dream Run Camp'
+    alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a3772-2-2.jpg
-    alt_text: 'DIPTYCH The New York Times: Dream Run Camp'
+    alt_text:
   - _bookshop_name: collection/separator
 ---

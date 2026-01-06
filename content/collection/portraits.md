@@ -130,7 +130,7 @@ content_blocks:
     alt_text: Marshall
   - _bookshop_name: collection/photo
     image_path: /uploads/ar-mr-02.jpg
-    alt_text: Marshall
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/ar-mr-03.jpg
