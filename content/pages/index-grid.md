@@ -4,8 +4,8 @@ title: Index Grid
 seo:
   no_index: false
 collections:
-  - content/collection/portraits.md
   - content/collection/iceland.md
+  - content/collection/portraits.md
   - content/collection/design.md
   - content/collection/athletics.md
   - content/collection/nikeskims.md
