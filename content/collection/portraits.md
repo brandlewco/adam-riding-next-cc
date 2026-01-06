@@ -93,6 +93,15 @@ content_blocks:
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
+    image_path: /uploads/h73a6208.jpg
+    alt_text: Tori
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a5881.jpg
+    alt_text: Tori
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a6601.jpg
+    alt_text: Tori
+  - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3218.jpg
     alt_text: Namiye
   - _bookshop_name: collection/photo
@@ -115,4 +124,18 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz-hl-1-2.jpg
     alt_text: Jonah
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-mr-01.jpg
+    alt_text: Marshall
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-mr-02.jpg
+    alt_text: Marshall
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-mr-03.jpg
+    alt_text: Marshall
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-mr-04.jpg
+    alt_text: Marshall
 ---
