@@ -27,9 +27,6 @@ content_blocks:
     image_path: /uploads/dirt-4.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-5.jpg
-    alt_text: DIRT
-  - _bookshop_name: collection/photo
     image_path: /uploads/dirt-6.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
@@ -46,9 +43,6 @@ content_blocks:
     alt_text: DIRT
   - _bookshop_name: collection/photo
     image_path: /uploads/dirt-11.jpg
-    alt_text: DIRT
-  - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-12.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
     image_path: /uploads/dirt-13.jpg
@@ -72,22 +66,16 @@ content_blocks:
     image_path: /uploads/dirt-19.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-20.jpg
-    alt_text: DIRT
-  - _bookshop_name: collection/photo
     image_path: /uploads/dirt-21.jpg
-    alt_text: DIRT
-  - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-24.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
     image_path: /uploads/dirt-25.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-26.jpg
+    image_path: /uploads/dirt-24.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-27.jpg
+    image_path: /uploads/dirt-26.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
     image_path: /uploads/dirt-28.jpg
