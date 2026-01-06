@@ -39,12 +39,6 @@ content_blocks:
     image_path: /uploads/design-19.jpg
     alt_text: Neutra VDL Studio and Residence
   - _bookshop_name: collection/photo
-    image_path: /uploads/design-20.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-18.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
     image_path: /uploads/design-01.jpg
     alt_text: Taliesin West
   - _bookshop_name: collection/photo
@@ -64,9 +58,6 @@ content_blocks:
     alt_text: Taliesin West
   - _bookshop_name: collection/photo
     image_path: /uploads/design-07.jpg
-    alt_text: Schindler House
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-08.jpg
     alt_text: Schindler House
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
