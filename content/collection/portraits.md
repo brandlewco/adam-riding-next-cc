@@ -28,7 +28,7 @@ content_blocks:
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-1-1.jpg
-    alt_text: DIPTYCH Florida, 2024
+    alt_text: Florida, 2024
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-3.jpg
     alt_text: Florida, 2024
@@ -62,10 +62,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8150.jpg
-    alt_text: DIPTYCH Sunroom Band
+    alt_text: Sunroom Band
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8139.jpg
-    alt_text: DIPTYCH Sunroom Band
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3218.jpg
@@ -82,10 +82,10 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5907.jpg
-    alt_text: DIPTYCH Jonah
+    alt_text: Jonah
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5911.jpg
-    alt_text: DIPTYCH Jonah
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz-hl-1-2.jpg
