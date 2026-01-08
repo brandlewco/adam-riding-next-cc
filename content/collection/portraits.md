@@ -12,6 +12,12 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/scan-23.jpg
+    alt_text: Caroline
+  - _bookshop_name: collection/photo
+    image_path: /uploads/scan-19.jpg
+    alt_text: Caroline
+  - _bookshop_name: collection/photo
     image_path: /uploads/raiven-02.jpg
     alt_text: Raiven
   - _bookshop_name: collection/photo
@@ -23,12 +29,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/narges-13.jpg
     alt_text: Narges
-  - _bookshop_name: collection/photo
-    image_path: /uploads/scan-19.jpg
-    alt_text: Caroline
-  - _bookshop_name: collection/photo
-    image_path: /uploads/scan-23.jpg
-    alt_text: Caroline
   - _bookshop_name: collection/photo
     image_path: /uploads/fixed-5.jpg
     alt_text: Florida, 2024
