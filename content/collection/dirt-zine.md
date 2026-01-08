@@ -15,9 +15,6 @@ content_blocks:
     image_path: /uploads/dirt.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-1.jpg
-    alt_text: DIRT
-  - _bookshop_name: collection/photo
     image_path: /uploads/dirt-2.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
@@ -78,9 +75,9 @@ content_blocks:
     image_path: /uploads/dirt-26.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-28.jpg
+    image_path: /uploads/dirt-1.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-29.jpg
+    image_path: /uploads/dirt-28.jpg
     alt_text: DIRT
 ---
