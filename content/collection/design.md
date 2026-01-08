@@ -12,10 +12,34 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/design-03.jpg
-    alt_text: Taliesin West
+    image_path: /uploads/design-17.jpg
+    alt_text: Neutra VDL Studio and Residence
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-13.jpg
+    alt_text: Neutra VDL Studio and Residence
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-11.jpg
+    alt_text: Neutra VDL Studio and Residence
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-12.jpg
+    alt_text: Neutra VDL Studio and Residence
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-14.jpg
+    alt_text: Neutra VDL Studio and Residence
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-15.jpg
+    alt_text: Neutra VDL Studio and Residence
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-16.jpg
+    alt_text: Neutra VDL Studio and Residence
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-19.jpg
+    alt_text: Neutra VDL Studio and Residence
   - _bookshop_name: collection/photo
     image_path: /uploads/design-01.jpg
+    alt_text: Taliesin West
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-03.jpg
     alt_text: Taliesin West
   - _bookshop_name: collection/photo
     image_path: /uploads/design-02.jpg
@@ -32,30 +56,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/nan-studio-12.jpg
     alt_text: 'Design: NAN Collective'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-13.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-11.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-12.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-14.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-17.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-15.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-16.jpg
-    alt_text: Neutra VDL Studio and Residence
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-19.jpg
-    alt_text: Neutra VDL Studio and Residence
   - _bookshop_name: collection/photo
     image_path: /uploads/design-07.jpg
     alt_text: Schindler House
