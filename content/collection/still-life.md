@@ -13,8 +13,8 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/updated-coach.jpg
-    alt_text: Coach Brooklyn 28
+    alt_text: 'Still Life: Coach Brooklyn 28'
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-4.jpg
-    alt_text: Magnolia Leaf and Bracelet
+    alt_text: 'Still Life: Magnolia Leaf and Bracelet'
 ---
