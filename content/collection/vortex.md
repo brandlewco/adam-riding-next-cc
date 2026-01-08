@@ -29,16 +29,16 @@ content_blocks:
     image_path: /uploads/vortex-3.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-5.jpg
-    alt_text: 'Los Angeles Times: Vortex'
-  - _bookshop_name: collection/photo
     image_path: /uploads/vortex-8.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-6.jpg
+    image_path: /uploads/vortex-5.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-11.jpg
+    alt_text: 'Los Angeles Times: Vortex'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/vortex-6.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
     image_path: /uploads/vortex-12.jpg
