@@ -32,22 +32,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4439-2-2.jpg
     alt_text: The Court
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-1.jpg
-    alt_text: Forma Pilates
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_FORMA-2.jpg
-    alt_text:
-    width: 30
-    top: 0
-    left: 0
-    right: 0
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_IVORY-2.jpg
     alt_text: 'Ivory '
@@ -68,6 +52,22 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8012-2-2.jpg
     alt_text: Ivory
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FORMA-1.jpg
+    alt_text: Forma Pilates
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_FORMA-2.jpg
+    alt_text:
+    width: 30
+    top: 0
+    left: 0
+    right: 0
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/basketball-15-2-2.jpg
     alt_text: Ilisia
