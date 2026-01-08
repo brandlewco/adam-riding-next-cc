@@ -15,7 +15,7 @@ content_blocks:
     image_path: /uploads/dirt.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-portrait-grid-offwhite.jpg
+    image_path: /uploads/dirt-portrait-grid-offwhite-1.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
     image_path: /uploads/dirt-2.jpg
