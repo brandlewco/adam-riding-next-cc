@@ -78,9 +78,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a6803-2-2.jpg
     alt_text: Ilisia
-  - _bookshop_name: collection/photo
-    image_path: /uploads/h73a6609-2-2.jpg
-    alt_text: Ilisia
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
@@ -97,20 +94,9 @@ content_blocks:
     image_path: /uploads/h73a4308-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
-    image_path: /uploads/h73a4474-2-2.jpg
-    alt_text: 'The New York Times: Dream Run Camp'
-  - _bookshop_name: collection/photo
     image_path: /uploads/h73a3715-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4293-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/h73a3764-2-2.jpg
-    alt_text: 'The New York Times: Dream Run Camp'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/h73a3772-2-2.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
 ---
