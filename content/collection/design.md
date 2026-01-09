@@ -12,13 +12,10 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/design-03.jpg
-    alt_text: 'Design: Taliesin West'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-14.jpg
+    image_path: /uploads/design-13.jpg
     alt_text: 'Design: Neutra VDL Studio and Residence'
   - _bookshop_name: collection/photo
-    image_path: /uploads/design-13.jpg
+    image_path: /uploads/design-14.jpg
     alt_text: 'Design: Neutra VDL Studio and Residence'
   - _bookshop_name: collection/photo
     image_path: /uploads/design-11.jpg
@@ -46,6 +43,9 @@ content_blocks:
     alt_text: 'Design: Taliesin West'
   - _bookshop_name: collection/photo
     image_path: /uploads/design-04.jpg
+    alt_text: 'Design: Taliesin West'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-03.jpg
     alt_text: 'Design: Taliesin West'
   - _bookshop_name: collection/photo
     image_path: /uploads/design-05.jpg
