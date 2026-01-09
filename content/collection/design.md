@@ -12,13 +12,31 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: /uploads/design-03.jpg
+    alt_text: 'Design: Taliesin West'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-01.jpg
+    alt_text: 'Design: Taliesin West'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-04.jpg
+    alt_text: 'Design: Taliesin West'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-02.jpg
+    alt_text: 'Design: Taliesin West'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-05.jpg
+    alt_text: 'Design: Taliesin West'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-06.jpg
+    alt_text: 'Design: Taliesin West'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/design-11.jpg
+    alt_text: 'Design: Neutra VDL Studio and Residence'
+  - _bookshop_name: collection/photo
     image_path: /uploads/design-13.jpg
     alt_text: 'Design: Neutra VDL Studio and Residence'
   - _bookshop_name: collection/photo
     image_path: /uploads/design-14.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-11.jpg
     alt_text: 'Design: Neutra VDL Studio and Residence'
   - _bookshop_name: collection/photo
     image_path: /uploads/design-12.jpg
@@ -35,24 +53,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/design-19.jpg
     alt_text: 'Design: Neutra VDL Studio and Residence'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-01.jpg
-    alt_text: 'Design: Taliesin West'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-02.jpg
-    alt_text: 'Design: Taliesin West'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-04.jpg
-    alt_text: 'Design: Taliesin West'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-03.jpg
-    alt_text: 'Design: Taliesin West'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-05.jpg
-    alt_text: 'Design: Taliesin West'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/design-06.jpg
-    alt_text: 'Design: Taliesin West'
   - _bookshop_name: collection/photo
     image_path: /uploads/nan-studio-12.jpg
     alt_text: 'Design: NAN Collective'
