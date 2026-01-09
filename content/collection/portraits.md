@@ -12,151 +12,127 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/narges-19.jpg
-    alt_text: Narges
-  - _bookshop_name: collection/photo
-    image_path: /uploads/narges-13.jpg
-    alt_text: Narges
-  - _bookshop_name: collection/photo
-    image_path: /uploads/narges-24.jpg
-    alt_text: Narges
-  - _bookshop_name: collection/photo
-    image_path: /uploads/narges-18.jpg
-    alt_text: Narges
-  - _bookshop_name: collection/photo
-    image_path: /uploads/narges-05.jpg
-    alt_text: Narges
-  - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test5236.jpg
-    alt_text: Lalo
-  - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test5077.jpg
-    alt_text: Lalo
-  - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test5021.jpg
-    alt_text: Lalo
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-5.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-palm.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-1-1.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-2.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-3.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-6.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-7.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-4.jpg
-    alt_text: Florida, 2024
-  - _bookshop_name: collection/photo
-    image_path: /uploads/scan-19.jpg
-    alt_text: Caroline
-  - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3792.jpg
-    alt_text: Caroline
-  - _bookshop_name: collection/photo
-    image_path: /uploads/scan-23.jpg
-    alt_text: Caroline
-  - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot4029.jpg
-    alt_text: Caroline
-  - _bookshop_name: collection/photo
-    image_path: /uploads/h73a5032.jpg
-    alt_text: Carmen
-  - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test4499.jpg
-    alt_text: Raiven
+    image_path: /uploads/raiven-02.jpg
+    alt_text: 'Portraits: Raiven'
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-lalo-test4663.jpg
-    alt_text: Raiven
+    alt_text: 'Portraits: Raiven'
   - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-02.jpg
-    alt_text: Raiven
+    image_path: /uploads/narges-19.jpg
+    alt_text: 'Portraits: Narges'
   - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test4548.jpg
-    alt_text: Raiven
+    image_path: /uploads/narges-13.jpg
+    alt_text: 'Portraits: Narges'
   - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test4786.jpg
-    alt_text: Raiven
+    image_path: /uploads/scan-23.jpg
+    alt_text: 'Portraits: Caroline'
   - _bookshop_name: collection/photo
-    image_path: /uploads/raiven-lalo-test4599.jpg
-    alt_text: Raiven
+    image_path: /uploads/scan-19.jpg
+    alt_text: 'Portraits: Caroline'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-5.jpg
+    alt_text: 'Portraits: Florida, 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-1-1.jpg
+    alt_text: 'Portraits: Florida, 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-3.jpg
+    alt_text: 'Portraits: Florida, 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-2.jpg
+    alt_text: 'Portraits: Florida, 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/fixed-4.jpg
+    alt_text: 'Portraits: Florida, 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/ali-9.jpg
-    alt_text: Ali
+    alt_text: 'Portraits: Ali'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test5236.jpg
+    alt_text: 'Portraits: Lalo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/raiven-lalo-test5077.jpg
+    alt_text: 'Portraits: Lalo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/h73a5032.jpg
+    alt_text: 'Portraits: Carmen'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/cole-norton-test6323.jpg
+    alt_text: 'Portraits: Cole'
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/cole-norton-test6237.jpg
+    alt_text: 'Portraits: Cole'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/cole-norton-test6256.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/cole-norton-test6616.jpg
+    alt_text: 'Portraits: Cole'
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/cole-norton-test6664.jpg
+    alt_text: 'Portraits: Cole'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/cole-norton-test6689.jpg
+    alt_text: 'Portraits: Cole'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a7784.jpg
-    alt_text: Sunroom Band
+    alt_text: 'Portraits: Sunroom Band'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8150.jpg
-    alt_text: Sunroom Band
+    alt_text: 'Portraits: Sunroom Band'
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a8139.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3362.jpg
-    alt_text: Namiye
-  - _bookshop_name: collection/separator
+    image_path: /uploads/h73a6208.jpg
+    alt_text: 'Portraits: Tori'
   - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3286.jpg
-    alt_text: Namiye
+    image_path: /uploads/h73a5881.jpg
+    alt_text: 'Portraits: Tori'
   - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3290.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3243.jpg
-    alt_text: Namiye
-  - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3387.jpg
-    alt_text: Namiye
-  - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3223.jpg
-    alt_text: Namiye
-  - _bookshop_name: collection/photo
-    image_path: /uploads/test-shoot3293.jpg
-    alt_text: Namiye
+    image_path: /uploads/h73a6601.jpg
+    alt_text: 'Portraits: Tori'
   - _bookshop_name: collection/photo
     image_path: /uploads/test-shoot3218.jpg
-    alt_text: Namiye
+    alt_text: 'Portraits: Namiye'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3362.jpg
+    alt_text: 'Portraits: Namiye'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/test-shoot3243.jpg
+    alt_text: 'Portraits: Namiye'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jonah-paz5803.jpg
+    alt_text: 'Portraits: Jonah'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5907.jpg
-    alt_text: Jonah
+    alt_text: 'Portraits: Jonah'
   - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz5911.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/jonah-paz5803.jpg
-    alt_text: Jonah
-  - _bookshop_name: collection/photo
     image_path: /uploads/jonah-paz-hl-1-2.jpg
-    alt_text: Jonah
+    alt_text: 'Portraits: Jonah'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/jonah-paz5993.jpg
-    alt_text: Jonah
+    image_path: /uploads/ar-mr-01.jpg
+    alt_text: 'Portraits: Marshall'
   - _bookshop_name: collection/photo
-    image_path: /uploads/jonah-paz5808.jpg
-    alt_text: Jonah
+    image_path: /uploads/ar-mr-02.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/jonah-paz5879.jpg
-    alt_text: Jonah
+    image_path: /uploads/ar-mr-03.jpg
+    alt_text: 'Portraits: Marshall'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ar-mr-04.jpg
+    alt_text: 'Portraits: Marshall'
 ---
