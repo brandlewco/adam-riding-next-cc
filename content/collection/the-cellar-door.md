@@ -36,7 +36,7 @@ content_blocks:
     image_path: /uploads/1t0a6773-2-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
-    image_path: /uploads/t0a4490-2-2.jpg
+    image_path: /uploads/t0a3535-2-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a8713-2-2.jpg
@@ -83,18 +83,15 @@ content_blocks:
     image_path: /uploads/t0a1923-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
-    image_path: /uploads/t0a3543-2-2.jpg
-    alt_text: The Cellar Door
-  - _bookshop_name: collection/photo
     image_path: /uploads/t0a1948-2.jpg
     alt_text: The Cellar Door
   - _bookshop_name: collection/photo
-    image_path: /uploads/t0a3494-2-2.jpg
-    alt_text: The Cellar Door
-  - _bookshop_name: collection/photo
-    image_path: /uploads/t0a3535-2-2.jpg
-    alt_text: The Cellar Door
-  - _bookshop_name: collection/photo
     image_path: /uploads/1t0a9055-2.jpg
+    alt_text: The Cellar Door
+  - _bookshop_name: collection/photo
+    image_path: /uploads/t0a3543-2-2.jpg
+    alt_text: The Cellar Door
+  - _bookshop_name: collection/photo
+    image_path: /uploads/t0a3494-2-2.jpg
     alt_text: The Cellar Door
 ---
