@@ -425,7 +425,7 @@ function HomePage({ page, collections }) {
                                   style={{ transformOrigin: "50% 0%" }}
                                 >
                                   <span
-                                    className={`absolute left-0 -top-6 text-xs tracking-widest text-black py-1 rounded pointer-events-none transition-opacity duration-200 ${
+                                    className={`absolute left-0 -translate-y-full text-left text-xs tracking-widest text-black py-1 rounded pointer-events-none transition-opacity duration-200 ${
                                       isMobile || hoverIndex === absoluteIndex
                                         ? "opacity-100"
                                         : "opacity-0"
