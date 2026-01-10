@@ -281,7 +281,7 @@ content_blocks:
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-124.jpg
-    alt_text:
+    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-127.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
@@ -340,6 +340,74 @@ content_blocks:
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-204.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-205.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-206.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-207.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-208.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-209.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-210.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-216.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-213.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-212.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-218.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-219.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-220.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-221.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-222.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-227.jpg
+    alt_text: 'The Atlantic: A Troubling Sign for 2024'
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
+    alt_text: Mr. Woolsey
+  - _bookshop_name: collection/photo
+    image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-13.jpg
+    alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/FIXED_AR_ARCHIVE-12.jpg
+    alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-14.jpg
+    alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-166.jpg
+    alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-148.jpg
     alt_text: 'The New York Times: Golfing'
   - _bookshop_name: collection/separator
@@ -354,31 +422,7 @@ content_blocks:
     image_path: /uploads/new-archive-151.jpg
     alt_text: 'The New York Times: Golfing'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-152.jpg
-    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-13.jpg
-    alt_text: 'GQ: Overland Expo'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-12.jpg
-    alt_text: 'GQ: Overland Expo'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-14.jpg
-    alt_text: 'GQ: Overland Expo'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-166.jpg
-    alt_text: 'GQ: Overland Expo'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-167.jpg
-    alt_text: Flagstaff, AZ
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-168.jpg
-    alt_text: 'The New York Times: Western Alliance Bank'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-169.jpg
-    alt_text: 'The New York Times: Western Alliance Bank'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-170.jpg
     alt_text: 'The New York Times: Western Alliance Bank'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-171.jpg
@@ -387,19 +431,17 @@ content_blocks:
     image_path: /uploads/new-archive-172.jpg
     alt_text: 'The New York Times: Western Alliance Bank'
   - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-152.jpg
+    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-167.jpg
+    alt_text: Flagstaff, AZ
+  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-174.jpg
-    alt_text: Rodeo, 2022
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-175.jpg
-    alt_text: Rodeo, 2022
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-176.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/ar-rodeo-updated.jpg
     alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-178.jpg
     alt_text: Rodeo, 2022
@@ -412,43 +454,40 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-181.jpg
     alt_text: Rodeo, 2022
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-182.jpg
-    alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-183.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-262.jpg
+    alt_text: Grand Canyon, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-264.jpg
+    alt_text: Grand Canyon, 2023
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-231.jpg
+    alt_text: Santa Barbara, 2025
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-232.jpg
+    alt_text: Santa Barbara, 2025
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-197.jpg
+    alt_text: Levi Christiansen
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-198.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-184.jpg
-    alt_text: Rodeo, 2022
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-185.jpg
-    alt_text: NAN Collective Studio
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-186.jpg
-    alt_text: NAN Collective Studio
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-187.jpg
-    alt_text: NAN Collective Studio
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-188.jpg
-    alt_text: NAN Collective Studio
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-189.jpg
-    alt_text: NAN Collective Studio
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-190.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-191.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-192.jpg
+    image_path: /uploads/new-archive-193.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-193.jpg
+    image_path: /uploads/new-archive-192.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-194.jpg
@@ -459,31 +498,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-196.jpg
     alt_text: NAN Collective Studio
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-197.jpg
-    alt_text: Levi Christiansen
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-198.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-199.jpg
     alt_text: 'The New York Times: Art Scams'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-200.jpg
-    alt_text: 'The New York Times: Art Scams'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-201.jpg
-    alt_text: 'The New York Times: Art Scams'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
-    alt_text: Mr. Woolsey
-  - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-202.jpg
@@ -493,140 +510,13 @@ content_blocks:
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-204.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-205.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-206.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-207.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-208.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-209.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-210.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-211.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-212.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-213.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-215.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-214.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-216.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-217.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-218.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-219.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-220.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-221.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-222.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-223.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-224.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-225.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-226.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-227.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-228.jpg
-    alt_text: Golf Digest
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-229.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-230.jpg
-    alt_text: Santa Barbara, 2025
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-231.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-232.jpg
-    alt_text: Santa Barbara, 2025
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-233.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-234.jpg
-    alt_text: Santa Barbara, 2025
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-235.jpg
     alt_text: 'Eater: Mall Food'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-236.jpg
     alt_text: 'Eater: Mall Food'
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-237.jpg
-    alt_text: 'Eater: Mall Food'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-238.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-241.jpg
-    alt_text: 'Eater: Mall Food'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-239.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-240.jpg
     alt_text: 'Eater: Mall Food'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
@@ -636,26 +526,12 @@ content_blocks:
     image_path: /uploads/new-archive-243.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-244.jpg
-    alt_text: 'Road and Track: Bippu'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-245.jpg
     alt_text: 'Road and Track: Bippu'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-246.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-247.jpg
-    alt_text: 'Road and Track: Bippu'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-248.jpg
-    alt_text: 'Road and Track: Bippu'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-249.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
@@ -701,17 +577,6 @@ content_blocks:
     image_path: /uploads/new-archive-260.jpg
     alt_text: 'The Guardian: Adrian Fontes'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-262.jpg
-    alt_text: Grand Canyon, 2023
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-263.jpg
-    alt_text: Grand Canyon, 2023
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-264.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-265.jpg
     alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
@@ -720,68 +585,40 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-267.jpg
     alt_text: 'Wall Street Journal: Crypto'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-268.jpg
-    alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-269.jpg
-    alt_text: Jeff Gordon
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-270.jpg
+    alt_text: Jeff Gordon
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-269.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-271.jpg
-    alt_text: 'Die Zeit: 711 Murder'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-272.jpg
-    alt_text: 'Die Zeit: 711 Murder'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-273.jpg
-    alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-275.jpg
+    image_path: /uploads/new-archive-273.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-274.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-277.jpg
-    alt_text: 'The New York Times: Psychedelic Toxins'
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-279.jpg
-    alt_text: 'The New York Times: Big Tech'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-280.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-281.jpg
     alt_text: 'The New York Times: Big Tech'
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-282.jpg
+    image_path: /uploads/new-archive-286.jpg
     alt_text: 'The New York Times: Big Tech'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-283.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-284.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-285.jpg
     alt_text: 'The New York Times: Big Tech'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-286.jpg
-    alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-287.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
+    alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-288.jpg
     alt_text: 'The New York Times: Big Tech'
@@ -793,25 +630,21 @@ content_blocks:
     image_path: /uploads/new-archive-290.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-291.jpg
     alt_text: Conor Damaschi
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-292.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
+    alt_text: Conor Damaschi
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-294.jpg
     alt_text: Conor Damaschi
-  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-296.jpg
+    alt_text: Conor Damaschi
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-295.jpg
     alt_text: Conor Damaschi
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-296.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a6539.jpg
