@@ -11,9 +11,6 @@ content_blocks:
     image_path: /uploads/fixed-1.jpg
     alt_text: 'The New York Times: Abwe Songolo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-13.jpg
-    alt_text: 'The New York Times: Drought Farming'
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-14.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
@@ -23,13 +20,7 @@ content_blocks:
     image_path: /uploads/new-archive-15.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-30.jpg
-    alt_text: 'The New York Times: Drought Farming'
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-29.jpg
-    alt_text: 'The New York Times: Drought Farming'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-23.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-24.jpg
@@ -44,27 +35,6 @@ content_blocks:
     image_path: /uploads/new-archive-31.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-39.jpg
-    alt_text: 'The New York Times: Yoshinobu Yamamoto'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-43.jpg
-    alt_text: 'The New York Times: Yoshinobu Yamamoto'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-40.jpg
-    alt_text: 'The New York Times: Yoshinobu Yamamoto'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-41.jpg
-    alt_text: 'The New York Times: Shohei Ohtani'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-42.jpg
-    alt_text: 'The New York Times: Shohei Ohtani'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-44.jpg
-    alt_text: 'The New York Times: Yoshinobu Yamamoto'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-57.jpg
-    alt_text: Lake Tahoe, 2023
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-59.jpg
     alt_text: Lake Tahoe, 2023
   - _bookshop_name: collection/separator
@@ -76,16 +46,7 @@ content_blocks:
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-62.jpg
-    alt_text: Lake Tahoe, 2023
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-64.jpg
-    alt_text: Lake Tahoe, 2023
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-45.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-46.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-47.jpg
@@ -97,26 +58,14 @@ content_blocks:
     image_path: /uploads/new-archive-49.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-50.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-52.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-53.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-54.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-56.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-69.jpg
-    alt_text: 'The Guardian: A Very American Death'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-65.jpg
-    alt_text: 'The Guardian: A Very American Death'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-66.jpg
     alt_text: 'The Guardian: A Very American Death'
@@ -139,9 +88,6 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-78.jpg
     alt_text: Arizona Department of Corrections
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-83.jpg
-    alt_text: Arizona Department of Corrections
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-93.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
@@ -154,25 +100,19 @@ content_blocks:
     image_path: /uploads/new-archive-97.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-101.jpg
-    alt_text: New York City, 2023
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-102.jpg
     alt_text: New York City, 2023
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-6.jpg
+    image_path: /uploads/AR_ARCHIVE-8.jpg
     alt_text: Sebastian, 2021
+  - _bookshop_name: collection/photo
+    image_path: /uploads/AR_ARCHIVE-7.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-9.jpg
     alt_text: Sebastian, 2021
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-7.jpg
-    alt_text: Sebastian, 2021
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-8.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-84.jpg
     alt_text: Malibu, 2024
@@ -182,17 +122,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-108.jpg
     alt_text: Idaho Rodeo, 2022
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-86.jpg
-    alt_text: Jotham Hung Ceramics
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/AR_JOTHAM-1.jpg
-    alt_text: Jotham Hung Ceramics
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-88.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-89.jpg
     alt_text: Public Hotel New York City
@@ -212,12 +141,6 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-2.jpg
     alt_text: Last Call
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-4.jpg
-    alt_text: Last Call
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-11.jpg
-    alt_text: Last Call
-  - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-5.jpg
     alt_text: Last Call
   - _bookshop_name: collection/photo
@@ -225,12 +148,6 @@ content_blocks:
     alt_text: 'The Guardian: Buckeye, AZ'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-33.jpg
-    alt_text: 'The Guardian: Buckeye, AZ'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-35.jpg
-    alt_text: 'The Guardian: Buckeye, AZ'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-36.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-38.jpg
@@ -250,14 +167,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-110.jpg
     alt_text: 'The Guardian: Rusty Bowers'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-111.jpg
-    alt_text: 'Golf Digest: Karl Anthony Towns'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-112.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-114.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
@@ -283,26 +192,6 @@ content_blocks:
     image_path: /uploads/new-archive-124.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-127.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-103.jpg
-    alt_text: Road and Track
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-128.jpg
-    alt_text: Road and Track
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-129.jpg
-    alt_text: Road and Track
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-130.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-133.jpg
-    alt_text: Road and Track
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-135.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
@@ -318,25 +207,14 @@ content_blocks:
     image_path: /uploads/new-archive-141.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-142.jpg
-    alt_text: 'Die Zeit: Heat Wave'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-143.jpg
     alt_text: 'Die Zeit: Heat Wave'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-144.jpg
-    alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-145.jpg
-    alt_text: 'Die Zeit: Heat Wave'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-147.jpg
-    alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-146.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-147.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
@@ -344,12 +222,6 @@ content_blocks:
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-205.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-206.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-207.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-208.jpg
@@ -374,9 +246,6 @@ content_blocks:
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-219.jpg
-    alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-220.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-221.jpg
@@ -408,31 +277,14 @@ content_blocks:
     image_path: /uploads/new-archive-166.jpg
     alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-148.jpg
-    alt_text: 'The New York Times: Golfing'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-149.jpg
-    alt_text: 'The New York Times: Golfing'
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-150.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-151.jpg
     alt_text: 'The New York Times: Golfing'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-168.jpg
-    alt_text: 'The New York Times: Western Alliance Bank'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-171.jpg
     alt_text: 'The New York Times: Western Alliance Bank'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-172.jpg
     alt_text: 'The New York Times: Western Alliance Bank'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-152.jpg
-    alt_text: 'Los Angeles Times: Salvadoran Diaspora'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-167.jpg
     alt_text: Flagstaff, AZ
@@ -455,13 +307,7 @@ content_blocks:
     image_path: /uploads/new-archive-181.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-183.jpg
-    alt_text: Rodeo, 2022
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-262.jpg
-    alt_text: Grand Canyon, 2023
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-264.jpg
     alt_text: Grand Canyon, 2023
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-231.jpg
@@ -471,15 +317,12 @@ content_blocks:
     alt_text: Santa Barbara, 2025
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-197.jpg
+    image_path: /uploads/new-archive-198.jpg
     alt_text: Levi Christiansen
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-198.jpg
+    image_path: /uploads/new-archive-197.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-186.jpg
-    alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-191.jpg
     alt_text: NAN Collective Studio
@@ -487,13 +330,7 @@ content_blocks:
     image_path: /uploads/new-archive-193.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-192.jpg
-    alt_text: NAN Collective Studio
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-194.jpg
-    alt_text: NAN Collective Studio
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-195.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-196.jpg
@@ -509,15 +346,6 @@ content_blocks:
     image_path: /uploads/new-archive-203.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-235.jpg
-    alt_text: 'Eater: Mall Food'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-236.jpg
-    alt_text: 'Eater: Mall Food'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-237.jpg
-    alt_text: 'Eater: Mall Food'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-242.jpg
@@ -526,38 +354,23 @@ content_blocks:
     image_path: /uploads/new-archive-243.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-245.jpg
-    alt_text: 'Road and Track: Bippu'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-246.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
+    alt_text: 'Road and Track: Bippu'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-250-1.jpg
     alt_text: Nashville, 2022
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-251.jpg
     alt_text: Nashville, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-252.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
+    alt_text: Nashville, 2022
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-253.jpg
     alt_text: Nashville, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-254.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-255.jpg
-    alt_text: 'The New York Times: Trey Thriffiley'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-256.jpg
     alt_text: 'The New York Times: Trey Thriffiley'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-257.jpg
@@ -585,22 +398,12 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-267.jpg
     alt_text: 'Wall Street Journal: Crypto'
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-270.jpg
     alt_text: Jeff Gordon
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-269.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-273.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-274.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-279.jpg
     alt_text: 'The New York Times: Big Tech'
@@ -608,19 +411,10 @@ content_blocks:
     image_path: /uploads/new-archive-281.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-286.jpg
-    alt_text: 'The New York Times: Big Tech'
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-284.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-285.jpg
-    alt_text: 'The New York Times: Big Tech'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-287.jpg
-    alt_text: 'The New York Times: Big Tech'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-288.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
@@ -634,16 +428,7 @@ content_blocks:
     image_path: /uploads/new-archive-291.jpg
     alt_text: Conor Damaschi
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-292.jpg
-    alt_text: Conor Damaschi
-  - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-294.jpg
-    alt_text: Conor Damaschi
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-296.jpg
-    alt_text: Conor Damaschi
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-295.jpg
     alt_text: Conor Damaschi
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
