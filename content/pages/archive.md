@@ -17,6 +17,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/1t0a6539.jpg
     alt_text: Payson Skaters, 2020
+  - _bookshop_name: collection/photo
+    image_path: /uploads/new-archive-298.jpg
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-108.jpg
@@ -39,9 +42,6 @@ content_blocks:
     alt_text: Mr. Woolsey
   - _bookshop_name: collection/photo
     image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
-    alt_text:
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-298.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
