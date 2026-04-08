@@ -20,4 +20,19 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/eggs-rocks.jpg
     alt_text: Eggs & Rocks
+  - _bookshop_name: collection/photo
+    image_path: /uploads/apple-half.jpg
+    alt_text: Apple Half
+  - _bookshop_name: collection/photo
+    image_path: /uploads/bottega.jpg
+    alt_text: 'Bottega Veneta '
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jacquemus-01.jpg
+    alt_text: Moon Shoe Jacquemus + Nike
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jacquemus-03.jpg
+    alt_text: Moon Shoe Jacquemus + Nike
+  - _bookshop_name: collection/photo
+    image_path: /uploads/jacquemus-02.jpg
+    alt_text: Moon Shoe Jacquemus + Nike
 ---
