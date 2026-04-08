@@ -59,6 +59,15 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/design-07.jpg
     alt_text: 'Design: Schindler House'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/hollyhock-01.jpg
+    alt_text: 'Design: Hollyhock House'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/hollyhock-02.jpg
+    alt_text: 'Design: Hollyhock House'
+  - _bookshop_name: collection/photo
+    image_path: /uploads/hollyhock-03.jpg
+    alt_text: 'Design: Hollyhock House'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/design-09.jpg
@@ -67,7 +76,4 @@ content_blocks:
     image_path: /uploads/design-10.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/hollyhock-01.jpg
-    alt_text: Hollyhock House
 ---
