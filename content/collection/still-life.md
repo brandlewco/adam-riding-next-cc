@@ -13,26 +13,26 @@ seo:
 content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/updated-coach.jpg
-    alt_text: Coach Brooklyn 28
+    alt_text: 'Still Life: Coach Brooklyn 28'
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-4.jpg
-    alt_text: Magnolia Leaf and Bracelet
+    alt_text: 'Still Life: Magnolia Leaf and Bracelet'
   - _bookshop_name: collection/photo
     image_path: /uploads/eggs-rocks.jpg
-    alt_text: Eggs & Rocks
+    alt_text: 'Still Life: Eggs & Rocks'
   - _bookshop_name: collection/photo
     image_path: /uploads/apple-half.jpg
-    alt_text: Apple Half
+    alt_text: 'Still Life: Apple Half'
   - _bookshop_name: collection/photo
     image_path: /uploads/bottega.jpg
-    alt_text: 'Bottega Veneta '
+    alt_text: 'Still Life: Bottega Veneta '
   - _bookshop_name: collection/photo
     image_path: /uploads/jacquemus-01.jpg
-    alt_text: Moon Shoe Jacquemus + Nike
+    alt_text: 'Still Life: Moon Shoe Jacquemus + Nike'
   - _bookshop_name: collection/photo
     image_path: /uploads/jacquemus-03.jpg
-    alt_text: Moon Shoe Jacquemus + Nike
+    alt_text: 'Still Life: Moon Shoe Jacquemus + Nike'
   - _bookshop_name: collection/photo
     image_path: /uploads/jacquemus-02.jpg
-    alt_text: Moon Shoe Jacquemus + Nike
+    alt_text: 'Still Life: Moon Shoe Jacquemus + Nike'
 ---

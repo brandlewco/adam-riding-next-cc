@@ -67,4 +67,7 @@ content_blocks:
     image_path: /uploads/design-10.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/hollyhock-01.jpg
+    alt_text: Hollyhock House
 ---
