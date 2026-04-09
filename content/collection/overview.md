@@ -36,7 +36,7 @@ content_blocks:
     image_path: /uploads/AR_ANNOTATIONS-3.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-iceland.jpg
+    image_path: /uploads/iceland-replacement-01.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-171.jpg
@@ -156,7 +156,7 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-14.jpg
     alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-1.jpg
+    image_path: /uploads/iceland-replacement-03.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/Still_Life-4.jpg
@@ -165,7 +165,7 @@ content_blocks:
     image_path: /uploads/AR_ARCHIVE-72.jpg
     alt_text: San Diego, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-7.jpg
+    image_path: /uploads/iceland-replacement-05.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/raiven-02.jpg

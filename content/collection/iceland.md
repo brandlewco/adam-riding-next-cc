@@ -12,10 +12,10 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-6.jpg
+    image_path: /uploads/iceland-replacement-02.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-1.jpg
+    image_path: /uploads/iceland-replacement-03.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-2.jpg
@@ -27,13 +27,13 @@ content_blocks:
     image_path: /uploads/AR_ICELAND-4.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-5.jpg
+    image_path: /uploads/iceland-replacement-04.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-7.jpg
+    image_path: /uploads/iceland-replacement-05.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-8.jpg
+    image_path: /uploads/iceland-replacement-06.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-9.jpg
@@ -45,7 +45,7 @@ content_blocks:
     image_path: /uploads/AR_ICELAND-11.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-iceland.jpg
+    image_path: /uploads/iceland-replacement-01.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ICELAND-13.jpg
