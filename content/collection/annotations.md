@@ -27,13 +27,13 @@ content_blocks:
     image_path: /uploads/AR_ANNOTATIONS-5.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-6.jpg
+    image_path: /uploads/annotations-replacement-01.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-7.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-8.jpg
+    image_path: /uploads/annotations-replacement-02.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-9.jpg
