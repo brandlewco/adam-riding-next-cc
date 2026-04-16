@@ -50,9 +50,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/dirt-18.jpg
     alt_text: DIRT
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/web-03.jpg
+    image_path: /uploads/ojai-02.jpg
     alt_text: Ojai, 2026
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-08.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
     alt_text: 'The New York Times: Dream Run Camp'
@@ -77,6 +82,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ANNOTATIONS-5.jpg
     alt_text: Annotations
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-13.jpg
+    alt_text: Ojai, 2026
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-09.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_KAEDON-1.jpg
     alt_text: The Court
@@ -89,6 +102,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/new-archive-7.jpg
     alt_text: Last Call
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-18.jpg
+    alt_text: Ojai, 2026
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-17.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/h73a4308-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
@@ -111,7 +132,10 @@ content_blocks:
     image_path: /uploads/new-archive-97.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/web-04.jpg
+    image_path: /uploads/ojai-20.jpg
+    alt_text: Ojai, 2026
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-07.jpg
     alt_text: Ojai, 2026
   - _bookshop_name: collection/photo
     image_path: /uploads/ar-tw-1.jpg
@@ -149,6 +173,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_ARCHIVE-14.jpg
     alt_text: 'GQ: Overland Expo'
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-24.jpg
+    alt_text: Ojai, 2026
+  - _bookshop_name: collection/photo
+    image_path: /uploads/ojai-05.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: /uploads/iceland-replacement-03.jpg
     alt_text: Iceland
