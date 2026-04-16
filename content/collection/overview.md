@@ -117,8 +117,8 @@ content_blocks:
     image_path: /uploads/new-archive-97.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-ilisia.jpg
-    alt_text: Ilisia
+    image_path: /uploads/web-04.jpg
+    alt_text: Ojai, 2026
   - _bookshop_name: collection/photo
     image_path: /uploads/ar-tw-1.jpg
     alt_text: Taliesin West
