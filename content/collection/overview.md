@@ -51,8 +51,8 @@ content_blocks:
     image_path: /uploads/dirt-18.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-231.jpg
-    alt_text: Santa Barbara, 2025
+    image_path: /uploads/web-03.jpg
+    alt_text: Ojai, 2026
   - _bookshop_name: collection/photo
     image_path: /uploads/AR_RUNNING-6.jpg
     alt_text: 'The New York Times: Dream Run Camp'
