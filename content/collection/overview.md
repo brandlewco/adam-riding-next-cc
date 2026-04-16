@@ -66,12 +66,6 @@ content_blocks:
     image_path: /uploads/new-archive-267.jpg
     alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-drc.jpg
-    alt_text: 'The New York Times: Dream Run Camp'
-  - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-255.jpg
-    alt_text: 'The New York Times: Trey Thriffiley'
-  - _bookshop_name: collection/photo
     image_path: /uploads/ar-carmen.jpg
     alt_text: Carmen
   - _bookshop_name: collection/photo
