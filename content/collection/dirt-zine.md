@@ -12,59 +12,59 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-2.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-2.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-7.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-7.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-9.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-9.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-portrait-grid-offwhite.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-portrait-grid-offwhite.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-11.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-11.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-14.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-14.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-8.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-8.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-16.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-16.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-15.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-15.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-18.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-18.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-21.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-21.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-25.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-25.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-24.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-24.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-19.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-19.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-26.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-26.jpg
     alt_text: DIRT
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-1.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-1.jpg
     alt_text: DIRT
   - _bookshop_name: collection/photo
-    image_path: /uploads/dirt-28.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-28.jpg
     alt_text: DIRT
   - _bookshop_name: collection/separator
 ---

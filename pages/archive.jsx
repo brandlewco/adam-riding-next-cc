@@ -3,26 +3,47 @@ import DefaultLayout from "../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import Blocks from "../components/shared/blocks";
 import { useEffect, useState, useCallback, useRef, memo, useMemo } from "react";
-import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
 import sizeOf from "image-size";
 import path from "path";
 import { SharedImageFrame } from "../components/shared/shared-image-frame";
+import {
+  getOptimizedImageProps,
+  STRIP_THUMB_BASE_WIDTHS,
+} from "../lib/image-optimizer";
 
 const filer = new Filer({ path: "content" });
 
 function HiddenPreloadImage({ src, width = 64, height = 64 }) {
   if (!src) return null;
+  const optimized = getOptimizedImageProps(src, {
+    srcWidth: 960,
+    sizes: "960px",
+    baseWidths: [480, 768, 960],
+    maxWidth: 1280,
+  });
+
   return (
-    <div style={{ width: 0, height: 0, overflow: "hidden" }}>
-      <ExportedImage
-        src={src}
+    <div
+      style={{
+        position: "fixed",
+        width: 1,
+        height: 1,
+        overflow: "hidden",
+        opacity: 0,
+        pointerEvents: "none",
+      }}
+      aria-hidden="true"
+    >
+      <img
+        src={optimized.src || src}
+        srcSet={optimized.srcSet || undefined}
+        sizes={optimized.sizes}
         alt=""
         width={width}
         height={height}
-        sizes="64px"
         loading="eager"
-        priority={false}
+        decoding="async"
       />
     </div>
   );
@@ -107,6 +128,15 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
   onSelect,
 }) {
   if (!block) return null;
+  const imagePath = typeof block.image_path === "string" ? block.image_path : "";
+  if (!imagePath) return null;
+
+  const optimizedThumb = getOptimizedImageProps(imagePath, {
+    srcWidth: 64,
+    sizes: "32px",
+    baseWidths: STRIP_THUMB_BASE_WIDTHS,
+  });
+
   const alt = block.alt_text || "Archive thumbnail";
   const width = block.width || 400;
   const height = block.height || 300;
@@ -126,15 +156,17 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
       }}
     >
       <div className="mx-auto h-8 w-8">
-        <ExportedImage
-          src={block.image_path}
+        <img
+          src={optimizedThumb.src || imagePath}
+          srcSet={optimizedThumb.srcSet || undefined}
+          sizes={optimizedThumb.sizes}
           alt={alt}
           width={width}
           height={height}
-          sizes="32px"
           className="h-full w-full object-cover"
           style={{ display: "block" }}
           loading="lazy"
+          decoding="async"
         />
       </div>
     </motion.button>
@@ -232,7 +264,8 @@ function ArchiveGalleryPage({ page }) {
   const [overlayClosing, setOverlayClosing] = useState(false);
   const [overlayEntering, setOverlayEntering] = useState(false);
   const [thumbsLoaded, setThumbsLoaded] = useState(() => new Set());
-  const [mainImageLoaded, setMainImageLoaded] = useState(false);
+  const [mainImageLoaded, setMainImageLoaded] = useState(true);
+  const previousImageRef = useRef(0);
   const [stripReady, setStripReady] = useState(false);
   const thumbAnimationFrameRef = useRef(null);
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
@@ -340,6 +373,13 @@ function ArchiveGalleryPage({ page }) {
   const handleMainImageLoaded = useCallback(() => {
     setMainImageLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (previousImageRef.current !== currentImage) {
+      setMainImageLoaded(false);
+      previousImageRef.current = currentImage;
+    }
+  }, [currentImage]);
 
   const renderSlideFrames = useCallback(
     (slide) => {
@@ -630,21 +670,26 @@ function ArchiveGalleryPage({ page }) {
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                        <div className="relative flex items-center justify-center overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
-                          <SharedImageFrame
-                            layoutId={sharedLayoutId}
-                            block={block}
-                            variant="thumb"
-                            hidden={hideDuringClose}
-                            thumbHeightMobile={120}
-                            maintainAspect
-                          >
-                            {element}
-                          </SharedImageFrame>
-                        </div>
-                          <span className="pointer-events-none mt-8 text-xs tracking-wide text-black w-full text-right">
-                            {(blockDisplayOrder.get(index) ?? index) + 1}
-                        </span>
+                    <div className="relative flex items-center justify-center overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
+                      <SharedImageFrame
+                        layoutId={sharedLayoutId}
+                        block={block}
+                        variant="thumb"
+                        hidden={hideDuringClose}
+                        thumbHeightMobile={120}
+                        maintainAspect
+                      >
+                        {element}
+                      </SharedImageFrame>
+                    </div>
+                    <span
+                      className="pointer-events-none mt-8 text-xs tracking-wide text-black w-full text-right"
+                      style={{
+                        paddingRight: "var(--thumb-image-right-inset, 0px)",
+                      }}
+                    >
+                      {(blockDisplayOrder.get(index) ?? index) + 1}
+                    </span>
                   </motion.button>
                 </motion.li>
               );
@@ -795,8 +840,12 @@ export async function getStaticProps() {
 
     let width = block.width;
     let height = block.height;
+    const isRemoteImage =
+      typeof block.image_path === "string" &&
+      (block.image_path.startsWith("http://") ||
+        block.image_path.startsWith("https://"));
 
-    if (!width || !height) {
+    if ((!width || !height) && !isRemoteImage) {
       try {
         const normalizedPath = block.image_path.replace(/^\/+/, "");
         const imagePath = path.join(process.cwd(), "public", normalizedPath);
@@ -807,6 +856,9 @@ export async function getStaticProps() {
         width = 1600;
         height = 1066;
       }
+    } else if (!width || !height) {
+      width = 1600;
+      height = 1066;
     }
 
     return {

@@ -4,11 +4,14 @@ import Filer from "@cloudcannon/filer";
 import Blocks from "../../components/shared/blocks";
 import { useEffect, useState, useCallback, useRef, memo, useMemo, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
-import ExportedImage from "next-image-export-optimizer";
 import { useSwipeable } from "react-swipeable";
 import sizeOf from "image-size";
 import path from "path";
 import { SharedImageFrame } from "../../components/shared/shared-image-frame";
+import {
+  getOptimizedImageProps,
+  STRIP_THUMB_BASE_WIDTHS,
+} from "../../lib/image-optimizer";
 
 const filer = new Filer({ path: "content" });
 
@@ -16,16 +19,35 @@ const filer = new Filer({ path: "content" });
  * HiddenPreloadImage => preloads the next/prev image or next/prev collection's first image
  */
 function HiddenPreloadImage({ src, width = 64, height = 64 }) {
+  if (!src) return null;
+  const optimized = getOptimizedImageProps(src, {
+    srcWidth: 960,
+    sizes: "960px",
+    baseWidths: [480, 768, 960],
+    maxWidth: 1280,
+  });
+
   return (
-    <div style={{ width: 0, height: 0, overflow: "hidden" }}>
-      <ExportedImage
-        src={src}
+    <div
+      style={{
+        position: "fixed",
+        width: 1,
+        height: 1,
+        overflow: "hidden",
+        opacity: 0,
+        pointerEvents: "none",
+      }}
+      aria-hidden="true"
+    >
+      <img
+        src={optimized.src || src}
+        srcSet={optimized.srcSet || undefined}
+        sizes={optimized.sizes}
         alt=""
         width={width}
         height={height}
-        sizes="64px"
         loading="eager"
-        priority={false}
+        decoding="async"
       />
     </div>
   );
@@ -33,26 +55,7 @@ function HiddenPreloadImage({ src, width = 64, height = 64 }) {
 
 const gallerySources = new Set(["home", "index", "index-list"]);
 const separatorBlockNames = new Set(["collection/seperator", "collection/separator"]);
-const OPTIMIZED_SIZES = [64, 184, 256, 512, 640, 768, 1024, 1280, 2048];
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
-
-const resolveOptimizedSrc = (imagePath, requestedSize = 64) => {
-  if (!imagePath || typeof imagePath !== "string") return null;
-  if (imagePath.startsWith("http")) return null;
-
-  const normalizedSrc = imagePath.replace(/^\/+/, "");
-  if (normalizedSrc.startsWith("uploads/opt/")) {
-    return `/${normalizedSrc}`;
-  }
-  if (!normalizedSrc.startsWith("uploads/")) return null;
-  const segments = normalizedSrc.split("/");
-  const filename = segments.pop();
-  if (!filename) return null;
-  const baseName = filename.replace(/\.[^/.]+$/, "");
-
-  const targetSize = OPTIMIZED_SIZES.find((size) => size >= requestedSize) || OPTIMIZED_SIZES[OPTIMIZED_SIZES.length - 1];
-  return `/uploads/opt/${baseName}-opt-${targetSize}.WEBP`;
-};
 
 const getImageId = (imagePath) => {
   if (!imagePath) return "image-unknown";
@@ -133,11 +136,6 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
   onLoad,
 }) {
   const dimOpacity = 0.45;
-  const targetThumbSize = 32;
-  const optimizedThumbSrc = useMemo(() => {
-    if (!block?.image_path) return null;
-    return resolveOptimizedSrc(block.image_path, targetThumbSize);
-  }, [block?.image_path]);
   const handleThumbReady = useCallback(() => {
     if (typeof onLoad === "function") {
       onLoad(blockIndex);
@@ -146,10 +144,17 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
 
   if (!block) return null;
 
+  const imagePath = typeof block.image_path === "string" ? block.image_path : "";
+  if (!imagePath) return null;
+
+  const targetThumbSize = 32;
   const alt = block.alt_text || "Collection thumbnail";
   const resolvedLabel = ariaLabel || `Show image ${alt}`;
-  const baseThumbSrc = optimizedThumbSrc || block.image_path;
-  const thumbIsOptimized = Boolean(optimizedThumbSrc);
+  const optimizedThumb = getOptimizedImageProps(imagePath, {
+    srcWidth: 64,
+    sizes: "32px",
+    baseWidths: STRIP_THUMB_BASE_WIDTHS,
+  });
 
   return (
     <motion.button
@@ -159,18 +164,18 @@ const GalleryStripThumbnail = memo(function GalleryStripThumbnail({
       aria-label={resolvedLabel}
     >
       <div className="relative mx-auto h-6 w-6 sm:h-8 sm:w-8">
-        <ExportedImage
-          src={baseThumbSrc}
+        <img
+          src={optimizedThumb.src || imagePath}
+          srcSet={optimizedThumb.srcSet || undefined}
+          sizes={optimizedThumb.sizes}
           alt={alt}
           width={targetThumbSize}
           height={targetThumbSize}
-          sizes="32px"
           className="h-full w-full object-cover"
           style={{ display: "block", transform: "translateZ(0)" }}
-          loading="eager"
-          unoptimized={thumbIsOptimized}
+          loading="lazy"
+          decoding="async"
           onLoad={handleThumbReady}
-          onLoading={handleThumbReady}
         />
         <motion.span
           aria-hidden="true"
@@ -255,7 +260,8 @@ function CollectionPage({
   const [overlayClosing, setOverlayClosing] = useState(false);
   const [overlayEntering, setOverlayEntering] = useState(false);
   const [thumbsLoaded, setThumbsLoaded] = useState(() => new Set());
-  const [mainImageLoaded, setMainImageLoaded] = useState(false);
+  const [mainImageLoaded, setMainImageLoaded] = useState(true);
+  const previousImageRef = useRef(0);
   const [resolvedStripSize, setResolvedStripSize] = useState(null);
   const [stripVisible, setStripVisible] = useState(false);
   const thumbAnimationFrameRef = useRef(null);
@@ -528,6 +534,14 @@ function CollectionPage({
     setMainImageLoaded(true);
   }, []);
 
+  useEffect(() => {
+    if (!isGalleryView) return;
+    if (previousImageRef.current !== currentImage) {
+      setMainImageLoaded(false);
+      previousImageRef.current = currentImage;
+    }
+  }, [currentImage, isGalleryView]);
+
   const renderSlideFrames = useCallback(
     (slide) => {
       if (!slide) return null;
@@ -540,6 +554,7 @@ function CollectionPage({
           componentProps={() => ({
             variant: "main",
             setImageLoaded: handleMainImageLoaded,
+            forceEager: source === "home",
           })}
           render={({ element, block, index }) => {
             if (!block?.image_path) return null;
@@ -581,7 +596,7 @@ function CollectionPage({
         />
       ));
     },
-    [contentBlocks, handleMainImageLoaded]
+    [contentBlocks, handleMainImageLoaded, source]
   );
 
   useEffect(() => {
@@ -1197,8 +1212,12 @@ export async function getStaticProps({ params }) {
 
       let width = block.width;
       let height = block.height;
+      const isRemoteImage =
+        typeof block.image_path === "string" &&
+        (block.image_path.startsWith("http://") ||
+          block.image_path.startsWith("https://"));
 
-      if (!width || !height) {
+      if ((!width || !height) && !isRemoteImage) {
         try {
           const normalizedPath = block.image_path.replace(/^\/+/, "");
           const imagePath = path.join(process.cwd(), "public", normalizedPath);

@@ -12,45 +12,45 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/iceland-replacement-02.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/iceland-replacement-02.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/iceland-replacement-03.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/iceland-replacement-03.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-2.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-2.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-3.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-3.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-4.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-4.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/iceland-replacement-04.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/iceland-replacement-04.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/iceland-replacement-05.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/iceland-replacement-05.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/iceland-replacement-06.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/iceland-replacement-06.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-9.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-9.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-10.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-10.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-11.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-11.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/iceland-replacement-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/iceland-replacement-01.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-13.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-13.jpg
     alt_text: Iceland
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ICELAND-14.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ICELAND-14.jpg
     alt_text: Iceland
 ---

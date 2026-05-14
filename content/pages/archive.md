@@ -5,433 +5,433 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-106.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-106.jpg
     alt_text: 'The Guardian: Rusty Bowers'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-107.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-107.jpg
     alt_text: 'The Guardian: Rusty Bowers'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-110.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-110.jpg
     alt_text: 'The Guardian: Rusty Bowers'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/1t0a6539.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/1t0a6539.jpg
     alt_text: Payson Skaters, 2020
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-298.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-298.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-108.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-108.jpg
     alt_text: Idaho Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-84.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-84.jpg
     alt_text: Malibu, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-85.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-85.jpg
     alt_text: Malibu, 2024
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-0.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-0.jpg
     alt_text: 'The New York Times: Abwe Songolo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/fixed-1.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-1.jpg
     alt_text: 'The New York Times: Abwe Songolo'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-127.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/FIXED_AR_ARCHIVE-127.jpg
     alt_text: Mr. Woolsey
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-128.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/FIXED_AR_ARCHIVE-128.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-13.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-13.jpg
     alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-12.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/FIXED_AR_ARCHIVE-12.jpg
     alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-14.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-14.jpg
     alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-166.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-166.jpg
     alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/photo
-    image_path: /uploads/FIXED_AR_ARCHIVE-73.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/FIXED_AR_ARCHIVE-73.jpg
     alt_text: San Diego, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-72.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-72.jpg
     alt_text: San Diego, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-199.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-199.jpg
     alt_text: 'The New York Times: Art Scams'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-94.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-94.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-102.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-102.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-96.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-96.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-97.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-97.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-93.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-93.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-7.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-7.jpg
     alt_text: Last Call
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-1.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-1.jpg
     alt_text: Last Call
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-2.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-2.jpg
     alt_text: Last Call
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-5.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-5.jpg
     alt_text: Last Call
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-20.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-20.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-31.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-31.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-18.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-18.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-14.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-14.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-29.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-29.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-17.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-17.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-15.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-15.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-24.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-24.jpg
     alt_text: 'The New York Times: Drought Farming'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-204.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-204.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-210.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-210.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-209.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-209.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-212.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-212.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-205.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-205.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-216.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-216.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-218.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-218.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-219.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-219.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-213.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-213.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-208.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-208.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-221.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-221.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-222.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-222.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-227.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-227.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-270.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-270.jpg
     alt_text: Jeff Gordon
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-8.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-8.jpg
     alt_text: Sebastian, 2021
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-7.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-7.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-9.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-9.jpg
     alt_text: Sebastian, 2021
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-255.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-255.jpg
     alt_text: 'The New York Times: Trey Thriffiley'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-257.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-257.jpg
     alt_text: 'The New York Times: Trey Thriffiley'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-232.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-232.jpg
     alt_text: Santa Barbara, 2025
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-231.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-231.jpg
     alt_text: Santa Barbara, 2025
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-28.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-28.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-114.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-114.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-25.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-25.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-123.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-123.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-26.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-26.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-124.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-124.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-126.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-126.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-117.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-117.jpg
     alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-174.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-174.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/ar-rodeo-updated.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/ar-rodeo-updated.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-178.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-178.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-179.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-179.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-181.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-181.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-180.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-180.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-79.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-79.jpg
     alt_text: Arizona Department of Corrections
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-80.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-80.jpg
     alt_text: Arizona Department of Corrections
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ARCHIVE-78.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-78.jpg
     alt_text: Arizona Department of Corrections
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-171.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-171.jpg
     alt_text: 'The New York Times: Western Alliance Bank'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-172.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-172.jpg
     alt_text: 'The New York Times: Western Alliance Bank'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-191.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-191.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-193.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-193.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-194.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-194.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-196.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-196.jpg
     alt_text: NAN Collective Studio
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-167.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-167.jpg
     alt_text: Flagstaff, AZ
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-198.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-198.jpg
     alt_text: Levi Christiansen
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-197.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-197.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-262.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-262.jpg
     alt_text: Grand Canyon, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-273.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-273.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-66.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-66.jpg
     alt_text: 'The Guardian: A Very American Death'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-68.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-68.jpg
     alt_text: 'The Guardian: A Very American Death'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-67.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-67.jpg
     alt_text: 'The Guardian: A Very American Death'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-71.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-71.jpg
     alt_text: 'The Guardian: A Very American Death'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-246.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-246.jpg
     alt_text: 'Road and Track: Bippu'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-242.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-242.jpg
     alt_text: 'Road and Track: Bippu'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-243.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-243.jpg
     alt_text: 'Road and Track: Bippu'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-150.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-150.jpg
     alt_text: 'The New York Times: Golfing'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-90.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-90.jpg
     alt_text: Public Hotel New York City
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-89.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-89.jpg
     alt_text: Public Hotel New York City
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-92.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-92.jpg
     alt_text: Public Hotel New York City
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-59.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-59.jpg
     alt_text: Lake Tahoe, 2023
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-60.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-60.jpg
     alt_text: Lake Tahoe, 2023
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-61.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-61.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-203.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-203.jpg
     alt_text: Cal-X
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-202.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-202.jpg
     alt_text: Cal-X
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-56.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-56.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-52.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-52.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-47.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-47.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-53.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-53.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-48.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-48.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-49.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-49.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-45.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-45.jpg
     alt_text: 'The New York Times Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-291.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-291.jpg
     alt_text: Conor Damaschi
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-294.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-294.jpg
     alt_text: Conor Damaschi
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-32.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-32.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-33.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-33.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-38.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-38.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-289.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-289.jpg
     alt_text: Raw Material
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-290.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-290.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-265.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-265.jpg
     alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-266.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-266.jpg
     alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-267.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-267.jpg
     alt_text: 'Wall Street Journal: Crypto'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-135.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-135.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-137.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-137.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-138.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-138.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-140.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-140.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-143.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-143.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-141.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-141.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-146.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-146.jpg
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-147.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-147.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-250-1.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-250-1.jpg
     alt_text: Nashville, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-251.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-251.jpg
     alt_text: Nashville, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-253.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-253.jpg
     alt_text: Nashville, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-252.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-252.jpg
     alt_text: Nashville, 2022
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-258.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-258.jpg
     alt_text: 'The Guardian: Adrian Fontes'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-259.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-259.jpg
     alt_text: 'The Guardian: Adrian Fontes'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-261.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-261.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-260.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-260.jpg
     alt_text: 'The Guardian: Adrian Fontes'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-284.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-284.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-279.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-279.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-281.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-281.jpg
     alt_text: 'The New York Times: Big Tech'
   - _bookshop_name: collection/photo
-    image_path: /uploads/new-archive-285.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-285.jpg
     alt_text: 'The New York Times: Big Tech'
 ---

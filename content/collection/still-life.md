@@ -12,54 +12,54 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/prada-lipstick-02.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/prada-lipstick-02.jpg
     alt_text: 'Still Life: Prada'
   - _bookshop_name: collection/photo
-    image_path: /uploads/updated-coach.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/updated-coach.jpg
     alt_text: 'Still Life: Coach Brooklyn 28'
   - _bookshop_name: collection/photo
-    image_path: /uploads/jilsander-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/jilsander-01.jpg
     alt_text: 'Still Life: Jil Sander'
   - _bookshop_name: collection/photo
-    image_path: /uploads/necklace-06.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/necklace-06.jpg
     alt_text: 'Still Life: Necklace & Tape'
   - _bookshop_name: collection/photo
-    image_path: /uploads/valentino-02.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/valentino-02.jpg
     alt_text: 'Still Life: Valentino'
   - _bookshop_name: collection/photo
-    image_path: /uploads/prada-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/prada-01.jpg
     alt_text: 'Still Life: Prada'
   - _bookshop_name: collection/photo
-    image_path: /uploads/bottega.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/bottega.jpg
     alt_text: 'Still Life: Bottega Veneta '
   - _bookshop_name: collection/photo
-    image_path: /uploads/mac-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/mac-01.jpg
     alt_text: 'Still Life: Mac'
   - _bookshop_name: collection/photo
-    image_path: /uploads/eggs-rocks.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/eggs-rocks.jpg
     alt_text: 'Still Life: Eggs & Rocks'
   - _bookshop_name: collection/photo
-    image_path: /uploads/jacquemus-03.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/jacquemus-03.jpg
     alt_text: 'Still Life: Moon Shoe Jacquemus + Nike'
   - _bookshop_name: collection/photo
-    image_path: /uploads/Still_Life-4.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Still_Life-4.jpg
     alt_text: 'Still Life: Magnolia Leaf and Bracelet'
   - _bookshop_name: collection/photo
-    image_path: /uploads/necklace-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/necklace-01.jpg
     alt_text: 'Still Life: Necklace'
   - _bookshop_name: collection/photo
-    image_path: /uploads/fresa-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/fresa-01.jpg
     alt_text: 'Still Life: Fresa'
   - _bookshop_name: collection/photo
-    image_path: /uploads/apple-half.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/apple-half.jpg
     alt_text: 'Still Life: Apple Half'
   - _bookshop_name: collection/photo
-    image_path: /uploads/mcqueen-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/mcqueen-01.jpg
     alt_text: 'Still Life: McQueen'
   - _bookshop_name: collection/photo
-    image_path: /uploads/jacquemus-02.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/jacquemus-02.jpg
     alt_text: 'Still Life: Moon Shoe Jacquemus + Nike'
   - _bookshop_name: collection/photo
-    image_path: /uploads/jilsander-02.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/jilsander-02.jpg
     alt_text: 'Still Life: Jil Sander'
 ---

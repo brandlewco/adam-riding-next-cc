@@ -3,6 +3,7 @@ import Filer from '@cloudcannon/filer';
 import PostSummary from '../../components/posts/summary';
 import data from '../../lib/data';
 import { ArticleJsonLd } from 'next-seo';
+import { getOptimizedImageProps } from '../../lib/image-optimizer';
 const filer = new Filer({ path: 'content' });
 const { DateTime } = require("luxon");
 
@@ -10,6 +11,11 @@ export default function Post({ page, posts }) {
 
 	const wordCount = page.content.split(" ").length;
 	const readingTime  = Math.floor(wordCount / 183)
+	const featuredImagePath = page?.data?.featuredImg?.image || '';
+	const optimizedFeaturedImage = getOptimizedImageProps(featuredImagePath, {
+		srcWidth: 1200,
+		sizes: '(max-width: 768px) 100vw, 90vw',
+	});
 
 	return (
 		<DefaultLayout page={page}>
@@ -50,9 +56,13 @@ export default function Post({ page, posts }) {
 						</div>
 						<div className="rounded-box mb-xxl-11 mb-8">
 							<img
-								src={page.data.featuredImg.image}
+								src={optimizedFeaturedImage.src || featuredImagePath}
+								srcSet={optimizedFeaturedImage.srcSet || undefined}
+								sizes={optimizedFeaturedImage.sizes}
 								className="w-100"
-								alt={page.data.featuredImg.image_alt}
+								alt={page?.data?.featuredImg?.image_alt || page.data.title}
+								loading="lazy"
+								decoding="async"
 							/>
 						</div>
 						<div style={{"max-width": "900px", margin: "0 auto" }} dangerouslySetInnerHTML={{ __html: page.content_html }}></div>

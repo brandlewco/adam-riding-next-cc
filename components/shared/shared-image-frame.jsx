@@ -58,7 +58,6 @@ const SharedImageFrame = memo(function SharedImageFrame({
 
   const width = block.width || 1600;
   const height = block.height || 1066;
-  const isDev = process.env.NODE_ENV !== "production";
   const hasDimensions = Number.isFinite(width) && Number.isFinite(height);
   // const resolvedThumbHeight = isMobile ? thumbHeight : thumbHeight;
 
@@ -164,17 +163,6 @@ const SharedImageFrame = memo(function SharedImageFrame({
 
   const shouldAnimateLayout = shouldUseSharedLayout;
 
-  if (isDev && shouldUseSharedLayout && layoutId) {
-    console.log("[SharedImageFrame] layout", {
-      variant,
-      layoutId,
-      hidden,
-      shareLayout: shouldUseSharedLayout,
-      blockWidth: block.width,
-      blockHeight: block.height,
-    });
-  }
-
   return (
     <motion.div
       layoutId={resolvedLayoutId}
@@ -188,16 +176,6 @@ const SharedImageFrame = memo(function SharedImageFrame({
       }}
       {...(shouldAnimateLayout
         ? { layout: true, transition: sharedImageTransition }
-        : {})}
-      {...(isDev
-        ? {
-            "data-debug-shared-frame": JSON.stringify({
-              variant,
-              layoutId: resolvedLayoutId,
-              shareLayout: shouldUseSharedLayout,
-              hidden,
-            }),
-          }
         : {})}
     >
       {children}

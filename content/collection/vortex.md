@@ -12,52 +12,52 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-1.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-1.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-2.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-2.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-4.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-4.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-3.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-3.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-8.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-8.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-5.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-5.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-11.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-11.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-6.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-6.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-12.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-12.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-15.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-15.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-16.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-16.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-7.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-7.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-20.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-20.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/photo
-    image_path: /uploads/vortex-18.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/vortex-18.jpg
     alt_text: 'Los Angeles Times: Vortex'
 ---

@@ -13,27 +13,27 @@ seo:
 content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/cole-norton-test6237.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6237.jpg
     alt_text: Cole Norton
   - _bookshop_name: collection/photo
-    image_path: /uploads/cole-norton-test6256.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6256.jpg
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/cole-norton-test6323.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6323.jpg
     alt_text: Cole Norton
   - _bookshop_name: collection/photo
-    image_path: /uploads/cole-norton-test6589.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6589.jpg
     alt_text: Cole Norton
   - _bookshop_name: collection/photo
-    image_path: /uploads/cole-norton-test6616.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6616.jpg
     alt_text: Cole Norton
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/cole-norton-test6664.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6664.jpg
     alt_text: Cole Norton
   - _bookshop_name: collection/photo
-    image_path: /uploads/cole-norton-test6689.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6689.jpg
     alt_text:
   - _bookshop_name: collection/separator
 ---

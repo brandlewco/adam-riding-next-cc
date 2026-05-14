@@ -1,14 +1,28 @@
 import Link from 'next/link';
 import data from '../../lib/data';
+import { getOptimizedImageProps } from '../../lib/image-optimizer';
 
 export default function PostSummary({ post }) {
+    const imagePath = post?.data?.thumbImg?.image || '';
+    const optimizedThumb = getOptimizedImageProps(imagePath, {
+        srcWidth: 600,
+        sizes: '(max-width: 768px) 100vw, 33vw',
+    });
+
 	return (
 		<>
         <div className="col-lg-4 col-md-6">
             <article className="blog-post">
                 <div className="blog-post-thumb">
                     <Link href={ `/blog/${post.slug}` }>
-                        <img src={post.data.thumbImg.image} alt={post.data.thumbImg.image_alt} loading="lazy" />
+                        <img
+                            src={optimizedThumb.src || imagePath}
+                            srcSet={optimizedThumb.srcSet || undefined}
+                            sizes={optimizedThumb.sizes}
+                            alt={post?.data?.thumbImg?.image_alt || 'Post thumbnail'}
+                            loading="lazy"
+                            decoding="async"
+                        />
                     </Link>
                 </div>
                 <div className="blog-post-content">

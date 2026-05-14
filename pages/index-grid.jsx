@@ -1,13 +1,19 @@
 import DefaultLayout from "../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import { motion, LayoutGroup, useAnimationControls } from "motion/react";
-import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useState, useCallback, useMemo, useEffect, useRef, memo } from "react";
 import { flushSync } from "react-dom";
 import React from "react";
 import sizeOf from "image-size";
 import path from "path";
+import {
+  getOptimizedImageProps,
+  GRID_IMAGE_BASE_WIDTHS,
+  GRID_IMAGE_SIZES,
+  MAIN_IMAGE_BASE_WIDTHS,
+  MAIN_IMAGE_SIZES,
+} from "../lib/image-optimizer";
 
 const filer = new Filer({ path: "content" });
 
@@ -36,23 +42,77 @@ const introVariants = {
   }),
 };
 
-const MemoizedExportedImage = memo(
+const MemoizedGridImage = memo(
   ({ src, alt, width, height, style = {}, ...rest }) => (
-    <ExportedImage
-      src={src}
-      alt={alt}
-      width={width || 192}
-      height={height || 192}
-      sizes="(max-width:640px)30vw,10vw"
-      style={{ width: "100%", height: "100%", objectFit: "contain", ...style }}
-      {...rest}
-    />
+    (() => {
+      const safeSrc = typeof src === "string" ? src : "";
+      if (!safeSrc) return null;
+      const optimized = getOptimizedImageProps(safeSrc, {
+        srcWidth: 480,
+        sizes: GRID_IMAGE_SIZES,
+        baseWidths: GRID_IMAGE_BASE_WIDTHS,
+      });
+
+      return (
+        <img
+          src={optimized.src || safeSrc}
+          srcSet={optimized.srcSet || undefined}
+          sizes={optimized.sizes}
+          alt={alt || "Collection image"}
+          width={width || 192}
+          height={height || 192}
+          loading="lazy"
+          decoding="async"
+          style={{ width: "100%", height: "100%", objectFit: "contain", ...style }}
+          {...rest}
+        />
+      );
+    })()
   )
 );
-MemoizedExportedImage.displayName = "MemoizedExportedImage";
+MemoizedGridImage.displayName = "MemoizedGridImage";
+
+const HoverPreloadImage = memo(function HoverPreloadImage({ src, width, height }) {
+  const safeSrc = typeof src === "string" ? src : "";
+  if (!safeSrc) return null;
+
+  const optimized = getOptimizedImageProps(safeSrc, {
+    srcWidth: 1100,
+    sizes: MAIN_IMAGE_SIZES,
+    baseWidths: MAIN_IMAGE_BASE_WIDTHS,
+    maxWidth: 1920,
+  });
+
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: "fixed",
+        width: 1,
+        height: 1,
+        overflow: "hidden",
+        opacity: 0,
+        pointerEvents: "none",
+      }}
+    >
+      <img
+        src={optimized.src || safeSrc}
+        srcSet={optimized.srcSet || undefined}
+        sizes={optimized.sizes}
+        alt=""
+        width={width || 64}
+        height={height || 64}
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  );
+});
+HoverPreloadImage.displayName = "HoverPreloadImage";
 
 function HomePage({ page, collections }) {
   const [hoverIndex, setHoverIndex] = useState(-1);
+  const [preloadedIndices, setPreloadedIndices] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeDirection, setActiveDirection] = useState(null);
   const controls = useAnimationControls();
@@ -226,11 +286,23 @@ function HomePage({ page, collections }) {
 
   const handleMouseEnter = useCallback((absoluteIndex) => {
     setHoverIndex(absoluteIndex);
+    setPreloadedIndices((prev) => {
+      if (prev.includes(absoluteIndex)) return prev;
+      return [absoluteIndex, ...prev].slice(0, 8);
+    });
   }, []);
 
   const handleMouseLeave = useCallback(() => {
     setHoverIndex(-1);
   }, []);
+
+  const hoverPreloadCollections = useMemo(
+    () =>
+      preloadedIndices
+        .map((idx) => collections[idx])
+        .filter((collection) => Boolean(collection?.firstImagePath)),
+    [collections, preloadedIndices]
+  );
 
   const shiftCarousel = useCallback(
     (direction) => {
@@ -413,6 +485,7 @@ function HomePage({ page, collections }) {
                             style={baseStyles}
                             onMouseEnter={() => handleMouseEnter(absoluteIndex)}
                             onMouseLeave={handleMouseLeave}
+                            onFocus={() => handleMouseEnter(absoluteIndex)}
                           >
                             <motion.div className="w-full" {...introMotionProps}>
                               <Link href={`/collection/${collection.slug}`}>
@@ -448,7 +521,7 @@ function HomePage({ page, collections }) {
                                       transformOrigin: "50% 0%",
                                     }}
                                   >
-                                    <MemoizedExportedImage
+                                    <MemoizedGridImage
                                       src={collection.firstImagePath}
                                       alt={
                                         collection.firstImageAlt ||
@@ -505,6 +578,15 @@ function HomePage({ page, collections }) {
               </div>
             )}
           </div>
+
+          {hoverPreloadCollections.map((collection) => (
+            <HoverPreloadImage
+              key={`hover-preload-${collection.slug}`}
+              src={collection.firstImagePath}
+              width={collection.width}
+              height={collection.height}
+            />
+          ))}
         </div>
       </LayoutGroup>
     </DefaultLayout>
@@ -516,6 +598,27 @@ export default React.memo(HomePage);
 export async function getStaticProps() {
   const page = await filer.getItem("index-grid.md", { folder: "pages" });
   const collections = [];
+  const defaultDimensions = { width: 480, height: 320 };
+
+  const getDimensionsForImagePath = (imagePath) => {
+    if (!imagePath || typeof imagePath !== "string") return defaultDimensions;
+    if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+      return defaultDimensions;
+    }
+
+    try {
+      const normalizedPath = imagePath.replace(/^\/+/, "");
+      const localImagePath = path.join(process.cwd(), "public", normalizedPath);
+      const dimensions = sizeOf(localImagePath);
+
+      return {
+        width: dimensions.width || defaultDimensions.width,
+        height: dimensions.height || defaultDimensions.height,
+      };
+    } catch {
+      return defaultDimensions;
+    }
+  };
 
   for (const collectionPath of page.data.collections) {
     const correctedPath = collectionPath.replace(/^content\//, "");
@@ -532,38 +635,18 @@ export async function getStaticProps() {
     const firstPhotoBlock = photoBlocks[0];
 
     if (firstPhotoBlock && firstPhotoBlock.image_path) {
-      try {
-        const imagePath = path.join(
-          process.cwd(),
-          "public",
-          firstPhotoBlock.image_path
-        );
-        const dimensions = sizeOf(imagePath);
+      const dimensions = getDimensionsForImagePath(firstPhotoBlock.image_path);
 
-        collections.push({
-          title: collection.data.title,
-          path: correctedPath,
-          slug: collection.data.slug || correctedPath.split("/").pop(),
-          firstImagePath: firstPhotoBlock.image_path,
-          firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
-          width: dimensions.width,
-          height: dimensions.height,
-          imageCount,
-        });
-      } catch (error) {
-        collections.push({
-          title: collection.data.title,
-          path: correctedPath,
-          slug: collection.data.slug || correctedPath.split("/").pop(),
-          firstImagePath: firstPhotoBlock.image_path,
-          firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
-          width: 480,
-          height: 320,
-          imageCount,
-        });
-      }
-    } else {
-      console.log("No valid images found for:", collection.data.title);
+      collections.push({
+        title: collection.data.title,
+        path: correctedPath,
+        slug: collection.data.slug || correctedPath.split("/").pop(),
+        firstImagePath: firstPhotoBlock.image_path,
+        firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
+        width: dimensions.width,
+        height: dimensions.height,
+        imageCount,
+      });
     }
   }
 

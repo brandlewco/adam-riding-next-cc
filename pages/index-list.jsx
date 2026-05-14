@@ -1,13 +1,16 @@
 import DefaultLayout from "../components/layouts/default";
 import Filer from "@cloudcannon/filer";
 import { motion, AnimatePresence } from "framer-motion";
-import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { useRouter } from "next/router";
 import React from "react";
 import sizeOf from "image-size";
 import path from "path";
+import {
+  getOptimizedImageProps,
+  LIST_IMAGE_BASE_WIDTHS,
+  LIST_IMAGE_SIZES,
+} from "../lib/image-optimizer";
 
 const filer = new Filer({ path: "content" });
 
@@ -24,21 +27,8 @@ function IndexPage({ page, collections }) {
   // Hover logic:
   // - hoverIndex: which title is hovered
   // - hoverRefs: DOM refs to the title items used for transform origin tweaks
-  const router = useRouter();
   const [hoverIndex, setHoverIndex] = useState(-1);
   const hoverRefs = useRef([]);
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      console.log("Route change complete");
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
 
   useEffect(() => {
     hoverRefs.current.forEach((ref) => {
@@ -118,19 +108,33 @@ function IndexPage({ page, collections }) {
                     current.width && current.height
                       ? `${current.width} / ${current.height}`
                       : undefined;
+                  const imagePath =
+                    typeof current.firstImagePath === "string"
+                      ? current.firstImagePath
+                      : "";
+                  const optimized = getOptimizedImageProps(imagePath, {
+                    srcWidth: 1100,
+                    sizes: LIST_IMAGE_SIZES,
+                    baseWidths: LIST_IMAGE_BASE_WIDTHS,
+                  });
+
+                  if (!imagePath) return null;
+
                   return (
                     <motion.div
                       layoutId={`image-media-${imageId}`}
                       className="flex flex-col items-center h-[70vh] md:h-85vh min-w-0"
                       style={{ minWidth: 0, willChange: "transform, opacity" }}
                     >
-                      <ExportedImage
-                        src={current.firstImagePath}
+                      <img
+                        src={optimized.src || imagePath}
+                        srcSet={optimized.srcSet || undefined}
+                        sizes={optimized.sizes}
                         alt={current.firstImageAlt || "Collection image"}
-                        priority
                         width={current.width}
                         height={current.height}
-                        sizes="(max-width: 640px) 100vw, (max-width: 1920px) 50vw, 50vw"
+                        loading="lazy"
+                        decoding="async"
                         className="object-contain h-full w-auto max-w-full"
                       />
                     </motion.div>
@@ -150,6 +154,27 @@ export default IndexPage;
 export async function getStaticProps() {
   const page = await filer.getItem("index-list.md", { folder: "pages" });
   const collections = [];
+  const defaultDimensions = { width: 480, height: 320 };
+
+  const getDimensionsForImagePath = (imagePath) => {
+    if (!imagePath || typeof imagePath !== "string") return defaultDimensions;
+    if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+      return defaultDimensions;
+    }
+
+    try {
+      const normalizedPath = imagePath.replace(/^\/+/, "");
+      const localImagePath = path.join(process.cwd(), "public", normalizedPath);
+      const dimensions = sizeOf(localImagePath);
+
+      return {
+        width: dimensions.width || defaultDimensions.width,
+        height: dimensions.height || defaultDimensions.height,
+      };
+    } catch {
+      return defaultDimensions;
+    }
+  };
 
   for (const collectionPath of page.data.collections) {
     const correctedPath = collectionPath.replace(/^content\//, "");
@@ -160,41 +185,17 @@ export async function getStaticProps() {
     );
 
     if (firstPhotoBlock && firstPhotoBlock.image_path) {
-      try {
-        const imagePath = path.join(
-          process.cwd(),
-          "public",
-          firstPhotoBlock.image_path
-        );
-        const dimensions = sizeOf(imagePath);
+      const dimensions = getDimensionsForImagePath(firstPhotoBlock.image_path);
 
-        collections.push({
-          title: collection.data.title,
-          path: correctedPath,
-          slug: collection.data.slug || correctedPath.split("/").pop(), // Ensure slug is set correctly
-          firstImagePath: firstPhotoBlock.image_path,
-          firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
-          width: dimensions.width,
-          height: dimensions.height,
-        });
-      } catch (error) {
-        console.error(
-          `Error getting dimensions for image ${firstPhotoBlock.image_path}:`,
-          error
-        );
-        // Handle the error or set default dimensions
-        collections.push({
-          title: collection.data.title,
-          path: correctedPath,
-          slug: collection.data.slug || correctedPath.split("/").pop(), // Ensure slug is set correctly
-          firstImagePath: firstPhotoBlock.image_path,
-          firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
-          width: 480, // Default width
-          height: 320, // Default height assuming a 3:2 aspect ratio
-        });
-      }
-    } else {
-      console.log("No valid images found for:", collection.data.title);
+      collections.push({
+        title: collection.data.title,
+        path: correctedPath,
+        slug: collection.data.slug || correctedPath.split("/").pop(), // Ensure slug is set correctly
+        firstImagePath: firstPhotoBlock.image_path,
+        firstImageAlt: firstPhotoBlock.alt_text || "Default Alt Text",
+        width: dimensions.width,
+        height: dimensions.height,
+      });
     }
   }
 

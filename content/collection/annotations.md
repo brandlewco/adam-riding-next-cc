@@ -12,36 +12,36 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-1.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-1.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-2.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-2.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-3.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-3.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-4.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-4.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-5.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-5.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/annotations-replacement-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/annotations-replacement-01.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-7.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-7.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/annotations-replacement-02.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/annotations-replacement-02.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-9.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-9.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-10.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-10.jpg
     alt_text: Annotations
   - _bookshop_name: collection/photo
-    image_path: /uploads/AR_ANNOTATIONS-11.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-11.jpg
     alt_text: Annotations
 ---
