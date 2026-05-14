@@ -236,6 +236,13 @@ function HomePage({ page, collections }) {
   }
 
   const travelDistance = visibleCount > 0 ? cardWidth + cardGap : 0;
+  const mobileNavHitWidth = useMemo(() => {
+    if (!isMobile || !containerWidth) return 0;
+    const byCard = (cardWidth + cardGap) * 0.7;
+    const minWidth = 64;
+    const maxWidth = containerWidth * 0.28;
+    return Math.round(Math.max(minWidth, Math.min(byCard, maxWidth)));
+  }, [cardGap, cardWidth, containerWidth, isMobile]);
 
   const extraCardCount = activeDirection === "next" ? 1 : 0;
   const effectiveVisibleCount = visibleCount + extraCardCount;
@@ -608,13 +615,14 @@ function HomePage({ page, collections }) {
                     </button>
                   </>
                 )}
-                {totalCollections > 1 && (
-                  <div className="absolute top-1/3 md:hidden w-full flex justify-between px-2 gap-4 pt-6 sm:pt-0">
+                {totalCollections > 1 && isMobile && (
+                  <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 md:hidden z-20">
                     <button
                       type="button"
                       onClick={handlePrev}
                       aria-label="Previous"
-                      className="h-10 w-10"
+                      className="pointer-events-auto absolute left-0 h-[40vh] max-h-[280px] min-h-[180px]"
+                      style={{ width: `${mobileNavHitWidth}px` }}
                     >
                       <span className="sr-only">Previous</span>
                     </button>
@@ -622,7 +630,8 @@ function HomePage({ page, collections }) {
                       type="button"
                       onClick={handleNext}
                       aria-label="Next"
-                      className="h-10 w-10"
+                      className="pointer-events-auto absolute right-0 h-[40vh] max-h-[280px] min-h-[180px]"
+                      style={{ width: `${mobileNavHitWidth}px` }}
                     >
                       <span className="sr-only">Next</span>
                     </button>
