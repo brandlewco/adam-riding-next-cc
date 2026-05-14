@@ -16,6 +16,50 @@ import {
 } from "../lib/image-optimizer";
 
 const filer = new Filer({ path: "content" });
+const REMOTE_DIMENSION_BYTE_LIMIT = 65535;
+const REMOTE_DIMENSION_TIMEOUT_MS = 8000;
+const remoteDimensionsCache = new Map();
+
+async function probeRemoteImageDimensions(imageUrl) {
+  if (!imageUrl || typeof imageUrl !== "string") return null;
+  if (remoteDimensionsCache.has(imageUrl)) {
+    return remoteDimensionsCache.get(imageUrl);
+  }
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REMOTE_DIMENSION_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(imageUrl, {
+      headers: { Range: `bytes=0-${REMOTE_DIMENSION_BYTE_LIMIT}` },
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      remoteDimensionsCache.set(imageUrl, null);
+      return null;
+    }
+
+    const buffer = Buffer.from(await response.arrayBuffer());
+    const dimensions = sizeOf(buffer);
+    const width = Number(dimensions?.width);
+    const height = Number(dimensions?.height);
+
+    if (Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0) {
+      const resolved = { width, height };
+      remoteDimensionsCache.set(imageUrl, resolved);
+      return resolved;
+    }
+
+    remoteDimensionsCache.set(imageUrl, null);
+    return null;
+  } catch {
+    remoteDimensionsCache.set(imageUrl, null);
+    return null;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
 
 const INTRO_IDLE = "idle";
 const INTRO_PLAYING = "playing";
@@ -490,7 +534,7 @@ function HomePage({ page, collections }) {
                             <motion.div className="w-full" {...introMotionProps}>
                               <Link href={`/collection/${collection.slug}`}>
                                 <motion.div
-                                  layout
+                                  layout="position"
                                   layoutId={`image-card-${imageId}`}
                                   whileHover={{ scale: 1.03 }}
                                   transition={{ scale: { duration: 0.2 } }}
@@ -508,7 +552,7 @@ function HomePage({ page, collections }) {
                                     {collection.title}
                                   </span>
                                   <motion.div
-                                    layout
+                                    layout="position"
                                     layoutId={`image-media-${imageId}`}
                                     transition={{
                                       duration: 0.45,
@@ -610,10 +654,11 @@ export async function getStaticProps() {
   const collections = [];
   const defaultDimensions = { width: 480, height: 320 };
 
-  const getDimensionsForImagePath = (imagePath) => {
+  const getDimensionsForImagePath = async (imagePath) => {
     if (!imagePath || typeof imagePath !== "string") return defaultDimensions;
     if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
-      return defaultDimensions;
+      const remoteDimensions = await probeRemoteImageDimensions(imagePath);
+      return remoteDimensions || defaultDimensions;
     }
 
     try {
@@ -645,7 +690,7 @@ export async function getStaticProps() {
     const firstPhotoBlock = photoBlocks[0];
 
     if (firstPhotoBlock && firstPhotoBlock.image_path) {
-      const dimensions = getDimensionsForImagePath(firstPhotoBlock.image_path);
+      const dimensions = await getDimensionsForImagePath(firstPhotoBlock.image_path);
 
       collections.push({
         title: collection.data.title,
