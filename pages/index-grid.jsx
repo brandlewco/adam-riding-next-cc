@@ -567,16 +567,6 @@ function HomePage({ page, collections }) {
               </>
             )}
 
-            {totalCollections > 1 && (
-              <div className="absolute top-1/3 md:hidden w-full flex justify-between px-2 gap-4 text-xs uppercase tracking-widest text-white pt-6 sm:pt-0">
-                <button type="button" onClick={handlePrev}>
-                  P
-                </button>
-                <button type="button" onClick={handleNext}>
-                  N
-                </button>
-              </div>
-            )}
           </div>
 
           {hoverPreloadCollections.map((collection) => (

@@ -178,7 +178,7 @@ function CollectionPhoto({
     }
   }, [handleImageLoad, imageSrc]);
 
-  const shouldEagerLoad = variant === "main" && forceEager;
+  const shouldEagerLoad = variant === "main" || forceEager;
 
   if (!safeSrc || !hasEnteredView) {
     return (

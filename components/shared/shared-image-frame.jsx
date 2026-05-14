@@ -56,9 +56,13 @@ const SharedImageFrame = memo(function SharedImageFrame({
     };
   }, []);
 
-  const width = block.width || 1600;
-  const height = block.height || 1066;
-  const hasDimensions = Number.isFinite(width) && Number.isFinite(height);
+  const width = Number(block.width);
+  const height = Number(block.height);
+  const hasDimensions =
+    Number.isFinite(width) &&
+    Number.isFinite(height) &&
+    width > 0 &&
+    height > 0;
   // const resolvedThumbHeight = isMobile ? thumbHeight : thumbHeight;
 
   const shouldUseSharedLayout = Boolean(
@@ -76,7 +80,9 @@ const SharedImageFrame = memo(function SharedImageFrame({
       : thumbHeight;
 
   const computedThumbWidth =
-    hasDimensions && resolvedThumbHeight ? (width / height) * resolvedThumbHeight : null;
+    hasDimensions && resolvedThumbHeight
+      ? (width / height) * resolvedThumbHeight
+      : null;
 
   const thumbVariantStyles = thumbFillWidth
     ? {
@@ -100,6 +106,10 @@ const SharedImageFrame = memo(function SharedImageFrame({
 
   const mainWidth = maxMainWidth || "min(90vw, 1100px)";
   const mainHeight = typeof maxMainHeight !== "undefined" ? maxMainHeight : "80vh";
+  const shouldUseIntrinsicDiptychWidth =
+    variant === "main" && maintainAspect && isDiptych && !hasDimensions;
+  const shouldLockDiptychMobileHeight =
+    variant === "main" && maintainAspect && isDiptych && isBelowLg && typeof maxMainHeight !== "undefined";
 
   const variantStyles =
     variant === "thumb"
@@ -120,9 +130,9 @@ const SharedImageFrame = memo(function SharedImageFrame({
       : maintainAspect
         ? {
             width: "auto",
-            maxWidth: mainWidth,
-            height: "auto",
-            maxHeight: mainHeight,
+            ...(shouldUseIntrinsicDiptychWidth ? {} : { maxWidth: mainWidth }),
+            height: shouldLockDiptychMobileHeight ? maxMainHeight : "auto",
+            maxHeight: shouldLockDiptychMobileHeight ? maxMainHeight : mainHeight,
             flexShrink: 0,
           }
         : {
@@ -133,7 +143,7 @@ const SharedImageFrame = memo(function SharedImageFrame({
           };
 
   const aspectStyle =
-    variant !== "thumb" && maintainAspect && width && height
+    variant !== "thumb" && maintainAspect && hasDimensions
       ? {
           aspectRatio: `${width} / ${height}`,
           overflow: "hidden",

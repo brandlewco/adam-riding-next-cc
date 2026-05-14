@@ -10,10 +10,56 @@ import path from "path";
 import { SharedImageFrame } from "../../components/shared/shared-image-frame";
 import {
   getOptimizedImageProps,
+  MAIN_IMAGE_BASE_WIDTHS,
+  MAIN_IMAGE_SIZES,
   STRIP_THUMB_BASE_WIDTHS,
 } from "../../lib/image-optimizer";
 
 const filer = new Filer({ path: "content" });
+const REMOTE_DIMENSION_BYTE_LIMIT = 65535;
+const REMOTE_DIMENSION_TIMEOUT_MS = 8000;
+const remoteDimensionsCache = new Map();
+
+async function probeRemoteImageDimensions(imageUrl) {
+  if (!imageUrl || typeof imageUrl !== "string") return null;
+  if (remoteDimensionsCache.has(imageUrl)) {
+    return remoteDimensionsCache.get(imageUrl);
+  }
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REMOTE_DIMENSION_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(imageUrl, {
+      headers: { Range: `bytes=0-${REMOTE_DIMENSION_BYTE_LIMIT}` },
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      remoteDimensionsCache.set(imageUrl, null);
+      return null;
+    }
+
+    const buffer = Buffer.from(await response.arrayBuffer());
+    const dimensions = sizeOf(buffer);
+    const width = Number(dimensions?.width);
+    const height = Number(dimensions?.height);
+
+    if (Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0) {
+      const resolved = { width, height };
+      remoteDimensionsCache.set(imageUrl, resolved);
+      return resolved;
+    }
+
+    remoteDimensionsCache.set(imageUrl, null);
+    return null;
+  } catch {
+    remoteDimensionsCache.set(imageUrl, null);
+    return null;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
 
 /**
  * HiddenPreloadImage => preloads the next/prev image or next/prev collection's first image
@@ -21,10 +67,10 @@ const filer = new Filer({ path: "content" });
 function HiddenPreloadImage({ src, width = 64, height = 64 }) {
   if (!src) return null;
   const optimized = getOptimizedImageProps(src, {
-    srcWidth: 960,
-    sizes: "960px",
-    baseWidths: [480, 768, 960],
-    maxWidth: 1280,
+    srcWidth: 1100,
+    sizes: MAIN_IMAGE_SIZES,
+    baseWidths: MAIN_IMAGE_BASE_WIDTHS,
+    maxWidth: 1920,
   });
 
   return (
@@ -269,7 +315,28 @@ function CollectionPage({
   const [closingFromThumb, setClosingFromThumb] = useState(false);
   const [closingThumbIndex, setClosingThumbIndex] = useState(null);
   const [galleryChunkStart, setGalleryChunkStart] = useState(0);
+  const [viewportSize, setViewportSize] = useState({ width: 0, height: 0 });
   const galleryStripSize = resolvedStripSize ?? 16;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const updateViewportSize = () => {
+      setViewportSize({
+        width: window.innerWidth || 0,
+        height: window.innerHeight || 0,
+      });
+    };
+
+    updateViewportSize();
+    window.addEventListener("resize", updateViewportSize);
+    window.addEventListener("orientationchange", updateViewportSize);
+
+    return () => {
+      window.removeEventListener("resize", updateViewportSize);
+      window.removeEventListener("orientationchange", updateViewportSize);
+    };
+  }, []);
 
   useIsomorphicLayoutEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -543,7 +610,7 @@ function CollectionPage({
   }, [currentImage, isGalleryView]);
 
   const renderSlideFrames = useCallback(
-    (slide) => {
+    (slide, diptychMainHeight) => {
       if (!slide) return null;
       const isDiptychSlide = slide.type === "diptych";
       return slide.contentIndices.map((blockIndex) => (
@@ -562,7 +629,7 @@ function CollectionPage({
               return (
                 <div
                   key={`slider-${index}`}
-                  className="block min-w-0"
+                  className="block min-w-0 h-full"
                 >
                   <SharedImageFrame
                     layoutId={`image-media-${getImageId(block.image_path)}`}
@@ -570,6 +637,7 @@ function CollectionPage({
                     variant="main"
                     maintainAspect
                     maxMainWidth="100%"
+                    maxMainHeight={diptychMainHeight}
                     disableMobileSharedLayout
                     isDiptych
 
@@ -619,10 +687,10 @@ function CollectionPage({
     (area) => {
       if (source === "home") {
         if (area === "right") {
-          setDirection("right");
+          setDirection("left");
           setCurrentImage((prev) => (prev + 1) % imageCount);
         } else if (area === "left") {
-          setDirection("left");
+          setDirection("right");
           setCurrentImage((prev) => (prev - 1 + imageCount) % imageCount);
         }
         return;
@@ -639,7 +707,7 @@ function CollectionPage({
             );
           }
         } else {
-          setDirection("right");
+          setDirection("left");
           setCurrentImage((prev) => prev + 1);
         }
       } else if (area === "left") {
@@ -654,7 +722,7 @@ function CollectionPage({
             );
           }
         } else {
-          setDirection("left");
+          setDirection("right");
           setCurrentImage((prev) => prev - 1);
         }
       }
@@ -795,8 +863,39 @@ function CollectionPage({
       : "hidden";
 
   const isCurrentSlideDiptych = currentSlide?.type === "diptych";
+  const diptychMobileMainHeight = useMemo(() => {
+    if (!isCurrentSlideDiptych || !currentSlide) return undefined;
+    if (!viewportSize.width || viewportSize.width >= 1024) return undefined;
+
+    const diptychBlocks = (currentSlide.blocks || []).slice(0, 2);
+    if (diptychBlocks.length !== 2) return undefined;
+
+    const ratios = diptychBlocks
+      .map((block) => {
+        const width = Number(block?.width);
+        const height = Number(block?.height);
+        if (!Number.isFinite(width) || width <= 0) return null;
+        if (!Number.isFinite(height) || height <= 0) return null;
+        return width / height;
+      })
+      .filter(Boolean);
+
+    if (ratios.length !== 2) return undefined;
+
+    const horizontalPadding = 32;
+    const gap = viewportSize.width >= 768 ? 40 : 16;
+    const availableWidth = Math.max(0, viewportSize.width - horizontalPadding);
+    const rawHeight = (availableWidth - gap) / (ratios[0] + ratios[1]);
+
+    if (!Number.isFinite(rawHeight) || rawHeight <= 0) return undefined;
+
+    const maxByViewport = viewportSize.height > 0 ? viewportSize.height * 0.8 : rawHeight;
+    const clampedHeight = Math.max(120, Math.min(rawHeight, maxByViewport));
+
+    return `${Math.round(clampedHeight)}px`;
+  }, [currentSlide, isCurrentSlideDiptych, viewportSize.height, viewportSize.width]);
   const slideLayoutClass = isCurrentSlideDiptych
-    ? "flex gap-4 flex-row md:gap-10 items-center md:items-start justify-center w-full max-w-[100vw] sm:max-w-[80vw] px-4" 
+    ? "flex gap-4 flex-row md:gap-10 items-stretch md:items-start justify-center w-full max-w-[100vw] lg:max-w-[80vw] px-4"
     : "flex items-center justify-center w-full h-full";
   const slideLayoutStyle = isCurrentSlideDiptych
     ? { width: "100%", marginInline: "auto" }
@@ -804,7 +903,7 @@ function CollectionPage({
   const mainImageContent =
     shouldRenderSliderFrame && currentSlide ? (
       <div className={slideLayoutClass} style={slideLayoutStyle}>
-        {renderSlideFrames(currentSlide)}
+        {renderSlideFrames(currentSlide, diptychMobileMainHeight)}
       </div>
     ) : null;
 
@@ -962,6 +1061,7 @@ function CollectionPage({
 
   const showPrevButton = isTouchDevice || hoverHalf === "left";
   const showNextButton = isTouchDevice || hoverHalf === "right";
+  const shouldPreloadAdjacentSlides = shouldRenderSliderFrame;
 
   return (
     <DefaultLayout page={page}>
@@ -1001,8 +1101,8 @@ function CollectionPage({
           </div>
         )}
 
-        {/* Preload next/prev image in same collection if hovered */}
-        {hoveredArea === "right" &&
+        {/* Preload adjacent slides proactively while slider is active. */}
+        {shouldPreloadAdjacentSlides &&
           nextSlideBlocks.map((block) => (
             <HiddenPreloadImage
               key={`preload-next-${block.image_path}`}
@@ -1011,7 +1111,7 @@ function CollectionPage({
               height={block.height || 64}
             />
           ))}
-        {hoveredArea === "left" &&
+        {shouldPreloadAdjacentSlides &&
           prevSlideBlocks.map((block) => (
             <HiddenPreloadImage
               key={`preload-prev-${block.image_path}`}
@@ -1021,11 +1121,13 @@ function CollectionPage({
             />
           ))}
 
-        {/* Preload next/prev collection's first image if boundary */}
-        {hoveredArea === "right" &&
+        {/* Preload neighboring collection entry image at collection boundaries. */}
+        {shouldPreloadAdjacentSlides &&
           currentImage === imageCount - 1 &&
           nextFirstImage && <HiddenPreloadImage src={nextFirstImage} />}
-        {hoveredArea === "left" && currentImage === 0 && prevFirstImage && (
+        {shouldPreloadAdjacentSlides &&
+          currentImage === 0 &&
+          prevFirstImage && (
           <HiddenPreloadImage src={prevFirstImage} />
         )}
 
@@ -1130,23 +1232,6 @@ function CollectionPage({
           </button>
         </div>
 
-        {/* Mobile prev/next buttons - only show when not in thumbnail overlay */}
-        {!showThumbs && (
-          <>
-            <button
-              className="md:hidden h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-12"
-              onClick={() => handleAreaClick("left")}
-            >
-              P
-            </button>
-            <button
-              className="md:hidden h-full fixed flex flex-col justify-center top-0 right-0 text-xs uppercase tracking-widest z-40 px-1 py-1  pb-12"
-              onClick={() => handleAreaClick("right")}
-            >
-              N
-            </button>
-          </>
-        )}
       </LayoutGroup>
       {Array.isArray(page.data.blocks) && page.data.blocks.length > 0 && (
         <section className="mt-16">
@@ -1203,9 +1288,9 @@ export async function getStaticProps({ params }) {
     return { notFound: true };
   }
 
-  const enrichWithDimensions = (blocks) => {
+  const enrichWithDimensions = async (blocks) => {
     if (!Array.isArray(blocks)) return [];
-    return blocks.map((block) => {
+    return Promise.all(blocks.map(async (block) => {
       if (!block || !block.image_path) {
         return { ...block };
       }
@@ -1230,15 +1315,23 @@ export async function getStaticProps({ params }) {
         }
       }
 
+      if ((!width || !height) && isRemoteImage) {
+        const remoteDimensions = await probeRemoteImageDimensions(block.image_path);
+        if (remoteDimensions) {
+          width = remoteDimensions.width;
+          height = remoteDimensions.height;
+        }
+      }
+
       if (width && height) {
         return { ...block, width, height };
       }
 
       return { ...block };
-    });
+    }));
   };
 
-  collection.data.content_blocks = enrichWithDimensions(
+  collection.data.content_blocks = await enrichWithDimensions(
     collection.data.content_blocks
   );
 

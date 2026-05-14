@@ -9,18 +9,64 @@ import path from "path";
 import { SharedImageFrame } from "../components/shared/shared-image-frame";
 import {
   getOptimizedImageProps,
+  MAIN_IMAGE_BASE_WIDTHS,
+  MAIN_IMAGE_SIZES,
   STRIP_THUMB_BASE_WIDTHS,
 } from "../lib/image-optimizer";
 
 const filer = new Filer({ path: "content" });
+const REMOTE_DIMENSION_BYTE_LIMIT = 65535;
+const REMOTE_DIMENSION_TIMEOUT_MS = 8000;
+const remoteDimensionsCache = new Map();
+
+async function probeRemoteImageDimensions(imageUrl) {
+  if (!imageUrl || typeof imageUrl !== "string") return null;
+  if (remoteDimensionsCache.has(imageUrl)) {
+    return remoteDimensionsCache.get(imageUrl);
+  }
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REMOTE_DIMENSION_TIMEOUT_MS);
+
+  try {
+    const response = await fetch(imageUrl, {
+      headers: { Range: `bytes=0-${REMOTE_DIMENSION_BYTE_LIMIT}` },
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      remoteDimensionsCache.set(imageUrl, null);
+      return null;
+    }
+
+    const buffer = Buffer.from(await response.arrayBuffer());
+    const dimensions = sizeOf(buffer);
+    const width = Number(dimensions?.width);
+    const height = Number(dimensions?.height);
+
+    if (Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0) {
+      const resolved = { width, height };
+      remoteDimensionsCache.set(imageUrl, resolved);
+      return resolved;
+    }
+
+    remoteDimensionsCache.set(imageUrl, null);
+    return null;
+  } catch {
+    remoteDimensionsCache.set(imageUrl, null);
+    return null;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
 
 function HiddenPreloadImage({ src, width = 64, height = 64 }) {
   if (!src) return null;
   const optimized = getOptimizedImageProps(src, {
-    srcWidth: 960,
-    sizes: "960px",
-    baseWidths: [480, 768, 960],
-    maxWidth: 1280,
+    srcWidth: 1100,
+    sizes: MAIN_IMAGE_SIZES,
+    baseWidths: MAIN_IMAGE_BASE_WIDTHS,
+    maxWidth: 1920,
   });
 
   return (
@@ -271,6 +317,27 @@ function ArchiveGalleryPage({ page }) {
   const [shouldAnimateThumbs, setShouldAnimateThumbs] = useState(false);
   const [closingFromThumb, setClosingFromThumb] = useState(false);
   const [closingThumbIndex, setClosingThumbIndex] = useState(null);
+  const [viewportSize, setViewportSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const updateViewportSize = () => {
+      setViewportSize({
+        width: window.innerWidth || 0,
+        height: window.innerHeight || 0,
+      });
+    };
+
+    updateViewportSize();
+    window.addEventListener("resize", updateViewportSize);
+    window.addEventListener("orientationchange", updateViewportSize);
+
+    return () => {
+      window.removeEventListener("resize", updateViewportSize);
+      window.removeEventListener("orientationchange", updateViewportSize);
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
@@ -382,7 +449,7 @@ function ArchiveGalleryPage({ page }) {
   }, [currentImage]);
 
   const renderSlideFrames = useCallback(
-    (slide) => {
+    (slide, diptychMainHeight) => {
       if (!slide) return null;
       const isDiptychSlide = slide.type === "diptych";
       return slide.contentIndices.map((blockIndex) => (
@@ -398,13 +465,14 @@ function ArchiveGalleryPage({ page }) {
             if (!block?.image_path) return null;
             if (isDiptychSlide) {
               return (
-                <div key={`slider-${index}`} className="block min-w-0">
+                <div key={`slider-${index}`} className="block min-w-0 h-full">
                   <SharedImageFrame
                     layoutId={`image-media-${getImageId(block.image_path)}`}
                     block={block}
                     variant="main"
                     maintainAspect
                     maxMainWidth="100%"
+                    maxMainHeight={diptychMainHeight}
                     isDiptych
                   >
                     {element}
@@ -434,10 +502,10 @@ function ArchiveGalleryPage({ page }) {
   const handleAreaClick = useCallback(
     (area) => {
       if (area === "right") {
-        setDirection("right");
+        setDirection("left");
         setCurrentImage((prev) => (prev + 1) % imageCount);
       } else if (area === "left") {
-        setDirection("left");
+        setDirection("right");
         setCurrentImage((prev) => (prev - 1 + imageCount) % imageCount);
       }
     },
@@ -559,8 +627,39 @@ function ArchiveGalleryPage({ page }) {
       .filter(Boolean)
       .join(" / ")) || page.data.title || "Untitled";
   const isCurrentSlideDiptych = currentSlide?.type === "diptych";
+  const diptychMobileMainHeight = useMemo(() => {
+    if (!isCurrentSlideDiptych || !currentSlide) return undefined;
+    if (!viewportSize.width || viewportSize.width >= 1024) return undefined;
+
+    const diptychBlocks = (currentSlide.blocks || []).slice(0, 2);
+    if (diptychBlocks.length !== 2) return undefined;
+
+    const ratios = diptychBlocks
+      .map((block) => {
+        const width = Number(block?.width);
+        const height = Number(block?.height);
+        if (!Number.isFinite(width) || width <= 0) return null;
+        if (!Number.isFinite(height) || height <= 0) return null;
+        return width / height;
+      })
+      .filter(Boolean);
+
+    if (ratios.length !== 2) return undefined;
+
+    const horizontalPadding = 32;
+    const gap = viewportSize.width >= 768 ? 40 : 16;
+    const availableWidth = Math.max(0, viewportSize.width - horizontalPadding);
+    const rawHeight = (availableWidth - gap) / (ratios[0] + ratios[1]);
+
+    if (!Number.isFinite(rawHeight) || rawHeight <= 0) return undefined;
+
+    const maxByViewport = viewportSize.height > 0 ? viewportSize.height * 0.8 : rawHeight;
+    const clampedHeight = Math.max(120, Math.min(rawHeight, maxByViewport));
+
+    return `${Math.round(clampedHeight)}px`;
+  }, [currentSlide, isCurrentSlideDiptych, viewportSize.height, viewportSize.width]);
   const slideLayoutClass = isCurrentSlideDiptych
-    ? "flex gap-4 flex-row md:gap-10 items-center md:items-start justify-center w-full max-w-[100vw] sm:max-w-[80vw] px-4" 
+    ? "flex gap-4 flex-row md:gap-10 items-stretch md:items-start justify-center w-full max-w-[100vw] lg:max-w-[80vw] px-4"
     : "flex items-center justify-center w-full h-full";
   const slideLayoutStyle = isCurrentSlideDiptych
     ? { width: "100%", marginInline: "auto" }
@@ -569,7 +668,7 @@ function ArchiveGalleryPage({ page }) {
   const mainImageContent =
     shouldRenderSliderFrame && currentSlide ? (
       <div className={slideLayoutClass} style={slideLayoutStyle}>
-        {renderSlideFrames(currentSlide)}
+        {renderSlideFrames(currentSlide, diptychMobileMainHeight)}
       </div>
     ) : null;
 
@@ -717,6 +816,7 @@ function ArchiveGalleryPage({ page }) {
 
   const showPrevButton = isTouchDevice || hoverHalf === "left";
   const showNextButton = isTouchDevice || hoverHalf === "right";
+  const shouldPreloadAdjacentSlides = !showThumbs;
 
   const galleryStripSize = 16;
   const visibleStripCount = Math.min(imageCount, galleryStripSize);
@@ -789,33 +889,14 @@ function ArchiveGalleryPage({ page }) {
           </button>
         </div>
 
-        {!showThumbs && (
-          <>
-            <button
-              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0 left-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-112"
-              onClick={() => handleAreaClick("left")}
-            >
-              P
-            </button>
-            <button
-              className="md:hidden fixed h-full fixed flex flex-col justify-center top-0  right-0 text-xs uppercase tracking-widest z-40 px-1 py-1 pb-112"
-              onClick={() => handleAreaClick("right")}
-            >
-              N
-            </button>
-          </>
-        )}
-
-        
-
-        {hoveredArea === "right" && nextSlidePrimary && (
+        {shouldPreloadAdjacentSlides && nextSlidePrimary && (
           <HiddenPreloadImage
             src={nextSlidePrimary?.image_path}
             width={nextSlidePrimary?.width || 64}
             height={nextSlidePrimary?.height || 64}
           />
         )}
-        {hoveredArea === "left" && prevSlidePrimary && (
+        {shouldPreloadAdjacentSlides && prevSlidePrimary && (
           <HiddenPreloadImage
             src={prevSlidePrimary?.image_path}
             width={prevSlidePrimary?.width || 64}
@@ -835,15 +916,32 @@ export async function getStaticProps() {
     ? page.data.content_blocks
     : [];
 
-  const enrichedBlocks = blocks.map((block) => {
+  const enrichedBlocks = await Promise.all(blocks.map(async (block) => {
     if (!block || !block.image_path) return block;
 
     let width = block.width;
     let height = block.height;
+    const numericWidth = Number(width);
+    const numericHeight = Number(height);
+    const hasNumericDimensions =
+      Number.isFinite(numericWidth) &&
+      Number.isFinite(numericHeight) &&
+      numericWidth > 0 &&
+      numericHeight > 0;
+    const isFallbackDefaultDimensions =
+      numericWidth === 1600 && numericHeight === 1066;
     const isRemoteImage =
       typeof block.image_path === "string" &&
       (block.image_path.startsWith("http://") ||
         block.image_path.startsWith("https://"));
+
+    if (isRemoteImage && (!hasNumericDimensions || isFallbackDefaultDimensions)) {
+      const remoteDimensions = await probeRemoteImageDimensions(block.image_path);
+      if (remoteDimensions) {
+        width = remoteDimensions.width;
+        height = remoteDimensions.height;
+      }
+    }
 
     if ((!width || !height) && !isRemoteImage) {
       try {
@@ -866,7 +964,7 @@ export async function getStaticProps() {
       width,
       height,
     };
-  });
+  }));
 
   page.data.content_blocks = enrichedBlocks;
 
