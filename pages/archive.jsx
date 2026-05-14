@@ -889,6 +889,27 @@ function ArchiveGalleryPage({ page }) {
           </button>
         </div>
 
+        {!showThumbs && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous"
+              className="md:hidden fixed top-0 left-0 h-full w-10 z-40"
+              onClick={() => handleAreaClick("left")}
+            >
+              <span className="sr-only">Previous</span>
+            </button>
+            <button
+              type="button"
+              aria-label="Next"
+              className="md:hidden fixed top-0 right-0 h-full w-10 z-40"
+              onClick={() => handleAreaClick("right")}
+            >
+              <span className="sr-only">Next</span>
+            </button>
+          </>
+        )}
+
         {shouldPreloadAdjacentSlides && nextSlidePrimary && (
           <HiddenPreloadImage
             src={nextSlidePrimary?.image_path}

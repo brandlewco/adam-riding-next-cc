@@ -564,6 +564,26 @@ function HomePage({ page, collections }) {
                     </button>
                   </>
                 )}
+                {totalCollections > 1 && (
+                  <div className="absolute top-1/3 md:hidden w-full flex justify-between px-2 gap-4 pt-6 sm:pt-0">
+                    <button
+                      type="button"
+                      onClick={handlePrev}
+                      aria-label="Previous"
+                      className="h-10 w-10"
+                    >
+                      <span className="sr-only">Previous</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      aria-label="Next"
+                      className="h-10 w-10"
+                    >
+                      <span className="sr-only">Next</span>
+                    </button>
+                  </div>
+                )}
               </>
             )}
 
