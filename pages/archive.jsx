@@ -757,7 +757,7 @@ function ArchiveGalleryPage({ page }) {
                 <motion.li
                   key={`${thumbId}-${index}`}
                   variants={thumbVariants}
-                  className="relative flex flex-col items-center w-1/2 md:w-1/4 xl:w-1/6"
+                  className="relative flex flex-col items-center  w-1/2 sm:w-1/4 xl:w-1/6"
                   initial="hidden"
                   animate={thumbAnimationVariant}
                   custom={index}
