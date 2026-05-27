@@ -1008,7 +1008,7 @@ function CollectionPage({
                 <motion.li
                   key={`${thumbId}-${index}`}
                   variants={thumbVariants}
-                  className="relative flex flex-col items-center pb-10 w-1/2 sm:w-1/4 xl:w-1/6"
+                  className="relative flex flex-col items-center pb-10 w-1/2 sm:w-1/4 2xl:w-1/6"
                   initial="hidden"
                   animate={thumbAnimationVariant}
                   custom={index}
