@@ -975,11 +975,11 @@ function CollectionPage({
       onAnimationComplete={handleThumbsOverlayAnimationComplete}
     >
       <div
-        className="h-full w-full overflow-y-scroll p-4 md:py-16 mt-8 md:mt-0 relative "
+        className="h-full w-full overflow-y-scroll p-4 md:py-[11vh] mt-8 md:mt-0 relative "
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap gap-y-12 lg:gap-y-32 5k:gap-y-64 justify-items-center items-center w-full"
+          className="flex flex-wrap justify-items-center items-center w-full gap-y-12 md:gap-y-[16vh]"
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
