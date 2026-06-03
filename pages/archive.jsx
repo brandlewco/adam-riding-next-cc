@@ -794,7 +794,7 @@ function ArchiveGalleryPage({ page }) {
                   <motion.button
                     type="button"
                     onClick={(e) => handleThumbnailSelect(index, e)}
-                    className="flex h-full flex-col items-center focus:outline-none"
+                    className="relative flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
                     <div
@@ -816,7 +816,7 @@ function ArchiveGalleryPage({ page }) {
                       </SharedImageFrame>
                     </div>
                     <span
-                      className="pointer-events-none mt-8 text-xs tracking-wide text-black w-full text-right"
+                      className="pointer-events-none absolute left-0 right-0 -bottom-8 text-xs tracking-wide text-black text-right"
                       style={{
                         paddingRight: "var(--thumb-image-right-inset, 0px)",
                       }}

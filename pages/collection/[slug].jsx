@@ -86,11 +86,11 @@ function HiddenPreloadImage({ src, width = 64, height = 64 }) {
       aria-hidden="true"
     >
       <img
-        className="h-full w-full overflow-y-scroll p-4 md:[--thumb-row-height:120px] lg:[--thumb-row-height:184px] md:[--thumb-row-gap:calc((100vh-(3*var(--thumb-row-height)))/4)] md:py-[var(--thumb-row-gap)] mt-8 md:mt-0 relative"
+        src={optimized.src || src}
         srcSet={optimized.srcSet || undefined}
         sizes={optimized.sizes}
         alt=""
-          className="flex flex-wrap content-start items-center w-full gap-y-12 md:gap-y-[var(--thumb-row-gap)]"
+        width={width}
         height={height}
         loading="eager"
         decoding="async"
