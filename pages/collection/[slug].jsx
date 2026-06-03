@@ -86,11 +86,11 @@ function HiddenPreloadImage({ src, width = 64, height = 64 }) {
       aria-hidden="true"
     >
       <img
-        src={optimized.src || src}
+        className="h-full w-full overflow-y-scroll p-4 md:[--thumb-row-height:120px] lg:[--thumb-row-height:184px] md:[--thumb-row-gap:calc((100vh-(3*var(--thumb-row-height)))/4)] md:py-[var(--thumb-row-gap)] mt-8 md:mt-0 relative"
         srcSet={optimized.srcSet || undefined}
         sizes={optimized.sizes}
         alt=""
-        width={width}
+          className="flex flex-wrap content-start items-center w-full gap-y-12 md:gap-y-[var(--thumb-row-gap)]"
         height={height}
         loading="eager"
         decoding="async"
@@ -894,6 +894,27 @@ function CollectionPage({
 
     return `${Math.round(clampedHeight)}px`;
   }, [currentSlide, isCurrentSlideDiptych, viewportSize.height, viewportSize.width]);
+  const thumbOverlayLayout = useMemo(() => {
+    if (!viewportSize.width || !viewportSize.height) return null;
+
+    const isMobileViewport = viewportSize.width < 768;
+    const targetRows = isMobileViewport ? 4 : 3;
+    const thumbRowHeight = viewportSize.width >= 2560
+      ? 220
+      : viewportSize.width >= 2240
+        ? 200
+        : viewportSize.width >= 1024
+          ? 184
+          : 120;
+    const rawRowGap =
+      (viewportSize.height - thumbRowHeight * targetRows) / (targetRows + 1);
+    const rowGap = Math.max(0, Math.round(rawRowGap));
+
+    return {
+      thumbRowHeight,
+      rowGap,
+    };
+  }, [viewportSize.height, viewportSize.width]);
   const slideLayoutClass = isCurrentSlideDiptych
     ? "flex gap-4 flex-row md:gap-10 items-stretch md:items-start justify-center w-full max-w-[100vw] lg:max-w-[80vw] px-4"
     : "flex items-center justify-center w-full h-full";
@@ -975,11 +996,18 @@ function CollectionPage({
       onAnimationComplete={handleThumbsOverlayAnimationComplete}
     >
       <div
-        className="h-full w-full overflow-y-scroll p-4 md:py-[11vh] mt-8 md:mt-0 relative "
+        className="h-full w-full overflow-y-scroll px-4 relative"
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap justify-items-center items-center w-full gap-y-12 md:gap-y-[16vh]"
+          className="flex flex-wrap content-start items-center w-full gap-y-12"
+          style={thumbOverlayLayout !== null
+            ? {
+                rowGap: `${thumbOverlayLayout.rowGap}px`,
+                paddingTop: `${thumbOverlayLayout.rowGap}px`,
+                paddingBottom: `${thumbOverlayLayout.rowGap}px`,
+              }
+            : undefined}
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -1008,7 +1036,7 @@ function CollectionPage({
                 <motion.li
                   key={`${thumbId}-${index}`}
                   variants={thumbVariants}
-                  className="relative flex flex-col items-center pb-10 w-1/2 sm:w-1/4 2xl:w-1/6"
+                  className="relative flex flex-col items-center w-1/2 sm:w-1/4 2xl:w-1/6"
                   initial="hidden"
                   animate={thumbAnimationVariant}
                   custom={index}
@@ -1020,12 +1048,18 @@ function CollectionPage({
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
+                    <div
+                      className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[120px] lg:h-[184px] min-[2240px]:h-[200px] min-[2560px]:h-[220px]"
+                      style={thumbOverlayLayout
+                        ? { height: `${thumbOverlayLayout.thumbRowHeight}px` }
+                        : undefined}
+                    >
                       <SharedImageFrame
                         layoutId={sharedLayoutId}
                         block={block}
                         variant="thumb"
                         hidden={hideDuringClose}
+                        thumbHeight={thumbOverlayLayout?.thumbRowHeight || 184}
                         thumbHeightMobile={120}
                         maintainAspect
                         disableMobileSharedLayout

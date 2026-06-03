@@ -658,6 +658,27 @@ function ArchiveGalleryPage({ page }) {
 
     return `${Math.round(clampedHeight)}px`;
   }, [currentSlide, isCurrentSlideDiptych, viewportSize.height, viewportSize.width]);
+  const thumbOverlayLayout = useMemo(() => {
+    if (!viewportSize.width || !viewportSize.height) return null;
+
+    const isMobileViewport = viewportSize.width < 768;
+    const targetRows = isMobileViewport ? 4 : 3;
+    const thumbRowHeight = viewportSize.width >= 2560
+      ? 220
+      : viewportSize.width >= 2240
+        ? 200
+        : viewportSize.width >= 1024
+          ? 184
+          : 120;
+    const rawRowGap =
+      (viewportSize.height - thumbRowHeight * targetRows) / (targetRows + 1);
+    const rowGap = Math.max(0, Math.round(rawRowGap));
+
+    return {
+      thumbRowHeight,
+      rowGap,
+    };
+  }, [viewportSize.height, viewportSize.width]);
   const slideLayoutClass = isCurrentSlideDiptych
     ? "flex gap-4 flex-row md:gap-10 items-stretch md:items-start justify-center w-full max-w-[100vw] lg:max-w-[80vw] px-4"
     : "flex items-center justify-center w-full h-full";
@@ -725,11 +746,18 @@ function ArchiveGalleryPage({ page }) {
         onClick={closeThumbOverlay}
       />
       <div
-        className="h-full w-full overflow-y-scroll overflow-x-hidden p-4 md:py-[11vh] mt-8 md:mt-0 relative"
+        className="h-full w-full overflow-y-scroll overflow-x-hidden px-4 relative"
         style={{ zIndex: 2 }}
       >
         <motion.ul
-          className="flex flex-wrap justify-items-center items-center w-full gap-y-12 md:gap-y-[16vh]"
+          className="flex flex-wrap content-start items-center w-full gap-y-12"
+          style={thumbOverlayLayout !== null
+            ? {
+                rowGap: `${thumbOverlayLayout.rowGap}px`,
+                paddingTop: `${thumbOverlayLayout.rowGap}px`,
+                paddingBottom: `${thumbOverlayLayout.rowGap}px`,
+              }
+            : undefined}
           variants={containerVariants}
           initial="hidden"
           animate={thumbGridAnimationState}
@@ -769,12 +797,18 @@ function ArchiveGalleryPage({ page }) {
                     className="flex h-full flex-col items-center focus:outline-none"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="relative flex items-center justify-center overflow-visible pointer-events-auto h-[120px] lg:h-[184px]">
+                    <div
+                      className="relative flex items-center justify-center w-full overflow-visible pointer-events-auto h-[120px] lg:h-[184px] min-[2240px]:h-[200px] min-[2560px]:h-[220px]"
+                      style={thumbOverlayLayout
+                        ? { height: `${thumbOverlayLayout.thumbRowHeight}px` }
+                        : undefined}
+                    >
                       <SharedImageFrame
                         layoutId={sharedLayoutId}
                         block={block}
                         variant="thumb"
                         hidden={hideDuringClose}
+                        thumbHeight={thumbOverlayLayout?.thumbRowHeight || 184}
                         thumbHeightMobile={120}
                         maintainAspect
                       >

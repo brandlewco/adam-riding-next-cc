@@ -99,7 +99,7 @@ function CollectionPhoto({
 
   const sizes =
     variant === "thumb"
-      ? "(max-width: 767px) 120px, 184px"
+      ? "(max-width: 767px) 120px, (max-width: 2239px) 184px, (max-width: 2559px) 200px, 220px"
       : MAIN_IMAGE_SIZES;
   const className =
     variant === "thumb"
@@ -136,11 +136,11 @@ function CollectionPhoto({
   };
 
   const optimizedImage = getOptimizedImageProps(safeSrc, {
-    srcWidth: variant === "thumb" ? 184 : 1100,
+    srcWidth: variant === "thumb" ? 220 : 1100,
     sizes,
     baseWidths:
       variant === "thumb" ? THUMB_IMAGE_BASE_WIDTHS : MAIN_IMAGE_BASE_WIDTHS,
-    maxWidth: variant === "thumb" ? 368 : 1920,
+    maxWidth: variant === "thumb" ? 440 : 1920,
   });
   const [imageSrc, setImageSrc] = useState(() => optimizedImage.src || safeSrc);
   const [imageSrcSet, setImageSrcSet] = useState(
