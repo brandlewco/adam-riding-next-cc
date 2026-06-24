@@ -18,10 +18,10 @@ collections_config:
     schemas:
       default:
         name: New Page
-        path: schemas/page.md
+        path: .cloudcannon/schemas/page.md
       contact:
         name: Contact
-        path: schemas/contact.md
+        path: .cloudcannon/schemas/contact.md
   collection:
     path: content/collection
     url: '/collection/[slug]'
@@ -32,7 +32,7 @@ collections_config:
     schemas:
       default:
         name: New Page
-        path: schemas/collection.md
+        path: .cloudcannon/schemas/collection.md
   blog:
     path: content/posts
     output: true
@@ -42,7 +42,7 @@ collections_config:
       - visual
     schemas:
       default:
-        path: schemas/post.md
+        path: .cloudcannon/schemas/post.md
 _inputs:
   date:
     instance_value: now
