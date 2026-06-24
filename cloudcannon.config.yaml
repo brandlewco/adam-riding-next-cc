@@ -22,6 +22,18 @@ collections_config:
       contact:
         name: Contact
         path: .cloudcannon/schemas/contact.md
+      index:
+        name: Index
+        path: .cloudcannon/schemas/index.md
+      index-grid:
+        name: Index Grid
+        path: .cloudcannon/schemas/index-grid.md
+      index-list:
+        name: Index List
+        path: .cloudcannon/schemas/index-list.md
+      archive:
+        name: Archive
+        path: .cloudcannon/schemas/archive.md
   collection:
     path: content/collection
     url: '/collection/[slug]'
@@ -32,6 +44,9 @@ collections_config:
     schemas:
       default:
         name: New Page
+        path: .cloudcannon/schemas/collection.md
+      collection:
+        name: Collection
         path: .cloudcannon/schemas/collection.md
   blog:
     path: content/posts
