@@ -136,6 +136,14 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6664.jpg
     alt_text: Cole Norton
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-24.jpg
+    alt_text: Ojai, 2026
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-05.jpg
+    alt_text:
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-273.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
@@ -157,14 +165,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/1t0a9055-2.jpg
     alt_text: The Cellar Door
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-24.jpg
-    alt_text: Ojai, 2026
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-05.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/iceland-replacement-03.jpg
     alt_text: Iceland
