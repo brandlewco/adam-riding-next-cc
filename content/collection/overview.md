@@ -116,7 +116,7 @@ content_blocks:
     alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-144.jpg
-    alt_text: Image Alt Text
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-84.jpg
