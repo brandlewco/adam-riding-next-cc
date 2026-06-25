@@ -204,4 +204,27 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-38.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-143.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-144.jpg
+    alt_text: Image Alt Text
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-142.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-13.jpg
+    alt_text: 'The New York Times: Drought Farming'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-184.jpg
+    alt_text: Rodeo, 2022
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/riding-fitnesstest-1.jpg
+    alt_text: Florida Portraits, 2024
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/riding-fitnesstest-1.jpg
+    alt_text: Rodeo, 2022
 ---
