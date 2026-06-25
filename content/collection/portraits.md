@@ -114,7 +114,4 @@ content_blocks:
     image_path: /uploads/marshall-right-01.jpg
     alt_text:
   - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: /uploads/marshall-horizontal-01.jpg
-    alt_text: 'Portraits: Marshall'
 ---
