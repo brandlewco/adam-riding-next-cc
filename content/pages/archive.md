@@ -2,6 +2,8 @@
 _schema: archive
 title: Archive
 seo:
+  page_description: SEO Page Description
+  canonical_url: URL
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
@@ -183,28 +185,22 @@ content_blocks:
     alt_text: Santa Barbara, 2025
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-28.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-114.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-25.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-123.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-26.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-124.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-126.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-117.jpg
-    alt_text: 'Wall Street Journal: Phoenix Sky Harbor Airport '
+    alt_text: 'WSJ: Phoenix Sky Harbor Airport '
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-174.jpg
     alt_text: Rodeo, 2022
@@ -234,10 +230,10 @@ content_blocks:
     alt_text: Arizona Department of Corrections
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-171.jpg
-    alt_text: 'The New York Times: Western Alliance Bank'
+    alt_text: 'NYT: Western Alliance Bank'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-172.jpg
-    alt_text: 'The New York Times: Western Alliance Bank'
+    alt_text: 'NYT: Western Alliance Bank'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-191.jpg
     alt_text: NAN Collective Studio
@@ -319,25 +315,25 @@ content_blocks:
     alt_text: Cal-X
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-56.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'New York Times Magazine: Trump Rally'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-52.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'New York Times Magazine: Trump Rally'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-47.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'New York Times Magazine: Trump Rally'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-53.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'New York Times Magazine: Trump Rally'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-48.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'New York Times Magazine: Trump Rally'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-49.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'New York Times Magazine: Trump Rally'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-45.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'New York Times Magazine: Trump Rally'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-291.jpg
     alt_text: Conor Damaschi

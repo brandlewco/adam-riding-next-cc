@@ -12,6 +12,9 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-2.jpg
+    alt_text: Last Call
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/vortex.jpg
     alt_text: 'Los Angeles Times: Vortex'
   - _bookshop_name: collection/separator

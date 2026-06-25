@@ -78,7 +78,7 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/AR_RUNNING-6.jpg
-    alt_text: 'Athletics: Dream Run Camp for The New York Times'
+    alt_text: 'Athletics: Dream Run Camp for NYT'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/AR_RUNNING-3.jpg
     alt_text:
@@ -89,11 +89,11 @@ content_blocks:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a4308-2-2.jpg
-    alt_text: 'Athletics: Dream Run Camp for The New York Times'
+    alt_text: 'Athletics: Dream Run Camp for NYT'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a3715-2-2.jpg
-    alt_text: 'Athletics: Dream Run Camp for The New York Times'
+    alt_text: 'Athletics: Dream Run Camp for NYT'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a4293-2-2.jpg
-    alt_text: 'Athletics: Dream Run Camp for The New York Times'
+    alt_text: 'Athletics: Dream Run Camp for NYT'
 ---
