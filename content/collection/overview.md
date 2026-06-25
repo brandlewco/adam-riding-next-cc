@@ -14,15 +14,17 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/vortex.jpg
     alt_text: 'Los Angeles Times: Vortex'
+  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/jonah-paz5803.jpg
     alt_text: Jonah
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-20.jpg
+    alt_text: Ojai, 2026
+  - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ar-rodeo-updated.jpg
     alt_text: Rodeo, 2022
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/h73a5032.jpg
-    alt_text: Carmen
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-178.jpg
     alt_text: Rodeo, 2022
@@ -79,9 +81,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-216.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ANNOTATIONS-5.jpg
-    alt_text: Annotations
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-13.jpg
@@ -117,9 +116,6 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-93.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ar-carmen-02.jpg
-    alt_text: Carmen
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-84.jpg
     alt_text: Malibu, 2024
   - _bookshop_name: collection/photo
@@ -132,9 +128,6 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-97.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-20.jpg
-    alt_text: Ojai, 2026
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-07.jpg
     alt_text: Ojai, 2026
   - _bookshop_name: collection/photo
@@ -143,12 +136,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6664.jpg
     alt_text: Cole Norton
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/scan-07-1.jpg
-    alt_text: Coach Brooklyn 28
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/1t0a3082.jpg
-    alt_text: Underpass, 2020
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-273.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
@@ -170,9 +157,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/1t0a9055-2.jpg
     alt_text: The Cellar Door
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_ARCHIVE-14.jpg
-    alt_text: 'GQ: Overland Expo'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-24.jpg
