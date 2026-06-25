@@ -105,9 +105,6 @@ content_blocks:
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-184.jpg
-    alt_text: Rodeo, 2022
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a4308-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
@@ -213,7 +210,4 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-38.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-3.jpg
-    alt_text: Florida, 2024
 ---
