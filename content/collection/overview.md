@@ -211,9 +211,6 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-184.jpg
     alt_text: Rodeo, 2022
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/AR_FLORIDA-5.jpg
-    alt_text: Florida Portraits, 2024
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-142.jpg
     alt_text: 'Die Zeit: Heat Wave'
 ---
