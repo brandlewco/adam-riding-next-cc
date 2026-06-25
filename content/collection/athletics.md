@@ -75,9 +75,6 @@ content_blocks:
     top: 0
     left: 0
     right: 0
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/h73a6803-2-2.jpg
-    alt_text: 'Athletics: Ilisia'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/AR_RUNNING-6.jpg
