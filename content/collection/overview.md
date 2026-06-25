@@ -154,6 +154,9 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a6601.jpg
     alt_text: Tori Rose Walker
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-142.jpg
+    alt_text: 'Die Zeit: Heat Wave'
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-262.jpg
     alt_text: Grand Canyon, 2023
   - _bookshop_name: collection/photo
@@ -210,7 +213,4 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-184.jpg
     alt_text: Rodeo, 2022
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-142.jpg
-    alt_text: 'Die Zeit: Heat Wave'
 ---
