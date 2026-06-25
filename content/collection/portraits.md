@@ -18,9 +18,6 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test4663.jpg
     alt_text: 'Portraits: Raiven'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/narges-19.jpg
-    alt_text: 'Portraits: Narges'
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/narges-13.jpg
     alt_text: 'Portraits: Narges'
   - _bookshop_name: collection/photo
@@ -53,9 +50,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test5077.jpg
     alt_text: 'Portraits: Lalo'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/h73a5032.jpg
-    alt_text: 'Portraits: Carmen'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6323.jpg
     alt_text: 'Portraits: Cole'
@@ -93,19 +87,10 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a6208.jpg
     alt_text: 'Portraits: Tori'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/h73a5881.jpg
-    alt_text: 'Portraits: Tori'
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a6601.jpg
     alt_text: 'Portraits: Tori'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/test-shoot3218.jpg
-    alt_text: 'Portraits: Namiye'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/test-shoot3362.jpg
-    alt_text: 'Portraits: Namiye'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/test-shoot3243.jpg
     alt_text: 'Portraits: Namiye'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/jonah-paz5803.jpg
