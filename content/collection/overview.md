@@ -23,7 +23,7 @@ content_blocks:
     alt_text: Jonah
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-20.jpg
-    alt_text: Ojai, 2026
+    alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ar-rodeo-updated.jpg
@@ -48,7 +48,7 @@ content_blocks:
     alt_text: Iceland
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-171.jpg
-    alt_text: 'The New York Times: Western Alliance Bank'
+    alt_text: 'NYT: Western Alliance Bank'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/scan-23.jpg
     alt_text: Caroline

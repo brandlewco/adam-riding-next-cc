@@ -28,28 +28,28 @@ content_blocks:
     alt_text: 'Design: Taliesin West'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-11.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-13.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-14.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-12.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-15.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-17.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-16.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/design-19.jpg
-    alt_text: 'Design: Neutra VDL Studio and Residence'
+    alt_text: 'Design: Neutra VDL Studio'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/nan-studio-12.jpg
     alt_text: 'Design: NAN Collective'

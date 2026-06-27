@@ -65,6 +65,6 @@ content_blocks:
     alt_text: DIRT
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/dirt-28.jpg
-    alt_text: DIRT
+    alt_text:
   - _bookshop_name: collection/separator
 ---
