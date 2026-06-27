@@ -191,7 +191,7 @@ content_blocks:
     alt_text: Raiven
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-53.jpg
-    alt_text: 'The New York Times Magazine: Trump Rally, 2023'
+    alt_text: 'NYT Magazine: Trump Rally, 2023'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-219.jpg
     alt_text: 'The Atlantic: A Troubling Sign for 2024'
