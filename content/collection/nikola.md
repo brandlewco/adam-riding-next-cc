@@ -12,6 +12,6 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/riding-fitnesstest-1.jpg
-    alt_text: Image Alt Text
+    image_path: /uploads/dsf2520.jpg
+    alt_text: Nikola
 ---
