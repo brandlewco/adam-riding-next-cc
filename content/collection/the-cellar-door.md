@@ -1,7 +1,7 @@
 ---
 _schema: collection
 title: The Cellar Door
-slug: thecellardoor
+slug: the-cellar-door
 seo:
   page_description:
   canonical_url:
