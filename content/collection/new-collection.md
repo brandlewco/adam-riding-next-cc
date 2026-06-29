@@ -1,7 +1,7 @@
 ---
 _schema: collection
 title: Nikola
-slug: nikola
+slug: new-collection
 seo:
   page_description: SEO Page Description
   canonical_url: URL
