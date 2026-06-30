@@ -122,6 +122,9 @@ content_blocks:
     alt_text:
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
+    image_path: /uploads/dsf2346.jpg
+    alt_text: Nikola
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-84.jpg
     alt_text: Malibu, 2024
   - _bookshop_name: collection/photo
