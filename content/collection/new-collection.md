@@ -3,7 +3,7 @@ _schema: collection
 title: Nikola
 slug: new-collection
 seo:
-  page_description: SEO Page Description
+  page_description: New Collection
   canonical_url: URL
   featured_image:
   featured_image_alt:
