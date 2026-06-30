@@ -394,7 +394,7 @@ function CollectionPage({
     setShowThumbs(false);
   }, [showThumbs]);
 
-  const isGalleryView = gallerySources.has(source);
+  const isGalleryView = gallerySources.has(source) || imageCount > 0;
   const visibleStripCount = Math.min(stripLength, galleryStripSize);
   const normalizedChunkStart = stripLength
     ? ((galleryChunkStart % stripLength) + stripLength) % stripLength
