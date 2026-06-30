@@ -134,6 +134,9 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-5.jpg
     alt_text: Florida, 2024
   - _bookshop_name: collection/photo
+    image_path: /uploads/dsf2227.jpg
+    alt_text: Nikola
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-97.jpg
     alt_text: New York City, 2023
   - _bookshop_name: collection/photo
