@@ -13,5 +13,6 @@ collections:
   - content/collection/still-life.md
   - content/collection/the-cellar-door.md
   - content/collection/dirt-zine.md
+  - content/collection/new-collection.md
   - content/collection/annotations.md
 ---
