@@ -15,6 +15,9 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2520.jpg
     alt_text: Nikola
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/nikola-detail-02.jpg
+    alt_text: Nikola
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2159.jpg
     alt_text: Nikola
   - _bookshop_name: collection/separator
