@@ -20,9 +20,6 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2159.jpg
     alt_text: Nikola
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2497.jpg
-    alt_text: Nikola
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/nikola-puzzle-03-updated.jpg
@@ -45,6 +42,9 @@ content_blocks:
     alt_text: Nikola
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2266.jpg
+    alt_text: Nikola
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2497.jpg
     alt_text: Nikola
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2456.jpg
