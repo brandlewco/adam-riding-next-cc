@@ -108,8 +108,9 @@ const SharedImageFrame = memo(function SharedImageFrame({
   const mainHeight = typeof maxMainHeight !== "undefined" ? maxMainHeight : "80vh";
   const shouldUseIntrinsicDiptychWidth =
     variant === "main" && maintainAspect && isDiptych && !hasDimensions;
+  // Apply the computed shared height on ALL viewport widths (not just mobile).
   const shouldLockDiptychMobileHeight =
-    variant === "main" && maintainAspect && isDiptych && isBelowLg && typeof maxMainHeight !== "undefined";
+    variant === "main" && maintainAspect && isDiptych && typeof maxMainHeight !== "undefined";
 
   const variantStyles =
     variant === "thumb"
@@ -142,11 +143,13 @@ const SharedImageFrame = memo(function SharedImageFrame({
             maxHeight: mainHeight,
           };
 
+  // No overflow:hidden on the main-variant aspect container — even a sub-pixel
+  // rounding difference between the computed shared height and the image's
+  // rendered size would clip the image edge.
   const aspectStyle =
     variant !== "thumb" && maintainAspect && hasDimensions
       ? {
           aspectRatio: `${width} / ${height}`,
-          overflow: "hidden",
           maxWidth: `${width}px`,
           display: "flex",
           alignItems: "center",
@@ -154,7 +157,6 @@ const SharedImageFrame = memo(function SharedImageFrame({
         }
       : variant !== "thumb" && maintainAspect
         ? {
-            overflow: "hidden",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

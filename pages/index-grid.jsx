@@ -181,7 +181,11 @@ function HomePage({ page, collections }) {
   }, []);
 
   const isMobile = containerWidth && containerWidth < 768;
-  const CARD_GAP_DESKTOP = 120;
+  // Gap is a fixed % of viewport width (calibrated so a ~2540px-wide desktop
+  // viewport keeps the original 120px gap) so card size scales as a constant
+  // proportion of the screen at any non-mobile width, instead of jumping
+  // between fixed pixel values at breakpoints.
+  const CARD_GAP_RATIO = 120 / 2540;
   const CARD_GAP_MOBILE = 50;
   const MIN_CARD_WIDTH = 200;
   const MAX_CARD_WIDTH = 720;
@@ -189,13 +193,15 @@ function HomePage({ page, collections }) {
   const VISIBLE_COUNT_MOBILE = 3;
 
   const targetVisible = isMobile ? VISIBLE_COUNT_MOBILE : VISIBLE_COUNT_DESKTOP;
-  const canPeekDesktop = !isMobile && totalCollections >= VISIBLE_COUNT_DESKTOP;
+  const canPeekDesktop = !isMobile && totalCollections >= targetVisible;
   const canPeekMobile =
     isMobile && targetVisible >= 3 && totalCollections >= targetVisible;
   const showPeeking = canPeekDesktop || canPeekMobile;
   const peekMode = canPeekMobile ? "mobile" : canPeekDesktop ? "desktop" : null;
   const visibleCount = Math.min(totalCollections, targetVisible);
-  const cardGap = isMobile ? CARD_GAP_MOBILE : CARD_GAP_DESKTOP;
+  const cardGap = isMobile
+    ? CARD_GAP_MOBILE
+    : containerWidth * CARD_GAP_RATIO;
 
   // Derive a fixed card width so six cards stay visible with the outer two peeking in.
   let computedWidth = 0;

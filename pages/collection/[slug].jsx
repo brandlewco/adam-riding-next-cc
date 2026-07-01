@@ -20,42 +20,55 @@ const REMOTE_DIMENSION_BYTE_LIMIT = 65535;
 const REMOTE_DIMENSION_TIMEOUT_MS = 8000;
 const remoteDimensionsCache = new Map();
 
+function parseDimensionsFromBuffer(buffer) {
+  try {
+    const dim = sizeOf(buffer);
+    const width = Number(dim?.width);
+    const height = Number(dim?.height);
+    if (Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0) {
+      return { width, height };
+    }
+  } catch {}
+  return null;
+}
+
 async function probeRemoteImageDimensions(imageUrl) {
   if (!imageUrl || typeof imageUrl !== "string") return null;
   if (remoteDimensionsCache.has(imageUrl)) {
     return remoteDimensionsCache.get(imageUrl);
   }
 
+  const store = (val) => { remoteDimensionsCache.set(imageUrl, val); return val; };
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), REMOTE_DIMENSION_TIMEOUT_MS);
 
   try {
-    const response = await fetch(imageUrl, {
+    // 1. Try a partial Range request (works for most CDNs / direct URLs).
+    const rangeResp = await fetch(imageUrl, {
       headers: { Range: `bytes=0-${REMOTE_DIMENSION_BYTE_LIMIT}` },
       signal: controller.signal,
     });
 
-    if (!response.ok) {
-      remoteDimensionsCache.set(imageUrl, null);
-      return null;
+    if (rangeResp.ok) {
+      const result = parseDimensionsFromBuffer(Buffer.from(await rangeResp.arrayBuffer()));
+      if (result) return store(result);
     }
 
-    const buffer = Buffer.from(await response.arrayBuffer());
-    const dimensions = sizeOf(buffer);
-    const width = Number(dimensions?.width);
-    const height = Number(dimensions?.height);
-
-    if (Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0) {
-      const resolved = { width, height };
-      remoteDimensionsCache.set(imageUrl, resolved);
-      return resolved;
+    // 2. Range request unsupported or parse failed — fetch a small resized copy.
+    // CDNs that accept ?width= (e.g. CloudFront image transforms) return a tiny
+    // JPEG whose aspect ratio matches the original; that's all we need for layout.
+    const sep = imageUrl.includes("?") ? "&" : "?";
+    const resizeResp = await fetch(`${imageUrl}${sep}width=2000`, {
+      signal: controller.signal,
+    });
+    if (resizeResp.ok) {
+      const result = parseDimensionsFromBuffer(Buffer.from(await resizeResp.arrayBuffer()));
+      if (result) return store(result);
     }
 
-    remoteDimensionsCache.set(imageUrl, null);
-    return null;
+    return store(null);
   } catch {
-    remoteDimensionsCache.set(imageUrl, null);
-    return null;
+    return store(null);
   } finally {
     clearTimeout(timeoutId);
   }
@@ -454,8 +467,9 @@ function CollectionPage({
   const isTransitioningChunks = Boolean(pendingStripEntries);
   const stripLayoutClass =
     "grid md:flex md:flex-nowrap gap-1 md:gap-2 justify-center";
-  const shouldRenderStrip =
-    resolvedStripSize !== null && isGalleryView && imageCount > 1;
+  // Temporarily disabled per request — leave the component code in place in
+  // case we bring the strip back.
+  const shouldRenderStrip = false;
 
   useEffect(() => {
     setStripVisible(false);
@@ -865,7 +879,7 @@ function CollectionPage({
   const isCurrentSlideDiptych = currentSlide?.type === "diptych";
   const diptychMobileMainHeight = useMemo(() => {
     if (!isCurrentSlideDiptych || !currentSlide) return undefined;
-    if (!viewportSize.width || viewportSize.width >= 1024) return undefined;
+    if (!viewportSize.width) return undefined;
 
     const diptychBlocks = (currentSlide.blocks || []).slice(0, 2);
     if (diptychBlocks.length !== 2) return undefined;
@@ -884,7 +898,12 @@ function CollectionPage({
 
     const horizontalPadding = 32;
     const gap = viewportSize.width >= 768 ? 40 : 16;
-    const availableWidth = Math.max(0, viewportSize.width - horizontalPadding);
+    // At lg+ the container is capped at 80vw; account for that when computing
+    // the available width so the shared height is accurate at all viewport sizes.
+    const containerWidth = viewportSize.width >= 1024
+      ? viewportSize.width * 0.8
+      : viewportSize.width;
+    const availableWidth = Math.max(0, containerWidth - horizontalPadding);
     const rawHeight = (availableWidth - gap) / (ratios[0] + ratios[1]);
 
     if (!Number.isFinite(rawHeight) || rawHeight <= 0) return undefined;
@@ -916,7 +935,7 @@ function CollectionPage({
     };
   }, [viewportSize.height, viewportSize.width]);
   const slideLayoutClass = isCurrentSlideDiptych
-    ? "flex gap-4 flex-row md:gap-10 items-stretch md:items-start justify-center w-full max-w-[100vw] lg:max-w-[80vw] px-4"
+    ? "flex gap-4 flex-row md:gap-10 items-stretch justify-center w-full max-w-[100vw] lg:max-w-[80vw] px-4"
     : "flex items-center justify-center w-full h-full";
   const slideLayoutStyle = isCurrentSlideDiptych
     ? { width: "100%", marginInline: "auto" }
