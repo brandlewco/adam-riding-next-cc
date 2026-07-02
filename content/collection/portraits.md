@@ -108,10 +108,13 @@ content_blocks:
     alt_text: 'Portraits: Jonah'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: /uploads/marshall-left-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/marshall-left-01.jpg
     alt_text: 'Portraits: Marshall'
   - _bookshop_name: collection/photo
-    image_path: /uploads/marshall-right-01.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/marshall-right-01.jpg
     alt_text:
   - _bookshop_name: collection/separator
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/marshall-horizontal-01.jpg
+    alt_text: Marshall
 ---
