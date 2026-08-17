@@ -61,14 +61,9 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/dsf2520.jpg
     alt_text: Nikola
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-02.jpg
-    alt_text: Ojai, 2026
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-08.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
+    alt_text: Ojai, 2026
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/AR_RUNNING-6.jpg
     alt_text: 'The New York Times: Dream Run Camp'
@@ -99,28 +94,12 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-7.jpg
     alt_text: Last Call
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-18.jpg
-    alt_text: Ojai, 2026
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-17.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a4308-2-2.jpg
     alt_text: 'The New York Times: Dream Run Camp'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-93.jpg
     alt_text: New York City, 2023
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-143.jpg
-    alt_text: 'Die Zeit: Heat Wave'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-144.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-84.jpg
     alt_text: Malibu, 2024
@@ -142,23 +121,12 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6664.jpg
     alt_text: Cole Norton
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-24.jpg
-    alt_text: Ojai, 2026
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ojai-05.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-273.jpg
     alt_text: 'The New York Times: Psychedelic Toxins'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a6601.jpg
     alt_text: Tori Rose Walker
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-142.jpg
-    alt_text: 'Die Zeit: Heat Wave'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-262.jpg
     alt_text: Grand Canyon, 2023
