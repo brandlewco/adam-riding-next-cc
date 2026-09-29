@@ -182,6 +182,6 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-38.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/riding-fitnesstest-1.jpg
-    alt_text: Image Alt Text
+    image_path: https://d3axijoqjy1t03.cloudfront.net/WEBSIZE_SCAN_01.jpg
+    alt_text: 'NEW: Q-tip'
 ---
