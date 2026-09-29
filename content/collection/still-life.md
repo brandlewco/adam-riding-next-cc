@@ -36,6 +36,9 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/mac-01.jpg
     alt_text: 'Still Life: Mac'
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/WEBSIZE_SCAN_01.jpg
+    alt_text: 'Still Life: Q-tips'
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/eggs-rocks.jpg
     alt_text: 'Still Life: Eggs & Rocks'
   - _bookshop_name: collection/photo
