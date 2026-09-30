@@ -10,8 +10,5 @@ seo:
   author_twitter_handle:
   open_graph_type:
   no_index: false
-content_blocks:
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/eggs-rocks.jpg
-    alt_text: 'Still Life: Eggs & Rocks'
+content_blocks: []
 ---
