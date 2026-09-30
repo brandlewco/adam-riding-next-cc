@@ -1,7 +1,7 @@
 ---
 _schema: collection
-title: Overview Copy
-slug: overview-copy
+title: Overview TESTER
+slug: overview-tester
 seo:
   page_description:
   canonical_url:
@@ -181,64 +181,4 @@ content_blocks:
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/new-archive-38.jpg
     alt_text: 'The Guardian: Buckeye, AZ'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/WEBSIZE_SCAN_01.jpg
-    alt_text: 'NEW: Q-tip'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_02.jpg
-    alt_text: 'NEW: Leaf'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_03.jpg
-    alt_text: 'NEW: Windshield '
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_04.jpg
-    alt_text: 'NEW: Yellow Stripe'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_05.jpg
-    alt_text: 'NEW: Glass 1'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_06.jpg
-    alt_text: 'NEW: Red Car'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_08.jpg
-    alt_text: 'NEW: String'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_09.jpg
-    alt_text: 'NEW: Glass 2'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_10.jpg
-    alt_text: 'NEW: Flower 1'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_11.jpg
-    alt_text: 'NEW: Flower 2'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_12.jpg
-    alt_text: 'NEW: Wall Paint'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_13.jpg
-    alt_text: 'NEW: Weeds'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_14.jpg
-    alt_text: 'NEW: Scraps'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_15.jpg
-    alt_text: 'NEW: Puzzle'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_16.jpg
-    alt_text: 'NEW: Railing'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_17.jpg
-    alt_text: 'NEW: Tree'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_18.jpg
-    alt_text: 'NEW: Rose Bush'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_19.jpg
-    alt_text: 'NEW: Towel'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_20.jpg
-    alt_text: 'NEW: Good Luck Jacob'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_21.jpg
-    alt_text: 'NEW: Trash'
 ---
