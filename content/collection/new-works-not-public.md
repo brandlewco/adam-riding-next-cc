@@ -15,16 +15,13 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_02.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/2026_Archive 13.jpg
+    alt_text: NEW
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_03.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_05.jpg
-    alt_text: NEW
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_06.jpg
-    alt_text: NEW
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/2026_Archive 13.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_08.jpg
@@ -39,16 +36,25 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_11.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_06.jpg
+    alt_text: NEW
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_12.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/EmptyName 2.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_20.jpg
+    alt_text: NEW
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_13.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_14.jpg
+    alt_text: NEW
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/2026_Archive 8.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_15.jpg
@@ -61,9 +67,6 @@ content_blocks:
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_19.jpg
-    alt_text: NEW
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_20.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/SCAN_21.jpg
@@ -91,9 +94,6 @@ content_blocks:
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/2026_Archive 7.jpg
-    alt_text: NEW
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/2026_Archive 8.jpg
     alt_text: NEW
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/2026_Archive 11.jpg
