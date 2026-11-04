@@ -7,6 +7,7 @@ collections:
   - content/collection/iceland.md
   - content/collection/portraits.md
   - content/collection/vortex.md
+  - content/collection/the-greatest-magazine-fw26.md
   - content/collection/design.md
   - content/collection/athletics.md
   - content/collection/nikeskims.md
