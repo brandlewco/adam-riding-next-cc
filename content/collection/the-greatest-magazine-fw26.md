@@ -1,7 +1,7 @@
 ---
 _schema: collection
 title: The Greatest Magazine FW26
-slug:
+slug: the-greatest-magazine-fw26
 seo:
   page_description: SEO Page Description
   canonical_url: URL
