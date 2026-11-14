@@ -9,10 +9,10 @@ collections:
   - content/collection/vortex.md
   - content/collection/the-greatest-magazine-fw26.md
   - content/collection/new-collection.md
+  - content/collection/still-life.md
   - content/collection/design.md
   - content/collection/athletics.md
   - content/collection/nikeskims.md
-  - content/collection/still-life.md
   - content/collection/the-cellar-door.md
   - content/collection/dirt-zine.md
   - content/collection/annotations.md
