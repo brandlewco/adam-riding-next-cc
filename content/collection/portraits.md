@@ -45,35 +45,17 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/narges-13.jpg
     alt_text: 'Portraits: Narges'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/scan-23.jpg
-    alt_text: 'Portraits: Caroline'
+    image_path: https://d3axijoqjy1t03.cloudfront.net/ali-9.jpg
+    alt_text: 'Portraits: Ali'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/scan-19.jpg
+    image_path: https://d3axijoqjy1t03.cloudfront.net/scan-23.jpg
     alt_text: 'Portraits: Caroline'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-5.jpg
     alt_text: 'Portraits: Florida, 2024'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-1-1.jpg
-    alt_text: 'Portraits: Florida, 2024'
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-3.jpg
     alt_text: 'Portraits: Florida, 2024'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-2.jpg
-    alt_text: 'Portraits: Florida, 2024'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-4.jpg
-    alt_text: 'Portraits: Florida, 2024'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/ali-9.jpg
-    alt_text: 'Portraits: Ali'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test5236.jpg
-    alt_text: 'Portraits: Lalo'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test5077.jpg
-    alt_text: 'Portraits: Lalo'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/cole-norton-test6323.jpg
     alt_text: 'Portraits: Cole'
@@ -97,16 +79,11 @@ content_blocks:
     alt_text: 'Portraits: Cole'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/h73a7784.jpg
-    alt_text: 'Portraits: Sunroom Band'
-  - _bookshop_name: collection/separator
+    image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test5077.jpg
+    alt_text: 'Portraits: Lalo'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/h73a8150.jpg
-    alt_text: 'Portraits: Sunroom Band'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/h73a8139.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
+    image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test5236.jpg
+    alt_text: 'Portraits: Lalo'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/h73a6208.jpg
     alt_text: 'Portraits: Tori'
@@ -118,17 +95,6 @@ content_blocks:
     alt_text: 'Portraits: Namiye'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/jonah-paz5803.jpg
-    alt_text: 'Portraits: Jonah'
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/jonah-paz5907.jpg
-    alt_text: 'Portraits: Jonah'
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/jonah-paz5911.jpg
-    alt_text:
-  - _bookshop_name: collection/separator
-  - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/jonah-paz-hl-1-2.jpg
     alt_text: 'Portraits: Jonah'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
