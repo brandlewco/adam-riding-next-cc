@@ -12,7 +12,28 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot1817_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot1542_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot1988_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot1767_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot2064_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot1844_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot1665_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot2033_grained.jpg
     alt_text: 'Portraits: Mia'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-02.jpg
