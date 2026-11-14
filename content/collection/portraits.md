@@ -42,14 +42,14 @@ content_blocks:
     image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test4663.jpg
     alt_text: 'Portraits: Raiven'
   - _bookshop_name: collection/photo
-    image_path: https://d3axijoqjy1t03.cloudfront.net/narges-13.jpg
-    alt_text: 'Portraits: Narges'
-  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/ali-9.jpg
     alt_text: 'Portraits: Ali'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/scan-23.jpg
     alt_text: 'Portraits: Caroline'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/narges-13.jpg
+    alt_text: 'Portraits: Narges'
   - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/fixed-5.jpg
     alt_text: 'Portraits: Florida, 2024'
