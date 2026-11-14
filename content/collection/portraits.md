@@ -12,6 +12,9 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Mia-Arlove-Test-Shoot1542_grained.jpg
+    alt_text: 'Portraits: Mia'
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-02.jpg
     alt_text: 'Portraits: Raiven'
   - _bookshop_name: collection/photo
