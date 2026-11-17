@@ -36,7 +36,7 @@ column_2: |-
 
   Under Armour
 
-  House Beautiful
+  The Greatest Magazine
 
   Barrons
 
