@@ -79,6 +79,15 @@ content_blocks:
     alt_text: 'Portraits: Cole'
   - _bookshop_name: collection/separator
   - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Talia-Test-Shoot2503.jpg
+    alt_text: 'Portraits: Talia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Talia-Test-Shoot2220.jpg
+    alt_text: 'Portraits: Talia'
+  - _bookshop_name: collection/photo
+    image_path: https://d3axijoqjy1t03.cloudfront.net/Talia-Test-Shoot2469.jpg
+    alt_text: 'Portraits: Talia'
+  - _bookshop_name: collection/photo
     image_path: https://d3axijoqjy1t03.cloudfront.net/raiven-lalo-test5077.jpg
     alt_text: 'Portraits: Lalo'
   - _bookshop_name: collection/photo
