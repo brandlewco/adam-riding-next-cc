@@ -15,5 +15,6 @@ collections:
   - content/collection/nikeskims.md
   - content/collection/the-cellar-door.md
   - content/collection/dirt-zine.md
+  - content/collection/jackson-kelly-for-handshake.md
   - content/collection/annotations.md
 ---
